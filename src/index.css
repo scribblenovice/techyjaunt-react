@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body && nav.isOpen {
+  overflow: hidden;
+}
+.nav-bar {
+  transition: all 0.1s ease;
+}
+.nav-change {
+  background: rgba(255, 255, 255, 0.47);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: black;
+}
+/* section>div{
+    border: 1px solid black;
+} */
+h1 {
+  font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 5px;
+}
+nav > ul > li > a {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+.jumbo {
+  background-image: url("./images/pxfuel.jpg");
+}
+h2 {
+  font-family: Orbitron, Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+p {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+.testvid {
+  border-radius: 10px;
+}
+video {
+  height: auto;
+}
+@supports (object-fit: cover) {
+  .fullwidth-video video {
+    height: 500px;
+  }
+}
+@supports (object-fit: cover) and (-ms-ime-align: auto) {
+  video {
+    height: auto;
+  }
+}
+.thumb1 {
+  
+  background: rgb(252, 252, 252);
+  background: linear-gradient(
+      180deg,
+      rgba(252, 252, 252, 0) 19%,
+      rgba(252, 252, 255, 0.045) 45%,
+      rgba(243, 241, 236, 0.012) 70%,
+      rgba(63, 131, 248, 0.816) 93%
+    ),
+    url("./images/videos/header/thumbnail/thumb1.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    background-repeat: no-repeat;
+}
+.thumb2 {
+  
+  background: rgb(252, 252, 252);
+  background: linear-gradient(
+      180deg,
+      rgba(252, 252, 252, 0) 19%,
+      rgba(252, 252, 255, 0.045) 45%,
+      rgba(243, 241, 236, 0.012) 70%,
+      rgba(63, 131, 248, 0.816) 93%
+    ),
+    url("./images/videos/header/thumbnail/thumb2.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    background-repeat: no-repeat;
+}
+.thumb3 {
+  
+  background: rgb(252, 252, 252);
+  background: linear-gradient(
+      180deg,
+      rgba(252, 252, 252, 0) 19%,
+      rgba(252, 252, 255, 0.045) 45%,
+      rgba(243, 241, 236, 0.012) 70%,
+      rgba(63, 131, 248, 0.816) 80%
+    ),
+    url("./images/videos/header/thumbnail/thumb3.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    background-repeat: no-repeat;
+}
+.thumbtext {
+  font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.testvid {
+  border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+}
+.open-nav {
+  transform: translateX(-150%);
+}
+.box {
+  box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.163);
+}
+.scale {
+  transition: all 0.3s ease;
+  animation: scale 3s linear infinite;
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.launchpad {
+  background-image: url("./images/launchpad/bg1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.launchpad-jumbo {
+  background-image: url("./images/launchpad/bg2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.techy {
+  background: linear-gradient(
+    to right,
+    rgb(63, 131, 248, 1) 20%,
+    #fff 30%,
+    rgb(63, 131, 248, 1) 70%,
+    #fff 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: beauty 5s ease-in-out infinite alternate;
+}
+
+@keyframes beauty {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

@@ -1,0 +1,77 @@
+import { Links } from "../resources/resources";
+import LogoSrc from "../images/techy_jaunt_logo.svg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+const NavLinks = ({ navclass, isLaunchPad }) => {
+  const [openNav, setOpenNav] = useState(false);
+  const [scrollNumber, setScrollNumber] = useState(window.scrollY);
+  window.addEventListener("scroll", () => {
+    setScrollNumber(window.scrollY);
+  });
+  return (
+    <div className={navclass}>
+      <div className="flex w-[90%] sm:w-[80%] justify-between items-center h-fit relative z-20">
+        <a className="w-fit inline-block" href="#">
+          <img className="w-28 h-28" src={LogoSrc} alt="" />
+        </a>
+        <nav
+          className={`flex w-[90%] lg:w-[50%] flex-col lg:flex-row justify-evenly absolute z-10 lg:static top-24 right-0 left-0  bg-black lg:bg-transparent ${
+            openNav
+              ? "-translate-x-[-20%] isOpen"
+              : "translate-x-[150%] lg:-translate-x-[0%] isClose"
+          } transition-all duration-300 ease-linear`}
+        >
+          <ul className="flex lg:w-[100%] flex-col lg:flex-row lg:justify-evenly h-screen lg:h-fit top-0 overflow-hidden">
+            {Links.map((el) => {
+              return (
+                <li key={el.id}>
+                  <a
+                    // to={`/${el.linkName.toLowerCase()}`}
+                    href={el.path}
+                    className={`${
+                      scrollNumber > 0
+                        ? "text-white lg:text-black"
+                        : "text-white"
+                    } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] ${
+                      (scrollNumber > 0) ? "after:bg-black" : "after:bg-white "
+                    } after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
+                  >
+                    {el.linkName}
+                  </a>
+                </li>
+              );
+            })}
+            <li className="lg:hidden">
+              <Link
+                to="/launchpad"
+                className={`${
+                  scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
+                } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] ${
+                  scrollNumber > 0 ? "after:bg-black" : "after:bg-white "
+                } after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in lg:hidden mt-16 lg:mt-0`}
+              >
+                LAUNCHPAD
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <a
+          href="/launchpad"
+          className="bg-blue-500 p-2 hidden lg:inline-block shadow-md rounded-md text-white relative text-xl hover:scale-105 transition-all duration-200 ease-in "
+        >
+          LAUNCHPAD
+        </a>
+        <button
+          onClick={() => {
+            setOpenNav((prev) => {
+              return !prev;
+            });
+          }}
+        >
+          <i className="ri-menu-line text-3xl lg:hidden"></i>
+        </button>
+      </div>
+    </div>
+  );
+};
+export default NavLinks;
