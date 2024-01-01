@@ -12,7 +12,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" index={true} element={<Homepage />}></Route>
-        <Route path="/home" element={<Homepage />}></Route>
         <Route path="/launchpad" element={<LaunchPad />}></Route>
       </Routes>
     </BrowserRouter>

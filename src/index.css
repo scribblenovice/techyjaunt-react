@@ -75,7 +75,7 @@ video {
     url("./images/videos/header/thumbnail/thumb1.jpg");
     background-position: center;
     background-size: cover;
-    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    border-radius: 6% 6% 51% 51% / 5% 5% 38% 39%;
     background-repeat: no-repeat;
 }
 .thumb2 {
@@ -91,11 +91,10 @@ video {
     url("./images/videos/header/thumbnail/thumb2.jpg");
     background-position: center;
     background-size: cover;
-    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    border-radius: 6% 6% 51% 51% / 5% 5% 38% 39% ;
     background-repeat: no-repeat;
 }
 .thumb3 {
-  
   background: rgb(252, 252, 252);
   background: linear-gradient(
       180deg,
@@ -107,7 +106,7 @@ video {
     url("./images/videos/header/thumbnail/thumb3.jpg");
     background-position: center;
     background-size: cover;
-    border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+    border-radius:6% 6% 51% 51% / 5% 5% 38% 39% ;
     background-repeat: no-repeat;
 }
 .thumbtext {
@@ -120,7 +119,7 @@ video {
   text-align: center;
 }
 .testvid {
-  border-radius: 10% 10% 51% 50% / 0% 0% 56% 53%;
+ border-radius: 6% 6% 51% 51% / 5% 5% 38% 39% ;
 }
 .open-nav {
   transform: translateX(-150%);

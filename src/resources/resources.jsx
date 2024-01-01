@@ -64,7 +64,7 @@ export const PartnerImg = [
 ];
 
 export const Links = [
-  { id: 0, linkName: "HOME", path: "/home" },
+  { id: 0, linkName: "HOME", path: "/" },
   { id: 1, linkName: "ABOUT US", path: "#about" },
   { id: 2, linkName: "MISSION", path: "#mission" },
   { id: 4, linkName: "CONTACT", path: "#" },

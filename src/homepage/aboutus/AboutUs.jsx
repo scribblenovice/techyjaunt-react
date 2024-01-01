@@ -13,7 +13,7 @@ const AboutUs = () => {
                   About Us
                 </h2>
               </div>
-              <p className="px-4 mb-10 text-base leading-7 text-gray-500">
+              <p className="mb-10 text-sm sm:text-base leading-7 text-gray-500">
                 Techy Jaunt is a community of tech enthusiasts, we onboard,
                 educate and train tech enthusiasts, keeping you up to date on
                 emerging technologies and relevant tech skills. We aim to be the
@@ -22,7 +22,7 @@ const AboutUs = () => {
                 tech skills while solving problems by building products that can
                 make the world a better place and easy place to live in.
               </p>
-              <div className="flex flex-wrap items-center">
+              <div className="grid grid-cols-2 place-items-center">
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
                   <div className="p-6 bg-white">
                     <span className="text-blue-500">
@@ -410,10 +410,9 @@ const AboutUs = () => {
                   <div className="text-slate-500">TechyJaunt founded</div>
                 </div>
               </div>
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              <div className="ml-16 md:ml-0 w-full relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
-                    {/* <div className="font-bold text-slate-900">1st Cohort</div> */}
                     <time className="font-caveat font-medium text-blue-500">
                       08/04/2023
                     </time>
@@ -447,8 +446,7 @@ const AboutUs = () => {
                   <div className="text-slate-500">TechyJaunt Launchpad 1.0</div>
                 </div>
               </div>
-
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">
@@ -483,7 +481,7 @@ const AboutUs = () => {
                   <div className="text-slate-500">TechyJaunt Launchpad 2.0</div>
                 </div>
               </div>
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+              <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">

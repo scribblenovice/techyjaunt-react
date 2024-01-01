@@ -14,10 +14,10 @@ const Mission = () => {
               return (
                 <div
                   className={`w-full ${
-                    el.id === 0 || el.id === 1 || el.id === 2 ? "border-b" : ""
+                    el.id === 0 || el.id === 1 || el.id === 2 ? "lg:border-b" : ""
                   } md:w-1/2 ${
-                    el.id === 0 || el.id === 1 || el.id === 3 || el.id === 4 ? "md:border-r" : ""
-                  } lg:w-1/3 p-8`}
+                    el.id === 0 || el.id === 1 || el.id === 3 || el.id === 4 ? "lg:border-r" : ""
+                  }  lg:w-1/3 p-8 ${el.id!=5? "border-b sm:border-b-0": ""}`}
                   key={el.id}
                 >
                   <div className="flex items-center mb-6">

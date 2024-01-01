@@ -3,7 +3,7 @@ import NavLinks from "../globalcomponents/NavLinks";
 import FooterSection from "../globalcomponents/FooterSection";
 import Footer from "../globalcomponents/FooterSection";
 import Mission from "./Mission";
-import NewsLetter from "./Newsletter";
+import NewsLetter from "../globalcomponents/Newsletter";
 import AboutUs from "./aboutus/AboutUs";
 import Header from "./header/Header";
 import Partners from "./partners/Partners";

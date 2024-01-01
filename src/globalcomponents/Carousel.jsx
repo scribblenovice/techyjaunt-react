@@ -16,12 +16,12 @@ function CarouselSlider() {
       <Carousel
         slideInterval="4000"
         pauseOnHover
-        className="my-10 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[500px] bg-black rounded-xl grid"
+        className="my-10 h-[40vh] sm:h-[400px] md:h-[450px] lg:h-[550px] bg-black rounded-xl"
         indicators={false}
       >
         {galleryImg.map((el) => {
           return (
-            <div className="bg-black lg:w-[60%] h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] mx-auto">
+            <div className="bg-black lg:w-[60%] h-[350px] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
               <img key={el.id} src={el.src} alt="" className="w-full h-full" />
             </div>
           );

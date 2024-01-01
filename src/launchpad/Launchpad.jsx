@@ -74,19 +74,25 @@ const LaunchPad = () => {
       />
 
       <section className="flex justify-center h-fit py-20 lg:h-[100vh] launchpad-jumbo bg-gray-800 bg-blend-multiply">
-        <div className="mt-5 lg:mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
+        <div className="mt-20 lg:mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
           <div className="h-full lg:h-[70%] flex flex-col justify-around md:justify-evenly">
-            <h1 className="font-black text-center text-[1.5rem] sm:text-2xl md:text-[2em] lg:text-4xl  tracking-widest leading-[70px] mb-5 lg:mb-0">
-              Welcome to <span className="text-blue-500 techy">TechyJaunt</span>
-              <br />
-              <span>Launchpad</span>
+            <h1 className="text-xl lg:text-2xl md:text-center lg:text-left my-10 font-bold leading-10 tracking-widest">
+              Welcome&nbsp;to {''} 
+              <span className="text-blue-500 techy font-black">TechyJaunt</span>
+              {''} Launchpad
             </h1>
-            <p className="text-white mb-5 font-poppins text-base leading-8">
+            <p className="text-gray-300 mb-5 text-base leading-8">
               Embark on a transformative tech journey guided by industry
               experts. Unlock the power of in-demand tech skills, accessible
               from anywhere on the globe. Start your adventure into the world of
               technology today!
             </p>
+            <button
+              onClick={() => setOpenModal(true)}
+              className="mb-5 mx-auto flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-linear hover:scale-105 md:py-4 md:text-lg md:px-10"
+            >
+              APPLY NOW
+            </button>
             <div className="flex items-center flex-wrap">
               <Avatars />
               <p className="text-white mt-5 lg:mt-0">
@@ -94,10 +100,10 @@ const LaunchPad = () => {
               </p>
             </div>
           </div>
-          <div className="w-[90%] testvid sm:w-[80%] mx-auto overflow-hidden h-[350px] sm:h-[400px] md:h-[500px] box bg-black rounded-lg lg:w-[40vw] py-10 relative">
+          <div className="testvid w-full sm:w-[80%] mx-auto overflow-hidden h-[350px] sm:h-[400px] md:h-[500px] box bg-black rounded-lg lg:w-[40vw] py-10 relative">
             {/* videos */}
             <video
-              className="w-[85%] h-[85%] mx-auto relative -top-8 z-10"
+              className="w-full h-[85%] mx-auto relative -top-8 z-10"
               // autoPlay
               ref={videoRef}
               src={vidSrc}
@@ -157,7 +163,7 @@ const LaunchPad = () => {
               onClick={() => setOpenModal(true)}
               className="scale mx-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10"
             >
-              GET STARTED
+              APPLY NOW
             </button>
           </div>
         </div>
