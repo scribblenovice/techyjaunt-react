@@ -12,7 +12,6 @@ function CarouselSlider() {
           HIGHLIGHTS OF OUR JOURNEY
         </h2>
       </div>
-
       <Carousel
         slideInterval="4000"
         pauseOnHover

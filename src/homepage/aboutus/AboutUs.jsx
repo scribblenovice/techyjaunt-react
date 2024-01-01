@@ -13,7 +13,7 @@ const AboutUs = () => {
                   About Us
                 </h2>
               </div>
-              <p className="mb-10 text-sm sm:text-base leading-7 text-gray-500">
+              <p className="font-light md:font-normal mb-10 text-sm sm:text-base leading-7 text-gray-500">
                 Techy Jaunt is a community of tech enthusiasts, we onboard,
                 educate and train tech enthusiasts, keeping you up to date on
                 emerging technologies and relevant tech skills. We aim to be the
@@ -407,7 +407,9 @@ const AboutUs = () => {
                       01/01/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">TechyJaunt founded</div>
+                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                    TechyJaunt founded
+                  </p>
                 </div>
               </div>
               <div className="ml-16 md:ml-0 w-full relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -417,9 +419,9 @@ const AboutUs = () => {
                       08/04/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">
+                  <p className="font-light md:font-normal text-gray-500">
                     Youth Enterpreneur Summit 2.0
-                  </div>
+                  </p>
                 </div>
               </div>
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -443,7 +445,9 @@ const AboutUs = () => {
                       09/05/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">TechyJaunt Launchpad 1.0</div>
+                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                    TechyJaunt Launchpad 1.0
+                  </p>
                 </div>
               </div>
               <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -453,9 +457,9 @@ const AboutUs = () => {
                       12/08/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">
+                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
                     Coinstore Csconnect Abuja
-                  </div>
+                  </p>
                 </div>
               </div>
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -478,7 +482,9 @@ const AboutUs = () => {
                       25/10/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">TechyJaunt Launchpad 2.0</div>
+                  <p className=" font-light md:font-normal text-gray-500">
+                    TechyJaunt Launchpad 2.0
+                  </p>
                 </div>
               </div>
               <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -488,9 +494,9 @@ const AboutUs = () => {
                       25/11/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">
+                  <p className="font-light md:font-normal text-gray-500">
                     LinkedIn Local, University of Nigeria
-                  </div>
+                  </p>
                 </div>
               </div>
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -508,15 +514,15 @@ const AboutUs = () => {
                   </svg>
                 </div>
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-                  <div className="flex items-center justify-between space-x-2 mb-1">
+                  <div className="flex items-center j0ustify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">
                       30/11/2023
                     </time>
                   </div>
-                  <div className="text-slate-500">
+                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
                     Young Change-makers conference in partnership with United
                     Nations
-                  </div>
+                  </p>
                 </div>
               </div>
             </div>
