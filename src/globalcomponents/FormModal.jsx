@@ -5,10 +5,10 @@ import { Select, Option } from "@material-tailwind/react";
 import { PhoneNumber } from "../globalcomponents/PhoneNumber";
 import GlobalText from "../globalcomponents/GlobalText";
 import { PaystackButton } from "react-paystack";
+import axios from "axios";
 
 const FormModal = ({ openModal, closeModal }) => {
   const countryCode = sessionStorage.getItem("countryCode");
-
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -17,13 +17,63 @@ const FormModal = ({ openModal, closeModal }) => {
     knowlegeOfTechyJaunt: "",
     expectation: "",
   });
+
+  const payload = {
+    fullName: formData.fullName,
+    email: formData.email,
+    phoneNumber: countryCode + formData.phoneNumber,
+    selectedCourse: formData.selectedCourse,
+    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
+    expectation: formData.expectation,
+  };
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!formData.fullName.trim()) {
+      errors.username = "enter your name";
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "email is required";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "enter a valid email address";
+      isValid = false;
+    }
+
+    if (!formData.phoneNumber.trim()) {
+      errors.phoneNumber = "Phone number is required";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValid = validateForm();
+
+    if (isValid) {
+      // Submit the form data or perform other actions
+      axios
+      .post("http://localhost:3001/signup", {...payload})
+      .then((res)=>{
+        console.log(res)
+      })
+    } 
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
   const config = {
     reference: new Date().getTime().toString(),
@@ -41,24 +91,19 @@ const FormModal = ({ openModal, closeModal }) => {
       closeModal;
     },
   };
-  const payload = {
-    fullName: formData.fullName,
-    email: formData.email,
-    phoneNumber: countryCode + formData.phoneNumber,
-    selectedCourse: formData.selectedCourse,
-    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
-    expectation: formData.expectation,
-  };
+  
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   // action = "/launchpad/signup";
   return (
     <Modal show={openModal} onClose={closeModal} className="">
       <Modal.Header>SIGN UP FOR THE NEXT COHORT!</Modal.Header>
       <Modal.Body>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form
+          className="space-y-6"
+          onSubmit={handleSubmit}
+          method="POST"
+          action="/signup"
+        >
           <div className="relative z-0 w-full mb-6">
             <div className="">
               <label
@@ -72,6 +117,7 @@ const FormModal = ({ openModal, closeModal }) => {
                 id="name"
                 inputName="fullName"
                 handleChange={handleChange}
+                errorTxt={formErrors.username}
               />
             </div>
           </div>
@@ -87,6 +133,7 @@ const FormModal = ({ openModal, closeModal }) => {
                 id="phone"
                 inputName="phoneNumber"
                 handleChange={handleChange}
+                errorTxt={formErrors.phoneNumber}
               />
             </div>
             <div className="">
@@ -101,6 +148,7 @@ const FormModal = ({ openModal, closeModal }) => {
                 inputName="email"
                 id="email"
                 handleChange={handleChange}
+                errorTxt={formErrors.email}
               />
             </div>
           </div>
@@ -183,10 +231,11 @@ const FormModal = ({ openModal, closeModal }) => {
             ></textarea>
           </div>
           <Modal.Footer>
-            <PaystackButton
+            {/* <PaystackButton
               className="mx-auto bg-blue-500 text-white p-2 rounded"
               {...componentProps}
-            />
+            /> */}
+            <button type="submit" onClick={handleSubmit}>SUBMIT</button>
           </Modal.Footer>
         </form>
       </Modal.Body>

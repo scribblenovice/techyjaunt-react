@@ -1,7 +1,6 @@
 import CarouselSlider from "../globalcomponents/Carousel";
 import NavLinks from "../globalcomponents/NavLinks";
 import FooterSection from "../globalcomponents/FooterSection";
-import Footer from "../globalcomponents/FooterSection";
 import Mission from "./Mission";
 import NewsLetter from "../globalcomponents/Newsletter";
 import AboutUs from "./aboutus/AboutUs";
@@ -9,13 +8,15 @@ import Header from "./header/Header";
 import Partners from "./partners/Partners";
 import { useState } from "react";
 import MailBtn from "../globalcomponents/MailButton";
+import Founder from "../globalcomponents/Founder";
+import { Element } from "react-scroll";
 
 const Homepage = () => {
-  const [open, setOpen] =useState(true)
-   const [scrollNumber, setScrollNumber] = useState();
-   window.addEventListener("scroll", () => {
-     setScrollNumber(window.scrollY);
-   });
+  const [open, setOpen] = useState(true);
+  const [scrollNumber, setScrollNumber] = useState();
+  window.addEventListener("scroll", () => {
+    setScrollNumber(window.scrollY);
+  });
   return (
     <main className={`bg-stone-100`}>
       <>
@@ -25,12 +26,21 @@ const Homepage = () => {
           }`}
         />
         <Header />
-        <AboutUs />
+        <Element name="about">
+          <AboutUs />
+        </Element>
+        <Element name="mission">
+          <Mission />
+        </Element>
         <Partners />
-        <Mission />
+
         <NewsLetter />
+        <Founder />
         <CarouselSlider />
-        < MailBtn/>
+        <MailBtn />
+        <Element name="contact">
+          <FooterSection />
+        </Element>
       </>
     </main>
   );

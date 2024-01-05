@@ -1,7 +1,7 @@
 import { missionTexts } from "../resources/resources";
 const Mission = () => {
   return (
-    <section className="pb-10 lg:pb-20 bg-stone-100 font-poppins" id="mission">
+    <section className="py-10 md:py-20 bg-stone-100 font-poppins" id="mission">
       <div className="w-[90%] sm:w-[80%] mx-auto">
         <div className="">
           <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">

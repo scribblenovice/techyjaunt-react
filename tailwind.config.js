@@ -7,7 +7,11 @@ export default withMT({
     "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'founder':"url(./src/images/founder.webp)"
+      }
+    },
   },
   plugins: [require("flowbite/plugin")],
 });

@@ -1,5 +1,4 @@
 import vidSrc from "../../images/videos/header/vid1.mp4";
-import thumbSrc from "../../images/videos/header/thumbnail/thumb1.jpg";
 import VideoChanger from "../../globalcomponents/VideoChanger";
 
 const Vid1 = () => {;

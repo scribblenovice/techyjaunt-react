@@ -3,8 +3,8 @@ import Timeline from "../../globalcomponents/Timeline";
 
 const AboutUs = () => {
   return (
-    <section className="py-10 lg:py-20 bg-stone-100 font-poppins" id="about">
-      <div className="max-w-[90%] sm:max-w-[80%] py-4 mx-auto lg:py-6">
+    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins" id="about">
+      <div className="w-[90%] smw-[80%] py-4 mx-auto lg:py-6">
         <div className="flex flex-wrap">
           <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
             <div className="lg:max-w-md">
@@ -22,7 +22,7 @@ const AboutUs = () => {
                 tech skills while solving problems by building products that can
                 make the world a better place and easy place to live in.
               </p>
-              <div className="grid grid-cols-2 place-items-center">
+              <div className="grid grid-cols-2 place-items-center w-full">
                 <div className="w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6">
                   <div className="p-6 bg-white">
                     <span className="text-blue-500">

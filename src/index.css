@@ -8,13 +8,11 @@
   box-sizing: border-box;
 }
 body {
-  width: 100vw;
+  max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-body && nav.isOpen {
-  overflow: hidden;
-}
+
 .nav-bar {
   transition: all 0.1s ease;
 }
@@ -25,9 +23,6 @@ body && nav.isOpen {
   -webkit-backdrop-filter: blur(14px);
   color: black;
 }
-/* section>div{
-    border: 1px solid black;
-} */
 h1 {
   font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
   color: white;
@@ -43,7 +38,7 @@ h2 {
   font-family: Orbitron, Arial, Helvetica, sans-serif;
   font-weight: 900;
 }
-p {
+p,a {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 .testvid {
@@ -72,7 +67,7 @@ video {
       rgba(243, 241, 236, 0.012) 70%,
       rgba(63, 131, 248, 0.816) 93%
     ),
-    url("./images/videos/header/thumbnail/thumb1.jpg");
+    url("./images/videos/header/thumbnail/thumb1.webp");
     background-position: center;
     background-size: cover;
     border-radius: 6% 6% 51% 51% / 5% 5% 38% 39%;
@@ -88,7 +83,7 @@ video {
       rgba(243, 241, 236, 0.012) 70%,
       rgba(63, 131, 248, 0.816) 93%
     ),
-    url("./images/videos/header/thumbnail/thumb2.jpg");
+    url("./images/videos/header/thumbnail/thumb2.webp");
     background-position: center;
     background-size: cover;
     border-radius: 6% 6% 51% 51% / 5% 5% 38% 39% ;
@@ -103,7 +98,7 @@ video {
       rgba(243, 241, 236, 0.012) 70%,
       rgba(63, 131, 248, 0.816) 80%
     ),
-    url("./images/videos/header/thumbnail/thumb3.jpg");
+    url("./images/videos/header/thumbnail/thumb3.webp");
     background-position: center;
     background-size: cover;
     border-radius:6% 6% 51% 51% / 5% 5% 38% 39% ;

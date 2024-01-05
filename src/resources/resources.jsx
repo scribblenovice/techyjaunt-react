@@ -1,22 +1,22 @@
 // AVATARS
 import avatar1 from "../images/testimonial/testimonial1.jpg";
-import avatar2 from "../images//videos/header/thumbnail/thumb2.jpg";
-import avatar3 from "../images/videos/header/thumbnail/thumb3.jpg";
+import avatar2 from "../images//videos/header/thumbnail/thumb2.webp";
+import avatar3 from "../images/videos/header/thumbnail/thumb3.webp";
 import avatar4 from "../images/testimonial/testimonial2.jpg";
 
 // PARTNERS IMAGES
-import partner1 from "../images/partners/fajo.png";
-import partner2 from "../images/partners/gela.png";
-import partner3 from "../images/partners/IMG_5006.png";
-import partner4 from "../images/partners/IMG_5004.png";
-import partner5 from "../images/partners/lbank.png";
-import partner6 from "../images/partners/yessi.png";
-import partner7 from "../images/partners/moremi.png";
+import partner1 from "../images/partners/fajo.webp";
+import partner2 from "../images/partners/gela.webp";
+import partner3 from "../images/partners/IMG_5006.webp";
+import partner4 from "../images/partners/IMG_5004.webp";
+import partner5 from "../images/partners/lbank.webp";
+import partner6 from "../images/partners/yessi.webp";
+import partner7 from "../images/partners/moremi.webp";
 
 // thumbnails
-import thumb1 from "../images/videos/header/thumbnail/thumb1.jpg";
-import thumb2 from "../images/videos/header/thumbnail/thumb2.jpg";
-import thumb3 from "../images/videos/header/thumbnail/thumb3.jpg";
+import thumb1 from "../images/videos/header/thumbnail/thumb1.webp";
+import thumb2 from "../images/videos/header/thumbnail/thumb2.webp";
+import thumb3 from "../images/videos/header/thumbnail/thumb3.webp";
 
 // testimonials
 import testimonial1 from "../images/testimonial/testimonial1.jpg";
@@ -24,13 +24,15 @@ import testimonial2 from "../images/testimonial/testimonial2.jpg";
 import testimonial3 from "../images/testimonial/testimonial3.jpg";
 
 //GALLERY
-import gallery1 from "../images/gallery/gallery1.jpg";
-import gallery2 from "../images/gallery/gallery2.jpg";
-import gallery3 from "../images/gallery/gallery3.jpg";
-import gallery4 from "../images/gallery/gallery4.jpg";
-import gallery5 from "../images/gallery/gallery5.jpg";
-import gallery6 from "../images/gallery/gallery6.jpg";
-import gallery7 from "../images/gallery/gallery7.jpg";
+import gallery1 from "../images/gallery/gallery1.webp";
+import gallery2 from "../images/gallery/gallery2.webp";
+import gallery3 from "../images/gallery/gallery3.webp";
+import gallery4 from "../images/gallery/gallery4.webp";
+import gallery5 from "../images/gallery/gallery5.webp";
+import gallery6 from "../images/gallery/gallery6.webp";
+import gallery7 from "../images/gallery/gallery7.webp";
+import gallery8 from "../images/gallery/gallery8.webp";
+import gallery9 from "../images/gallery/gallery9.webp";
 
 export const PartnerImg = [
   {
@@ -65,9 +67,9 @@ export const PartnerImg = [
 
 export const Links = [
   { id: 0, linkName: "HOME", path: "/" },
-  { id: 1, linkName: "ABOUT US", path: "#about" },
-  { id: 2, linkName: "MISSION", path: "#mission" },
-  { id: 4, linkName: "CONTACT", path: "#" },
+  { id: 1, linkName: "ABOUT US", path: "about" },
+  { id: 2, linkName: "MISSION", path: "mission" },
+  { id: 4, linkName: "CONTACT", path: "contact" },
   
 ];
 
@@ -194,5 +196,13 @@ export const galleryImg = [
   {
     id: 6,
     src: gallery7,
+  },
+  {
+    id: 7,
+    src: gallery8,
+  },
+  {
+    id: 8,
+    src: gallery9,
   }
 ];
