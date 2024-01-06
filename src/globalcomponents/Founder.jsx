@@ -2,7 +2,7 @@ import founderImg from "../images/founder.jpg"
 
 const Founder = () => {
   return (
-    <section className=" py-10 bg-stone-100 font-poppins" id="about">
+    <section className=" pt-10 bg-stone-100 font-poppins" id="about">
       <div className="w-[90%] smw-[80%] py-4 mx-auto lg:py-6">
         <div className="px-4 pl-4 mb-10 border-l-4 border-blue-500">
           <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
