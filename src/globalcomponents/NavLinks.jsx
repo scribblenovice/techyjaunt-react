@@ -28,7 +28,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
           </a>
           <nav
             className={`flex lg:w-[50%] flex-col lg:flex-row justify-evenly absolute right-0 z-10 lg:static top-24 bg-black lg:bg-transparent ${
-              openNav ? "w-1/2" : "w-[0%]"
+              openNav ? "w-[70%] sm:w-[60%]" : "w-[0%]"
             } transition-all duration-300 ease-linear`}
           >
             <ul className="flex lg:w-[100%] flex-col lg:flex-row lg:justify-evenly h-screen lg:h-fit top-0 overflow-hidden">
