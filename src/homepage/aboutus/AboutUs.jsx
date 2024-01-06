@@ -1,7 +1,11 @@
 
 const AboutUs = () => {
   return (
-    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins" id="about">
+    <section
+      name="about"
+      className="py-10 lg:py-20 bg-stone-100 font-poppins"
+      id="about"
+    >
       <div className="w-[90%] sm:w-[80%] py-4 mx-auto lg:py-6">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="w-full mb-10 lg:mb-0">
@@ -383,7 +387,7 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          <div className="w-[50%] border mb-10 lg:mb-0">
+          <div className="w-full mb-10 lg:mb-0">
             <div className="space-y-2 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:to-transparent">
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
@@ -410,8 +414,8 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="ml-16 md:ml-0 w-full relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+              <div className="ml-16 md:ml-0 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">
                       08/04/2023
@@ -448,8 +452,8 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+              <div className="ml-16 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">
                       12/08/2023
@@ -485,8 +489,8 @@ const AboutUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="ml-16 w-full md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+              <div className="ml-16 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
                   <div className="flex items-center justify-between space-x-2 mb-1">
                     <time className="font-caveat font-medium text-blue-500">
                       25/11/2023
