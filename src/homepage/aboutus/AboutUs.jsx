@@ -1,10 +1,10 @@
 
 const AboutUs = () => {
   return (
-    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins w-[90vw] sm:w-[80vw] mx-auto " id="about">
-      <div className="py-4 lg:py-6">
-        <div className="flex flex-wrap">
-          <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
+    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins" id="about">
+      <div className="w-[90%] sm:w-[80%] py-4 mx-auto lg:py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="w-full mb-10 lg:mb-0">
             <div className="lg:max-w-md">
               <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
                 <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
@@ -383,7 +383,7 @@ const AboutUs = () => {
               </div>
             </div>
           </div>
-          <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+          <div className="w-full border mb-10 lg:mb-0">
             <div className="space-y-2 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:to-transparent">
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
