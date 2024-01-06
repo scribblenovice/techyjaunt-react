@@ -37,6 +37,7 @@ const Homepage = () => {
         <NewsLetter />
         <Founder />
         <CarouselSlider />
+        <MailBtn />
         <Element name="contact">
           <FooterSection />
         </Element>
