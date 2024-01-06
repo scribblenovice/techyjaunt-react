@@ -1,12 +1,8 @@
 
 const AboutUs = () => {
   return (
-    <section
-      name="about"
-      className="py-10 lg:py-20 bg-stone-100 font-poppins w-[90%] sm:w-[80%] mx-auto"
-      id="about"
-    >
-      <div className="py-4 lg:py-6">
+    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins w-[98vw] md:w-screen" id="about">
+      <div className="w-[90%] sm:w-[80%] py-4 mx-auto lg:py-6">
         <div className="flex flex-wrap">
           <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
             <div className="lg:max-w-md">
