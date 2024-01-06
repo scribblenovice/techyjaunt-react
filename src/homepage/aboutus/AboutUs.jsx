@@ -1,9 +1,7 @@
-import AchievementNumbers from "../../globalcomponents/AchiementNumbers";
-import Timeline from "../../globalcomponents/Timeline";
 
 const AboutUs = () => {
   return (
-    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins w-[50vw]" id="about">
+    <section name="about" className="py-10 lg:py-20 bg-stone-100 font-poppins max-w-screen" id="about">
       <div className="w-[90%] smw-[80%] py-4 mx-auto lg:py-6">
         <div className="flex flex-wrap">
           <div className="w-full mb-10 lg:w-1/2 lg:mb-0">
