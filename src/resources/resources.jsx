@@ -66,10 +66,9 @@ export const PartnerImg = [
 ];
 
 export const Links = [
-  { id: 0, linkName: "HOME", path: "/" },
-  { id: 1, linkName: "ABOUT US", path: "about" },
-  { id: 2, linkName: "MISSION", path: "mission" },
-  { id: 4, linkName: "CONTACT", path: "contact" },
+  { id: 0, linkName: "ABOUT US", path: "about" },
+  { id: 1, linkName: "MISSION", path: "mission" },
+  { id: 2, linkName: "CONTACT", path: "contact" },
   
 ];
 
@@ -156,7 +155,7 @@ export const testimonialInfo = [
     id: 0,
     img: testimonial2,
     writeUp:
-      "With the guidance of our tutor, I've been able to envision a roadmap to follow on my journey as a UI/UX designer. Th",
+      "With the guidance of our tutor, I've been able to envision a roadmap to follow on my journey as a UI/UX designer",
     fullName: "Amarachi",
   },
   {

@@ -24,6 +24,7 @@ const Homepage = () => {
           navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
             scrollNumber > 0 ? "nav-change" : "text-white"
           }`}
+          isLaunchPad={false}
         />
         <Header />
         <Element name="about">

@@ -28,20 +28,33 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
           </a>
           <nav
             className={`flex lg:w-[50%] flex-col lg:flex-row justify-evenly absolute right-0 z-10 lg:static top-24 bg-black lg:bg-transparent ${
-              openNav ? "w-[70%] sm:w-[60%]" : "w-[0%]"
+              openNav ? "w-[70%] sm:w-[50%]" : "w-[0%]"
             } transition-all duration-300 ease-linear`}
           >
             <ul className="flex lg:w-[100%] flex-col lg:flex-row lg:justify-evenly h-screen lg:h-fit top-0 overflow-hidden">
+              <li>
+                <a
+                  href="/"
+                  className={`${
+                    scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
+                  } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
+                >
+                  HOME
+                </a>
+              </li>
               {Links.map((el) => {
                 return (
-                  <li key={el.id}>
+                  <li
+                    key={el.id}
+                    className={`${isLaunchPad ? "hidden" : "block"}`}
+                  >
                     <Link
                       to={el.path}
                       spy={true}
                       smooth={true}
                       offset={-100}
                       duration={500}
-                      className={`${
+                      className={` ${
                         scrollNumber > 0
                           ? "text-white lg:text-black"
                           : "text-white"

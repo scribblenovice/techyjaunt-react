@@ -45,8 +45,7 @@ const NewsLetter = () => {
          setOpenModal(true);
          setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
        }
-       if(res.data.status==="existing"){
-        console.log("existing")
+       if(res.data.status==="existing"){88+.00
         setModalError(true)
         setOpenModal(true)
         setMessage("SUBSCRIBER ALREADY EXISTS!")

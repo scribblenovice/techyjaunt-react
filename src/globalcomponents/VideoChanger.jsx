@@ -40,7 +40,7 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
   return (
     <div className=" box lg:mx-auto testvid w-[80%] h-full relative video bg-black overflow-hidden">
       <video
-        className="w-full h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[500px] "
+        className="w-full h-[450px] sm:h-[400px] md:h-[450px] lg:h-[500px] "
         src={vidSrc}
         ref={videoRef}
       ></video>

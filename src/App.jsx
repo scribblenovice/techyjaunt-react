@@ -1,6 +1,5 @@
-import { useState } from 'react'
+
 import './App.css'
-import NavLinks from './globalcomponents/NavLinks'
 import Homepage from './homepage/Homepage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LaunchPad from './launchpad/Launchpad'
