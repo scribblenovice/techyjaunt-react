@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import fetch from "node-fetch"
+import path from "path"
+import { getGlobals } from 'common-es'
+const { __dirname, __filename } = getGlobals(import.meta.url)
 const server = express();
 let api_key = "d84e2d1c-c986-498c-a914-b7e895cb8849";
 const port = process.env.PORT || 3001;
