@@ -39,24 +39,27 @@ const NewsLetter = () => {
 
    if (isValid) {
      // Submit the form data or perform other actions
-     axios.post("http://localhost:3001/subscribe", { ...emailSubscriber }).then((res) => {
-       if (res.data.status === "subscribed") {
-         setModalError(false);
-         setOpenModal(true);
-         setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
-       }
-       if(res.data.status==="existing"){88+.00
-        setModalError(true)
-        setOpenModal(true)
-        setMessage("SUBSCRIBER ALREADY EXISTS!")
-       }
-        if (res.data.status === "invalid") {
-          console.log("existing");
-          setModalError(true);
-          setOpenModal(true);
-          setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
-        }
-     })
+     axios
+       .post("https://techyjaunt-kx6a.onrender.com/subscribe", {
+         ...emailSubscriber,
+       })
+       .then((res) => {
+         if (res.data.status === "subscribed") {
+           setModalError(false);
+           setOpenModal(true);
+           setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
+         }
+         if (res.data.status === "existing") {
+           setModalError(true);
+           setOpenModal(true);
+           setMessage("SUBSCRIBER ALREADY EXISTS!");
+         }
+         if (res.data.status === "invalid") {
+           setModalError(true);
+           setOpenModal(true);
+           setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
+         }
+       });
    }else{
         setModalError(true)
         setOpenModal(true)

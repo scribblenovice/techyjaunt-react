@@ -6,8 +6,13 @@ import GlobalText from "../globalcomponents/GlobalText";
 import axios from "axios";
 import GlobalSelect from "./GlobalSelect";
 import { courses, howHeard } from "../resources/resources";
+import { useNavigate } from "react-router-dom";
 
 const FormModal = ({ openModal, closeModal }) => {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const [modalError, setModalError] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const countryCode = sessionStorage.getItem("countryCode");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -49,12 +54,12 @@ const FormModal = ({ openModal, closeModal }) => {
       errors.phoneNumber = "phone number is required";
       isValid = false;
     }
-    if (formData.selectedCourse==="") {
+    if (formData.selectedCourse === "") {
       errors.selectedCourse = "select an option";
       isValid = false;
     }
 
-    if (formData.knowlegeOfTechyJaunt==="") {
+    if (formData.knowlegeOfTechyJaunt === "") {
       errors.knowlegeOfTechyJaunt = "select an option";
       isValid = false;
     }
@@ -70,11 +75,30 @@ const FormModal = ({ openModal, closeModal }) => {
     if (isValid) {
       // Submit the form data or perform other actions
       axios
-      .post("http://localhost:3001/signup", {...payload})
-      .then((res)=>{
-        console.log(res)
-      })
-    } 
+        .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
+        .then((res) => {
+          if (res.data.status === "subscribed") {
+            setModalError(false);
+            setOpenModal(true);
+            setMessage(
+              "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
+            );
+            setTimeout(() => {
+              navigate("https://www.google.com");
+            }, 3000);
+          }
+          if (res.data.status === "alreadysignedup") {
+            setModalError(true);
+            setOpenModal(true);
+            setMessage("YOU HAVE ALREADY SIGNED UP FOR THE COHORT!");
+          }
+          if (res.data.status === "failed") {
+            setModalError(true);
+            setOpenModal(true);
+            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
+          }
+        });
+    }
   };
 
   const handleChange = (e) => {
@@ -85,140 +109,161 @@ const FormModal = ({ openModal, closeModal }) => {
     });
   };
   
-
-  // action = "/launchpad/signup";
   return (
-    <Modal show={openModal} onClose={closeModal} className="">
-      <Modal.Header>SIGN UP FOR THE NEXT COHORT!</Modal.Header>
-      <Modal.Body>
-        <form
-          className="space-y-6"
-          onSubmit={handleSubmit}
-          method="POST"
-          action="/signup"
-        >
-          <div className="relative z-0 w-full mb-6">
-            <div className="">
-              <label
-                htmlFor="phone"
-                className="mb-5 font-medium  text-sm text-gray-500"
-              >
-                Full Name
-              </label>
-              <GlobalText
-                labelTxt="Full Name"
-                id="name"
-                inputName="fullName"
-                handleChange={handleChange}
-                errorTxt={formErrors.username}
-              />
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
-            <div className="">
-              <label
-                htmlFor="phone"
-                className="mb-5 font-medium  text-sm text-gray-500"
-              >
-                Phone Number
-              </label>
-              <PhoneNumber
-                id="phone"
-                inputName="phoneNumber"
-                handleChange={handleChange}
-                errorTxt={formErrors.phoneNumber}
-              />
-            </div>
-            <div className="">
-              <label
-                htmlFor="email"
-                className="font-medium text-sm text-gray-500"
-              >
-                Email Adress
-              </label>
-              <GlobalText
-                inputType="email"
-                inputName="email"
-                id="email"
-                handleChange={handleChange}
-                errorTxt={formErrors.email}
-              />
-            </div>
-          </div>
-          <div className="relative w-full group text-gray-500 grid md:grid-cols-2 md:gap-6 gap-y-5">
-            <div>
-              <label
-                htmlFor="skill-choice"
-                className="mr-2 font-medium  text-sm text-gray-500"
-              >
-                Which course would you like to take?
-              </label>
-              <div className="w-full">
-                <GlobalSelect
-                  options={courses}
-                  name="selectedCourse"
-                  inputVal={formData.selectedCourse}
-                  handleChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      selectedCourse: e,
-                    });
-                  }}
-                  errorTxt={formErrors.selectedCourse}
+    <>
+      <Modal show={openModal} onClose={closeModal} className="">
+        <Modal.Header>SIGN UP FOR THE COHORT 3!</Modal.Header>
+        <Modal.Body>
+          <form
+            className="space-y-6"
+            onSubmit={handleSubmit}
+            method="POST"
+            action="/signup"
+          >
+            <div className="relative z-0 w-full mb-6">
+              <div className="">
+                <label
+                  htmlFor="phone"
+                  className="mb-5 font-medium  text-sm text-gray-500"
+                >
+                  Full Name
+                </label>
+                <GlobalText
+                  labelTxt="Full Name"
+                  id="name"
+                  inputName="fullName"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.username}
                 />
               </div>
             </div>
-            <div>
-              <label
-                htmlFor="skill-choice"
-                className="mr-2 font-medium  text-sm text-gray-500"
-              >
-                How did you hear about TechyJaunt?
-              </label>
-              <div className="w-full">
-                <GlobalSelect
-                  options={howHeard}
-                  name="knowlegeOfTechyJaunt"
-                  inputVal={formData.knowlegeOfTechyJaunt}
-                  handleChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      knowlegeOfTechyJaunt: e,
-                    });
-                  }}
-                  errorTxt={formErrors.knowlegeOfTechyJaunt}
+            <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
+              <div className="">
+                <label
+                  htmlFor="phone"
+                  className="mb-5 font-medium  text-sm text-gray-500"
+                >
+                  Phone Number
+                </label>
+                <PhoneNumber
+                  id="phone"
+                  inputName="phoneNumber"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.phoneNumber}
+                />
+              </div>
+              <div className="">
+                <label
+                  htmlFor="email"
+                  className="font-medium text-sm text-gray-500"
+                >
+                  Email Adress
+                </label>
+                <GlobalText
+                  inputType="email"
+                  inputName="email"
+                  id="email"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.email}
                 />
               </div>
             </div>
+            <div className="relative w-full group text-gray-500 grid md:grid-cols-2 md:gap-6 gap-y-5">
+              <div>
+                <label
+                  htmlFor="skill-choice"
+                  className="mr-2 font-medium  text-sm text-gray-500"
+                >
+                  Which course would you like to take?
+                </label>
+                <div className="w-full">
+                  <GlobalSelect
+                    options={courses}
+                    name="selectedCourse"
+                    inputVal={formData.selectedCourse}
+                    handleChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        selectedCourse: e,
+                      });
+                    }}
+                    errorTxt={formErrors.selectedCourse}
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="skill-choice"
+                  className="mr-2 font-medium  text-sm text-gray-500"
+                >
+                  How did you hear about TechyJaunt?
+                </label>
+                <div className="w-full">
+                  <GlobalSelect
+                    options={howHeard}
+                    name="knowlegeOfTechyJaunt"
+                    inputVal={formData.knowlegeOfTechyJaunt}
+                    handleChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        knowlegeOfTechyJaunt: e,
+                      });
+                    }}
+                    errorTxt={formErrors.knowlegeOfTechyJaunt}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="relative z-0 w-full mb-6 ">
+              <label
+                htmlFor="event-expectations"
+                className="font-medium  text-sm text-gray-500 "
+              >
+                What are your expectations for this course?
+              </label>
+              <textarea
+                name="expectation"
+                className="w-full border-2 border-gray-400 rounded-md resize-none p-3 mt-2"
+                id="event-expectations"
+                cols="30"
+                rows="1"
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <Modal.Footer>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="mx-auto bg-blue-500 text-white p-4 rounded"
+              >
+                SUBMIT
+              </button>
+            </Modal.Footer>
+          </form>
+        </Modal.Body>
+      </Modal>
+      <Modal
+        show={openModal}
+        onClose={() => {
+          setOpenModal(false);
+        }}
+        position="center"
+      >
+        <ModalHeader className="border-none h-2"></ModalHeader>
+
+        <Modal.Body className="p-14 md:p-20 grid place-items-center gap-y-5">
+          <div className={`${modalError ? "block" : "hidden"}`}>
+            <i className={`ri-error-warning-line text-red-500 text-5xl`}></i>
           </div>
-          <div className="relative z-0 w-full mb-6 ">
-            <label
-              htmlFor="event-expectations"
-              className="font-medium  text-sm text-gray-500 "
-            >
-              What are your expectations for this course?
-            </label>
-            <textarea
-              name="expectation"
-              className="w-full border-2 border-gray-400 rounded-md resize-none p-3 mt-2"
-              id="event-expectations"
-              cols="30"
-              rows="1"
-              onChange={handleChange}
-            ></textarea>
+          <div className={`${!modalError ? "block" : "hidden"}`}>
+            <i
+              className={`ri-checkbox-circle-line text-green-500 text-5xl`}
+            ></i>
           </div>
-          <Modal.Footer>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="mx-auto bg-blue-500 text-white p-4 rounded"
-            >
-              SUBMIT
-            </button>
-          </Modal.Footer>
-        </form>
-      </Modal.Body>
-    </Modal>
+          <div className="text-xl md:text-2xl text-center">{message}</div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 export default FormModal;

@@ -56,7 +56,7 @@ server.post("/signup", (req, res)=>{
           FullName: fullName,
           SelectedCourse: selectedCourse,
           HowYouHeard: knowlegeOfTechyJaunt,
-          eventExpectation: expectation
+          Expectation: expectation
         },
         tags: ["STUDENT"],
         status: "SUBSCRIBED",
@@ -67,32 +67,24 @@ server.post("/signup", (req, res)=>{
     .then((data) => {
       console.log(data);
       if (data.status === "SUBSCRIBED") {
-        console.log("Successfuly Subscribed", {
-          fullName,
-          email
-        });
 
         return res.status(200).json({
-          status: "ok",
+          status: "registered",
         });
       }
       if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
-        console.log("Member Already Signed Up", {
-          email,
-          fullName
-        });
 
-        return res.status(500).json({
-          status: "alreadySignedUp",
+        return res.status(200).json({
+          status: "alreadysignedup",
         });
       }
       if (data.error.code === "INVALID_PARAMETERS") {
-        console.log("Invalid Parameters ❌", {
-          fullName,
-          email
-        });
+        // console.log("Invalid Parameters ❌", {
+        //   fullName,
+        //   email
+        // });
 
-        return res.status(500).json({
+        return res.status(200).json({
           status: "failed",
         });
       }
@@ -164,7 +156,6 @@ server.post("/subscribe", (req, res) => {
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
 });
-
 
 server.listen(port, () => {
   console.log("server is running");

@@ -18,7 +18,7 @@ const Founder = () => {
             />
           </div>
           <div className=" font-light md:font-normal mb-10 text-sm sm:text-base leading-7 text-gray-500">
-            Meet George, the Founder of TechyJaunt. He's passionate about
+            Meet George Ezeudeka Ikechukwu, the Founder/CEO of TechyJaunt. He's passionate about
             emerging technologies like Web3, Blockchain, and AI. His mission is
             to introduce Africans to the world of technology, one person at a
             time, by providing education and training to tech enthusiasts.

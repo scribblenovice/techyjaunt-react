@@ -19,7 +19,7 @@ function CarouselSlider() {
       >
         {galleryImg.map((el) => {
           return (
-            <div className="bg-black lg:w-[60%] h-[350px] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
+            <div className="bg-black lg:w-[60%] h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
               <img key={el.id} src={el.src} alt="" className="w-full h-full" />
             </div>
           );
