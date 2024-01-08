@@ -8,7 +8,7 @@ const server = express();
 let api_key = "d84e2d1c-c986-498c-a914-b7e895cb8849";
 const port = process.env.PORT || 3001;
 
-const buildPath = path.join(__dirname, "build");
+const buildPath = path.join(__dirname, "dist");
 
 server.use(express.static(buildPath));
 server.use(express.json());
