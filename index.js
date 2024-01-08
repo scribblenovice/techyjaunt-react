@@ -2,10 +2,14 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch"
 const server = express();
-server.use(express.json());
-server.use(cors());
 let api_key = "d84e2d1c-c986-498c-a914-b7e895cb8849";
 const port = process.env.PORT || 3001;
+
+const buildPath = path.join(__dirname, "build");
+
+server.use(express.static(buildPath));
+server.use(express.json());
+server.use(cors());
 
 // cohort registration
 server.post("/signup", (req, res)=>{
@@ -154,6 +158,9 @@ server.post("/subscribe", (req, res) => {
     });
 });
 
+server.get("*", (req, res) => {
+  res.sendFile(path.join(buildPath, "index.html"));
+});
 
 
 server.listen(port, () => {

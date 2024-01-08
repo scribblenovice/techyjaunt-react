@@ -3,12 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "npm": "9.6.7",
+    "node": "20.3.1"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "nodemon ./src/index.js"
+    "start": "nodemon ./index.js"
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.8",
