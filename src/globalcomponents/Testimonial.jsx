@@ -16,7 +16,7 @@ const Testimonial = () => {
             return (
               <div className="overflow-hidden bg-white rounded-md shadow">
                 <div className="px-8 py-12">
-                  <div className="relative w-28 h-28 mx-auto" key={i.id}>
+                  <div className="relative w-28 h-28 mx-auto">
                     <img
                       className="relative object-cover w-28 h-28 mx-auto rounded-full"
                       src={i.img}
@@ -34,7 +34,10 @@ const Testimonial = () => {
                     </div>
                   </div>
                   <blockquote className="mt-7">
-                    <p className="text-lg text-black">
+                    <p
+                      key={i.id}
+                      className="font-normal text-base leading-7 text-gray-500"
+                    >
                       “{i.writeUp}”
                     </p>
                   </blockquote>

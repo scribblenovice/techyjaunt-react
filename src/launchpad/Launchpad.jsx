@@ -82,7 +82,7 @@ const LaunchPad = () => {
               <span className="text-blue-500 techy font-black">TechyJaunt</span>
               {""} Launchpad
             </h1>
-            <p className="text-gray-300 mb-5 text-base leading-8 font-extralight md:font-normal">
+            <p className="text-gray-300 mb-5 text-base leading-8 font-normal">
               Embark on a transformative tech journey guided by industry
               experts. Unlock the power of in-demand tech skills, accessible
               from anywhere on the globe. Start your adventure into the world of
@@ -90,13 +90,13 @@ const LaunchPad = () => {
             </p>
             <button
               onClick={() => setOpenModal(true)}
-              className="mb-5 mx-auto flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-linear hover:scale-105 md:py-4 md:text-lg md:px-10"
+              className="scale mb-5 mx-auto flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-linear hover:scale-105 md:py-4 md:text-lg md:px-10"
             >
               APPLY NOW
             </button>
             <div className="flex items-center flex-wrap">
               <Avatars />
-              <p className="text-gray-300 mt-5 lg:mt-0 font-extralight md:font-normal">
+              <p className="text-gray-300 mt-5 lg:mt-0 font-normal">
                 Over 1K+ professionals onboarded and trained
               </p>
             </div>
@@ -151,7 +151,7 @@ const LaunchPad = () => {
             <h2 className=" mt-2 text-3xl text-center font-black text-white md:text-4xl px-4 pl-4 mb-6 border-l-4 border-blue-500">
               Unlock Your Potential with TechyJaunt's 4-Week Basic Tech Program!
             </h2>
-            <p className="font-extralight md:font-normal text-white mb-5 text-base leading-8">
+            <p className="font-normal text-white mb-5 text-base leading-8">
               Discover an immersive tech experience that empowers you with
               in-demand skills, all under the guidance of industry luminaries.
               Our students hail from diverse states and backgrounds, united by a
@@ -178,6 +178,7 @@ const LaunchPad = () => {
         </div>
       </section>
       <MailBtn />
+      <FooterSection/>
     </div>
   );
 };

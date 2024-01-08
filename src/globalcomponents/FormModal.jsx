@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
 import { Button, Modal } from "flowbite-react";
-import { Select, Option } from "@material-tailwind/react";
 import { PhoneNumber } from "../globalcomponents/PhoneNumber";
 import GlobalText from "../globalcomponents/GlobalText";
-import { PaystackButton } from "react-paystack";
 import axios from "axios";
+import GlobalSelect from "./GlobalSelect";
+import { courses, howHeard } from "../resources/resources";
 
 const FormModal = ({ openModal, closeModal }) => {
   const countryCode = sessionStorage.getItem("countryCode");
@@ -46,7 +46,16 @@ const FormModal = ({ openModal, closeModal }) => {
     }
 
     if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = "Phone number is required";
+      errors.phoneNumber = "phone number is required";
+      isValid = false;
+    }
+    if (formData.selectedCourse==="") {
+      errors.selectedCourse = "select an option";
+      isValid = false;
+    }
+
+    if (formData.knowlegeOfTechyJaunt==="") {
+      errors.knowlegeOfTechyJaunt = "select an option";
       isValid = false;
     }
 
@@ -74,22 +83,6 @@ const FormModal = ({ openModal, closeModal }) => {
       ...formData,
       [name]: value,
     });
-  };
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: formData.email,
-    amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f",
-  };
-
-  const componentProps = {
-    ...config,
-    text: "PROCEED",
-    onSuccess: () => alert("SUCCESSFUL TRANSACTION"),
-    onClose: () => {
-      alert("TRANSACTION FAILED");
-      closeModal;
-    },
   };
   
 
@@ -161,28 +154,18 @@ const FormModal = ({ openModal, closeModal }) => {
                 Which course would you like to take?
               </label>
               <div className="w-full">
-                <Select
-                  onChange={(e) => {
+                <GlobalSelect
+                  options={courses}
+                  name="selectedCourse"
+                  inputVal={formData.selectedCourse}
+                  handleChange={(e) => {
                     setFormData({
                       ...formData,
                       selectedCourse: e,
                     });
                   }}
-                  value={formData.selectedCourse}
-                  name="selectedCourse"
-                  aria-required
-                >
-                  <Option value="">Select an option</Option>
-                  <Option value="ui/ux design">UI/UX DESIGN</Option>
-                  <Option value="frontend web development">
-                    FRONTEND WEB DEVELOPMENT
-                  </Option>
-                  <Option value="backend web development">
-                    BACKEND WEB DEVELOPMENT
-                  </Option>
-                  <Option value="product management">PRODUCT MANAGEMENT</Option>
-                  <Option value="data analysis">DATA ANALYSIS</Option>
-                </Select>
+                  errorTxt={formErrors.selectedCourse}
+                />
               </div>
             </div>
             <div>
@@ -193,24 +176,18 @@ const FormModal = ({ openModal, closeModal }) => {
                 How did you hear about TechyJaunt?
               </label>
               <div className="w-full">
-                <Select
+                <GlobalSelect
+                  options={howHeard}
                   name="knowlegeOfTechyJaunt"
-                  value={formData.knowlegeOfTechyJaunt}
-                  onChange={(e) => {
+                  inputVal={formData.knowlegeOfTechyJaunt}
+                  handleChange={(e) => {
                     setFormData({
                       ...formData,
                       knowlegeOfTechyJaunt: e,
                     });
                   }}
-                  aria-required
-                >
-                  <Option value="instagram">INSTAGRAM</Option>
-                  <Option value="facebook">FACEBOOK</Option>
-                  <Option value="whatsapp-tv">WHATSAPP TV</Option>
-                  <Option value="through-a-friend">THROUGH A FRIEND</Option>
-                  <Option value="fajo-monie">FAJO MONIE</Option>
-                  <Option value="others">OTHERS</Option>
-                </Select>
+                  errorTxt={formErrors.knowlegeOfTechyJaunt}
+                />
               </div>
             </div>
           </div>
@@ -231,11 +208,13 @@ const FormModal = ({ openModal, closeModal }) => {
             ></textarea>
           </div>
           <Modal.Footer>
-            {/* <PaystackButton
-              className="mx-auto bg-blue-500 text-white p-2 rounded"
-              {...componentProps}
-            /> */}
-            <button type="submit" onClick={handleSubmit}>SUBMIT</button>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="mx-auto bg-blue-500 text-white p-4 rounded"
+            >
+              SUBMIT
+            </button>
           </Modal.Footer>
         </form>
       </Modal.Body>

@@ -63,9 +63,11 @@ export function PhoneNumber({ id, inputName, handleChange, inputVal, errorTxt })
           inputMode="numeric"
           placeholder="Mobile Number"
           // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
+          className={`rounded-l-none ${
+            errorTxt ? "!border-red-500" : "!border-blue-gray-200"
+          } focus:!border-black`}
           labelProps={{
-            className: "before:content-none after:content-none",
+            className: "hidden",
           }}
           containerProps={{
             className: "min-w-0",

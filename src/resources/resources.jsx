@@ -205,3 +205,74 @@ export const galleryImg = [
     src: gallery9,
   }
 ];
+
+export const courses = [
+  {
+    id: 0,
+    courseName: "Select an option",
+    value: "",
+  },
+  {
+    id: 1,
+    courseName: "UI/UX DESIGN",
+    value: "ui/ux design",
+  },
+  {
+    id: 2,
+    courseName: "FRONTEND WEB DEVELOPMENT",
+    value: "frontend web development",
+  },
+  {
+    id: 3,
+    courseName: "BACKEND WEB DEVELOPMENT",
+    value: "backend web development",
+  },
+  {
+    id: 4,
+    courseName: "PRODUCT MANAGEMENT",
+    value: "product management",
+  },
+  {
+    id: 5,
+    courseName: "DATA ANALYSIS",
+    value: "data analysis",
+  },
+  {
+    id: 6,
+    courseName: "CYBER SECURITY",
+    value: "cyber security",
+  },
+];
+
+export const howHeard = [
+  {
+    id: 0,
+    courseName: "Select an option",
+    value: "",
+  },
+  {
+    id: 1,
+    courseName: "INSTAGRAM",
+    value: "instagram",
+  },
+  {
+    id: 2,
+    courseName: "FACEBOOK",
+    value: "facebook",
+  },
+  {
+    id: 3,
+    courseName: "WHATSAPP TV",
+    value: "whatsapp tv",
+  },
+  {
+    id: 4,
+    courseName: "THROUGH A FRIEND",
+    value: "through a friend",
+  },
+  {
+    id: 5,
+    courseName: "FAJO MONIE",
+    value: "fajo monie",
+  },
+];

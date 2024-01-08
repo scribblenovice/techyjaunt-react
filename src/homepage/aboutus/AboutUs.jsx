@@ -15,7 +15,7 @@ const AboutUs = () => {
                   About Us
                 </h2>
               </div>
-              <p className="font-light md:font-normal mb-10 text-sm sm:text-base leading-7 text-gray-500">
+              <p className="font-normal mb-10 text-base leading-7 text-gray-500">
                 Techy Jaunt is a community of tech enthusiasts, we onboard,
                 educate and train tech enthusiasts, keeping you up to date on
                 emerging technologies and relevant tech skills. We aim to be the
@@ -409,7 +409,7 @@ const AboutUs = () => {
                       01/01/2023
                     </time>
                   </div>
-                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     TechyJaunt founded
                   </p>
                 </div>
@@ -421,7 +421,7 @@ const AboutUs = () => {
                       08/04/2023
                     </time>
                   </div>
-                  <p className="font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     Youth Enterpreneur Summit 2.0
                   </p>
                 </div>
@@ -447,7 +447,7 @@ const AboutUs = () => {
                       09/05/2023
                     </time>
                   </div>
-                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     TechyJaunt Launchpad 1.0
                   </p>
                 </div>
@@ -459,7 +459,7 @@ const AboutUs = () => {
                       12/08/2023
                     </time>
                   </div>
-                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     Coinstore Csconnect Abuja
                   </p>
                 </div>
@@ -484,7 +484,7 @@ const AboutUs = () => {
                       25/10/2023
                     </time>
                   </div>
-                  <p className=" font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     TechyJaunt Launchpad 2.0
                   </p>
                 </div>
@@ -496,7 +496,7 @@ const AboutUs = () => {
                       25/11/2023
                     </time>
                   </div>
-                  <p className="font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     LinkedIn Local, University of Nigeria
                   </p>
                 </div>
@@ -521,7 +521,7 @@ const AboutUs = () => {
                       30/11/2023
                     </time>
                   </div>
-                  <p className="text-slate-500 font-light md:font-normal text-gray-500">
+                  <p className="font-normal text-base leading-7 text-gray-500">
                     Young Change-makers conference in partnership with United
                     Nations
                   </p>

@@ -4,7 +4,7 @@ import VideoChanger from "../../globalcomponents/VideoChanger";
 const Vid1 = () => {;
   return (
     <VideoChanger
-    fullName="Balogun Juliana" thumbNail="thumb1" vidSrc={vidSrc}/>
+    fullName="Amarachi Emenike" thumbNail="thumb1" vidSrc={vidSrc}/>
     
   );
 };
