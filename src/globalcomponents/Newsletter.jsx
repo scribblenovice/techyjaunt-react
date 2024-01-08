@@ -192,7 +192,7 @@ const NewsLetter = () => {
         }}
         position='center'
       >
-        <ModalHeader className="border-none h-2"></ModalHeader>
+        <Modal.Header className="border-none h-2"></Modal.Header>
 
         <Modal.Body className="p-14 md:p-20 grid place-items-center gap-y-5">
           <div className={`${modalError ? "block" : "hidden"}`}>
