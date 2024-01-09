@@ -12,7 +12,7 @@ const FormModal = ({ openModal, closeModal }) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [modalError, setModalError] = useState(true);
-  const [openModal, setOpenModal] = useState(false);
+  const [open, setOpen] = useState(false);
   const countryCode = sessionStorage.getItem("countryCode");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -79,7 +79,7 @@ const FormModal = ({ openModal, closeModal }) => {
         .then((res) => {
           if (res.data.status === "subscribed") {
             setModalError(false);
-            setOpenModal(true);
+            setOpen(true);
             setMessage(
               "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
             );
@@ -89,12 +89,12 @@ const FormModal = ({ openModal, closeModal }) => {
           }
           if (res.data.status === "alreadysignedup") {
             setModalError(true);
-            setOpenModal(true);
+            setOpen(true);
             setMessage("YOU HAVE ALREADY SIGNED UP FOR THE COHORT!");
           }
           if (res.data.status === "failed") {
             setModalError(true);
-            setOpenModal(true);
+            setOpen(true);
             setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
           }
         });
@@ -243,9 +243,9 @@ const FormModal = ({ openModal, closeModal }) => {
         </Modal.Body>
       </Modal>
       <Modal
-        show={openModal}
+        show={open}
         onClose={() => {
-          setOpenModal(false);
+          setOpen(false);
         }}
         position="center"
       >

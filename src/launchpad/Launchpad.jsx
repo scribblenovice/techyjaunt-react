@@ -109,6 +109,7 @@ const LaunchPad = () => {
               ref={videoRef}
               src={vidSrc}
               loop
+              autoPlay
             ></video>
             <div className="playbtn absolute bottom-10 left-0 right-0 mx-auto text-center">
               <button
