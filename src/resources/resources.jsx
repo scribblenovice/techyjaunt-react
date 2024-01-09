@@ -162,7 +162,7 @@ export const testimonialInfo = [
     id: 0,
     img: testimonial3,
     writeUp:
-      "Grateful to our tutor for his invaluable support and tealent in simplifying complex concepts to enhance learning. This has created a motivated environment that has enabled me to grow",
+      "Grateful to our tutor for his invaluable support and talent in simplifying complex concepts to enhance learning. This has created a motivated environment that has enabled me to grow",
     fullName: "David",
   },
 ];

@@ -17,7 +17,7 @@ server.use(cors());
 // cohort registration
 server.post("/signup", (req, res)=>{
     const { fullName, email, phoneNumber, selectedCourse, knowlegeOfTechyJaunt, expectation } = req.body;
-    let launchpadListId = "af8bb782-cd32-11ed-92c6-4745dc69f879";
+    let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
   if (
     fullName === "" ||
