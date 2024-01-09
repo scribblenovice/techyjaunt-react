@@ -85,7 +85,8 @@ const FormModal = ({ openModal, closeModal }) => {
             );
             closeModal;
             setTimeout(() => {
-              navigate("https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm");
+              // directly change the active URL to navigate
+            window.location.href = 'https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm';
             }, 5000);
           }
           if (res.data.status === "alreadysignedup") {
