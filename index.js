@@ -53,7 +53,7 @@ server.post("/signup", (req, res)=>{
         email_address: email,
         fields: {
           EmailAddress: email,
-          FullName: fullName,
+          FirstName: fullName,
           SelectedCourse: selectedCourse,
           HowYouHeard: knowlegeOfTechyJaunt,
           Expectation: expectation

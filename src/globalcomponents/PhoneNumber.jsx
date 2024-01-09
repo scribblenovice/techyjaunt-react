@@ -62,7 +62,7 @@ export function PhoneNumber({ id, inputName, handleChange, inputVal, errorTxt })
           type="tel"
           inputMode="numeric"
           placeholder="Mobile Number"
-          // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           className={`rounded-l-none ${
             errorTxt ? "!border-red-500" : "!border-blue-gray-200"
           } focus:!border-black`}
