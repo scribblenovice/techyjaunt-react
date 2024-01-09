@@ -77,12 +77,13 @@ const FormModal = ({ openModal, closeModal }) => {
       axios
         .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
         .then((res) => {
-          if (res.data.status === "subscribed") {
+          if (res.data.status === "registered") {
             setModalError(false);
             setOpen(true);
             setMessage(
               "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
             );
+            closeModal;
             setTimeout(() => {
               navigate("https://www.google.com");
             }, 3000);
@@ -251,13 +252,13 @@ const FormModal = ({ openModal, closeModal }) => {
       >
         <Modal.Header className="border-none h-2"></Modal.Header>
 
-        <Modal.Body className="p-14 md:p-20 grid place-items-center gap-y-5">
+        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
           <div className={`${modalError ? "block" : "hidden"}`}>
-            <i className={`ri-error-warning-line text-red-500 text-5xl`}></i>
+            <i className={`ri-error-warning-line text-red-500 text-7xl`}></i>
           </div>
           <div className={`${!modalError ? "block" : "hidden"}`}>
             <i
-              className={`ri-checkbox-circle-line text-green-500 text-5xl`}
+              className={`ri-checkbox-circle-line text-green-500 text-7xl`}
             ></i>
           </div>
           <div className="text-xl md:text-2xl text-center">{message}</div>
