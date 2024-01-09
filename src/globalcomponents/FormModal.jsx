@@ -85,8 +85,8 @@ const FormModal = ({ openModal, closeModal }) => {
             );
             closeModal;
             setTimeout(() => {
-              navigate("https://www.google.com");
-            }, 3000);
+              navigate("https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm");
+            }, 5000);
           }
           if (res.data.status === "alreadysignedup") {
             setModalError(true);
