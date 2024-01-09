@@ -4,15 +4,17 @@ const TypingAnimation = () => {
       <TypeAnimation
         sequence={[
           "DATA ANALYSIS",
-          1000,
+          2000,
           "UI/UX DESIGN",
-          1000,
+          2000,
           "PRODUCT MANAGEMENT",
-          1000,
+          2000,
           "FRONTEND DEVELOPMENT",
-          1000,
+          2000,
           "FRONTEND DEVELOPMENT",
-          1000,
+          2000,
+           "CYBER SECURITY",
+          2000,
         ]}
         className="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl "
         wrapper="span"
