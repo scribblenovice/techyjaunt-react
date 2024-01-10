@@ -140,7 +140,7 @@ const LaunchPad = () => {
             </p>
             <div className="w-full grid place-items-center">
               <div className="w-fit">
-                <TypingAnimation />
+                <TypingAnimation typingClass="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl " />
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@ const LaunchPad = () => {
         </div>
       </section>
       <MailBtn />
-      <FooterSection/>
+      <FooterSection />
     </div>
   );
 };

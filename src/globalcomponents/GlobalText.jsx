@@ -6,7 +6,7 @@ export function GlobalText({ labelProps, labelTxt, id, handleChange, inputType, 
       <Input
         className={`${
           errorTxt ? "!border-red-500" : "!border-blue-gray-200"
-        } focus:!border-black`}
+        } focus:!border-black w-full`}
         labelProps={labelProps}
         type={inputType}
         id={id}

@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import fetch from "node-fetch"
-import path from "path"
-import { getGlobals } from 'common-es'
-const { __dirname, __filename } = getGlobals(import.meta.url)
+import fetch from "node-fetch";
+import path from "path";
+import { getGlobals } from "common-es";
+const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
 let api_key = "d84e2d1c-c986-498c-a914-b7e895cb8849";
 const port = process.env.PORT || 3001;
@@ -15,12 +15,21 @@ server.use(express.json());
 server.use(cors());
 
 // cohort registration
-server.post("/signup", (req, res)=>{
-    const { fullName, email, phoneNumber, selectedCourse, knowlegeOfTechyJaunt, expectation } = req.body;
-    let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
+server.post("/signup", (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    selectedCourse,
+    knowlegeOfTechyJaunt,
+    expectation,
+  } = req.body;
+  let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
   if (
-    fullName === "" ||
+    firstName === "" ||
+    lastName === "" ||
     email === "" ||
     phoneNumber === "" ||
     selectedCourse === "" ||
@@ -32,58 +41,41 @@ server.post("/signup", (req, res)=>{
     });
   }
 
-  console.log("Attempting Sign Up User🧑...", {
-    fullName,
-    email,
-    phoneNumber,
-    selectedCourse,
-    knowlegeOfTechyJaunt,
-    expectation,
-  });
-
-   fetch(
-    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        SelectedCourse: selectedCourse,
+        HowYouHeard: knowlegeOfTechyJaunt,
+        Expectation: expectation,
       },
-      body: JSON.stringify({
-        api_key,
-        email_address: email,
-        fields: {
-          EmailAddress: email,
-          FirstName: fullName,
-          SelectedCourse: selectedCourse,
-          HowYouHeard: knowlegeOfTechyJaunt,
-          Expectation: expectation
-        },
-        tags: ["STUDENT"],
-        status: "SUBSCRIBED",
-      }),
-    }
-  )
+      tags: ["STUDENT"],
+      status: "SUBSCRIBED",
+    }),
+  })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.status === "SUBSCRIBED") {
-
+       
         return res.status(200).json({
           status: "registered",
         });
+
       }
       if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
-
         return res.status(200).json({
           status: "alreadysignedup",
         });
       }
       if (data.error.code === "INVALID_PARAMETERS") {
-        // console.log("Invalid Parameters ❌", {
-        //   fullName,
-        //   email
-        // });
-
         return res.status(200).json({
           status: "failed",
         });
@@ -95,23 +87,21 @@ server.post("/signup", (req, res)=>{
         status: "failed",
       });
     });
-  })
+});
 
-
-  // email subscription
+// email subscription
 server.post("/subscribe", (req, res) => {
   let listId = "56fcc9f4-c91c-11ed-a5a5-197bd1869247";
-  const { subscriberName, email} = req.body;
+  const { firstName,lastName, email } = req.body;
 
-  console.log("Attempting Subscription 🧑...");
-  if (email === "" || subscriberName === "") {
+  if (email === "" || firstName === "" || lastName==="") {
     return res.status(400).json({
       status: "failed",
       message: "Bad Request",
     });
   }
 
-   fetch(`https://emailoctopus.com/api/1.6/lists/${listId}/contacts`, {
+  fetch(`https://emailoctopus.com/api/1.6/lists/${listId}/contacts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -120,7 +110,8 @@ server.post("/subscribe", (req, res) => {
       api_key,
       email_address: email,
       fields: {
-        FirstName: subscriberName,
+        FirstName: firstName,
+        LastName: lastName
       },
       tags: ["VIP"],
       status: "SUBSCRIBED",

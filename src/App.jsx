@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" index={true} element={<Homepage />}></Route>
         <Route path="/launchpad" element={<LaunchPad />}></Route>
+        {/* <Route path='/checkout' element={<Checkout />}></Route> */}
       </Routes>
     </BrowserRouter>
   );

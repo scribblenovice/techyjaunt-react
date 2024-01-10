@@ -1,14 +1,18 @@
+import { Flowbite } from "flowbite-react";
 import { useState } from "react";
 import { Button, Modal, ModalHeader } from "flowbite-react";
 import { Select, Option } from "@material-tailwind/react";
 import axios from "axios";
+import GlobalText from "./GlobalText";
 
 const NewsLetter = () => {
   const [message, setMessage] = useState("")
   const [modalError, setModalError] = useState(true)
   const [openModal, setOpenModal] = useState(false);
+  const [openSubscribeModal, setOpenSubscribeModal] = useState(false)
   const [emailSubscriber, setEmailSubscribe] = useState({
-    subscriberName: "",
+    firstName: "",
+    lastName:"",
     email: "",
   });
  const [formErrors, setFormErrors] = useState({});
@@ -17,10 +21,14 @@ const NewsLetter = () => {
    let errors = {};
    let isValid = true;
 
-   if (!emailSubscriber.subscriberName.trim()) {
-     errors.subscriberName = "enter your name";
+   if (!emailSubscriber.firstName.trim()) {
+     errors.firstName = "enter your name";
      isValid = false;
    }
+    if (!emailSubscriber.lastName.trim()) {
+        errors.lastName = "enter your name";
+        isValid = false;
+      }
 
    if (!emailSubscriber.email.trim()) {
      errors.email = "email is required";
@@ -48,6 +56,7 @@ const NewsLetter = () => {
            setModalError(false);
            setOpenModal(true);
            setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
+           setOpenSubscribeModal(false);
          }
          if (res.data.status === "existing") {
            setModalError(true);
@@ -60,11 +69,8 @@ const NewsLetter = () => {
            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
          }
        });
-   }else{
-        setModalError(true)
-        setOpenModal(true)
-        setMessage("PLEASE FILL OUT THE FORM CORRECTLY!")
-       }
+   }
+
  };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,7 +85,7 @@ const NewsLetter = () => {
       <div className="relative isolate overflow-hidden py-16 bg-gray-900 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 xl:max-w-none xl:grid-cols-2">
-            <div className="max-w-xl xl:max-w-xl">
+            <div className="max-w-xl xl:max-w-xl grid place-self-center">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Subscribe to our newsletter.
               </h2>
@@ -87,51 +93,14 @@ const NewsLetter = () => {
                 We provide you with weekly updates of happenings in the African
                 technology ecostystem
               </p>
-              <form
-                className="mx-auto mt-6 grid place-items-center"
-                method="/subscribe"
-                onSubmit={handleSubmit}
+              <button
+                onClick={() => {
+                  setOpenSubscribeModal(true);
+                }}
+                className="mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
-                <div className="grid grid-cols-2 gap-x-5">
-                  <div>
-                    <label htmlFor="name" className="text-white">
-                      Your Name
-                    </label>
-                    <input
-                      id="name"
-                      name="subscriberName"
-                      type="text"
-                      onChange={handleChange}
-                      required
-                      className="min-w-0 w-full my-2 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email-address" className=" text-white">
-                      Email address
-                    </label>
-                    <input
-                      id="email-address"
-                      name="email"
-                      type="email"
-                      onChange={handleChange}
-                      required
-                      className="min-w-0 w-full my-2 rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  onClick={() => {
-                    handleSubmit();
-                  }}
-                  className="mx-auto mt-5 rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                >
-                  Subscribe
-                </button>
-              </form>
+                SUBCRIBE NOW
+              </button>
             </div>
             <dl className="xl:grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2 hidden">
               <div className="flex flex-col items-start">
@@ -186,25 +155,90 @@ const NewsLetter = () => {
         </div>
       </div>
       <Modal
+        show={openSubscribeModal}
+        onClose={() => {
+          setOpenSubscribeModal(false);
+          setFormErrors({})
+        }}
+      
+      >
+          <Modal.Header className="border-none h-0">
+          </Modal.Header>
+          <Modal.Body className="p-14">
+            <h3 className="text-center font-bold text-lg">SUBSCRIBE TO OUR NEWSLETTER</h3>
+            <form
+              className="mx-auto grid grid-cols-1 place-items-center w-full gap-y-5"
+              method="/subscribe"
+              onSubmit={handleSubmit}
+            >
+              <div className="w-full">
+                <label htmlFor="name" className="text-gray-500">
+                  First Name
+                </label>
+                <GlobalText
+                  id="first-name"
+                  inputName="firstName"
+                  inputType="text"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.firstName}
+                />
+              </div>
+              <div className="w-full">
+                <label htmlFor="name" className="text-gray-500">
+                  Last Name
+                </label>
+                <GlobalText
+                  id="last-name"
+                  inputName="lastName"
+                  inputType="text"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.lastName}
+                />
+              </div>
+              <div className="w-full">
+                <label htmlFor="email-address" className=" text-gray-500">
+                  Email address
+                </label>
+                <GlobalText
+                  id="email"
+                  inputName="email"
+                  inputType="email"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.email}
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={() => {
+                  handleSubmit();
+                }}
+                className="mx-auto mt-5 rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                SUBCRIBE NOW
+              </button>
+            </form>
+          </Modal.Body>
+      </Modal>
+      <Modal
         show={openModal}
         onClose={() => {
           setOpenModal(false);
         }}
-        position='center'
+        className="grid place-items-center"
       >
         <Modal.Header className="border-none h-2"></Modal.Header>
 
         <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
-          <div className={`${modalError ? "block" : "hidden"}`}>
+          <div className={``}>
             <i
-              className={`ri-error-warning-line text-red-500 text-7xl`}
+              className={`${
+                modalError
+                  ? "ri-error-warning-line text-red-500"
+                  : "ri-checkbox-circle-line text-green-500"
+              }  text-7xl`}
             ></i>
           </div>
-          <div className={`${!modalError ? "block" : "hidden"}`}>
-            <i
-              className={`ri-checkbox-circle-line text-green-500 text-7xl`}
-            ></i>
-          </div>
+
           <div className="text-xl md:text-2xl text-center">{message}</div>
         </Modal.Body>
       </Modal>

@@ -7,6 +7,7 @@ import axios from "axios";
 import GlobalSelect from "./GlobalSelect";
 import { courses, howHeard } from "../resources/resources";
 import { useNavigate } from "react-router-dom";
+import Paystack from "./Paystack";
 
 const FormModal = ({ openModal, closeModal }) => {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const FormModal = ({ openModal, closeModal }) => {
   const [open, setOpen] = useState(false);
   const countryCode = sessionStorage.getItem("countryCode");
   const [formData, setFormData] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phoneNumber: "",
     selectedCourse: "",
@@ -24,9 +26,10 @@ const FormModal = ({ openModal, closeModal }) => {
   });
 
   const payload = {
-    fullName: formData.fullName,
-    email: formData.email,
-    phoneNumber: countryCode + formData.phoneNumber,
+    firstName: formData.firstName.trim(),
+    lastName: formData.lastName.trim(),
+    email: formData.email.trim(),
+    phoneNumber: (countryCode + formData.phoneNumber).trim(),
     selectedCourse: formData.selectedCourse,
     knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
     expectation: formData.expectation,
@@ -37,11 +40,14 @@ const FormModal = ({ openModal, closeModal }) => {
     let errors = {};
     let isValid = true;
 
-    if (!formData.fullName.trim()) {
-      errors.username = "enter your name";
+    if (!formData.firstName.trim()) {
+      errors.firstname = "enter your name";
       isValid = false;
     }
-
+    if (!formData.lastName.trim()) {
+      errors.lastname = "enter your name";
+      isValid = false;
+    }
     if (!formData.email.trim()) {
       errors.email = "email is required";
       isValid = false;
@@ -83,11 +89,11 @@ const FormModal = ({ openModal, closeModal }) => {
             setMessage(
               "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
             );
-            closeModal;
+            ;
             setTimeout(() => {
-              // directly change the active URL to navigate
-            window.location.href = 'https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm';
-            }, 5000);
+              window.location.href =
+                "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";
+            }, 3000);
           }
           if (res.data.status === "alreadysignedup") {
             setModalError(true);
@@ -113,7 +119,7 @@ const FormModal = ({ openModal, closeModal }) => {
 
   return (
     <>
-      <Modal show={openModal} onClose={closeModal} className="">
+      <Modal show={openModal} onClose={closeModal} className={`${!modalError?"hidden": ""}`}>
         <Modal.Header>SIGN UP FOR THE COHORT 3!</Modal.Header>
         <Modal.Body>
           <form
@@ -122,20 +128,35 @@ const FormModal = ({ openModal, closeModal }) => {
             method="POST"
             action="/signup"
           >
-            <div className="relative z-0 w-full mb-6">
+            <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
               <div className="">
                 <label
                   htmlFor="phone"
                   className="mb-5 font-medium  text-sm text-gray-500"
                 >
-                  Full Name
+                  First Name
                 </label>
                 <GlobalText
-                  labelTxt="Full Name"
-                  id="name"
-                  inputName="fullName"
+                  labelTxt=""
+                  id="first-name"
+                  inputName="firstName"
                   handleChange={handleChange}
-                  errorTxt={formErrors.username}
+                  errorTxt={formErrors.firstname}
+                />
+              </div>
+              <div className="">
+                <label
+                  htmlFor="phone"
+                  className="mb-5 font-medium  text-sm text-gray-500"
+                >
+                  Last Name
+                </label>
+                <GlobalText
+                  labelTxt=""
+                  id="last-name"
+                  inputName="lastName"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.lastname}
                 />
               </div>
             </div>
@@ -238,7 +259,7 @@ const FormModal = ({ openModal, closeModal }) => {
                 onClick={handleSubmit}
                 className="mx-auto bg-blue-500 text-white p-4 rounded"
               >
-                SUBMIT
+                REGISTER
               </button>
             </Modal.Footer>
           </form>
@@ -254,12 +275,13 @@ const FormModal = ({ openModal, closeModal }) => {
         <Modal.Header className="border-none h-2"></Modal.Header>
 
         <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
-          <div className={`${modalError ? "block" : "hidden"}`}>
-            <i className={`ri-error-warning-line text-red-500 text-7xl`}></i>
-          </div>
-          <div className={`${!modalError ? "block" : "hidden"}`}>
+          <div>
             <i
-              className={`ri-checkbox-circle-line text-green-500 text-7xl`}
+              className={`${
+                modalError
+                  ? "ri-error-warning-line text-red-500"
+                  : "ri-checkbox-circle-line text-green-500"
+              }  text-7xl`}
             ></i>
           </div>
           <div className="text-xl md:text-2xl text-center">{message}</div>

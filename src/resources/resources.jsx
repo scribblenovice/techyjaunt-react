@@ -33,6 +33,7 @@ import gallery6 from "../images/gallery/gallery6.webp";
 import gallery7 from "../images/gallery/gallery7.webp";
 import gallery8 from "../images/gallery/gallery8.webp";
 import gallery9 from "../images/gallery/gallery9.webp";
+import gallery10 from "../images/gallery/gallery10.webp";
 
 export const PartnerImg = [
   {
@@ -203,6 +204,10 @@ export const galleryImg = [
   {
     id: 8,
     src: gallery9,
+  },
+  {
+    id: 9,
+    src: gallery10,
   }
 ];
 

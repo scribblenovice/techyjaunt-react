@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-const TypingAnimation = () => {
+const TypingAnimation = ({typingClass}) => {
     return (
       <TypeAnimation
         sequence={[
@@ -11,12 +11,12 @@ const TypingAnimation = () => {
           2000,
           "FRONTEND DEVELOPMENT",
           2000,
-          "FRONTEND DEVELOPMENT",
+          "BACKEND DEVELOPMENT",
           2000,
            "CYBER SECURITY",
           2000,
         ]}
-        className="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl "
+        className={typingClass}
         wrapper="span"
         speed={50}
         deletionSpeed={50}

@@ -1,16 +1,16 @@
 import { PaystackButton } from "react-paystack";
 
-const Paystack = ()=>{
+const Paystack = ({email, paystackClass})=>{
     const config = {
-    reference: new Date().getTime().toString(),
-    email: formData.email,
-    amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: "pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f",
-  };
+      reference: new Date().getTime().toString(),
+      email: { email },
+      amount: 5000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+      publicKey: "pk_live_6819a39551ca62d6dc2fae282a80274de2bd1309",
+    };
 
   const componentProps = {
     ...config,
-    text: "PROCEED",
+    text: "PAY HERE",
     onSuccess: () => alert("SUCCESSFUL TRANSACTION"),
     onClose: () => {
       alert("TRANSACTION FAILED");
@@ -18,13 +18,14 @@ const Paystack = ()=>{
     },
   };
   
-    
+    // "mx-auto bg-blue-500 text-white p-2 rounded"
     return (
       <>
         <PaystackButton
-          className="mx-auto bg-blue-500 text-white p-2 rounded"
+          className={paystackClass}
           {...componentProps}
         />
       </>
     );
 }
+export default Paystack
