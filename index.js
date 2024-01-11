@@ -3,9 +3,11 @@ import cors from "cors";
 import fetch from "node-fetch";
 import path from "path";
 import { getGlobals } from "common-es";
+import dotenv from "dotenv"
+dotenv.config();
 const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
-let api_key = "d84e2d1c-c986-498c-a914-b7e895cb8849";
+let api_key = process.env.EMAIL_OCTOPUS_API_KEY;
 const port = process.env.PORT || 3001;
 
 const buildPath = path.join(__dirname, "dist");
