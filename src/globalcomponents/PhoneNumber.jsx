@@ -9,7 +9,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-export function PhoneNumber({ id, inputName, handleChange, inputVal, errorTxt }) {
+export function PhoneNumber({ id, inputName, handleChange, inputVal, errorTxt, classes }) {
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(0);
   const { name, flags, countryCallingCode } = countries[country];
@@ -64,7 +64,7 @@ export function PhoneNumber({ id, inputName, handleChange, inputVal, errorTxt })
           placeholder="Mobile Number"
           className={`rounded-l-none ${
             errorTxt ? "!border-red-500" : "!border-blue-gray-200"
-          } focus:!border-black`}
+          } focus:!border-black ${classes}`}
           labelProps={{
             className: "hidden",
           }}

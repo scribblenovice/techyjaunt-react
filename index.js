@@ -144,6 +144,63 @@ server.post("/subscribe", (req, res) => {
     });
 });
 
+server.post("/checkout", (req, res) => {
+  let paidListId = "688c74b4-afe2-11ee-9534-f9dec77b0681";
+  const { firstName, lastName, email, selectedCourse } = req.body;
+
+  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "") {
+    return res.status(400).json({
+      status: "failed",
+      message: "Bad Request",
+    });
+  }
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${paidListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        FirstName: firstName,
+        LastName: lastName,
+      },
+      tags: ["VIP"],
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "paid",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "existing",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(304).json({
+          status: "invalid",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+
+
+
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
 });

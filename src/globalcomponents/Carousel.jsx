@@ -2,6 +2,7 @@
 
 import { Carousel } from "flowbite-react";
 import { galleryImg } from "../resources/resources";
+import { Fade } from "react-reveal";
 
 function CarouselSlider() {
   return (
@@ -11,20 +12,27 @@ function CarouselSlider() {
           HIGHLIGHTS OF OUR JOURNEY
         </h2>
       </div>
-      <Carousel
-        slideInterval="4000"
-        pauseOnHover
-        className="my-10 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] bg-black rounded-xl"
-        indicators={false}
-      >
-        {galleryImg.map((el) => {
-          return (
-            <div className="bg-black lg:w-[60%] h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
-              <img key={el.id} src={el.src} alt="" className="w-full h-full" />
-            </div>
-          );
-        })}
-      </Carousel>
+      <Fade bottom >
+        <Carousel
+          slideInterval="4000"
+          pauseOnHover
+          className="my-10 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] bg-black rounded-xl"
+          indicators={false}
+        >
+          {galleryImg.map((el) => {
+            return (
+              <div className="bg-black lg:w-[60%] h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
+                <img
+                  key={el.id}
+                  src={el.src}
+                  alt=""
+                  className="w-full h-full"
+                />
+              </div>
+            );
+          })}
+        </Carousel>
+      </Fade>
     </div>
   );
 }

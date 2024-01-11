@@ -1,6 +1,17 @@
 import { Input } from "@material-tailwind/react";
  
-export function GlobalText({ labelProps, labelTxt, id, handleChange, inputType, inputName, errorTxt }) {
+export function GlobalText({
+  labelProps,
+  labelTxt,
+  id,
+  handleChange,
+  inputType,
+  inputVal,
+  inputName,
+  errorTxt,
+  isDisabled,
+  placeTxt
+}) {
   return (
     <div className={`w-full`}>
       <Input
@@ -13,6 +24,9 @@ export function GlobalText({ labelProps, labelTxt, id, handleChange, inputType, 
         label={labelTxt}
         onChange={handleChange}
         name={inputName}
+        disabled={isDisabled}
+        value={inputVal}
+        placeholder={placeTxt}
       />
       {errorTxt && <p className="text-xs text-red-500">{errorTxt}</p>}
     </div>

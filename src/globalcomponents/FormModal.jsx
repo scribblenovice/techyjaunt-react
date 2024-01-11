@@ -7,7 +7,6 @@ import axios from "axios";
 import GlobalSelect from "./GlobalSelect";
 import { courses, howHeard } from "../resources/resources";
 import { useNavigate } from "react-router-dom";
-import Paystack from "./Paystack";
 
 const FormModal = ({ openModal, closeModal }) => {
   const navigate = useNavigate();
@@ -89,6 +88,7 @@ const FormModal = ({ openModal, closeModal }) => {
             setMessage(
               "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
             );
+            
             ;
             setTimeout(() => {
               window.location.href =
@@ -119,7 +119,7 @@ const FormModal = ({ openModal, closeModal }) => {
 
   return (
     <>
-      <Modal show={openModal} onClose={closeModal} className={`${!modalError?"hidden": ""}`}>
+      <Modal show={openModal} onClose={closeModal}>
         <Modal.Header>SIGN UP FOR THE COHORT 3!</Modal.Header>
         <Modal.Body>
           <form
