@@ -56,8 +56,6 @@ const Checkout = () => {
       amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
       publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
     };
-
-    console.log(import.meta.env.VITE_PUBLIC_TEST_KEY)
   const componentProps = {
     ...config,
     text: "PAY NOW",
@@ -71,7 +69,7 @@ const Checkout = () => {
      console.log('transaction canceled')
     },
   };
-  const handleChange = () => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
