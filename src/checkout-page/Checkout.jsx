@@ -54,18 +54,18 @@ const Checkout = () => {
       reference: new Date().getTime().toString(),
       email: formData.email,
       amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-      publicKey: process.env.REACT_APP_PS_PUBLIC_TEST_KEY,
+      publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
     };
 
+    console.log(import.meta.env.VITE_PUBLIC_TEST_KEY)
   const componentProps = {
     ...config,
     text: "PAY NOW",
     onSuccess: () => {
       sessionStorage.setItem("isPaid", true)
       setTimeout(()=>{
-        navigate(process.env.REACT_APP_PS_PAID_GROUP);
+        navigate(import.meta.env.VITE_PAID_GROUP);
       },2000)
-
     },
     onClose: () => {
      console.log('transaction canceled')
