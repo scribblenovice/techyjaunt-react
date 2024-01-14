@@ -1,7 +1,6 @@
 import { Input } from "@material-tailwind/react";
  
 export function GlobalText({
-  labelProps,
   labelTxt,
   id,
   handleChange,
@@ -10,15 +9,17 @@ export function GlobalText({
   inputName,
   errorTxt,
   isDisabled,
-  placeTxt
+  placeTxt,
 }) {
   return (
     <div className={`w-full`}>
       <Input
-        className={`${
-          errorTxt ? "!border-red-500" : "!border-blue-gray-200"
-        } focus:!border-black w-full`}
-        labelProps={labelProps}
+        className={`!border ${
+          errorTxt ? "!border-red-500" : "!border-gray-400"
+        } text-gray-900 focus:!border-black focus:!border-2 ring-0 focus:shadow-none`}
+        labelProps={{
+          className: "hidden",
+        }}
         type={inputType}
         id={id}
         label={labelTxt}

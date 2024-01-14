@@ -11,19 +11,17 @@ const Partners = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 test pt-10">
             {PartnerImg.map((j) => {
               return (
-              <Zoom>
-                <div
-                  key={j.id}
-                  className="w-full h-full grid place-items-center"
-                >
-                  <img
-                    className={`${
-                      j.id == 2 || j.id == 3 ? "w-[40%]" : "w-[70%]"
-                    }`}
-                    src={j.src}
-                    alt=""
-                  />
-                </div>
+                <Zoom>
+                  <div className="w-full h-full grid place-items-center">
+                    <img
+                      className={`${
+                        j.id == 2 || j.id == 3 ? "w-[40%]" : "w-[70%]"
+                      }`}
+                      key={j.id}
+                      src={j.src}
+                      alt=""
+                    />
+                  </div>
                 </Zoom>
               );
             })}

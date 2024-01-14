@@ -5,11 +5,14 @@ const GlobalSelect = ({options, handleChange, inputVal, inputName, errorTxt} )=>
         <Select
           onChange={handleChange}
           value={inputVal}
-          className={`${
-            errorTxt ? "!border-red-500" : "!border-blue-gray-200"
-          }`}
           name={inputName}
+          className={`!border ${
+            errorTxt ? "!border-red-500" : "!border-gray-400"
+          } text-gray-900 focus:!border-black focus:!border-2 focus:!outline-0 focus:!shadow-none`}
           aria-required
+          labelProps={{
+            className: "hidden",
+          }}
         >
           {options.map((el) => {
             return (

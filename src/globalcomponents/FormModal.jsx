@@ -1,122 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal } from "flowbite-react";
-import { PhoneNumber } from "../globalcomponents/PhoneNumber";
 import GlobalText from "../globalcomponents/GlobalText";
 import axios from "axios";
 import GlobalSelect from "./GlobalSelect";
 import { courses, howHeard } from "../resources/resources";
 import { useNavigate } from "react-router-dom";
+import PhoneNumber from "./PhoneNumber";
 
-const FormModal = ({ openModal, closeModal }) => {
-  const navigate = useNavigate();
-  const [message, setMessage] = useState("");
-  const [modalError, setModalError] = useState(true);
-  const [open, setOpen] = useState(false);
-  const countryCode = sessionStorage.getItem("countryCode");
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    selectedCourse: "",
-    knowlegeOfTechyJaunt: "",
-    expectation: "",
-  });
-
-  const payload = {
-    firstName: formData.firstName.trim(),
-    lastName: formData.lastName.trim(),
-    email: formData.email.trim(),
-    phoneNumber: (countryCode + formData.phoneNumber).trim(),
-    selectedCourse: formData.selectedCourse,
-    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
-    expectation: formData.expectation,
-  };
-  const [formErrors, setFormErrors] = useState({});
-
-  const validateForm = () => {
-    let errors = {};
-    let isValid = true;
-
-    if (!formData.firstName.trim()) {
-      errors.firstname = "enter your name";
-      isValid = false;
-    }
-    if (!formData.lastName.trim()) {
-      errors.lastname = "enter your name";
-      isValid = false;
-    }
-    if (!formData.email.trim()) {
-      errors.email = "email is required";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "enter a valid email address";
-      isValid = false;
-    }
-
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = "phone number is required";
-      isValid = false;
-    }
-    if (formData.selectedCourse === "") {
-      errors.selectedCourse = "select an option";
-      isValid = false;
-    }
-
-    if (formData.knowlegeOfTechyJaunt === "") {
-      errors.knowlegeOfTechyJaunt = "select an option";
-      isValid = false;
-    }
-
-    setFormErrors(errors);
-    return isValid;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const isValid = validateForm();
-
-    if (isValid) {
-      // Submit the form data or perform other actions
-      axios
-        .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
-        .then((res) => {
-          if (res.data.status === "registered") {
-            setModalError(false);
-            setOpen(true);
-            setMessage(
-              "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
-            );
-            
-            ;
-            setTimeout(() => {
-              window.location.href =
-                "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";
-            }, 3000);
-          }
-          if (res.data.status === "alreadysignedup") {
-            setModalError(true);
-            setOpen(true);
-            setMessage("YOU HAVE ALREADY SIGNED UP FOR THE COHORT!");
-          }
-          if (res.data.status === "failed") {
-            setModalError(true);
-            setOpen(true);
-            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
-          }
-        });
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
+const FormModal = ({
+  phoneval,
+  openModal,
+  closeModal,
+  handleChange,
+  handleSubmit,
+  formErrors,
+  modalError,
+  message,
+  formData,
+  handleSelect1,
+  handleSelect2,
+  handleChange2,
+  shake,
+  phone,
+  open,
+  close
+}) => {
   return (
     <>
       <Modal show={openModal} onClose={closeModal}>
@@ -161,7 +70,7 @@ const FormModal = ({ openModal, closeModal }) => {
               </div>
             </div>
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
-              <div className="">
+              <div className=" w-full">
                 <label
                   htmlFor="phone"
                   className="mb-5 font-medium  text-sm text-gray-500"
@@ -171,7 +80,12 @@ const FormModal = ({ openModal, closeModal }) => {
                 <PhoneNumber
                   id="phone"
                   inputName="phoneNumber"
-                  handleChange={handleChange}
+                  inputVal={phoneval}
+                  handleChange={handleChange2}
+                  // onChange={(phone) => {
+                  //   setPhone(phone);
+                  //   sessionStorage.setItem("countryCode", phone);
+                  // }}
                   errorTxt={formErrors.phoneNumber}
                 />
               </div>
@@ -204,12 +118,7 @@ const FormModal = ({ openModal, closeModal }) => {
                     options={courses}
                     name="selectedCourse"
                     inputVal={formData.selectedCourse}
-                    handleChange={(e) => {
-                      setFormData({
-                        ...formData,
-                        selectedCourse: e,
-                      });
-                    }}
+                    handleChange={handleSelect1}
                     errorTxt={formErrors.selectedCourse}
                   />
                 </div>
@@ -226,12 +135,7 @@ const FormModal = ({ openModal, closeModal }) => {
                     options={howHeard}
                     name="knowlegeOfTechyJaunt"
                     inputVal={formData.knowlegeOfTechyJaunt}
-                    handleChange={(e) => {
-                      setFormData({
-                        ...formData,
-                        knowlegeOfTechyJaunt: e,
-                      });
-                    }}
+                    handleChange={handleSelect2}
                     errorTxt={formErrors.knowlegeOfTechyJaunt}
                   />
                 </div>
@@ -246,7 +150,7 @@ const FormModal = ({ openModal, closeModal }) => {
               </label>
               <textarea
                 name="expectation"
-                className="w-full border-2 border-gray-400 rounded-md resize-none p-3 mt-2"
+                className="w-full border-[1px] border-gray-400 rounded-md resize-none p-3 mt-2 focus:border-black focus:!border-2 focus:!outline-0 focus:!shadow-none"
                 id="event-expectations"
                 cols="30"
                 rows="1"
@@ -255,9 +159,12 @@ const FormModal = ({ openModal, closeModal }) => {
             </div>
             <Modal.Footer>
               <button
-                type="submit"
+                id="btn"
                 onClick={handleSubmit}
-                className="mx-auto bg-blue-500 text-white p-4 rounded"
+                type="submit"
+                className={`mx-auto bg-blue-500 text-white p-4 rounded ${
+                  shake ? "shake" : ""
+                }`}
               >
                 REGISTER
               </button>
@@ -267,9 +174,7 @@ const FormModal = ({ openModal, closeModal }) => {
       </Modal>
       <Modal
         show={open}
-        onClose={() => {
-          setOpen(false);
-        }}
+        onClose={close}
         position="center"
       >
         <Modal.Header className="border-none h-2"></Modal.Header>

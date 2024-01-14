@@ -3,18 +3,15 @@ import NavLinks from "../globalcomponents/NavLinks";
 import vidSrc from "../images/launchpad/launchpadvid.mp4";
 import LogoSrc from "../images/techy_jaunt_logo.svg";
 import { useState, useRef, useEffect } from "react";
-import { Button, Modal } from "flowbite-react";
-import { Select, Option } from "@material-tailwind/react";
-import { PhoneNumber } from "../globalcomponents/PhoneNumber";
 import FormModal from "../globalcomponents/FormModal";
 
-import GlobalText from "../globalcomponents/GlobalText";
 import Testimonial from "../globalcomponents/Testimonial";
 import FooterSection from "../globalcomponents/FooterSection";
 import Avatars from "../globalcomponents/Avatars";
 import TypingAnimation from "../globalcomponents/TypingAnimation";
 import MailBtn from "../globalcomponents/MailButton";
 import { Fade } from "react-reveal";
+import axios from "axios";
 
 const LaunchPad = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -58,6 +55,120 @@ const LaunchPad = () => {
       setIsPlaying(true);
     }
   };
+    const [open, setOpen] = useState(false);
+  const [phone, setPhone] = useState();
+  const [shake, setShake] = useState(false);
+  const countryCode = sessionStorage.getItem("countryCode");
+  const [message, setMessage] = useState("");
+  const [modalError, setModalError] = useState(true);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    selectedCourse: "",
+    knowlegeOfTechyJaunt: "",
+    expectation: "",
+  });
+
+  const payload = {
+    firstName: formData.firstName.trim(),
+    lastName: formData.lastName.trim(),
+    email: formData.email.trim(),
+    phoneNumber: formData.phoneNumber.trim(),
+    selectedCourse: formData.selectedCourse,
+    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
+    expectation: formData.expectation,
+  };
+  const [formErrors, setFormErrors] = useState({});
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
+
+    if (!formData.firstName.trim()) {
+      errors.firstname = "enter your name";
+      isValid = false;
+    }
+    if (!formData.lastName.trim()) {
+      errors.lastname = "enter your name";
+      isValid = false;
+    }
+    if (!formData.email.trim()) {
+      errors.email = "email is required";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "enter a valid email address";
+      isValid = false;
+    }
+
+    if (formData.phoneNumber.trim().length <= 4) {
+      errors.phoneNumber = "phone number is required";
+      isValid = false;
+    }
+    if (formData.selectedCourse === "") {
+      errors.selectedCourse = "select an option";
+      isValid = false;
+    }
+
+    if (formData.knowlegeOfTechyJaunt === "") {
+      errors.knowlegeOfTechyJaunt = "select an option";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValid = validateForm();
+
+    if (isValid) {
+      setShake(false);
+      // Submit the form data or perform other actions
+      axios
+        .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
+        .then((res) => {
+          if (res.data.status === "registered") {
+            setOpenModal(false);
+            setModalError(false);
+            setOpen(true);
+            setMessage(
+              "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
+            );
+
+            setTimeout(() => {
+              window.location.href =
+                "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";
+            }, 3000);
+          }
+          if (res.data.status === "alreadysignedup") {
+            setModalError(true);
+            setOpen(true);
+            setMessage("YOU HAVE ALREADY SIGNED UP FOR THE COHORT!");
+          }
+          if (res.data.status === "failed") {
+            setModalError(true);
+            setOpen(true);
+            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
+          }
+        });
+    }
+    if (!isValid) {
+      setShake(true);
+      setTimeout(() => {
+        setShake(false);
+      }, 300);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   return (
     <div className="bg-stone-100">
@@ -68,9 +179,49 @@ const LaunchPad = () => {
         isLaunchPad={true}
       />
       <FormModal
+      open={open}
+      close={()=>{
+        setOpen(false)
+      }}
         openModal={openModal}
+        message={message}
+        modalError={modalError}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        formErrors={formErrors}
+        formData={formData}
+        handleSelect1={(e) => {
+          setFormData({
+            ...formData,
+            selectedCourse: e,
+          });
+        }}
+        handleSelect2={(e) => {
+          setFormData({
+            ...formData,
+            knowlegeOfTechyJaunt: e,
+          });
+        }}
+        handleChange2={(phone, e) => {
+          setPhone(phone);
+          setFormData({
+            ...formData,
+            phoneNumber: phone,
+          });
+        }}
+        shake={shake}
         closeModal={() => {
           setOpenModal(false);
+          setFormErrors({});
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            selectedCourse: "",
+            knowlegeOfTechyJaunt: "",
+            expectation: "",
+          });
           sessionStorage.removeItem("countryCode");
         }}
       />
@@ -117,7 +268,7 @@ const LaunchPad = () => {
                 ref={videoRef}
                 src={vidSrc}
                 loop
-                autoPlay
+                // autoPlay
               ></video>
               <div className="playbtn absolute bottom-10 left-0 right-0 mx-auto text-center">
                 <button
@@ -162,8 +313,7 @@ const LaunchPad = () => {
           <div className="w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 place-items-center py-10">
             <div className="lg:w-[100%]">
               <h2 className=" mt-2 text-3xl text-center font-black text-white md:text-4xl px-4 pl-4 mb-6 border-l-4 border-blue-500">
-                Unlock Your Potential with TechyJaunt's 4-Week Basic Tech
-                Program!
+                Unlock Your Potential with TechyJaunt's 6-month Tech Program!
               </h2>
               <p className="font-normal text-white mb-5 text-base leading-8">
                 Discover an immersive tech experience that empowers you with
@@ -189,7 +339,7 @@ const LaunchPad = () => {
           <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl px-4 pl-4 mb-6 border-l-4 border-blue-500">
             TESTIMONIALS
           </h2>
-            <Testimonial />
+          <Testimonial />
         </div>
       </section>
       <MailBtn />

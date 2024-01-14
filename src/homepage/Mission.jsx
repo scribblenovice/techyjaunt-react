@@ -27,9 +27,8 @@ const Mission = () => {
                       }  lg:w-1/3 p-8 ${
                         el.id != 5 ? "border-b sm:border-b-0" : ""
                       }`}
-                      key={el.id}
                     >
-                      <div className="flex items-center mb-6">
+                      <div className="flex items-center mb-6" key={el.id}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 32 32"

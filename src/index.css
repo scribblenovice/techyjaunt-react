@@ -172,3 +172,28 @@ video {
 .glow{
 text-shadow: 2px 2px 30px white;
 }
+.shake{
+  animation: shake .3s linear;
+}
+@keyframes shake {
+  0%{
+    transform: translateX(5px);
+  }
+  25%{
+    transform: translateX(-10px);
+  }
+  50%{
+    transform: translateX(10px);
+  }
+  75%{
+    transform: translateX(-10px);
+  }
+  100%{
+transform: translateX(5px);
+  }
+}
+/* .change:focus{
+  border: 10px solid black;
+  outline: none;
+  box-shadow: 0px 0px 0px green;
+} */

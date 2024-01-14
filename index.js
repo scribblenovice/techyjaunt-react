@@ -7,7 +7,7 @@ import dotenv from "dotenv"
 dotenv.config();
 const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
-let api_key = process.env.EMAIL_OCTOPUS_API_KEY;
+let api_key = process.env.VITE_EMAIL_OCTOPUS_API_KEY;
 const port = process.env.PORT || 3001;
 
 const buildPath = path.join(__dirname, "dist");
