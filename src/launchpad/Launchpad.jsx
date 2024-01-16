@@ -2,7 +2,7 @@
 import NavLinks from "../globalcomponents/NavLinks";
 import vidSrc from "../images/launchpad/launchpadvid.mp4";
 import LogoSrc from "../images/techy_jaunt_logo.svg";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import FormModal from "../globalcomponents/FormModal";
 
 import Testimonial from "../globalcomponents/Testimonial";
@@ -14,6 +14,22 @@ import { Fade } from "react-reveal";
 import axios from "axios";
 
 const LaunchPad = () => {
+  useLayoutEffect(() => {
+    function addMetaCode() {
+      var metaNoscript = document.createElement("noscript");
+      var metaScript = document.createElement("script");
+      metaNoscript.innerHTML = `<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=219032204013009&ev=PageView&noscript=1"
+/>`;
+      metaScript.text =
+        "!function(f,b,e,v,n,t,s)\r\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\r\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\r\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\r\nn.queue=[];t=b.createElement(e);t.async=!0;\r\nt.src=v;s=b.getElementsByTagName(e)[0];\r\ns.parentNode.insertBefore(t,s)}(window, document,'script',\r\n'https://connect.facebook.net/en_US/fbevents.js');\r\nfbq('init', '219032204013009');\r\nfbq('track', 'PageView');";
+      document.head.appendChild(metaScript);
+      document.head.appendChild(metaNoscript);
+      console.log("hello");
+    }
+    addMetaCode();
+  }, []);
+
   const [openModal, setOpenModal] = useState(false);
   const [count, setCount] = useState(0);
   const videoRef = useRef(null);
@@ -55,7 +71,7 @@ const LaunchPad = () => {
       setIsPlaying(true);
     }
   };
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
   const [shake, setShake] = useState(false);
   const countryCode = sessionStorage.getItem("countryCode");
@@ -179,10 +195,10 @@ const LaunchPad = () => {
         isLaunchPad={true}
       />
       <FormModal
-      open={open}
-      close={()=>{
-        setOpen(false)
-      }}
+        open={open}
+        close={() => {
+          setOpen(false);
+        }}
         openModal={openModal}
         message={message}
         modalError={modalError}
