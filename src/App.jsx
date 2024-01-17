@@ -4,6 +4,7 @@ import Homepage from './homepage/Homepage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import LaunchPad from './launchpad/Launchpad'
 import Checkout from './checkout-page/Checkout';
+import { useLayoutEffect } from 'react';
 
 function App() {
  useLayoutEffect(() => {
@@ -23,7 +24,6 @@ function App() {
        "!(function(f,b,e,v,n,t,s)\r\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\r\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\r\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\r\nn.queue=[];t=b.createElement(e);t.async=!0;\r\nt.src=v;s=b.getElementsByTagName(e)[0];\r\ns.parentNode.insertBefore(t,s)})(window, document,'script',\r\n'https://connect.facebook.net/en_US/fbevents.js');\r\nfbq('init', '219032204013009');\r\nfbq('track', 'PageView');";
      document.head.appendChild(metaScript);
      document.head.appendChild(metaNoscript);
-     console.log("hello");
    }
    addMetaCode();
  }, []);
