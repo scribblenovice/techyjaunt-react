@@ -14,30 +14,6 @@ import { Fade } from "react-reveal";
 import axios from "axios";
 
 const LaunchPad = () => {
-  // useLayoutEffect(() => {
-  //   function addMetaCode() {
-  //     var metaNoscript = document.createElement("noscript");
-  //     var metaScript = document.createElement("script");
-  //     //       metaNoscript.innerHTML = `<img height="1" width="1" style="display:none"
-  //     // src="https://www.facebook.com/tr?id=219032204013009&ev=PageView&noscript=1"
-  //     // />`;
-  //     var metaImg = document.createElement("img");
-  //     metaImg.setAttribute(
-  //       "src",
-  //       "https://www.facebook.com/tr?id=219032204013009&ev=PageView&noscript=1"
-  //     );
-  //     metaImg.setAttribute("width", "1");
-  //     metaImg.setAttribute("height", "1");
-  //     metaImg.style.display = "none";
-  //     metaNoscript.appendChild(metaImg);
-  //     metaScript.text =
-  //       "!function(f,b,e,v,n,t,s)\r\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\r\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\r\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\r\nn.queue=[];t=b.createElement(e);t.async=!0;\r\nt.src=v;s=b.getElementsByTagName(e)[0];\r\ns.parentNode.insertBefore(t,s)}(window, document,'script',\r\n'https://connect.facebook.net/en_US/fbevents.js');\r\nfbq('init', '219032204013009');\r\nfbq('track', 'PageView');";
-  //     document.head.appendChild(metaScript);
-  //     document.head.appendChild(metaNoscript);
-  //     console.log("hello");
-  //   }
-  //   addMetaCode();
-  // }, []);
 
   const [openModal, setOpenModal] = useState(false);
   const [count, setCount] = useState(0);
@@ -111,11 +87,11 @@ const LaunchPad = () => {
     let isValid = true;
 
     if (!formData.firstName.trim()) {
-      errors.firstname = "enter your name";
+      errors.firstname = "enter your first name";
       isValid = false;
     }
     if (!formData.lastName.trim()) {
-      errors.lastname = "enter your name";
+      errors.lastname = "enter your last name";
       isValid = false;
     }
     if (!formData.email.trim()) {

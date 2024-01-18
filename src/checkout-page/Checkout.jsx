@@ -6,15 +6,19 @@ import { PaystackButton } from "react-paystack";
 import GlobalSelect from "../globalcomponents/GlobalSelect";
 import PhoneNumber from "../globalcomponents/PhoneNumber";
 import logoImg from "../images/techy_jaunt_logo.svg";
+import axios from "axios";
 
 const Checkout = () => {
-    const navigate = useNavigate()
+  const [hasPaid, setHasPaid] = useState(false);
+  const [shake, setShake] = useState();
+  const [phone, setPhone] = useState();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber:"",
-    selectedCourse: ""
+    phoneNumber: "",
+    selectedCourse: "",
   });
   const [formErrors, setFormErrors] = useState({});
 
@@ -23,15 +27,15 @@ const Checkout = () => {
     let isValid = true;
 
     if (!formData.firstName.trim()) {
-      errors.firstname = "enter your name";
+      errors.firstname = "enter your first name";
       isValid = false;
     }
     if (!formData.lastName.trim()) {
-      errors.lastname = "enter your name";
+      errors.lastname = "enter your last name";
       isValid = false;
     }
-    
-    if (!formData.phoneNumber.trim()) {
+
+    if (formData.phoneNumber.trim().length <= 4) {
       errors.phoneNumber = "phone number is required";
       isValid = false;
     }
@@ -50,23 +54,26 @@ const Checkout = () => {
     setFormErrors(errors);
     return isValid;
   };
-    const config = {
-      reference: new Date().getTime().toString(),
-      email: formData.email,
-      amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-      publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
-    };
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: formData.email,
+    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+  };
   const componentProps = {
     ...config,
     text: "PAY NOW",
     onSuccess: () => {
-      sessionStorage.setItem("isPaid", true)
-      setTimeout(()=>{
-        navigate(import.meta.env.VITE_PAID_GROUP);
-      },2000)
+      localStorage.setItem("isPaid", true);
+      handleSubmit();
+      setHasPaid(true);
+      // setTimeout(() => {
+      //   navigate(import.meta.env.VITE_PAID_GROUP);
+      // }, 2000);
     },
     onClose: () => {
-     console.log('transaction canceled')
+      localStorage.setItem("isPaid", false);
+      console.log("transaction canceled");
     },
   };
   const handleChange = (e) => {
@@ -75,24 +82,49 @@ const Checkout = () => {
       ...formData,
       [name]: value,
     });
+    validateForm();
+    console.log(formData);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post("http://localhost:3001/checkout", {
+        ...formData,
+        completedPayment: hasPaid,
+      })
+      .then((res) => {
+        if (res.data.status === "paid") {
+          navigate("/thank-you");
+          // setTimeout(() => {
+          //   window.location.href = import.meta.env.VITE_PAID_GROUP;
+          // }, 3000);
+        }
+        if (res.data.status === "existing") {
+          setModalError(true);
+          setOpen(true);
+          alert("YOU HAVE PREVIOUSLY PAID");
+        }
+        if (res.data.status === "failed") {
+          alert("PLEASE FILL IN THE FORM CORRECTLY");
+        }
+      });
   };
   return (
     <section className="grid place-items-center h-screen bg-stone-100">
-      <div className="w-[90%] sm:w-[70%] md:w-[70%] lg:w-[60%] my-20">
+      <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card">
         <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
         <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-          <span className="techy text-blue-500">TECHYJAUNT</span> COHORT 3.0 SCHOLARSHIP
+          <span className="techy text-blue-500">TECHYJAUNT</span> COHORT 3.0
+          SCHOLARSHIP
         </h1>
         <p className="text-center py-5 font-medium text-base md:text-lg leading-8">
           Kickstart your Tech journey, learn tech skills & gain access to a 6
           month mentorship with industry experts. Gain access now!
         </p>
-        <form
-          method="POST"
-          action="/checkout"
+        <div
+          // method="POST"
+          // action="/checkout"
+          // onSubmit={handleSubmit}
           className="w-full grid grid-cols-1 gap-y-5 gap-x-5"
         >
           <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
@@ -172,9 +204,14 @@ const Checkout = () => {
               <PhoneNumber
                 id="phone"
                 inputName="phoneNumber"
-                handleChange={handleChange}
+                handleChange={(phone, e) => {
+                  setPhone(phone);
+                  setFormData({
+                    ...formData,
+                    phoneNumber: phone,
+                  });
+                }}
                 errorTxt={formErrors.phoneNumber}
-                classes=""
               />
             </div>
 
@@ -202,10 +239,10 @@ const Checkout = () => {
             </div>
           </div>
           <PaystackButton
-            className={`mx-auto bg-blue-500 text-white p-4 rounded`}
+            className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
             {...componentProps}
           />
-        </form>
+        </div>
       </div>
     </section>
   );

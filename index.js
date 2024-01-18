@@ -35,8 +35,7 @@ server.post("/signup", (req, res) => {
     email === "" ||
     phoneNumber === "" ||
     selectedCourse === "" ||
-    knowlegeOfTechyJaunt === "" ||
-    expectation === ""
+    knowlegeOfTechyJaunt === ""
   ) {
     return res.status(500).json({
       status: "failed",
@@ -147,12 +146,21 @@ server.post("/subscribe", (req, res) => {
     });
 });
 
-server.post("/checkout", (req, res) => {
-  let paidListId = "688c74b4-afe2-11ee-9534-f9dec77b0681";
-  const { firstName, lastName, email, selectedCourse } = req.body;
 
-  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "") {
-    return res.status(400).json({
+//payment
+server.post("/payment", (req, res) => {
+  let paidListId = "688c74b4-afe2-11ee-9534-f9dec77b0681";
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    selectedCourse,
+    completedPayment,
+  } = req.body;
+
+  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "" || completedPayment=== false) {
+    return res.status(500).json({
       status: "failed",
       message: "Bad Request",
     });
@@ -167,10 +175,14 @@ server.post("/checkout", (req, res) => {
       api_key,
       email_address: email,
       fields: {
+        EmailAddress: email,
         FirstName: firstName,
         LastName: lastName,
+        SelectedCourse: selectedCourse,
+        PhoneNumber: phoneNumber,
+        HasPaid: completedPayment,
       },
-      tags: ["VIP"],
+      tags: ["PAID"],
       status: "SUBSCRIBED",
     }),
   })
