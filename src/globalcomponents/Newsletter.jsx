@@ -7,72 +7,79 @@ import GlobalText from "./GlobalText";
 import { Fade } from "react-reveal";
 
 const NewsLetter = () => {
-  const [message, setMessage] = useState("")
-  const [modalError, setModalError] = useState(true)
+  const [shake, setShake] = useState(false);
+  const [message, setMessage] = useState("");
+  const [modalError, setModalError] = useState(true);
   const [openModal, setOpenModal] = useState(false);
-  const [openSubscribeModal, setOpenSubscribeModal] = useState(false)
+  const [openSubscribeModal, setOpenSubscribeModal] = useState(false);
   const [emailSubscriber, setEmailSubscribe] = useState({
     firstName: "",
-    lastName:"",
+    lastName: "",
     email: "",
   });
- const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState({});
 
- const validateForm = () => {
-   let errors = {};
-   let isValid = true;
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
 
-   if (!emailSubscriber.firstName.trim()) {
-     errors.firstName = "enter your name";
-     isValid = false;
-   }
+    if (!emailSubscriber.firstName.trim()) {
+      errors.firstName = "enter your name";
+      isValid = false;
+    }
     if (!emailSubscriber.lastName.trim()) {
-        errors.lastName = "enter your name";
-        isValid = false;
-      }
+      errors.lastName = "enter your name";
+      isValid = false;
+    }
 
-   if (!emailSubscriber.email.trim()) {
-     errors.email = "email is required";
-     isValid = false;
-   } else if (!/\S+@\S+\.\S+/.test(emailSubscriber.email)) {
-     errors.email = "enter a valid email address";
-     isValid = false;
-   }
-   setFormErrors(errors);
-   return isValid;
- };
+    if (!emailSubscriber.email.trim()) {
+      errors.email = "email is required";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(emailSubscriber.email)) {
+      errors.email = "enter a valid email address";
+      isValid = false;
+    }
+    setFormErrors(errors);
+    return isValid;
+  };
 
- const handleSubmit = (e) => {
-   e.preventDefault();
-   const isValid = validateForm();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValid = validateForm();
 
-   if (isValid) {
-     // Submit the form data or perform other actions
-     axios
-       .post("https://techyjaunt-kx6a.onrender.com/subscribe", {
-         ...emailSubscriber,
-       })
-       .then((res) => {
-         if (res.data.status === "subscribed") {
-           setModalError(false);
-           setOpenModal(true);
-           setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
-           setOpenSubscribeModal(false);
-         }
-         if (res.data.status === "existing") {
-           setModalError(true);
-           setOpenModal(true);
-           setMessage("SUBSCRIBER ALREADY EXISTS!");
-         }
-         if (res.data.status === "invalid") {
-           setModalError(true);
-           setOpenModal(true);
-           setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
-         }
-       });
-   }
-
- };
+    if (isValid) {
+      setShake(false);
+      // Submit the form data or perform other actions
+      axios
+        .post("https://techyjaunt-kx6a.onrender.com/subscribe", {
+          ...emailSubscriber,
+        })
+        .then((res) => {
+          if (res.data.status === "subscribed") {
+            setModalError(false);
+            setOpenModal(true);
+            setMessage("YOU HAVE SUCCESSFULLY SUBSCRIBED FOR OUR NEWSLETTER!");
+            setOpenSubscribeModal(false);
+          }
+          if (res.data.status === "existing") {
+            setModalError(true);
+            setOpenModal(true);
+            setMessage("SUBSCRIBER ALREADY EXISTS!");
+          }
+          if (res.data.status === "invalid") {
+            setModalError(true);
+            setOpenModal(true);
+            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
+          }
+        });
+    }
+    if (!isValid) {
+      setShake(true);
+      setTimeout(() => {
+        setShake(false);
+      }, 300);
+    }
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEmailSubscribe({
@@ -215,7 +222,9 @@ const NewsLetter = () => {
               onClick={() => {
                 handleSubmit();
               }}
-              className="mx-auto mt-5 rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              className={`mx-auto bg-blue-500 text-white p-4 rounded ${
+                shake ? "shake" : ""
+              }`}
             >
               SUBCRIBE NOW
             </button>

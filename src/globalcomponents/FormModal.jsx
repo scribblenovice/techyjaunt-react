@@ -162,9 +162,7 @@ const FormModal = ({
                 id="btn"
                 onClick={handleSubmit}
                 type="submit"
-                className={`mx-auto bg-blue-500 text-white p-4 rounded ${
-                  shake ? "shake" : ""
-                }`}
+                className={`c`}
               >
                 REGISTER
               </button>

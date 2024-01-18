@@ -91,7 +91,7 @@ const LaunchPad = () => {
       isValid = false;
     }
     if (!formData.lastName.trim()) {
-      errors.lastname = "enter your last name";
+      errors.lastname = "enter your first name";
       isValid = false;
     }
     if (!formData.email.trim()) {
