@@ -2,9 +2,8 @@
 import NavLinks from "../globalcomponents/NavLinks";
 import vidSrc from "../images/launchpad/launchpadvid.mp4";
 import LogoSrc from "../images/techy_jaunt_logo.svg";
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import FormModal from "../globalcomponents/FormModal";
-
 import Testimonial from "../globalcomponents/Testimonial";
 import FooterSection from "../globalcomponents/FooterSection";
 import Avatars from "../globalcomponents/Avatars";
@@ -14,7 +13,6 @@ import { Fade } from "react-reveal";
 import axios from "axios";
 
 const LaunchPad = () => {
-
   const [openModal, setOpenModal] = useState(false);
   const [count, setCount] = useState(0);
   const videoRef = useRef(null);
