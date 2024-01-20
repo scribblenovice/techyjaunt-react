@@ -159,7 +159,7 @@ server.post("/payment", (req, res) => {
     completedPayment,
   } = req.body;
 
-  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "" || completedPayment=== false) {
+  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "" || completedPayment!= true) {
     return res.status(500).json({
       status: "failed",
       message: "Bad Request",

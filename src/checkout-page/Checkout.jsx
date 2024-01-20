@@ -9,7 +9,6 @@ import logoImg from "../images/techy_jaunt_logo.svg";
 import axios from "axios";
 
 const Checkout = () => {
-  const [hasPaid, setHasPaid] = useState(false);
   const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
@@ -66,14 +65,10 @@ const Checkout = () => {
     onSuccess: () => {
       localStorage.setItem("isPaid", true);
       handleSubmit();
-      setHasPaid(true);
-      // setTimeout(() => {
-      //   navigate(import.meta.env.VITE_PAID_GROUP);
-      // }, 2000);
     },
     onClose: () => {
       localStorage.setItem("isPaid", false);
-      console.log("transaction canceled");
+      alert("YOU HAVE CANCELLED THE TRANSACTION");
     },
   };
   const handleChange = (e) => {
@@ -90,7 +85,7 @@ const Checkout = () => {
     axios
       .post("http://localhost:3001/checkout", {
         ...formData,
-        completedPayment: hasPaid,
+        completedPayment: true,
       })
       .then((res) => {
         if (res.data.status === "paid") {
@@ -102,10 +97,10 @@ const Checkout = () => {
         if (res.data.status === "existing") {
           setModalError(true);
           setOpen(true);
-          alert("YOU HAVE PREVIOUSLY PAID");
+          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
         }
         if (res.data.status === "failed") {
-          alert("PLEASE FILL IN THE FORM CORRECTLY");
+          alert("THRANSCATION FAILED");
         }
       });
   };

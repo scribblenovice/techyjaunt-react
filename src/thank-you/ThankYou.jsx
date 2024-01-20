@@ -1,8 +1,19 @@
-const ThankYou = ()=>{
-  // setTimeout(() => {
-  //   window.location.href = import.meta.env.VITE_PAID_GROUP;
-  // }, 3000);
-
-  return <></>;
-}
-export default ThankYou
+const ThankYou = () => {
+  const paid = localStorage.getItem("isPaid");
+  window.addEventListener("load", () => {
+    if (paid) {
+      setTimeout(() => {
+        window.location.href = import.meta.env.VITE_PAID_GROUP;
+      }, 5000);
+    }
+  });
+  return (
+    <>
+      <h1 className="text-black text-center">
+        YOU HAVE SUCCESSFULLY PAID FOR THE COHORT!! YOU WILL BE REDIRECTED TO
+        THE PAID WHATSAPP GROUP SHORTLY
+      </h1>
+    </> 
+  );
+};
+export default ThankYou;

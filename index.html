@@ -37,9 +37,12 @@
     />
     <link rel="icon" href="./src/images/techy_jaunt_logo.svg" />
     <title>TECHYJAUNT</title>
+    <meta
+      name="facebook-domain-verification"
+      content="uw41zsjit49hpqiw65y7ixyulxukog"
+    />
     <!-- Meta Pixel Code -->
     <script>
-    
       if (window.location.pathname == "/launchpad") {
         !(function (f, b, e, v, n, t, s) {
           if (f.fbq) return;
@@ -66,16 +69,20 @@
         );
         fbq("init", "219032204013009");
         fbq("track", "PageView");
-          console.log("pixel has been fired");
+        console.log("pixel has been fired");
       }
     </script>
+
     <!-- End Meta Pixel Code -->
-    <meta
-      name="facebook-domain-verification"
-      content="uw41zsjit49hpqiw65y7ixyulxukog"
-    />
   </head>
   <body class="bg-stone-100">
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=219032204013009&ev=PageView&noscript=1"
+    /></noscript>
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
   </body>
