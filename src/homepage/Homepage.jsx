@@ -6,12 +6,16 @@ import NewsLetter from "../globalcomponents/Newsletter";
 import AboutUs from "./aboutus/AboutUs";
 import Header from "./header/Header";
 import Partners from "./partners/Partners";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MailBtn from "../globalcomponents/MailButton";
 import Founder from "../globalcomponents/Founder";
 import { Element } from "react-scroll";
+import { landingPageEvent } from "../globalcomponents/SitePixel";
 
 const Homepage = () => {
+  useEffect(() => {
+    landingPageEvent();
+  }, []);
   const [open, setOpen] = useState(true);
   const [scrollNumber, setScrollNumber] = useState();
   window.addEventListener("scroll", () => {
