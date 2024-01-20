@@ -8,14 +8,14 @@ import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import TechyjauntEvent from "./event/TechyjauntEvent";
 import ReactPixel from "react-facebook-pixel";
 
-const options = {
-  autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
-  debug: false, // enable logs
-};
-ReactPixel.init("219032204013009", options);
-ReactPixel.trackSingleCustom("219032204013009", "PageView", {});
-
 function App() {
+  const options = {
+    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+    debug: false, // enable logs
+  };
+  ReactPixel.init("219032204013009", options);
+  ReactPixel.trackSingleCustom("219032204013009", "PageView", {});
+
   return (
     <BrowserRouter>
       <Routes>
