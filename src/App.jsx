@@ -1,13 +1,21 @@
 import "./App.css";
 import Homepage from "./homepage/Homepage";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LaunchPad from "./launchpad/Launchpad";
 import Checkout from "./checkout-page/Checkout";
 import ThankYou from "./thank-you/ThankYou";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import TechyjauntEvent from "./event/TechyjauntEvent";
-function App() {
+import ReactPixel from "react-facebook-pixel";
 
+const options = {
+  autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+  debug: false, // enable logs
+};
+ReactPixel.init("219032204013009", options);
+ReactPixel.trackSingleCustom("219032204013009", "PageView", {});
+
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,7 +31,7 @@ function App() {
             </ProtectedRoute>
           }
         ></Route>
-        <Route path="/event" element={<TechyjauntEvent/>}></Route>
+        <Route path="/event" element={<TechyjauntEvent />}></Route>
       </Routes>
     </BrowserRouter>
   );
