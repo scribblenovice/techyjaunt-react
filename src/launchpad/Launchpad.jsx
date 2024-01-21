@@ -14,9 +14,6 @@ import axios from "axios";
 import { landingPageEvent } from "../globalcomponents/SitePixel";
 
 const LaunchPad = () => {
-  useEffect(() => {
-    landingPageEvent();
-  }, []);
   const [openModal, setOpenModal] = useState(false);
   const [count, setCount] = useState(0);
   const videoRef = useRef(null);

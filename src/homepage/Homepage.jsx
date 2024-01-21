@@ -13,9 +13,6 @@ import { Element } from "react-scroll";
 import { landingPageEvent } from "../globalcomponents/SitePixel";
 
 const Homepage = () => {
-  useEffect(() => {
-    landingPageEvent();
-  }, []);
   const [open, setOpen] = useState(true);
   const [scrollNumber, setScrollNumber] = useState();
   window.addEventListener("scroll", () => {
