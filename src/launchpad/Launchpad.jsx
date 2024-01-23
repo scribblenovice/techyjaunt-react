@@ -14,7 +14,7 @@ import axios from "axios";
 import { landingPageEvent } from "../globalcomponents/SitePixel";
 
 const LaunchPad = () => {
-  const [openModal, setOpenModal] = useState(false);
+
   const [count, setCount] = useState(0);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -55,6 +55,8 @@ const LaunchPad = () => {
       setIsPlaying(true);
     }
   };
+  // FORM
+    const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
   const [shake, setShake] = useState(false);
@@ -130,13 +132,13 @@ const LaunchPad = () => {
         .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
         .then((res) => {
           if (res.data.status === "registered") {
+            landingPageEvent();
             setOpenModal(false);
             setModalError(false);
             setOpen(true);
             setMessage(
               "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
             );
-
             setTimeout(() => {
               window.location.href =
                 "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";

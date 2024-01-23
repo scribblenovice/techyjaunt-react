@@ -1,14 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Button, Modal } from "flowbite-react";
 import GlobalText from "../globalcomponents/GlobalText";
-import axios from "axios";
-import GlobalSelect from "./GlobalSelect";
-import { courses, howHeard } from "../resources/resources";
-import { useNavigate } from "react-router-dom";
-import PhoneNumber from "./PhoneNumber";
+import GlobalSelect from "../globalcomponents/GlobalSelect";
+import PhoneNumber from "../globalcomponents/PhoneNumber";
+import { state } from "../resources/resources";
 
-const FormModal = ({
+const EventForm = ({
   phoneval,
   openModal,
   closeModal,
@@ -29,7 +26,7 @@ const FormModal = ({
   return (
     <>
       <Modal show={openModal} onClose={closeModal}>
-        <Modal.Header>SIGN UP FOR THIS EVENT</Modal.Header>
+        <Modal.Header>TECHYJAUNT UNEC CONFERENCE</Modal.Header>
         <Modal.Body>
           <form
             className="space-y-6"
@@ -82,10 +79,6 @@ const FormModal = ({
                   inputName="phoneNumber"
                   inputVal={phoneval}
                   handleChange={handleChange2}
-                  // onChange={(phone) => {
-                  //   setPhone(phone);
-                  //   sessionStorage.setItem("countryCode", phone);
-                  // }}
                   errorTxt={formErrors.phoneNumber}
                 />
               </div>
@@ -111,35 +104,35 @@ const FormModal = ({
                   htmlFor="skill-choice"
                   className="mr-2 font-medium  text-sm text-gray-500"
                 >
-                  Which State are you attending from?
+                  Which state are you attending from?
                 </label>
                 <div className="w-full">
                   <GlobalSelect
-                    options={courses}
-                    name="selectedCourse"
-                    inputVal={formData.selectedCourse}
+                    options={state}
+                    name="stateAttendedFrom"
+                    inputVal={formData.stateAttendedFrom}
                     handleChange={handleSelect1}
-                    errorTxt={formErrors.selectedCourse}
+                    errorTxt={formErrors.stateAttendedFrom}
                   />
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <label
                   htmlFor="skill-choice"
                   className="mr-2 font-medium  text-sm text-gray-500"
                 >
-                  How did you hear about TechyJaunt?
+                  Where?
                 </label>
-                <div className="w-full">
+                {/* <div className="w-full">
                   <GlobalSelect
-                    options={howHeard}
+                    options={``}
                     name="knowlegeOfTechyJaunt"
                     inputVal={formData.knowlegeOfTechyJaunt}
                     handleChange={handleSelect2}
                     errorTxt={formErrors.knowlegeOfTechyJaunt}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="relative z-0 w-full mb-6 ">
               <label
@@ -162,7 +155,9 @@ const FormModal = ({
                 id="btn"
                 onClick={handleSubmit}
                 type="submit"
-                className={`c`}
+                className={`mx-auto bg-blue-500 text-white p-4 rounded ${
+                  shake ? "shake" : ""
+                }`}
               >
                 REGISTER
               </button>
@@ -189,4 +184,4 @@ const FormModal = ({
     </>
   );
 };
-export default FormModal;
+export default EventForm;

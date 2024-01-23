@@ -162,7 +162,9 @@ const FormModal = ({
                 id="btn"
                 onClick={handleSubmit}
                 type="submit"
-                className={`c`}
+                className={`mx-auto bg-blue-500 text-white p-4 rounded ${
+                  shake ? "shake" : ""
+                }`}
               >
                 REGISTER
               </button>
@@ -170,11 +172,7 @@ const FormModal = ({
           </form>
         </Modal.Body>
       </Modal>
-      <Modal
-        show={open}
-        onClose={close}
-        position="center"
-      >
+      <Modal show={open} onClose={close} position="center">
         <Modal.Header className="border-none h-2"></Modal.Header>
 
         <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">

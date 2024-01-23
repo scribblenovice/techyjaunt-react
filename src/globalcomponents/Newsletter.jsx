@@ -222,7 +222,7 @@ const NewsLetter = () => {
               onClick={() => {
                 handleSubmit();
               }}
-              className={`mx-auto bg-blue-500 text-white p-4 rounded ${
+              className={`cursor-pointer mx-auto bg-blue-500 text-white p-4 rounded ${
                 shake ? "shake" : ""
               }`}
             >

@@ -213,7 +213,78 @@ server.post("/payment", (req, res) => {
     });
 });
 
+// TECHYJAUNT EVENT REGISTRATION
+server.post("/event-register", (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    stateAttendedFrom,
+    // knowlegeOfTechyJaunt,
+    expectation,
+  } = req.body;
+  let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
+  if (
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    phoneNumber === "" ||
+    stateAttendedFrom === ""
+    // knowlegeOfTechyJaunt === ""
+  ) {
+    return res.status(500).json({
+      status: "failed",
+    });
+  }
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        // SelectedCourse: selectedCourse,
+        State: stateAttendedFrom,
+        Expectation: expectation,
+      },
+      tags: ["EVENT"],
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "alreadyregistered",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
 
 
 server.get("*", (req, res) => {

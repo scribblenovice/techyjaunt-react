@@ -16,8 +16,8 @@ const GlobalSelect = ({options, handleChange, inputVal, inputName, errorTxt} )=>
         >
           {options.map((el) => {
             return (
-              <Option key={el.id} value={el.value}>
-                {el.courseName}
+              <Option key={el.id || el.lat} value={el.name.toLowerCase()}>
+                {el.name}
               </Option>
             );
           })}
