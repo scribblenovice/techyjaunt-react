@@ -1,5 +1,5 @@
 const ThankYou = () => {
-  const paid = localStorage.getItem("isPaid");
+  const paid = sessionStorage.getItem("isPaid");
   window.addEventListener("load", () => {
     if (paid) {
       setTimeout(() => {
@@ -13,7 +13,7 @@ const ThankYou = () => {
         YOU HAVE SUCCESSFULLY PAID FOR THE COHORT!! YOU WILL BE REDIRECTED TO
         THE PAID WHATSAPP GROUP SHORTLY
       </h1>
-    </> 
+    </>
   );
 };
 export default ThankYou;

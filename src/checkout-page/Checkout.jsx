@@ -63,11 +63,11 @@ const Checkout = () => {
     ...config,
     text: "PAY NOW",
     onSuccess: () => {
-      localStorage.setItem("isPaid", true);
+      sessionStorage.setItem("isPaid", true);
       handleSubmit();
     },
     onClose: () => {
-      localStorage.setItem("isPaid", false);
+      sessionStorage.setItem("isPaid", false);
       alert("YOU HAVE CANCELLED THE TRANSACTION");
     },
   };
@@ -89,7 +89,7 @@ const Checkout = () => {
       })
       .then((res) => {
         if (res.data.status === "paid") {
-          navigate("/thank-you");
+          navigate("/checkout/thank-you");
           // setTimeout(() => {
           //   window.location.href = import.meta.env.VITE_PAID_GROUP;
           // }, 3000);
