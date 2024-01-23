@@ -34,12 +34,12 @@ const Homepage = () => {
         <Element name="mission">
           <Mission />
         </Element>
-        <Partners />
+        <Partners isEvent={false} title={`OUR PARTNERS`} />
 
         <NewsLetter />
         <Founder />
         <CarouselSlider />
-        <MailBtn />
+        <MailBtn mailLink={`mailto:Support@techyjaunt.com`} />
         <Element name="contact">
           <FooterSection />
         </Element>

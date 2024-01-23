@@ -58,7 +58,7 @@ const EventNav = ({ navclass }) => {
               </li>
               <li className={`block`}>
                 <Link
-                  to={`/contact`}
+                  to={`contact`}
                   spy={true}
                   smooth={true}
                   offset={-100}
