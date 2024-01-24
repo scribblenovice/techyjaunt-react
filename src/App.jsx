@@ -23,15 +23,15 @@ function App() {
         <Route path="/" index={true} element={<Homepage />}></Route>
         {/* LAUNCHPAD */}
         <Route path="/launchpad" element={<LaunchPad />}></Route>
-        {/* <Route path="/launchpad/thank-you" element={<LaunchPadThankyou/>}></Route> */}
-        <Route
+        <Route path="/launchpad/thank-you" element={<LaunchPadThankyou/>}></Route>
+        {/* <Route
           path="/launchpad/thank-you"
           element={
-            <ProtectedRoute route="/launchpad" param="isRegistered">
+            <ProtectedRoute route="/launchpad" param="isRegistered">.
               <LaunchPadThankyou />
             </ProtectedRoute>
           }
-        ></Route>
+        ></Route> */}
         {/* CHECKOUT */}
         <Route path="/checkout" element={<Checkout />}></Route>
         <Route
