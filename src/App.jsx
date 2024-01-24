@@ -27,7 +27,7 @@ function App() {
         {/* <Route
           path="/launchpad/thank-you"
           element={
-            <ProtectedRoute route="/launchpad" param="isRegistered">.
+            <ProtectedRoute route="/launchpad" param="isRegistered">.0
               <LaunchPadThankyou />
             </ProtectedRoute>
           }

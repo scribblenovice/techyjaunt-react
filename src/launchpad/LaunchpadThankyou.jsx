@@ -5,7 +5,7 @@ const LaunchPadThankyou = () => {
       window.location.href = "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";
     }, 5000);
   }
-  redirect();
+  // redirect();
 
   return (
     <>
