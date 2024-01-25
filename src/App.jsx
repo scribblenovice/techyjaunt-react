@@ -23,7 +23,6 @@ function App() {
         <Route path="/" index={true} element={<Homepage />}></Route>
         {/* LAUNCHPAD */}
         <Route path="/launchpad" element={<LaunchPad />}></Route>
-        
         <Route
           path="/launchpad/thank-you"
           element={
