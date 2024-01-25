@@ -1,5 +1,5 @@
 "use client";
-
+import { lazy } from "react";
 import { Carousel } from "flowbite-react";
 import { galleryImg } from "../resources/resources";
 import { Fade } from "react-reveal";
@@ -12,7 +12,7 @@ function CarouselSlider() {
           HIGHLIGHTS OF OUR JOURNEY
         </h2>
       </div>
-      <Fade bottom >
+      <Fade bottom>
         <Carousel
           slideInterval="4000"
           pauseOnHover
@@ -23,6 +23,7 @@ function CarouselSlider() {
             return (
               <div className="bg-black lg:w-[60%] h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px] mx-auto">
                 <img
+                  loading="lazy"
                   key={el.id}
                   src={el.src}
                   alt=""

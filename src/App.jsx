@@ -1,14 +1,14 @@
 import "./App.css";
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import Homepage from "./homepage/Homepage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LaunchPad from "./launchpad/Launchpad";
-import Checkout from "./checkout-page/Checkout";
-import ThankYou from "./thank-you/ThankYou";
+const LaunchPad = lazy(() => import("./launchpad/Launchpad"));
+const Checkout = lazy(() => import("./checkout-page/Checkout"));
+const ThankYou = lazy(() => import("./thank-you/ThankYou"));
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-import TechyjauntEvent from "./event/TechyjauntEvent";
+const TechyjauntEvent = lazy(() => import("./event/TechyjauntEvent"));
 import ReactPixel from "react-facebook-pixel";
-import LaunchPadThankyou from "./launchpad/LaunchpadThankyou";
+const LaunchPadThankyou = lazy(() => import("./launchpad/LaunchpadThankyou"));
 
 function App() {
   useEffect(() => {
@@ -23,15 +23,15 @@ function App() {
         <Route path="/" index={true} element={<Homepage />}></Route>
         {/* LAUNCHPAD */}
         <Route path="/launchpad" element={<LaunchPad />}></Route>
-        <Route path="/launchpad/thank-you" element={<LaunchPadThankyou/>}></Route>
-        {/* <Route
+        
+        <Route
           path="/launchpad/thank-you"
           element={
-            <ProtectedRoute route="/launchpad" param="isRegistered">.0
+            <ProtectedRoute route="/launchpad" param="isRegistered">
               <LaunchPadThankyou />
             </ProtectedRoute>
           }
-        ></Route> */}
+        ></Route>
         {/* CHECKOUT */}
         <Route path="/checkout" element={<Checkout />}></Route>
         <Route

@@ -1,5 +1,5 @@
 import { Fade } from "react-reveal";
-import founderImg from "../images/founder.jpg"
+import founderImg from "../images/founder.jpg";
 
 const Founder = () => {
   return (
@@ -14,6 +14,7 @@ const Founder = () => {
           <div className="grid md:grid-cols-2 md:gap-x-10">
             <div className="rounded-lg">
               <img
+                loading="lazy"
                 src={founderImg}
                 alt=""
                 className=" rounded-lg w-full h-[80%]"

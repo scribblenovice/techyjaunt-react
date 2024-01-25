@@ -21,6 +21,7 @@ const Testimonial = () => {
                   <div className="px-8 py-12">
                     <div className="relative w-28 h-28 mx-auto">
                       <img
+                        loading="lazy"
                         className="relative object-cover w-28 h-28 mx-auto rounded-full"
                         src={i.img}
                         alt=""

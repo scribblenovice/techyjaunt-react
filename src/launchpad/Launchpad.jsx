@@ -233,7 +233,7 @@ const LaunchPad = () => {
         <div className="mt-12 lg:mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
           <div className="h-full lg:h-[70%] flex flex-col justify-around md:justify-evenly">
             <Fade bottom>
-              <h1 className="text-2xl lg:text-2xl text-center lg:text-left my-10 font-bold leading-10 tracking-wider">
+              <h1 className="font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5 lg:mb-0">
                 Welcome to {""}
                 <span className="text-blue-500 techy font-black">
                   TechyJaunt

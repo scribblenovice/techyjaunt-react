@@ -13,7 +13,7 @@ const LaunchPadThankyou = () => {
           ></i>
           <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
             YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 3! <br />
-         <span className="text-sm md:text-base"> WE HAVE SENT YOU A CONFIRMATION EMAIL REGARDING YOUR APPLICATION. KINDLY JOIN YOUR WHATSAPP COMMUNUITY FOR MORE INFORMATION USING THE LINK BELOW.</span>
+         <span className="text-sm md:text-base"> WE HAVE SENT YOU A CONFIRMATION EMAIL REGARDING YOUR APPLICATION. KINDLY JOIN OUR WHATSAPP COMMUNUITY FOR MORE INFORMATION USING THE LINK BELOW.</span>
           </p>
           <button onClick={redirect} className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300">JOIN OUR WHATSAPP COMMUNITY <div className="ml-2"><svg
                     xmlns="http://www.w3.org/2000/svg"

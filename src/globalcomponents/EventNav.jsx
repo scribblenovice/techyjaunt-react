@@ -1,16 +1,10 @@
-import { Links } from "../resources/resources";
 import LogoSrc from "../images/techy_jaunt_logo.svg";
 import { useState } from "react";
 import {
   Link,
-  Button,
-  Element,
-  Events,
   animateScroll as scroll,
-  scrollSpy,
 } from "react-scroll";
 
-// import { Link } from "react-router-dom";
 
 const EventNav = ({ navclass }) => {
   const [openNav, setOpenNav] = useState(false);
