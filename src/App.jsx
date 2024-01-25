@@ -4,12 +4,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-const Homepage = lazy(() => import("./homepage/Homepage"));
-const LaunchPad = lazy(() => import("./launchpad/Launchpad"));
-const Checkout = lazy(() => import("./checkout-page/Checkout"));
-const CheckoutThankYou = lazy(() => import("./checkout-page/CheckoutThankYou"));
-const TechyjauntEvent = lazy(() => import("./event/TechyjauntEvent"));
-const LaunchPadThankyou = lazy(() => import("./launchpad/LaunchpadThankyou"));
+const Homepage = lazy(() => import("./pages/homepage/Homepage"));
+const LaunchPad = lazy(() => import("./pages/launchpad/Launchpad"));
+const Checkout = lazy(() => import("./pages/checkout-page/Checkout"));
+const CheckoutThankYou = lazy(() =>
+  import("./pages/checkout-page/CheckoutThankYou")
+);
+const TechyjauntEvent = lazy(() => import("./pages/event/TechyjauntEvent"));
+const LaunchPadThankyou = lazy(() =>
+  import("./pages/launchpad/LaunchpadThankyou")
+);
 
 function App() {
   useEffect(() => {

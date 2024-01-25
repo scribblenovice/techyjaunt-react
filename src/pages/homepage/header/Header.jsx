@@ -1,7 +1,7 @@
-import Avatars from "../../globalcomponents/Avatars";
+import Avatars from "../../../globalcomponents/Avatars";
 import Videos from "../videos/Videos";
 import { useNavigate } from "react-router-dom";
-import TypingAnimation from "../../globalcomponents/TypingAnimation";
+import TypingAnimation from "../../../globalcomponents/TypingAnimation";
 import Fade from "react-reveal/Fade";
 
 const Header = () => {

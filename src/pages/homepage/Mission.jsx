@@ -1,5 +1,5 @@
 import { Zoom } from "react-reveal";
-import { missionTexts } from "../resources/resources";
+import { missionTexts } from "../../resources/resources";
 import Fade from "react-reveal/Fade";
 const Mission = () => {
   return (

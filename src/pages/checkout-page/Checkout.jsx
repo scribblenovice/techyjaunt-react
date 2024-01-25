@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import GlobalText from "../globalcomponents/GlobalText";
-import { courses } from "../resources/resources";
+import GlobalText from "../../globalcomponents/GlobalText";
+import { courses } from "../../resources/resources";
 import { PaystackButton } from "react-paystack";
-import GlobalSelect from "../globalcomponents/GlobalSelect";
-import PhoneNumber from "../globalcomponents/PhoneNumber";
+import GlobalSelect from "../../globalcomponents/GlobalSelect";
+import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import logoImg from "../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";

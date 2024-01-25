@@ -1,14 +1,13 @@
 "use client";
-import NavLinks from "../globalcomponents/NavLinks";
-import vidSrc from "../images/launchpad/launchpadvid.mp4";
-import LogoSrc from "../images/techy_jaunt_logo.svg";
+import NavLinks from "../../globalcomponents/NavLinks";
+import vidSrc from "../../images/launchpad/launchpadvid.mp4";
 import { useState, useRef, useEffect } from "react";
-import FormModal from "../globalcomponents/FormModal";
-import Testimonial from "../globalcomponents/Testimonial";
-import FooterSection from "../globalcomponents/FooterSection";
-import Avatars from "../globalcomponents/Avatars";
-import TypingAnimation from "../globalcomponents/TypingAnimation";
-import MailBtn from "../globalcomponents/MailButton";
+import FormModal from "../../globalcomponents/FormModal";
+import Testimonial from "../../globalcomponents/Testimonial";
+import FooterSection from "../../globalcomponents/FooterSection";
+import Avatars from "../../globalcomponents/Avatars";
+import TypingAnimation from "../../globalcomponents/TypingAnimation";
+import MailBtn from "../../globalcomponents/MailButton";
 import { Fade } from "react-reveal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -116,10 +115,10 @@ const LaunchPad = () => {
       errors.knowlegeOfTechyJaunt = "select an option";
       isValid = false;
     }
-     if (formData.expectation === "") {
-       errors.expectation = "please fill in your expectations";
-       isValid = false;
-     }
+    if (formData.expectation === "") {
+      errors.expectation = "please fill in your expectations";
+      isValid = false;
+    }
 
     setFormErrors(errors);
     return isValid;
@@ -165,7 +164,7 @@ const LaunchPad = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData)
+    console.log(formData);
   };
 
   return (

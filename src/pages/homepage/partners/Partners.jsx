@@ -1,7 +1,7 @@
 import { Fade, Zoom } from "react-reveal";
-import { PartnerImg } from "../../resources/resources";
-import casavaImg from "../../images/partners/cassava.webp";
-import coinstoreImg from "../../images/partners/coinstore.webp";
+import { PartnerImg } from "../../../resources/resources";
+import casavaImg from "../../../images/partners/cassava.webp";
+import coinstoreImg from "../../../images/partners/coinstore.webp";
 
 const Partners = ({ isEvent, title }) => {
   return (

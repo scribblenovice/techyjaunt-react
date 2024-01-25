@@ -1,6 +1,6 @@
-import Vid1 from "../homepage/videos/Vid1";
-import Vid2 from "../homepage/videos/Vid2";
-import Vid3 from "../homepage/videos/Vid3";
+import Vid1 from "../pages/homepage/videos/Vid1";
+import Vid2 from "../pages/homepage/videos/Vid2";
+import Vid3 from "../pages/homepage/videos/Vid3";
 
 const Switcher = ({renderVid}) =>{
     switch (renderVid) {

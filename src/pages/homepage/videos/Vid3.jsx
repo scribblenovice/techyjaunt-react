@@ -1,5 +1,5 @@
-import vidSrc from "../../images/videos/header/vid3.mp4";
-import VideoChanger from "../../globalcomponents/VideoChanger";
+import vidSrc from "../../../images/videos/header/vid3.mp4";
+import VideoChanger from "../../../globalcomponents/VideoChanger";
 const Vid3 = () => {
  
   return (

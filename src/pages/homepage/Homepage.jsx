@@ -1,17 +1,15 @@
-import CarouselSlider from "../globalcomponents/Carousel";
-import NavLinks from "../globalcomponents/NavLinks";
-import FooterSection from "../globalcomponents/FooterSection";
+import CarouselSlider from "../../globalcomponents/Carousel";
+import NavLinks from "../../globalcomponents/NavLinks";
+import FooterSection from "../../globalcomponents/FooterSection";
 import Mission from "./Mission";
-import NewsLetter from "../globalcomponents/Newsletter";
+import NewsLetter from "../../globalcomponents/Newsletter";
 import AboutUs from "./aboutus/AboutUs";
 import Header from "./header/Header";
 import Partners from "./partners/Partners";
 import { useEffect, useState } from "react";
-import MailBtn from "../globalcomponents/MailButton";
-import Founder from "../globalcomponents/Founder";
+import MailBtn from "../../globalcomponents/MailButton";
+import Founder from "../../globalcomponents/Founder";
 import { Element } from "react-scroll";
-import { landingPageEvent } from "../globalcomponents/SitePixel";
-
 const Homepage = () => {
   const [open, setOpen] = useState(true);
   const [scrollNumber, setScrollNumber] = useState();

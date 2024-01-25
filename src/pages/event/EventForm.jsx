@@ -1,9 +1,9 @@
 "use client";
 import { Button, Modal } from "flowbite-react";
-import GlobalText from "../globalcomponents/GlobalText";
-import GlobalSelect from "../globalcomponents/GlobalSelect";
-import PhoneNumber from "../globalcomponents/PhoneNumber";
-import { state } from "../resources/resources";
+import GlobalText from "../../globalcomponents/GlobalText";
+import GlobalSelect from "../../globalcomponents/GlobalSelect";
+import PhoneNumber from "../../globalcomponents/PhoneNumber";
+import { state } from "../../resources/resources";
 
 const EventForm = ({
   phoneval,

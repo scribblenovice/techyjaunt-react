@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Switcher from "../../globalcomponents/Switcher";
-import { thumbImg } from "../../resources/resources";
+import Switcher from "../../../globalcomponents/Switcher";
+import { thumbImg } from "../../../resources/resources";
 
 const Videos = () => {
   const [renderVid, setRenderVid] = useState(0);
