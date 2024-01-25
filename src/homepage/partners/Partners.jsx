@@ -20,6 +20,7 @@ const Partners = ({ isEvent, title }) => {
               <Zoom>
                 <div className="w-full h-full grid place-items-center">
                   <img
+                    loading="lazy"
                     className={`${
                       j.id == 2 || j.id == 3 ? "w-[40%]" : "w-[70%]"
                     }`}
