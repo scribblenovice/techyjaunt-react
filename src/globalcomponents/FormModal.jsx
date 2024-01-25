@@ -148,14 +148,13 @@ const FormModal = ({
               >
                 What are your expectations for this course?
               </label>
-              <textarea
-                name="expectation"
-                className="w-full border-[1px] border-gray-400 rounded-md resize-none p-3 mt-2 focus:border-black focus:!border-2 focus:!outline-0 focus:!shadow-none"
+              <GlobalText
+                inputType="text"
+                inputName="expectation"
                 id="event-expectations"
-                cols="30"
-                rows="1"
-                onChange={handleChange}
-              ></textarea>
+                handleChange={handleChange}
+                errorTxt={formErrors.expectation}
+              />
             </div>
             <Modal.Footer>
               <button

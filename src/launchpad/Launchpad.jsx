@@ -116,6 +116,10 @@ const LaunchPad = () => {
       errors.knowlegeOfTechyJaunt = "select an option";
       isValid = false;
     }
+     if (formData.expectation === "") {
+       errors.expectation = "please fill in your expectations";
+       isValid = false;
+     }
 
     setFormErrors(errors);
     return isValid;
@@ -134,16 +138,6 @@ const LaunchPad = () => {
           if (res.data.status === "registered") {
             sessionStorage.setItem("isRegistered", true);
             navigate("/launchpad/thank-you");
-            // setOpenModal(false);
-            // setModalError(false);
-            // setOpen(true);
-            // setMessage(
-            //   "YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 3! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
-            // );
-            // setTimeout(() => {
-            //   window.location.href =
-            //     "https://chat.whatsapp.com/EYUmLA5lrDB0KrWAFuH5Hm";
-            // }, 3000);
           }
           if (res.data.status === "alreadysignedup") {
             setModalError(true);
@@ -171,6 +165,7 @@ const LaunchPad = () => {
       ...formData,
       [name]: value,
     });
+    console.log(formData)
   };
 
   return (

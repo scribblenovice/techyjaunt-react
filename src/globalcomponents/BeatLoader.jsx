@@ -1,34 +1,10 @@
-import { useState, CSSProperties } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import { BeatLoader } from "react-spinners";
 
-// const override: CSSProperties = {
-//   display: "block",
-//   margin: "0 auto",
-//   borderColor: "red",
-// };
-
-function BeatLoader() {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
-
+const GlobalBeat = () => {
   return (
-    <div className="sweet-loading">
-      {/* <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
-      <input
-        value={color}
-        onChange={(input) => setColor(input.target.value)}
-        placeholder="Color of the loader"
-      /> */}
-
-      <ClipLoader
-        color={`blue`}
-        loading={loading}
-        // cssOverride={override}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+    <div className="bg-white h-screen w-screen flex justify-center items-center">
+      <BeatLoader color="rgb(63 131 248)" size={`30`} margin={`20`} />
     </div>
   );
 }
-export default BeatLoader;
+export default GlobalBeat

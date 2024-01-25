@@ -1,4 +1,4 @@
-const ThankYou = () => {
+const CheckoutThankYou = () => {
   const paid = sessionStorage.getItem("isPaid");
   window.addEventListener("load", () => {
     if (paid) {
@@ -16,4 +16,4 @@ const ThankYou = () => {
     </>
   );
 };
-export default ThankYou;
+export default CheckoutThankYou;

@@ -1,13 +1,14 @@
 import "./App.css";
-import { lazy, useEffect } from "react";
-import Homepage from "./homepage/Homepage";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ReactPixel from "react-facebook-pixel";
+import GlobalBeat from "./globalcomponents/BeatLoader";
+import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+const Homepage = lazy(() => import("./homepage/Homepage"));
 const LaunchPad = lazy(() => import("./launchpad/Launchpad"));
 const Checkout = lazy(() => import("./checkout-page/Checkout"));
-const ThankYou = lazy(() => import("./thank-you/ThankYou"));
-import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+const CheckoutThankYou = lazy(() => import("./checkout-page/CheckoutThankYou"));
 const TechyjauntEvent = lazy(() => import("./event/TechyjauntEvent"));
-import ReactPixel from "react-facebook-pixel";
 const LaunchPadThankyou = lazy(() => import("./launchpad/LaunchpadThankyou"));
 
 function App() {
@@ -20,29 +21,62 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" index={true} element={<Homepage />}></Route>
+        <Route
+          path="/"
+          index={true}
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <Homepage />
+            </Suspense>
+          }
+        ></Route>
         {/* LAUNCHPAD */}
-        <Route path="/launchpad" element={<LaunchPad />}></Route>
+        <Route
+          path="/launchpad"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <LaunchPad />
+            </Suspense>
+          }
+        ></Route>
         <Route
           path="/launchpad/thank-you"
           element={
             <ProtectedRoute route="/launchpad" param="isRegistered">
-              <LaunchPadThankyou />
+              <Suspense fallback={<GlobalBeat />}>
+                <LaunchPadThankyou />
+              </Suspense>
             </ProtectedRoute>
           }
         ></Route>
         {/* CHECKOUT */}
-        <Route path="/checkout" element={<Checkout />}></Route>
+        <Route
+          path="/checkout"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <Checkout />
+            </Suspense>
+          }
+        ></Route>
         <Route
           path="/checkout/thank-you"
           element={
             <ProtectedRoute route="/checkout" param="isPaid">
-              <ThankYou />
+              <Suspense fallback={<GlobalBeat />}>
+                <CheckoutThankYou />
+              </Suspense>
             </ProtectedRoute>
           }
         ></Route>
         {/* EVENT */}
-        <Route path="/event" element={<TechyjauntEvent />}></Route>
+        <Route
+          path="/event"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <TechyjauntEvent />
+            </Suspense>
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
