@@ -1,11 +1,7 @@
 import { Links } from "../resources/resources";
 import LogoSrc from "../images/techy_jaunt_logo.svg";
 import { useState } from "react";
-import {
-  Link,
-  animateScroll as scroll,
-} from "react-scroll";
-
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const NavLinks = ({ navclass, isLaunchPad }) => {
   const [openNav, setOpenNav] = useState(false);
@@ -23,7 +19,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
           </a>
           <nav
             className={`flex lg:w-[50%] flex-col lg:flex-row justify-evenly absolute right-0 z-10 lg:static top-24 bg-black lg:bg-transparent ${
-              openNav ? "w-[70%] sm:w-[50%] visible" : "w-[0%] invisible"
+              openNav ? "w-[70%] sm:w-[50%]" : "w-[0%]"
             } transition-all duration-300 ease-linear`}
           >
             <ul className="flex lg:w-[100%] flex-col lg:flex-row lg:justify-evenly h-screen lg:h-fit top-0 overflow-hidden">

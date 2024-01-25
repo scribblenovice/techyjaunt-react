@@ -402,21 +402,21 @@ const AboutUs = () => {
           </div>
           <div className="w-full mb-10 lg:mb-0">
             <div className="space-y-2 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:to-transparent">
-              <Fade left>
-                <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="10"
-                    >
-                      <path
-                        fillRule="nonzero"
-                        d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
-                      />
-                    </svg>
-                  </div>
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="10"
+                  >
+                    <path
+                      fillRule="nonzero"
+                      d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                    />
+                  </svg>
+                </div>
+                <Fade left>
                   <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
                       <time className="font-caveat font-medium text-blue-500">
@@ -427,8 +427,9 @@ const AboutUs = () => {
                       TechyJaunt founded
                     </p>
                   </div>
-                </div>
-              </Fade>
+                </Fade>
+              </div>
+
               <Fade right>
                 <div className="ml-16 md:ml-0 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                   <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
@@ -443,22 +444,23 @@ const AboutUs = () => {
                   </div>
                 </div>
               </Fade>
-              <Fade left>
-                <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="10"
-                    >
-                      <path
-                        fillRule="nonzero"
-                        d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="ml-5 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="10"
+                  >
+                    <path
+                      fillRule="nonzero"
+                      d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                    />
+                  </svg>
+                </div>
+                <Fade left>
+                  <div className=" w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
                       <time className="font-caveat font-medium text-blue-500">
                         09/05/2023
@@ -468,9 +470,9 @@ const AboutUs = () => {
                       TechyJaunt Launchpad 1.0
                     </p>
                   </div>
-                </div>
-              </Fade>
-              <Fade left>
+                </Fade>
+              </div>
+              <Fade right>
                 <div className="ml-16 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                   <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
@@ -484,23 +486,23 @@ const AboutUs = () => {
                   </div>
                 </div>
               </Fade>
-              <Fade left>
-                <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="10"
-                    >
-                      <path
-                        fillRule="nonzero"
-                        d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
-                      />
-                    </svg>
-                  </div>
 
-                  <div className="ml-5 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="10"
+                  >
+                    <path
+                      fillRule="nonzero"
+                      d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                    />
+                  </svg>
+                </div>
+                <Fade left>
+                  <div className=" w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
                       <time className="font-caveat font-medium text-blue-500">
                         25/10/2023
@@ -510,9 +512,10 @@ const AboutUs = () => {
                       TechyJaunt Launchpad 2.0
                     </p>
                   </div>
-                </div>
-              </Fade>
-              <Fade left>
+                </Fade>
+              </div>
+
+              <Fade right>
                 <div className="ml-16 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] md:ml-0 relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                   <div className="w-full bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center justify-between space-x-2 mb-1">
@@ -526,21 +529,22 @@ const AboutUs = () => {
                   </div>
                 </div>
               </Fade>
-              <Fade right>
-                <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                    <svg
-                      className="fill-current"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="10"
-                    >
-                      <path
-                        fillRule="nonzero"
-                        d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
-                      />
-                    </svg>
-                  </div>
+
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-blue-500 text-slate-500 group-[.is-active]:text-blue-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="10"
+                  >
+                    <path
+                      fillRule="nonzero"
+                      d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z"
+                    />
+                  </svg>
+                </div>
+                <Fade left>
                   <div className="ml-5 w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
                     <div className="flex items-center j0ustify-between space-x-2 mb-1">
                       <time className="font-caveat font-medium text-blue-500">
@@ -552,8 +556,8 @@ const AboutUs = () => {
                       Nations
                     </p>
                   </div>
-                </div>
-              </Fade>
+                </Fade>
+              </div>
             </div>
           </div>
         </div>

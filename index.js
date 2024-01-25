@@ -3,7 +3,7 @@ import cors from "cors";
 import fetch from "node-fetch";
 import path from "path";
 import { getGlobals } from "common-es";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 dotenv.config();
 const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
@@ -64,13 +64,10 @@ server.post("/signup", (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       if (data.status === "SUBSCRIBED") {
-       
         return res.status(200).json({
           status: "registered",
         });
-
       }
       if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
         return res.status(200).json({
@@ -94,9 +91,9 @@ server.post("/signup", (req, res) => {
 // email subscription
 server.post("/subscribe", (req, res) => {
   let listId = "56fcc9f4-c91c-11ed-a5a5-197bd1869247";
-  const { firstName,lastName, email } = req.body;
+  const { firstName, lastName, email } = req.body;
 
-  if (email === "" || firstName === "" || lastName==="") {
+  if (email === "" || firstName === "" || lastName === "") {
     return res.status(400).json({
       status: "failed",
       message: "Bad Request",
@@ -113,7 +110,7 @@ server.post("/subscribe", (req, res) => {
       email_address: email,
       fields: {
         FirstName: firstName,
-        LastName: lastName
+        LastName: lastName,
       },
       tags: ["VIP"],
       status: "SUBSCRIBED",
@@ -146,7 +143,6 @@ server.post("/subscribe", (req, res) => {
     });
 });
 
-
 //payment
 server.post("/payment", (req, res) => {
   let paidListId = "688c74b4-afe2-11ee-9534-f9dec77b0681";
@@ -159,7 +155,13 @@ server.post("/payment", (req, res) => {
     completedPayment,
   } = req.body;
 
-  if (email === "" || firstName === "" || lastName === "" || selectedCourse=== "" || completedPayment!= true) {
+  if (
+    email === "" ||
+    firstName === "" ||
+    lastName === "" ||
+    selectedCourse === "" ||
+    completedPayment != true
+  ) {
     return res.status(500).json({
       status: "failed",
       message: "Bad Request",
@@ -285,7 +287,6 @@ server.post("/event-register", (req, res) => {
       });
     });
 });
-
 
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
