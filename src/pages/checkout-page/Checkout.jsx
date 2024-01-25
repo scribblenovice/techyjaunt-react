@@ -5,7 +5,7 @@ import { courses } from "../../resources/resources";
 import { PaystackButton } from "react-paystack";
 import GlobalSelect from "../../globalcomponents/GlobalSelect";
 import PhoneNumber from "../../globalcomponents/PhoneNumber";
-import logoImg from "../images/techy_jaunt_logo.svg";
+import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
 
@@ -61,7 +61,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 5000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
   };
   const componentProps = {
@@ -69,7 +69,29 @@ const Checkout = () => {
     text: "PAY NOW",
     onSuccess: () => {
       sessionStorage.setItem("isPaid", true);
-      handleSubmit();
+      axios
+        .post("https://techyjaunt-kx6a.onrender.com/payment", {
+          ...formData,
+          completedPayment: true,
+        })
+        .then((res) => {
+          if (res.data.status === "paid") {
+            alert("SUCCESSFUL PAYMENT");
+            // navigate("/checkout/thank-you");
+            // setTimeout(() => {
+            //   window.location.href = import.meta.env.VITE_PAID_GROUP;
+            // }, 3000);
+          }
+          if (res.data.status === "existing") {
+            setModalError(true);
+            setOpen(true);
+            alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
+          }
+          if (res.data.status === "failed") {
+            alert("THRANSCATION FAILED");
+          }
+        });
+      // handleSubmit();
     },
     onClose: () => {
       sessionStorage.setItem("isPaid", false);
@@ -82,32 +104,7 @@ const Checkout = () => {
       ...formData,
       [name]: value,
     });
-    validateForm();
     console.log(formData);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3001/checkout", {
-        ...formData,
-        completedPayment: true,
-      })
-      .then((res) => {
-        if (res.data.status === "paid") {
-          // navigate("/checkout/thank-you");
-          setTimeout(() => {
-            window.location.href = import.meta.env.VITE_PAID_GROUP;
-          }, 3000);
-        }
-        if (res.data.status === "existing") {
-          setModalError(true);
-          setOpen(true);
-          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
-        }
-        if (res.data.status === "failed") {
-          alert("THRANSCATION FAILED");
-        }
-      });
   };
   return (
     <>
@@ -123,9 +120,6 @@ const Checkout = () => {
             month mentorship with industry experts. Gain access now!
           </p>
           <div
-            // method="POST"
-            // action="/checkout"
-            // onSubmit={handleSubmit}
             className="w-full grid grid-cols-1 gap-y-5 gap-x-5"
           >
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
