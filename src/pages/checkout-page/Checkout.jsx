@@ -88,7 +88,7 @@ const Checkout = () => {
             alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
           }
           if (res.data.status === "failed") {
-            alert("THRANSCATION FAILED");
+            alert("TRANSCATION FAILED");
           }
         });
       // handleSubmit();
