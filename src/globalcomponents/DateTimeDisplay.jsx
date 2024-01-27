@@ -1,10 +1,10 @@
 import React from "react";
 
-const DateTimeDisplay = ({ value, type, isDanger }) => {
+const DateTimeDisplay = ({ value, type }) => {
   return (
-    <div className={`countdown-box py-5 px-4`}>
-      <p className="font-bold text-4xl">{value}</p>
-      <span className="text-xs md:text-sm">{type}</span>
+    <div className={`countdown-box py-5 px-4 flex flex-col justify-center`}>
+      <p className="font-bold text-4xl text-center">{value}</p>
+      <span className="text-[0.65rem] md:text-sm text-center">{type}</span>
     </div>
   );
 };

@@ -16,6 +16,28 @@ body {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f7f7;
+  border: 0px none #ffffff;
+  border-radius: 41px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .nav-bar {
   transition: all 0.1s ease;
 }
@@ -126,7 +148,7 @@ video {
   box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.163);
 }
 .scale {
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
   animation: scale 3s linear infinite;
 }
 @keyframes scale {
@@ -205,9 +227,6 @@ transform: translateX(5px);
 }
 
 
-.show-counter {
-  /* padding: 0.5rem; */
-}
 .countdown-box{
 background: rgba(255, 255, 255, 0.18);
 border-radius: 16px;

@@ -15,7 +15,7 @@ const AboutUs = () => {
               <Fade bottom>
                 <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
                   <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
-                    About Us
+                    ABOUT US
                   </h2>
                 </div>
                 <p className="font-normal mb-10 text-base leading-7 text-gray-500">
