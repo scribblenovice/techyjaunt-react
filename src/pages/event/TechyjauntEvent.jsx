@@ -201,7 +201,7 @@ const TechyjauntEvent = () => {
               Anticipate 24th February, 2024
             </p> */}
               <Fade bottom>
-                <div className="counter">
+                <div className="counter w-full">
                   <CountdownTimer targetDate={dateTime} />
                 </div>
               </Fade>
