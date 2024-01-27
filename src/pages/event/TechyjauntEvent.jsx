@@ -317,7 +317,7 @@ const TechyjauntEvent = () => {
                 </div>
               </Fade>
               <Fade bottom>
-                <div className="counter">
+                <div className="counter w-full">
                   <CountdownTimer targetDate={`February 29, 2024, 07:00:00`} />
                 </div>
               </Fade>
@@ -361,7 +361,7 @@ const TechyjauntEvent = () => {
           <div>
              <div class="feature w-screen">
             <div class="feature-container flex flex-row justify-between w-8screen sm:w-7screen md:w-6screen lg:w-4screen">
-                {galleryImg}
+                {/* {galleryImg} */}
             </div>
         </div>
         
