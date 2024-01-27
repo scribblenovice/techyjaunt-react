@@ -143,11 +143,11 @@ const LaunchPad = () => {
             setOpen(true);
             setMessage("YOU HAVE ALREADY SIGNED UP FOR THE COHORT!");
           }
-          if (res.data.status === "failed") {
-            setModalError(true);
-            setOpen(true);
-            setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
-          }
+          // if (res.data.status === "failed") {
+          //   setModalError(true);
+          //   setOpen(true);
+          //   setMessage("PLEASE FILL IN THE CORRECT PARAMETERS!");
+          // }
         });
     }
     if (!isValid) {
