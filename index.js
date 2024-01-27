@@ -129,11 +129,11 @@ server.post("/subscribe", (req, res) => {
           status: "existing",
         });
       }
-      if (data.error.code === "INVALID_PARAMETERS") {
-        return res.status(304).json({
-          status: "invalid",
-        });
-      }
+      // if (data.error.code === "INVALID_PARAMETERS") {
+      //   return res.status(304).json({
+      //     status: "invalid",
+      //   });
+      // }
     })
     .catch((err) => {
       console.log(err);

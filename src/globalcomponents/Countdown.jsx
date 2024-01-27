@@ -4,11 +4,11 @@ import { useCountdown } from "../hooks/UseCountdown";
 
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
   return (
-    <div className="show-counter grid grid-cols-4 gap-x-6">
+    <div className="show-counter grid grid-cols-4 gap-x-1 w-full md:w-[80%] mx-auto">
       <DateTimeDisplay value={days} type={"Days"} />
-    
+
       <DateTimeDisplay value={hours} type={"Hours"} />
-     
+
       <DateTimeDisplay value={minutes} type={"Mins"} />
       <DateTimeDisplay value={seconds} type={"Seconds"} />
     </div>
