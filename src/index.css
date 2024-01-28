@@ -148,7 +148,6 @@ video {
   box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.163);
 }
 .scale {
-  /* transition: all 0.3s ease; */
   animation: scale 3s linear infinite;
 }
 @keyframes scale {
@@ -245,7 +244,37 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .eventbtn{
   font-family: Orbitron;
   font-weight: bold;
+  transition: all .3s ease;
 }
 .event-head{
   background-image: url(https://th.bing.com/th/id/R.7411f67bf4151bc795c28a8eed5942eb?rik=LF0v8BLT7%2fsH8Q&pid=ImgRaw&r=0);
+}
+.move{
+  animation: move 3s linear infinite;
+}
+@keyframes move {
+ 0%{
+    transform: translate(10px, 10px);
+  }
+  50%{
+    transform: translate(-10px, -10px);
+  }
+  100%{
+    transform: translate(10px, 10px);
+  }
+}
+.slide-left{
+  animation: left 1s linear;
+}
+@keyframes left {
+ from{
+    transform: translate(-100%);
+  }
+  to{
+    transform: translate(0);
+  }
+}
+.eventbtn:hover{
+background-color: white;
+color: rgb(63 131 248);
 }

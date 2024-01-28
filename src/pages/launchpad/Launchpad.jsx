@@ -298,7 +298,23 @@ const LaunchPad = () => {
               </p>
               <div className="w-full grid place-items-center">
                 <div className="w-fit">
-                  <TypingAnimation typingClass="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl " />
+                  <TypingAnimation
+                    sequenceArray={[
+                      "DATA ANALYSIS",
+                      2000,
+                      "UI/UX DESIGN",
+                      2000,
+                      "PRODUCT MANAGEMENT",
+                      2000,
+                      "FRONTEND DEVELOPMENT",
+                      2000,
+                      "BACKEND DEVELOPMENT",
+                      2000,
+                      "CYBER SECURITY",
+                      2000,
+                    ]}
+                    typingClass="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl "
+                  />
                 </div>
               </div>
             </Fade>

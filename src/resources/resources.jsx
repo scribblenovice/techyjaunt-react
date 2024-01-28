@@ -1382,3 +1382,23 @@ export const state = [
     ],
   },
 ];
+
+
+
+export const eventImg = [
+  {
+    id: 0,
+    src: gallery8,
+    info: "BOLCKCHAIN HANGOUT IN PARTNERSHIP WITH LBANK | 2023",
+  },
+  {
+    id: 1,
+    src: gallery9,
+    info: "YOUTH ENTERPRENEURSHIP SUMBIT | 2023",
+  },
+  {
+    id: 2,
+    src: gallery10,
+    info: "COINSTORE CS CONNECT ABUJA |2023",
+  },
+];

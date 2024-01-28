@@ -19,7 +19,22 @@ const Header = () => {
             <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
               Start a career in{" "}
               <span className="inline-block text-center">
-                <TypingAnimation />{" "}
+                <TypingAnimation
+                  sequenceArray={[
+                    "DATA ANALYSIS",
+                    2000,
+                    "UI/UX DESIGN",
+                    2000,
+                    "PRODUCT MANAGEMENT",
+                    2000,
+                    "FRONTEND DEVELOPMENT",
+                    2000,
+                    "BACKEND DEVELOPMENT",
+                    2000,
+                    "CYBER SECURITY",
+                    2000,
+                  ]}
+                />{" "}
               </span>{" "}
               + Six(6) month mentorship from the best industry leaders from
               around the world

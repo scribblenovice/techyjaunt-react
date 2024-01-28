@@ -108,6 +108,7 @@ const EventForm = ({
                 </label>
                 <div className="w-full">
                   <GlobalSelect
+                    menuClass={`h-44`}
                     options={state}
                     name="stateAttendedFrom"
                     inputVal={formData.stateAttendedFrom}
@@ -116,39 +117,21 @@ const EventForm = ({
                   />
                 </div>
               </div>
-              {/* <div>
+              <div>
                 <label
-                  htmlFor="skill-choice"
-                  className="mr-2 font-medium  text-sm text-gray-500"
+                  htmlFor="event-expectations"
+                  className="font-medium  text-sm text-gray-500 "
                 >
-                  Where?
+                  What are your expectations for this event?
                 </label>
-                {/* <div className="w-full">
-                  <GlobalSelect
-                    options={``}
-                    name="knowlegeOfTechyJaunt"
-                    inputVal={formData.knowlegeOfTechyJaunt}
-                    handleChange={handleSelect2}
-                    errorTxt={formErrors.knowlegeOfTechyJaunt}
-                  />
-                </div>
-              </div> */}
-            </div>
-            <div className="relative z-0 w-full mb-6 ">
-              <label
-                htmlFor="event-expectations"
-                className="font-medium  text-sm text-gray-500 "
-              >
-                What are your expectations for this event?
-              </label>
-              <textarea
-                name="expectation"
-                className="w-full border-[1px] border-gray-400 rounded-md resize-none p-3 mt-2 focus:border-black focus:!border-2 focus:!outline-0 focus:!shadow-none"
-                id="event-expectations"
-                cols="30"
-                rows="1"
-                onChange={handleChange}
-              ></textarea>
+                <GlobalText
+                  inputType="text"
+                  inputName="expectation"
+                  id="event-expectations"
+                  handleChange={handleChange}
+                  errorTxt={formErrors.expectation}
+                />
+              </div>
             </div>
             <Modal.Footer>
               <button

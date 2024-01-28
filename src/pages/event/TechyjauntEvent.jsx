@@ -2,14 +2,16 @@ import CountdownTimer from "../../globalcomponents/Countdown";
 import EventNav from "../../globalcomponents/EventNav";
 import FooterSection from "../../globalcomponents/FooterSection";
 import MailBtn from "../../globalcomponents/MailButton";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Partners from "../homepage/partners/Partners";
 import { Element } from "react-scroll";
 import Fade from "react-reveal/Fade";
 import EventForm from "./EventForm";
 import axios from "axios";
-import CarouselSlider from "../../globalcomponents/Carousel";
-import { galleryImg } from "../../resources/resources";
+import { eventImg, galleryImg } from "../../resources/resources";
+import { Carousel } from "flowbite-react";
+import { Zoom } from "react-reveal";
+import LogoSrc from "../../images/techy_jaunt_logo.svg";
 
 const TechyjauntEvent = () => {
   const [scrollNumber, setScrollNumber] = useState();
@@ -39,7 +41,6 @@ const TechyjauntEvent = () => {
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
     stateAttendedFrom: formData.stateAttendedFrom,
-    // knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
     expectation: formData.expectation,
   };
   const [formErrors, setFormErrors] = useState({});
@@ -71,6 +72,11 @@ const TechyjauntEvent = () => {
       errors.stateAttendedFrom = "select an option";
       isValid = false;
     }
+    if (formData.expectation === "") {
+      errors.expectation = "please fill in your expectations";
+      isValid = false;
+    }
+
 
     // if (formData.knowlegeOfTechyJaunt === "") {
     //   errors.knowlegeOfTechyJaunt = "select an option";
@@ -80,6 +86,15 @@ const TechyjauntEvent = () => {
     setFormErrors(errors);
     return isValid;
   };
+  const aboutArray = [
+    "Distribution of laptops",
+    "Fully funded tech scholarships",
+    "Launching a career in tech",
+    "Securing a job in the tech space",
+    "Transitioning into tech",
+    "Hackathon participation",
+    "Balancing school and a tech career",
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -153,12 +168,6 @@ const TechyjauntEvent = () => {
             stateAttendedFrom: e,
           });
         }}
-        // handleSelect2={(e) => {
-        //   setFormData({
-        //     ...formData,
-        //     knowlegeOfTechyJaunt: e,
-        //   });
-        // }}
         handleChange2={(phone, e) => {
           setPhone(phone);
           setFormData({
@@ -175,8 +184,7 @@ const TechyjauntEvent = () => {
             lastName: "",
             email: "",
             phoneNumber: "",
-            selectedCourse: "",
-            knowlegeOfTechyJaunt: "",
+            stateAttendedFrom: "",
             expectation: "",
           });
           sessionStorage.removeItem("countryCode");
@@ -332,40 +340,84 @@ const TechyjauntEvent = () => {
             </div>
           </div>
         </header>
-        <section className="past-events my-20 mx-auto w-[90%] sm:w-[80%]">
-          <div>
-            <h2 className=" text-3xl font-black text-gray-700 md:text-5xl text-center">
-              ABOUT THE EVENT{" "}
-            </h2>
-          </div>
-          <div>
-            <div className="p-5 md:p-10 rounded-lg bg-blue-500 italic my-10 text-center text-gray-200 text-xl md:text-3xl">
-              "The primary goal of this event is to provide young people with an
-              opportunity to delve into a diverse range of technological skills
-              and knowledge, focusing on emerging technologies such as crypto,
-              AI, Blockchain, etc., which are increasingly crucial in today's
-              rapidly evolving world. We aim to be the bridge that guides
-              Africans into the tech industry"
+        <section className="past-events my-32 mx-auto w-[90%] sm:w-[80%]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
+            <div className="h-full rounded-md move">
+              <img
+                className="rounded-lg h-full"
+                src={galleryImg[0].src}
+                alt=""
+              />
+            </div>
+            <div>
+              <Fade bottom>
+                <h2 className=" text-xl font-black text-gray-700 md:text-3xl text-left">
+                  ABOUT THE CONFERENCE{" "}
+                </h2>
+              </Fade>
+              <Fade bottom>
+                <div className=" text-left leading-8 my-5 text-gray-600">
+                  The primary goal of this event is to provide young people with
+                  an opportunity to delve into a diverse range of technological
+                  skills and knowledge, focusing on emerging technologies such
+                  as crypto, AI, Blockchain, etc., which are increasingly
+                  crucial in today's rapidly evolving world. We aim to be the
+                  bridge that guides Africans into the tech industry
+                </div>
+              </Fade>
+              <div className="grid grid-cols-2 gap-y-7 gap-x-2 mt-3">
+                {aboutArray.map((el) => {
+                  return (
+                    <Zoom>
+                      <div className="grid grid-cols-9">
+                        <div className="">
+                          <i class="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                        </div>
+                        <p className="ml-2 col-span-8 text-gray-600 text-sm">
+                          {el}
+                        </p>
+                      </div>
+                    </Zoom>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
-        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
-          <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
-            WHAT TO EXPECT{" "}
-          </h2>
-        </section>
-        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
+        <section className="w-[90%] sm:w-[80%] my-36 mx-auto">
           <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
             PAST EVENTS{" "}
           </h2>
-          <div>
-             <div class="feature w-screen">
-            <div class="feature-container flex flex-row justify-between w-8screen sm:w-7screen md:w-6screen lg:w-4screen">
-                {/* {galleryImg} */}
+          <Fade bottom>
+            <div>
+              <Carousel
+                slideInterval="5000"
+                pauseOnHover
+                className=" my-10 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px]  rounded-xl"
+                indicators={false}
+              >
+                {eventImg.map((el) => {
+                  return (
+                    <div className="relative grid md:grid-cols-3 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px]">
+                      <img
+                        loading="lazy"
+                        key={el.id}
+                        src={el.src}
+                        alt=""
+                        className="w-full h-full col-span-2"
+                      />
+                      <div className="absolute right-0 left-0 text-center p-2 text-sm md:static md:text-xl md:p-5 bg-blue-500 flex flex-col items-center justify-center">
+                        <div className="w-24 h-24 rounded-full md:grid md:my-3 place-items-center bg-white hidden md:visible ">
+                          <img src={LogoSrc} alt="" loading="lazy" />
+                        </div>
+                        <p className="text-white font-bold">{el.info}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Carousel>
             </div>
-        </div>
-        
-          </div>
+          </Fade>
         </section>
         {/* <Element name="sponsors">
           <section className="partners py-10">
