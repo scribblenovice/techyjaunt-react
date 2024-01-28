@@ -159,8 +159,8 @@ server.post("/payment", (req, res) => {
     email === "" ||
     firstName === "" ||
     lastName === "" ||
-    selectedCourse === ""
-    // completedPayment != "yes"
+    selectedCourse === "" ||
+    completedPayment != "yes"
   ) {
     return res.status(500).json({
       status: "failed",
@@ -190,7 +190,6 @@ server.post("/payment", (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           status: "paid",
@@ -253,7 +252,6 @@ server.post("/event-register", (req, res) => {
         EmailAddress: email,
         FirstName: firstName,
         LastName: lastName,
-        // SelectedCourse: selectedCourse,
         State: stateAttendedFrom,
         Expectation: expectation,
       },

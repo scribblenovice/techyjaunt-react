@@ -61,7 +61,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
   };
   const componentProps = {
@@ -114,9 +114,7 @@ const Checkout = () => {
             Kickstart your Tech journey, learn tech skills & gain access to a 6
             month mentorship with industry experts. Gain access now!
           </p>
-          <div
-            className="w-full grid grid-cols-1 gap-y-5 gap-x-5"
-          >
+          <div className="w-full grid grid-cols-1 gap-y-5 gap-x-5">
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
               <div className="">
                 <label
