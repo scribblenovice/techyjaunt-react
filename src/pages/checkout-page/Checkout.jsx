@@ -76,22 +76,17 @@ const Checkout = () => {
         })
         .then((res) => {
           if (res.data.status === "paid") {
-            alert("SUCCESSFUL PAYMENT");
-            // navigate("/checkout/thank-you");
-            // setTimeout(() => {
-            //   window.location.href = import.meta.env.VITE_PAID_GROUP;
-            // }, 3000);
+            navigate("/checkout/thank-you");
           }
           if (res.data.status === "existing") {
             setModalError(true);
             setOpen(true);
             alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
           }
-          if (res.data.status === "failed") {
-            alert("TRANSCATION FAILED");
-          }
+          // if (res.data.status === "failed") {
+          //   alert("TRANSCATION FAILED");
+          // }
         });
-      // handleSubmit();
     },
     onClose: () => {
       sessionStorage.setItem("isPaid", false);
