@@ -159,8 +159,8 @@ server.post("/payment", (req, res) => {
     email === "" ||
     firstName === "" ||
     lastName === "" ||
-    selectedCourse === "" ||
-    completedPayment != true
+    selectedCourse === ""
+    // completedPayment != "yes"
   ) {
     return res.status(500).json({
       status: "failed",
@@ -201,11 +201,11 @@ server.post("/payment", (req, res) => {
           status: "existing",
         });
       }
-      // if (data.error.code === "INVALID_PARAMETERS") {
-      //   return res.status(304).json({
-      //     status: "invalid",
-      //   });
-      // }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(304).json({
+          status: "invalid",
+        });
+      }
     })
     .catch((err) => {
       console.log(err);

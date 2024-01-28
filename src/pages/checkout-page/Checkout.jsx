@@ -61,7 +61,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
   };
   const componentProps = {
@@ -72,7 +72,7 @@ const Checkout = () => {
       axios
         .post("https://techyjaunt-kx6a.onrender.com/payment", {
           ...formData,
-          completedPayment: true,
+          completedPayment: "yes",
         })
         .then((res) => {
           if (res.data.status === "paid") {
@@ -83,9 +83,9 @@ const Checkout = () => {
             setOpen(true);
             alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
           }
-          // if (res.data.status === "failed") {
-          //   alert("TRANSCATION FAILED");
-          // }
+          if (res.data.status === "failed") {
+            alert("AN ERROR OCCURED");
+          }
         });
     },
     onClose: () => {
