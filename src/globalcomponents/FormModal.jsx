@@ -141,21 +141,6 @@ const FormModal = ({
                 </div>
               </div>
             </div>
-            <div className="relative z-0 w-full mb-6 ">
-              <label
-                htmlFor="event-expectations"
-                className="font-medium  text-sm text-gray-500 "
-              >
-                What are your expectations for this course?
-              </label>
-              <GlobalText
-                inputType="text"
-                inputName="expectation"
-                id="event-expectations"
-                handleChange={handleChange}
-                errorTxt={formErrors.expectation}
-              />
-            </div>
             <Modal.Footer>
               <button
                 id="btn"
