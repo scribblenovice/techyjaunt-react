@@ -29,18 +29,18 @@ server.post("/signup", (req, res) => {
   } = req.body;
   let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
-  if (
-    firstName === "" ||
-    lastName === "" ||
-    email === "" ||
-    phoneNumber === "" ||
-    selectedCourse === "" ||
-    knowlegeOfTechyJaunt === ""
-  ) {
-    return res.status(500).json({
-      status: "failed",
-    });
-  }
+  // if (
+  //   firstName === "" ||
+  //   lastName === "" ||
+  //   email === "" ||
+  //   phoneNumber === "" ||
+  //   selectedCourse === "" ||
+  //   knowlegeOfTechyJaunt === ""
+  // ) {
+  //   return res.status(500).json({
+  //     status: "failed",
+  //   });
+  // }
 
   fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
     method: "POST",

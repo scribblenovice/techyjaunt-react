@@ -212,11 +212,6 @@ export const galleryImg = [
 
 export const courses = [
   {
-    id: 0,
-    name: "Select an option",
-    value: "",
-  },
-  {
     id: 1,
   name: "UI/UX DESIGN",
     value: "ui/ux design",
@@ -249,11 +244,6 @@ export const courses = [
 ];
 
 export const howHeard = [
-  {
-    id: 0,
-    name: "Select an option",
-    value: "",
-  },
   {
     id: 1,
     name: "INSTAGRAM",
