@@ -64,6 +64,7 @@ server.post("/signup", (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           status: "registered",
