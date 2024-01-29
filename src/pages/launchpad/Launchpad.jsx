@@ -68,8 +68,7 @@ const LaunchPad = () => {
     email: "",
     phoneNumber: "",
     selectedCourse: "",
-    knowlegeOfTechyJaunt: "",
-    expectation: "",
+    knowlegeOfTechyJaunt: ""
   });
 
   const payload = {
@@ -78,8 +77,7 @@ const LaunchPad = () => {
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
     selectedCourse: formData.selectedCourse,
-    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
-    expectation: formData.expectation,
+    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -113,10 +111,6 @@ const LaunchPad = () => {
 
     if (formData.knowlegeOfTechyJaunt === "") {
       errors.knowlegeOfTechyJaunt = "select an option";
-      isValid = false;
-    }
-    if (formData.expectation === "") {
-      errors.expectation = "please fill in your expectations";
       isValid = false;
     }
 

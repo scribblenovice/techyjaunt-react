@@ -24,8 +24,7 @@ server.post("/signup", (req, res) => {
     email,
     phoneNumber,
     selectedCourse,
-    knowlegeOfTechyJaunt,
-    expectation,
+    knowlegeOfTechyJaunt
   } = req.body;
   let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
