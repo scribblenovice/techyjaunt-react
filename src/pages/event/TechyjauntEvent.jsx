@@ -207,8 +207,12 @@ const TechyjauntEvent = () => {
             <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
               <Fade bottom>
                 <h1 className="mt-10 text-xl md:text-4xl font-bold leading-tight">
-                  WE'RE THE BRIDGE, GUIDING AFRICANS INTO TECH ONE PERSON AT A TIME<br />{" "}
-                  <span className="text-base py-5 inline-block">Sign up for our next event happening in your city</span>
+                  WE'RE THE BRIDGE, GUIDING AFRICANS INTO TECH ONE PERSON AT A
+                  TIME
+                  <br />{" "}
+                  <span className="text-base py-5 inline-block">
+                    Sign up for our next event happening in your city
+                  </span>
                 </h1>
               </Fade>
               {/* <Fade bottom>
@@ -293,23 +297,25 @@ const TechyjauntEvent = () => {
             OUR SPEAKERS{" "}
           </h2>
           <div className=" py-20">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
-              {speakers.map((el) => {
-                return (
-                  <div
-                    key={el.id}
-                    className=" flex flex-col items-center justify-center"
-                  >
-                    <img
-                      src={el.src}
-                      alt=""
-                      className="rounded-full w-32 h-32 border-8 border-blue-300 "
-                    />
-                    <p className="">{el.name}</p>
-                  </div>
-                );
-              })}
-            </div>
+            <Fade bottom>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
+                {speakers.map((el) => {
+                  return (
+                    <div
+                      key={el.id}
+                      className=" flex flex-col items-center justify-center"
+                    >
+                      <img
+                        src={el.src}
+                        alt=""
+                        className="rounded-full w-32 h-32 border-8 border-blue-300 "
+                      />
+                      <p className="">{el.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </Fade>
           </div>
         </section>
         <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
