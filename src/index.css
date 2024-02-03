@@ -242,7 +242,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
  font-family: digital, sans-serif;
 }
 .eventbtn{
-  font-family: Orbitron;
+  font-family: Orbitron, sans-serif;
   font-weight: bold;
   transition: all .3s ease;
 }
@@ -251,6 +251,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .move{
   animation: move 3s linear infinite;
+  box-shadow:  10px 10px 20px black;
 }
 @keyframes move {
  0%{
@@ -277,4 +278,13 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .eventbtn:hover{
 background-color: white;
 color: rgb(63 131 248);
+}
+.countup{
+   font-family: Orbitron, sans-serif;
+}
+.countup>div>p{
+  color: white
+}
+.countup>div>span{
+  color: white;
 }

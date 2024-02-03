@@ -8,10 +8,16 @@ import { Element } from "react-scroll";
 import Fade from "react-reveal/Fade";
 import EventForm from "./EventForm";
 import axios from "axios";
-import { eventImg, galleryImg } from "../../resources/resources";
+import {
+  EventSvg,
+  eventImg,
+  galleryImg,
+  speakers,
+} from "../../resources/resources";
 import { Carousel } from "flowbite-react";
 import { Zoom } from "react-reveal";
 import LogoSrc from "../../images/techy_jaunt_logo.svg";
+import CountUp from "../../globalcomponents/CountUp";
 
 const TechyjauntEvent = () => {
   const [scrollNumber, setScrollNumber] = useState();
@@ -76,7 +82,6 @@ const TechyjauntEvent = () => {
       errors.expectation = "please fill in your expectations";
       isValid = false;
     }
-
 
     // if (formData.knowlegeOfTechyJaunt === "") {
     //   errors.knowlegeOfTechyJaunt = "select an option";
@@ -201,129 +206,21 @@ const TechyjauntEvent = () => {
           <div className="w-[90%] sm:w-[80%] mx-auto">
             <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
               <Fade bottom>
-                <h1 className=" text-3xl md:text-5xl font-bold leading-tight">
-                  COMING TO A CITY NEAR YOU!
+                <h1 className="mt-10 text-xl md:text-4xl font-bold leading-tight">
+                  WE'RE THE BRIDGE, GUIDING AFRICANS INTO TECH ONE PERSON AT A TIME<br />{" "}
+                  <span className="text-base py-5 inline-block">Sign up for our next event happening in your city</span>
                 </h1>
               </Fade>
-              <Fade bottom>
+              {/* <Fade bottom>
                 <div className="py-5 flex justify-center items-center">
                   <div className="mr-3">
-                    <svg
-                      version="1.1"
-                      id="Capa_1"
-                      width={`16`}
-                      height={`16`}
-                      fill="rgb(63, 131, 248)"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      viewBox="0 0 452.986 452.986"
-                      xmlSpace="preserve"
-                      className="bi bi-file-earmark-text w-10 h-10"
-                    >
-                      <g>
-                        <g>
-                          <g>
-                            <path
-                              fill="#fff"
-                              d="M404.344,0H48.642C21.894,0,0,21.873,0,48.664v355.681c0,26.726,21.894,48.642,48.642,48.642
-				h355.702c26.726,0,48.642-21.916,48.642-48.642V48.664C452.986,21.873,431.07,0,404.344,0z M148.429,33.629h156.043v40.337
-				H148.429V33.629z M410.902,406.372H42.041v-293.88h368.86V406.372z"
-                            />
-                            <rect
-                              x="79.273"
-                              y="246.23"
-                              fill="#fff"
-                              width="48.642"
-                              height="48.664"
-                            />
-                            <rect
-                              x="79.273"
-                              y="323.26"
-                              fill="#fff"
-                              width="48.642"
-                              height="48.642"
-                            />
-                            <rect
-                              x="160.853"
-                              y="169.223"
-                              fill="#fff"
-                              width="48.621"
-                              height="48.642"
-                            />
-                            <rect
-                              x="160.853"
-                              y="246.23"
-                              fill="#fff"
-                              width="48.621"
-                              height="48.664"
-                            />
-                            <rect
-                              x="160.853"
-                              y="323.26"
-                              fill="#fff"
-                              width="48.621"
-                              height="48.642"
-                            />
-                            <rect
-                              x="242.369"
-                              y="169.223"
-                              fill="#fff"
-                              width="48.664"
-                              height="48.642"
-                            />
-                            <rect
-                              x="242.369"
-                              y="246.23"
-                              fill="#fff"
-                              width="48.664"
-                              height="48.664"
-                            />
-                            <rect
-                              x="242.369"
-                              y="323.26"
-                              fill="#fff"
-                              width="48.664"
-                              height="48.642"
-                            />
-                            <rect
-                              x="323.907"
-                              y="169.223"
-                              fill="#fff"
-                              width="48.664"
-                              height="48.642"
-                            />
-                            <rect
-                              x="323.907"
-                              y="246.23"
-                              fill="#fff"
-                              width="48.664"
-                              height="48.664"
-                            />
-                          </g>
-                        </g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                        <g></g>
-                      </g>
-                    </svg>
+                    <EventSvg />
                   </div>
                   <p className="text-sm md:text-lg font-semibold text-gray-300">
                     29th February, 2024
                   </p>
                 </div>
-              </Fade>
+              </Fade> */}
               <Fade bottom>
                 <div className="counter w-full">
                   <CountdownTimer targetDate={`February 29, 2024, 07:00:00`} />
@@ -340,11 +237,11 @@ const TechyjauntEvent = () => {
             </div>
           </div>
         </header>
-        <section className="past-events my-32 mx-auto w-[90%] sm:w-[80%]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
-            <div className="h-full rounded-md move">
+        <section className="past-events my-20 mx-auto w-[90%] sm:w-[80%]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
+            <div className="h-fit sm:h-full rounded-md move">
               <img
-                className="rounded-lg h-full"
+                className="rounded-lg h-[350px] sm:h-full"
                 src={galleryImg[0].src}
                 alt=""
               />
@@ -371,7 +268,7 @@ const TechyjauntEvent = () => {
                     <Zoom>
                       <div className="grid grid-cols-9">
                         <div className="">
-                          <i class="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                          <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
                         </div>
                         <p className="ml-2 col-span-8 text-gray-600 text-sm">
                           {el}
@@ -384,7 +281,38 @@ const TechyjauntEvent = () => {
             </div>
           </div>
         </section>
-        <section className="w-[90%] sm:w-[80%] my-36 mx-auto">
+        <section className="bg-gradient-to-br from-blue-500 to-blue-300 ">
+          <div className="w-full py-20">
+            <Fade bottom>
+              <CountUp />
+            </Fade>
+          </div>
+        </section>
+        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
+          <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
+            OUR SPEAKERS{" "}
+          </h2>
+          <div className=" py-20">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
+              {speakers.map((el) => {
+                return (
+                  <div
+                    key={el.id}
+                    className=" flex flex-col items-center justify-center"
+                  >
+                    <img
+                      src={el.src}
+                      alt=""
+                      className="rounded-full w-32 h-32 border-8 border-blue-300 "
+                    />
+                    <p className="">{el.name}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
           <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
             PAST EVENTS{" "}
           </h2>
@@ -410,7 +338,9 @@ const TechyjauntEvent = () => {
                         <div className="w-24 h-24 rounded-full md:grid md:my-3 place-items-center bg-white hidden md:visible ">
                           <img src={LogoSrc} alt="" loading="lazy" />
                         </div>
-                        <p className="text-white font-bold">{el.info}</p>
+                        <p className="text-white font-bold text-base md:text-xl">
+                          {el.info}
+                        </p>
                       </div>
                     </div>
                   );

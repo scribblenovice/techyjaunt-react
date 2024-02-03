@@ -221,7 +221,7 @@ const LaunchPad = () => {
         <div className="mt-12 lg:mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
           <div className="h-full lg:h-[70%] flex flex-col justify-around md:justify-evenly">
             <Fade bottom>
-              <h1 className="font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5 lg:mb-0">
+              <h1 className=" font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5">
                 Welcome to {""}
                 <span className="text-blue-500 techy font-black">
                   TechyJaunt
@@ -238,7 +238,7 @@ const LaunchPad = () => {
               </p>
               <button
                 onClick={() => setOpenModal(true)}
-                className="scale my-5 mx-auto flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-all duration-200 ease-linear hover:scale-105 md:py-4 md:text-lg md:px-10"
+                className="scale my-5 mx-auto flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-white hover:text-blue-500 transition-all duration-200 ease-linear hover:scale-105 md:py-4 md:text-lg md:px-10"
               >
                 APPLY NOW
               </button>
@@ -261,7 +261,7 @@ const LaunchPad = () => {
                 loop
                 // autoPlay
               ></video>
-              <div className="playbtn absolute bottom-10 left-0 right-0 mx-auto text-center">
+              <div className="playbtn rounded-full absolute bottom-10 left-0 right-0 mx-auto text-center">
                 <button
                   onClick={handlePlay}
                   className="relative z-20 w-16 h-16 rounded-full bg-white focus:outline-none"
@@ -333,7 +333,7 @@ const LaunchPad = () => {
               </p>
               <button
                 onClick={() => setOpenModal(true)}
-                className="scale mx-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 md:py-4 md:text-lg md:px-10"
+                className="scale mx-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-white hover:text-blue-500 transition-all duration-200 ease-linear md:py-4 md:text-lg md:px-10"
               >
                 APPLY NOW
               </button>

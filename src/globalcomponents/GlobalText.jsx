@@ -10,6 +10,7 @@ export function GlobalText({
   errorTxt,
   isDisabled,
   placeTxt,
+  isRequired
 }) {
   return (
     <div className={`w-full`}>
@@ -28,6 +29,7 @@ export function GlobalText({
         disabled={isDisabled}
         value={inputVal}
         placeholder={placeTxt}
+        required={isRequired}
       />
       {errorTxt && <p className="text-xs text-red-500">{errorTxt}</p>}
     </div>

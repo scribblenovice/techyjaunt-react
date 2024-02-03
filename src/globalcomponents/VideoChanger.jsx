@@ -53,7 +53,7 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
           {fullName}
         </h3>
       </div>
-      <div className="playbtn absolute right-0 left-0 mx-auto text-center bottom-8">
+      <div className="playbtn rounded-full absolute right-0 left-0 mx-auto text-center bottom-8">
         <button
           onClick={() => {
             setCount(count + 1);

@@ -1392,3 +1392,145 @@ export const eventImg = [
     info: "COINSTORE CS CONNECT ABUJA |2023",
   },
 ];
+export const EventSvg = () => {
+  return (
+    <svg
+      version="1.1"
+      id="Capa_1"
+      width={`16`}
+      height={`16`}
+      fill="rgb(63, 131, 248)"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 452.986 452.986"
+      xmlSpace="preserve"
+      className="bi bi-file-earmark-text w-7 h-7"
+    >
+      <g>
+        <g>
+          <g>
+            <path
+              fill="#fff"
+              d="M404.344,0H48.642C21.894,0,0,21.873,0,48.664v355.681c0,26.726,21.894,48.642,48.642,48.642
+				h355.702c26.726,0,48.642-21.916,48.642-48.642V48.664C452.986,21.873,431.07,0,404.344,0z M148.429,33.629h156.043v40.337
+				H148.429V33.629z M410.902,406.372H42.041v-293.88h368.86V406.372z"
+            />
+            <rect
+              x="79.273"
+              y="246.23"
+              fill="#fff"
+              width="48.642"
+              height="48.664"
+            />
+            <rect
+              x="79.273"
+              y="323.26"
+              fill="#fff"
+              width="48.642"
+              height="48.642"
+            />
+            <rect
+              x="160.853"
+              y="169.223"
+              fill="#fff"
+              width="48.621"
+              height="48.642"
+            />
+            <rect
+              x="160.853"
+              y="246.23"
+              fill="#fff"
+              width="48.621"
+              height="48.664"
+            />
+            <rect
+              x="160.853"
+              y="323.26"
+              fill="#fff"
+              width="48.621"
+              height="48.642"
+            />
+            <rect
+              x="242.369"
+              y="169.223"
+              fill="#fff"
+              width="48.664"
+              height="48.642"
+            />
+            <rect
+              x="242.369"
+              y="246.23"
+              fill="#fff"
+              width="48.664"
+              height="48.664"
+            />
+            <rect
+              x="242.369"
+              y="323.26"
+              fill="#fff"
+              width="48.664"
+              height="48.642"
+            />
+            <rect
+              x="323.907"
+              y="169.223"
+              fill="#fff"
+              width="48.664"
+              height="48.642"
+            />
+            <rect
+              x="323.907"
+              y="246.23"
+              fill="#fff"
+              width="48.664"
+              height="48.664"
+            />
+          </g>
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </g>
+    </svg>
+  );
+}
+
+export const speakers = [
+  {
+    id: 0,
+    src: thumb1,
+    name: "GEORGE",
+  },
+  {
+    id: 1,
+    src: thumb2,
+    name: "GEORGE",
+  },
+  {
+    id: 2,
+    src: thumb3,
+    name: "GEORGE",
+  },
+  {
+    id: 3,
+    src: thumb1,
+    name: "GEORGE",
+  },
+  {
+    id: 4,
+    src: thumb2,
+    name: "GEORGE",
+  }
+];

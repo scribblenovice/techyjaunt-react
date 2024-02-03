@@ -114,7 +114,7 @@ const Checkout = () => {
             Kickstart your Tech journey, learn tech skills & gain access to a 6
             month mentorship with industry experts. Gain access now!
           </p>
-          <div className="w-full grid grid-cols-1 gap-y-5 gap-x-5">
+          <form className="w-full grid grid-cols-1 gap-y-5 gap-x-5">
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
               <div className="">
                 <label
@@ -130,6 +130,7 @@ const Checkout = () => {
                   handleChange={handleChange}
                   errorTxt={formErrors.firstname}
                   placeTxt={`enter your first name`}
+                  isRequired={true}
                 />
               </div>
               <div className="">
@@ -146,6 +147,7 @@ const Checkout = () => {
                   handleChange={handleChange}
                   errorTxt={formErrors.lastname}
                   placeTxt={`enter your last name`}
+                  isRequired={true}
                 />
               </div>
             </div>
@@ -177,10 +179,10 @@ const Checkout = () => {
                   handleChange={handleChange}
                   errorTxt={formErrors.email}
                   placeTxt={`enter your email`}
+                  isRequired={true}
                 />
               </div>
             </div>
-
             <div className="grid md:grid-cols-2 gap-6 gap-y-5">
               <div className="w-full">
                 <label
@@ -230,7 +232,7 @@ const Checkout = () => {
               className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
               {...componentProps}
             />
-          </div>
+          </form>
         </div>
       </section>
       <Modal show={open} onClose={close} position="center">
