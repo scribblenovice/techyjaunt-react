@@ -46,7 +46,7 @@ const EventNav = ({ navclass, openModal }) => {
                     scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
                   } text-center relative cursor-pointer text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
                 >
-                  SPONSORS
+                  SPEAKERS
                 </Link>
               </li>
               <li className={`block`}>

@@ -10,19 +10,19 @@ const RegisterCountDisplay = () => {
       <div className="countup flex w-full justify-evenly font-bold">
         <div className="grid place-items-center">
           <p className="text-2xl md:text-5xl">
-            <CountUpTimer maxValue={1000} interval={20} />
+            <CountUpTimer maxValue={2000} interval={50} />
           </p>
           <span className="text-sm">Registered</span>
         </div>
         <div className="grid place-items-center">
           <p className="text-2xl md:text-5xl text-center">
-            <CountUpTimer maxValue={5000} interval={10}/>
+            <CountUpTimer maxValue={3000} interval={50}/>
           </p>
           <span className="text-center">Attendees</span>
         </div>
         <div className="grid place-items-center">
           <p className="text-2xl md:text-5xl text-center">
-            <CountUpTimer maxValue={10} interval={1}/>
+            <CountUpTimer maxValue={5} interval={1}/>
           </p>
           <span className="text-center">Speakers</span>
         </div>
