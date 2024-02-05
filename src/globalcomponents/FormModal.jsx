@@ -82,10 +82,6 @@ const FormModal = ({
                   inputName="phoneNumber"
                   inputVal={phoneval}
                   handleChange={handleChange2}
-                  // onChange={(phone) => {
-                  //   setPhone(phone);
-                  //   sessionStorage.setItem("countryCode", phone);
-                  // }}
                   errorTxt={formErrors.phoneNumber}
                 />
               </div>

@@ -41,7 +41,6 @@ const TechyjauntEvent = () => {
     email: "",
     phoneNumber: "",
     stateAttendedFrom: "",
-    knowlegeOfTechyJaunt: ""
   });
 
   const payload = {
@@ -49,7 +48,7 @@ const TechyjauntEvent = () => {
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
-    stateAttendedFrom: formData.stateAttendedFrom
+    stateAttendedFrom: formData.stateAttendedFrom,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -80,8 +79,6 @@ const TechyjauntEvent = () => {
       errors.stateAttendedFrom = "select an option";
       isValid = false;
     }
-
-
     setFormErrors(errors);
     return isValid;
   };
@@ -93,7 +90,7 @@ const TechyjauntEvent = () => {
     "Addressing the challenges of transitioning into tech",
     "Discussing strategies for balancing school and a tech career",
   ];
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,10 +105,10 @@ const TechyjauntEvent = () => {
         })
         .then((res) => {
           if (res.data.status === "registered") {
-            sessionStorage.setItem("event-registered")
-            navigate('/event/thank-you')
+            sessionStorage.setItem("event-registered", true);
+            navigate("/event/thank-you");
           }
-          if (res.data.status === "alreadysignedup") {
+          if (res.data.status === "existing") {
             setModalError(true);
             setOpen(true);
             setMessage("YOU HAVE ALREADY REGISTERED FOR THIS EVENT");
@@ -137,7 +134,6 @@ const TechyjauntEvent = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData)
   };
 
   return (
@@ -176,9 +172,8 @@ const TechyjauntEvent = () => {
             lastName: "",
             email: "",
             phoneNumber: "",
-            stateAttendedFrom: ""
+            stateAttendedFrom: "",
           });
-          sessionStorage.removeItem("countryCode");
         }}
       />
       <EventNav

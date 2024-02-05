@@ -6,7 +6,7 @@ const EventThankYou = () => {
 
   return (
     <>
-      <div className="w-screen h-screen grid place-items-center bg-gradient-to-r from-blue-500 to-blue-700  bg-center bg-no-repeat bg-gray-900 bg-blend-multiply bg-cover eventAbout">
+      <div className="w-screen h-screen grid place-items-center bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover eventAbout">
         <div className=" w-[90%] sm:w-[80%] gap-y-5">
           <div className="speakers rounded-lg grid place-items-center p-5 md:p-20">
             <i

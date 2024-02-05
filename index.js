@@ -224,7 +224,7 @@ server.post("/event-register", (req, res) => {
     // knowlegeOfTechyJaunt,
     expectation,
   } = req.body;
-  let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
+  let launchpadListId = "29cbfad2-b1fa-11ee-a619-f1b1eed8817b";
 
   if (
     firstName === "" ||
@@ -232,7 +232,6 @@ server.post("/event-register", (req, res) => {
     email === "" ||
     phoneNumber === "" ||
     stateAttendedFrom === ""
-    // knowlegeOfTechyJaunt === ""
   ) {
     return res.status(500).json({
       status: "failed",
@@ -251,8 +250,7 @@ server.post("/event-register", (req, res) => {
         EmailAddress: email,
         FirstName: firstName,
         LastName: lastName,
-        State: stateAttendedFrom,
-        Expectation: expectation,
+        State: stateAttendedFrom
       },
       tags: ["EVENT"],
       status: "SUBSCRIBED",
@@ -268,7 +266,7 @@ server.post("/event-register", (req, res) => {
       }
       if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
         return res.status(200).json({
-          status: "alreadyregistered",
+          status: "existing",
         });
       }
       if (data.error.code === "INVALID_PARAMETERS") {
