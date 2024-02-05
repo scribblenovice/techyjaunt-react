@@ -10,7 +10,7 @@ const EventThankYou = () => {
         <div className=" w-[90%] sm:w-[80%] gap-y-5">
           <div className="speakers rounded-lg grid place-items-center p-5 md:p-20">
             <i
-              className={`ri-checkbox-circle-line text-green-300 text-9xl lg:text-[200px]`}
+              className={`ri-checkbox-circle-line text-green-300 text-8xl lg:text-[200px]`}
             ></i>
             <p className="orbitron text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
               YOU HAVE SUCCESSFULLY REGISTERED FOR THIS EVENT! <br />
