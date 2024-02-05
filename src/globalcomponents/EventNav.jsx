@@ -37,10 +37,24 @@ const EventNav = ({ navclass, openModal }) => {
               </li>
               <li className={`block`}>
                 <Link
-                  to={`sponsors`}
+                  to={`about`}
                   spy={true}
                   smooth={true}
                   offset={-100}
+                  duration={500}
+                  className={` ${
+                    scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
+                  } text-center relative cursor-pointer text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
+                >
+                  ABOUT
+                </Link>
+              </li>
+              <li className={`block`}>
+                <Link
+                  to={`speakers`}
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
                   duration={500}
                   className={` ${
                     scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
@@ -75,7 +89,10 @@ const EventNav = ({ navclass, openModal }) => {
               </li>
             </ul>
           </nav>
-          <button onClick={openModal} className="bg-blue-500 p-2 hidden lg:inline-block shadow-md rounded-md text-white relative text-xl hover:scale-105 transition-all duration-200 ease-in ">
+          <button
+            onClick={openModal}
+            className="bg-blue-500 p-2 hidden lg:inline-block shadow-md rounded-md text-white relative text-xl hover:scale-105 transition-all duration-200 ease-in "
+          >
             REGISTER
           </button>
           <button

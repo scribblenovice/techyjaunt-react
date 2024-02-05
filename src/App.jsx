@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+import EventThankYou from "./pages/event/EventThankYou";
 const Homepage = lazy(() => import("./pages/homepage/Homepage"));
 const LaunchPad = lazy(() => import("./pages/launchpad/Launchpad"));
 const Checkout = lazy(() => import("./pages/checkout-page/Checkout"));
@@ -79,6 +80,16 @@ function App() {
             <Suspense fallback={<GlobalBeat />}>
               <TechyjauntEvent />
             </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/event/thank-you"
+          element={
+            <ProtectedRoute route="/event" param="event-registered">
+              <Suspense fallback={<GlobalBeat />}>
+                <EventThankYou />
+              </Suspense>
+            </ProtectedRoute>
           }
         ></Route>
       </Routes>

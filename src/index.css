@@ -288,7 +288,7 @@ color: rgb(63 131 248);
 }
 .aboutWriteUp{
   /* From https://css.glass */
-background: rgba(255, 255, 255, 0.54);
+background: rgba(0, 0, 0, 0.788);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 backdrop-filter: blur(7.5px);
@@ -296,8 +296,14 @@ backdrop-filter: blur(7.5px);
 border: 1px solid rgba(255, 255, 255, 0.06);
 }
 .speakers{
-background-color: #000000c0;
+background-color: #161616c0;
 }
 .orbitron{
     font-family: Orbitron, sans-serif;
+}
+.speakerBg{
+  background-image: url('./images/gallery/gallery1.webp');
+}
+.saira{
+  font-family: Saira, sans-serif;
 }

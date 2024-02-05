@@ -20,6 +20,8 @@ import LogoSrc from "../../images/techy_jaunt_logo.svg";
 import CountUp from "../../globalcomponents/CountUp";
 import bgSrc from "../../images/gallery/gallery4.webp";
 import Speakers from "./Speakers";
+import EventPartners from "./EventPartners";
+import { useNavigate } from "react-router-dom";
 
 const TechyjauntEvent = () => {
   const [scrollNumber, setScrollNumber] = useState();
@@ -101,6 +103,7 @@ const TechyjauntEvent = () => {
     "Addressing the challenges of transitioning into tech",
     "Discussing strategies for balancing school and a tech career",
   ];
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -115,16 +118,8 @@ const TechyjauntEvent = () => {
         })
         .then((res) => {
           if (res.data.status === "registered") {
-            setOpenModal(false);
-            setModalError(false);
-            setOpen(true);
-            setMessage(
-              "YOU HAVE SUCCESSFULLY REGISTERED FOR THE UPCOMING EVENT! YOU WILL BE REDIRECTED TO OUR WHATSAPP COMMUNITY SHORTLY"
-            );
-
-            setTimeout(() => {
-              window.location.href = "";
-            }, 3000);
+            sessionStorage.setItem("event-registered")
+            navigate('/event/thank-you')
           }
           if (res.data.status === "alreadysignedup") {
             setModalError(true);
@@ -134,7 +129,7 @@ const TechyjauntEvent = () => {
           if (res.data.status === "failed") {
             setModalError(true);
             setOpen(true);
-            setMessage("PLEASE FILL THE FORM CORRECTLY!");
+            setMessage("REGISTRATION FAILED! PLEASE TRY AGAIN");
           }
         });
     }
@@ -152,6 +147,7 @@ const TechyjauntEvent = () => {
       ...formData,
       [name]: value,
     });
+    console.log(formData)
   };
 
   return (
@@ -242,61 +238,56 @@ const TechyjauntEvent = () => {
             </div>
           </div>
         </header>
-        <section className="eventAbout bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover bg-fixed">
-          <div className="py-20 mx-auto w-[90%] sm:w-[80%]">
-            <div className="grid grid-cols-1 gap-x-10 gap-y-5">
-              {/* <div className="h-fit sm:h-full rounded-md move">
-                <img
-                  className="rounded-lg h-[350px] sm:h-full"
-                  src={galleryImg[0].src}
-                  alt=""
-                />
-              </div> */}
-              <div className="aboutWriteUp p-5">
-                <Fade bottom>
-                  <h2 className=" text-xl font-black text-gray-900 md:text-3xl text-left">
-                    Beyond the campus walls: Building a tech career as a student
-                    hosted by Techyjaunt{" "}
-                  </h2>
-                </Fade>
-                <div>
+        <Element name="about">
+          <section className="eventAbout bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover bg-fixed">
+            <div className="py-20 mx-auto w-[90%] sm:w-[80%]">
+              <div className="grid grid-cols-1 gap-x-10 gap-y-5">
+                <div className="aboutWriteUp p-5">
                   <Fade bottom>
-                    <div className=" text-left leading-8 py-5 text-white">
-                      The summit is scheduled to be held on Saturday, 24th
-                      February 2024, at the University of Nigeria Enugu campus,
-                      located at the premises of WTC Estate in Ogui New Layout,
-                      Enugu, Nigeria. It will attract four other campuses within
-                      Enugu (ESUT, IMT, Godfrey Okoye, and Nsukka campus) with
-                      an expected audience of 2000+ participants. The primary
-                      objective of this initiative is to provide students with
-                      the opportunity to delve into a diverse range of
-                      technological skills and Emerging technology such as AI,
-                      Crypto, NFT, Blockchain etc which are increasingly crucial
-                      in today’s Rapidly evolving world. Key components of the
-                      summit include:
-                    </div>
+                    <h2 className=" text-xl font-black text-white md:text-3xl text-left">
+                      Beyond the campus walls: Building a tech career as a
+                      student hosted by Techyjaunt{" "}
+                    </h2>
                   </Fade>
-                  <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
-                    {aboutArray.map((el) => {
-                      return (
-                        <Zoom>
-                          <div className="grid grid-cols-9">
-                            <div className="">
-                              <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                  <div>
+                    <Fade bottom>
+                      <div className="saira text-left leading-8 py-5 text-white">
+                        The summit is scheduled to be held on Saturday, 24th
+                        February 2024, at the University of Nigeria Enugu
+                        campus, located at the premises of WTC Estate in Ogui
+                        New Layout, Enugu, Nigeria. It will attract four other
+                        campuses within Enugu (ESUT, IMT, Godfrey Okoye, and
+                        Nsukka campus) with an expected audience of 2000+
+                        participants. The primary objective of this initiative
+                        is to provide students with the opportunity to delve
+                        into a diverse range of technological skills and
+                        Emerging technology such as AI, Crypto, NFT, Blockchain
+                        etc which are increasingly crucial in today’s Rapidly
+                        evolving world. Key components of the summit include:
+                      </div>
+                    </Fade>
+                    <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
+                      {aboutArray.map((el) => {
+                        return (
+                          <Zoom>
+                            <div className="grid grid-cols-9">
+                              <div className="">
+                                <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                              </div>
+                              <p className="saira ml-2 col-span-8 text-white text-base">
+                                {el}
+                              </p>
                             </div>
-                            <p className="ml-2 col-span-8 text-white text-base">
-                              {el}
-                            </p>
-                          </div>
-                        </Zoom>
-                      );
-                    })}
+                          </Zoom>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Element>
         <section className="bg-black">
           <div className="w-full py-20">
             <Fade bottom>
@@ -304,26 +295,28 @@ const TechyjauntEvent = () => {
             </Fade>
           </div>
         </section>
-        <section className="speakerBg bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-fixed">
+        <Element name="speakers">
+          <section className="speakerBg bg-center bg-cover bg-no-repeat bg-gray-900 bg-blend-multiply bg-fixed">
+            <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
+              <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
+                NOTABLE SPEAKERS{" "}
+              </h2>
+              <Speakers />
+            </div>
+          </section>
+        </Element>
+        <section className="bg-center bg-no-repeat bg-white bg-blend-multiply bg-fixed">
           <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
-            <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
-              NOTABLE SPEAKERS{" "}
-            </h2>
-            <Speakers />
-          </div>
-        </section>
-        <section className="speakerBg bg-center bg-no-repeat bg-black bg-blend-multiply bg-fixed">
-          <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
-            <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
+            <h2 className="mt-2 text-3xl font-black text-black md:text-5xl text-center">
               MEET OUR PARTENRS{" "}
             </h2>
-            <div>
-              
+            <div className="w-full rounded-md">
+              <EventPartners />
             </div>
           </div>
         </section>
-        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
-          <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
+        <section className="w-[90%] sm:w-[80%] py-20 mx-auto">
+          <h2 className="mt-2 text-3xl font-black text-black md:text-5xl text-center">
             PAST EVENTS{" "}
           </h2>
           <Fade bottom>
@@ -348,7 +341,7 @@ const TechyjauntEvent = () => {
                         <div className="w-24 h-24 rounded-full md:grid md:my-3 place-items-center bg-white hidden md:visible ">
                           <img src={LogoSrc} alt="" loading="lazy" />
                         </div>
-                        <p className="text-white font-bold text-base md:text-xl">
+                        <p className="saira text-white font-bold text-base md:text-xl">
                           {el.info}
                         </p>
                       </div>

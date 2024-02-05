@@ -16,12 +16,13 @@ const Speakers = () => {
                         src={el.src}
                         className="mx-auto rounded-full shadow-lg dark:shadow-black/20 w-[200px] border-4 border-white"
                         alt="Avatar"
+                        loading="lazy"
                       />
                     </div>
                   </div>
                   <div className="p-6">
                     <h5 className="mb-4 text-lg font-bold orbitron">{el.name.toUpperCase()}</h5>
-                    <p className="mb-6 text-sm">{el.title}</p>
+                    <p className="mb-6 text-sm saira">{el.title}</p>
                   </div>
                 </div>
               </div>

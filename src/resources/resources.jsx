@@ -41,6 +41,11 @@ import speaker2 from "../images/speakers/speaker2.webp";
 import speaker3 from "../images/speakers/speaker3.webp";
 import speaker4 from "../images/speakers/speaker4.webp";
 
+//EVENT PARTNER
+import eventPartner1 from "../images/eventpartners/eventpartner1.webp"
+import eventPartner2 from "../images/eventpartners/eventpartner2.webp";
+import eventPartner3 from "../images/eventpartners/eventpartner3.webp";
+import eventPartner4 from "../images/eventpartners/eventpartner4.webp";
 export const PartnerImg = [
   {
     id: 0,
@@ -1538,4 +1543,12 @@ export const speakers = [
     name: "Okechukwu Victor Alvan",
      title:"Co-Founder Blockchain UNN, Enugu"
   }
-];0
+];
+
+
+export const eventPartnersImg = [
+  { id: 0, src: eventPartner1 },
+  { id: 1, src: eventPartner2 },
+  { id: 2, src: eventPartner3 },
+  { id: 3, src: eventPartner4 },
+];
