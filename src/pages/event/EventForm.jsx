@@ -87,7 +87,7 @@ const EventForm = ({
                   htmlFor="email"
                   className="font-medium text-sm text-gray-500"
                 >
-                  Email Adress
+                  Email Address
                 </label>
                 <GlobalText
                   inputType="email"
