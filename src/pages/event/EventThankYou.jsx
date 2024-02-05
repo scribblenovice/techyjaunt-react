@@ -1,7 +1,7 @@
 const EventThankYou = () => {
   function redirect() {
     sessionStorage.removeItem("event-registered");
-    window.location.href = "https://chat.whatsapp.com/GGOLM7YahBTHiO9nl4c0tm";
+    window.location.href = "https://chat.whatsapp.com/GGOLM7YahBTHiO9nI4c0tm";
   }
 
   return (
