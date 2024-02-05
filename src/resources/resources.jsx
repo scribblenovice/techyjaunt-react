@@ -35,6 +35,12 @@ import gallery8 from "../images/gallery/gallery8.webp";
 import gallery9 from "../images/gallery/gallery9.webp";
 import gallery10 from "../images/gallery/gallery10.webp";
 
+// SPEAKERS
+import speaker1 from "../images/speakers/speaker1.webp"
+import speaker2 from "../images/speakers/speaker2.webp";
+import speaker3 from "../images/speakers/speaker3.webp";
+import speaker4 from "../images/speakers/speaker4.webp";
+
 export const PartnerImg = [
   {
     id: 0,
@@ -1510,27 +1516,26 @@ export const EventSvg = () => {
 export const speakers = [
   {
     id: 0,
-    src: thumb1,
-    name: "GEORGE",
+    src: speaker1,
+    name: "Dimeji Falana",
+    title:"CEO/Co-Founder Edves, Lagos"
   },
   {
     id: 1,
-    src: thumb2,
-    name: "GEORGE",
+    src: speaker2,
+    name: "Adebayo Adebayo",
+    title:"Co-Founder ICP Hub Sahara"
   },
   {
     id: 2,
-    src: thumb3,
-    name: "GEORGE",
+    src: speaker3,
+    name: "Peter Tomala",
+    title:"CEO/Founder World Play League, Wilmington"
   },
   {
     id: 3,
-    src: thumb1,
-    name: "GEORGE",
-  },
-  {
-    id: 4,
-    src: thumb2,
-    name: "GEORGE",
+    src: speaker4,
+    name: "Okechukwu Victor Alvan",
+     title:"Co-Founder Blockchain UNN, Enugu"
   }
-];
+];0

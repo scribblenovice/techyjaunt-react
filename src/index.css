@@ -251,7 +251,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .move{
   animation: move 3s linear infinite;
-  box-shadow:  10px 10px 20px black;
+  box-shadow:  2px 2px 20px black;
 }
 @keyframes move {
  0%{
@@ -282,9 +282,22 @@ color: rgb(63 131 248);
 .countup{
    font-family: Orbitron, sans-serif;
 }
-.countup>div>p{
-  color: white
+
+.eventAbout{
+  background-image: url("./images/gallery/gallery4.webp");
 }
-.countup>div>span{
-  color: white;
+.aboutWriteUp{
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.54);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.5px);
+-webkit-backdrop-filter: blur(7.5px);
+border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.speakers{
+background-color: #000000c0;
+}
+.orbitron{
+    font-family: Orbitron, sans-serif;
 }

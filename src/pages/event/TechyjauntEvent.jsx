@@ -18,6 +18,8 @@ import { Carousel } from "flowbite-react";
 import { Zoom } from "react-reveal";
 import LogoSrc from "../../images/techy_jaunt_logo.svg";
 import CountUp from "../../globalcomponents/CountUp";
+import bgSrc from "../../images/gallery/gallery4.webp";
+import Speakers from "./Speakers";
 
 const TechyjauntEvent = () => {
   const [scrollNumber, setScrollNumber] = useState();
@@ -93,12 +95,11 @@ const TechyjauntEvent = () => {
   };
   const aboutArray = [
     "Distribution of laptops",
-    "Fully funded tech scholarships",
-    "Launching a career in tech",
+    "Offering fully funded tech scholarships.",
+    "Guiding participants on starting a career in tech",
     "Securing a job in the tech space",
-    "Transitioning into tech",
-    "Hackathon participation",
-    "Balancing school and a tech career",
+    "Addressing the challenges of transitioning into tech",
+    "Discussing strategies for balancing school and a tech career",
   ];
 
   const handleSubmit = (e) => {
@@ -202,7 +203,7 @@ const TechyjauntEvent = () => {
         }`}
       />
       <main className="relative">
-        <header className="grid place-items-center h-screen text-white bg-center bg-no-repeat bg-[url('https://th.bing.com/th/id/R.7411f67bf4151bc795c28a8eed5942eb?rik=LF0v8BLT7%2fsH8Q&pid=ImgRaw&r=0')] bg-gray-700 bg-blend-multiply bg-cover">
+        <header className="grid place-items-center h-screen text-white bg-center bg-no-repeat bg-[url('https://th.bing.com/th/id/R.7411f67bf4151bc795c28a8eed5942eb?rik=LF0v8BLT7%2fsH8Q&pid=ImgRaw&r=0')] bg-gray-700 bg-blend-multiply bg-cover bg-fixed">
           <div className="w-[90%] sm:w-[80%] mx-auto">
             <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
               <Fade bottom>
@@ -227,7 +228,7 @@ const TechyjauntEvent = () => {
               </Fade> */}
               <Fade bottom>
                 <div className="counter w-full">
-                  <CountdownTimer targetDate={`February 29, 2024, 07:00:00`} />
+                  <CountdownTimer targetDate={`February 24, 2024, 07:00:00`} />
                 </div>
               </Fade>
               <Fade bottom>
@@ -241,81 +242,84 @@ const TechyjauntEvent = () => {
             </div>
           </div>
         </header>
-        <section className="past-events my-20 mx-auto w-[90%] sm:w-[80%]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5">
-            <div className="h-fit sm:h-full rounded-md move">
-              <img
-                className="rounded-lg h-[350px] sm:h-full"
-                src={galleryImg[0].src}
-                alt=""
-              />
-            </div>
-            <div>
-              <Fade bottom>
-                <h2 className=" text-xl font-black text-gray-700 md:text-3xl text-left">
-                  ABOUT THE CONFERENCE{" "}
-                </h2>
-              </Fade>
-              <Fade bottom>
-                <div className=" text-left leading-8 my-5 text-gray-600">
-                  The primary goal of this event is to provide young people with
-                  an opportunity to delve into a diverse range of technological
-                  skills and knowledge, focusing on emerging technologies such
-                  as crypto, AI, Blockchain, etc., which are increasingly
-                  crucial in today's rapidly evolving world. We aim to be the
-                  bridge that guides Africans into the tech industry
+        <section className="eventAbout bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover bg-fixed">
+          <div className="py-20 mx-auto w-[90%] sm:w-[80%]">
+            <div className="grid grid-cols-1 gap-x-10 gap-y-5">
+              {/* <div className="h-fit sm:h-full rounded-md move">
+                <img
+                  className="rounded-lg h-[350px] sm:h-full"
+                  src={galleryImg[0].src}
+                  alt=""
+                />
+              </div> */}
+              <div className="aboutWriteUp p-5">
+                <Fade bottom>
+                  <h2 className=" text-xl font-black text-gray-900 md:text-3xl text-left">
+                    Beyond the campus walls: Building a tech career as a student
+                    hosted by Techyjaunt{" "}
+                  </h2>
+                </Fade>
+                <div>
+                  <Fade bottom>
+                    <div className=" text-left leading-8 py-5 text-white">
+                      The summit is scheduled to be held on Saturday, 24th
+                      February 2024, at the University of Nigeria Enugu campus,
+                      located at the premises of WTC Estate in Ogui New Layout,
+                      Enugu, Nigeria. It will attract four other campuses within
+                      Enugu (ESUT, IMT, Godfrey Okoye, and Nsukka campus) with
+                      an expected audience of 2000+ participants. The primary
+                      objective of this initiative is to provide students with
+                      the opportunity to delve into a diverse range of
+                      technological skills and Emerging technology such as AI,
+                      Crypto, NFT, Blockchain etc which are increasingly crucial
+                      in today’s Rapidly evolving world. Key components of the
+                      summit include:
+                    </div>
+                  </Fade>
+                  <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
+                    {aboutArray.map((el) => {
+                      return (
+                        <Zoom>
+                          <div className="grid grid-cols-9">
+                            <div className="">
+                              <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                            </div>
+                            <p className="ml-2 col-span-8 text-white text-base">
+                              {el}
+                            </p>
+                          </div>
+                        </Zoom>
+                      );
+                    })}
+                  </div>
                 </div>
-              </Fade>
-              <div className="grid grid-cols-2 gap-y-7 gap-x-2 mt-3">
-                {aboutArray.map((el) => {
-                  return (
-                    <Zoom>
-                      <div className="grid grid-cols-9">
-                        <div className="">
-                          <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
-                        </div>
-                        <p className="ml-2 col-span-8 text-gray-600 text-sm">
-                          {el}
-                        </p>
-                      </div>
-                    </Zoom>
-                  );
-                })}
               </div>
             </div>
           </div>
         </section>
-        <section className="bg-gradient-to-br from-blue-500 to-blue-300 ">
+        <section className="bg-black">
           <div className="w-full py-20">
             <Fade bottom>
               <CountUp />
             </Fade>
           </div>
         </section>
-        <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
-          <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl text-center">
-            OUR SPEAKERS{" "}
-          </h2>
-          <div className=" py-20">
-            <Fade bottom>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10">
-                {speakers.map((el) => {
-                  return (
-                    <div
-                      key={el.id}
-                      className=" flex flex-col items-center justify-center"
-                    >
-                      <img
-                        src={el.src}
-                        alt=""
-                        className="rounded-full w-32 h-32 border-8 border-blue-300 "
-                      />
-                      <p className="">{el.name}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </Fade>
+        <section className="speakerBg bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-fixed">
+          <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
+            <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
+              NOTABLE SPEAKERS{" "}
+            </h2>
+            <Speakers />
+          </div>
+        </section>
+        <section className="speakerBg bg-center bg-no-repeat bg-black bg-blend-multiply bg-fixed">
+          <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
+            <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
+              MEET OUR PARTENRS{" "}
+            </h2>
+            <div>
+              
+            </div>
           </div>
         </section>
         <section className="w-[90%] sm:w-[80%] my-20 mx-auto">
@@ -332,7 +336,7 @@ const TechyjauntEvent = () => {
               >
                 {eventImg.map((el) => {
                   return (
-                    <div className="relative grid md:grid-cols-3 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px]">
+                    <div className=" relative grid md:grid-cols-3 h-[45vh] sm:h-[400px] md:h-[450px] lg:h-[550px]">
                       <img
                         loading="lazy"
                         key={el.id}

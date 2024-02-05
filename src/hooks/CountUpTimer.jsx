@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const CountUpTimer = ({ maxValue, interval }) => {
+const CountUpTimer = ({ maxValue, interval, title }) => {
   const [count, setCount] = useState(0);
   const targetRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -51,10 +51,11 @@ const CountUpTimer = ({ maxValue, interval }) => {
   }, [isVisible, maxValue]);
 
   return (
-    <div ref={targetRef}>
+    <div ref={targetRef} className="grid place-items-center">
       {isVisible && (
         <>
-          <p>{count}+</p>
+          <p className="text-2xl md:text-5xl text-white">{count}+</p>
+          <span className="text-blue-500 text-sm">{title}</span>
         </>
       )}
     </div>
