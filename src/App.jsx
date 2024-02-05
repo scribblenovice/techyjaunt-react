@@ -82,8 +82,7 @@ function App() {
             </Suspense>
           }
         ></Route>
-        <Route path="/event/thank-you" element={<EventThankYou/>}></Route>
-        {/* <Route
+        <Route
           path="/event/thank-you"
           element={
             <ProtectedRoute route="/event" param="event-registered">
@@ -92,7 +91,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route> */}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
