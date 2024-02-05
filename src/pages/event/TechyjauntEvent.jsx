@@ -41,8 +41,7 @@ const TechyjauntEvent = () => {
     email: "",
     phoneNumber: "",
     stateAttendedFrom: "",
-    knowlegeOfTechyJaunt: "",
-    expectation: "",
+    knowlegeOfTechyJaunt: ""
   });
 
   const payload = {
@@ -50,8 +49,7 @@ const TechyjauntEvent = () => {
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
-    stateAttendedFrom: formData.stateAttendedFrom,
-    expectation: formData.expectation,
+    stateAttendedFrom: formData.stateAttendedFrom
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -82,15 +80,7 @@ const TechyjauntEvent = () => {
       errors.stateAttendedFrom = "select an option";
       isValid = false;
     }
-    if (formData.expectation === "") {
-      errors.expectation = "please fill in your expectations";
-      isValid = false;
-    }
 
-    // if (formData.knowlegeOfTechyJaunt === "") {
-    //   errors.knowlegeOfTechyJaunt = "select an option";
-    //   isValid = false;
-    // }
 
     setFormErrors(errors);
     return isValid;
@@ -186,8 +176,7 @@ const TechyjauntEvent = () => {
             lastName: "",
             email: "",
             phoneNumber: "",
-            stateAttendedFrom: "",
-            expectation: "",
+            stateAttendedFrom: ""
           });
           sessionStorage.removeItem("countryCode");
         }}

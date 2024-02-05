@@ -98,7 +98,7 @@ const EventForm = ({
                 />
               </div>
             </div>
-            <div className="relative w-full group text-gray-500 grid md:grid-cols-2 md:gap-6 gap-y-5">
+            <div className="relative w-full group text-gray-500 grid grid-cols-1 md:gap-6 gap-y-5">
               <div>
                 <label
                   htmlFor="skill-choice"
@@ -117,7 +117,7 @@ const EventForm = ({
                   />
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <label
                   htmlFor="event-expectations"
                   className="font-medium  text-sm text-gray-500 "
@@ -131,7 +131,7 @@ const EventForm = ({
                   handleChange={handleChange}
                   errorTxt={formErrors.expectation}
                 />
-              </div>
+              </div> */}
             </div>
             <Modal.Footer>
               <button
