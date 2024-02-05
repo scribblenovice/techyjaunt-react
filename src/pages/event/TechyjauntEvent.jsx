@@ -280,7 +280,7 @@ const TechyjauntEvent = () => {
           </div>
         </section>
         <Element name="speakers">
-          <section className="speakerBg bg-center bg-cover bg-no-repeat bg-gray-900 bg-blend-multiply bg-fixed">
+          <section className="speakerBg bg-center bg-cover bg-no-repeat bg-gray-800 bg-blend-multiply bg-fixed">
             <div className="w-[90%] sm:w-[80%] py-20 mx-auto">
               <h2 className="mt-2 text-3xl font-black text-white md:text-5xl text-center">
                 NOTABLE SPEAKERS{" "}
