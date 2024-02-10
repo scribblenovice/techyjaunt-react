@@ -12,7 +12,7 @@ const EventPartners = () => {
             <div className="w-full h-full grid place-items-center">
               <img
                 loading="lazy"
-                className={`w-full`}
+                className={`w-[90%] md:w-full`}
                 key={j.id}
                 src={j.src}
                 alt=""

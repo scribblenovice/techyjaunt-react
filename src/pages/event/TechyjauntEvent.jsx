@@ -336,11 +336,6 @@ const TechyjauntEvent = () => {
             </div>
           </Fade>
         </section>
-        {/* <Element name="sponsors">
-          <section className="partners py-10">
-            <Partners isEvent={true} title={`MEET OUR SPONSORS`} />
-          </section>
-        </Element> */}
       </main>
       <Element name="contact">
         <FooterSection />

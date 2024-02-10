@@ -50,6 +50,9 @@ import eventPartner1 from "../images/eventpartners/eventpartner1.webp"
 import eventPartner2 from "../images/eventpartners/eventpartner2.webp";
 import eventPartner3 from "../images/eventpartners/eventpartner3.webp";
 import eventPartner4 from "../images/eventpartners/eventpartner4.webp";
+import eventPartner5 from "../images/eventpartners/eventpartner5.webp";
+import eventPartner6 from "../images/eventpartners/eventpartner6.webp";
+import eventPartner7 from "../images/eventpartners/eventpartner7.webp";
 export const PartnerImg = [
   {
     id: 0,
@@ -1579,4 +1582,7 @@ export const eventPartnersImg = [
   { id: 1, src: eventPartner2 },
   { id: 2, src: eventPartner3 },
   { id: 3, src: eventPartner4 },
+  { id: 4, src: eventPartner5 },
+  { id: 5, src: eventPartner6 },
+  { id: 6, src: eventPartner7 }
 ];
