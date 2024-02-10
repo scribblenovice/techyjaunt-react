@@ -40,6 +40,10 @@ import speaker1 from "../images/speakers/speaker1.webp"
 import speaker2 from "../images/speakers/speaker2.webp";
 import speaker3 from "../images/speakers/speaker3.webp";
 import speaker4 from "../images/speakers/speaker4.webp";
+import speaker5 from "../images/speakers/speaker5.webp";
+import speaker6 from "../images/speakers/speaker6.webp";
+import speaker7 from "../images/speakers/speaker7.webp";
+import speaker8 from "../images/speakers/speaker8.webp";
 
 //EVENT PARTNER
 import eventPartner1 from "../images/eventpartners/eventpartner1.webp"
@@ -1540,8 +1544,32 @@ export const speakers = [
   {
     id: 3,
     src: speaker4,
+    name: "Ezeudeka George .I.",
+     title:"CEO/Co-Founder TechyJaunt"
+  },
+  {
+    id: 4,
+    src: speaker5,
     name: "Okechukwu Victor Alvan",
      title:"Co-Founder Blockchain UNN, Enugu"
+  },
+  {
+    id: 5,
+    src: speaker6,
+    name: "Steve Gregory",
+     title:"CEO, Currency.com"
+  },
+  {
+    id: 6,
+    src: speaker7,
+    name: "Eliezer Ajah",
+     title:"Talent Development Lead, Genesys Tech Hub"
+  },
+  {
+    id: 7,
+    src: speaker8,
+    name: "Irene Udebuana",
+     title:"CEO/Co-Founder, EQUISTEM AFRICA"
   }
 ];
 
