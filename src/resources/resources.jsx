@@ -1560,7 +1560,7 @@ export const speakers = [
     id: 5,
     src: speaker6,
     name: "Steve Gregory",
-     title:"CEO, Currency.com"
+     title:"CEO, US Currency.com"
   },
   {
     id: 6,
