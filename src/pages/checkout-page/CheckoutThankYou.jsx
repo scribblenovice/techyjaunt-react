@@ -15,8 +15,9 @@ const LaunchPadThankyou = () => {
             YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 3! <br />
             <span className="text-sm md:text-base">
               {" "}
-              KINDLY CLICK THE LINK BELOW TO JOIN THE PAID WHATSAPP COMMUNITY
-            </span>
+              You have successfully made a payment for the TechyJaunt Cohort 3 Launchpad. Kindly click the link below to join the paid community.
+<br />
+For any issues faced, please send a message to support@techyjaunt.com.           </span>
           </p>
           <button
             onClick={redirect}
