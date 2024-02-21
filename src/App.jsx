@@ -63,15 +63,7 @@ function App() {
             </Suspense>
           }
         ></Route>
-        <Route
-          path="/checkout/thank-you"
-          element={
-              <Suspense fallback={<GlobalBeat />}>
-                <CheckoutThankYou />
-              </Suspense>
-          }
-        ></Route>
-  {/* <Route
+  <Route
           path="/checkout/thank-you"
           element={
             <ProtectedRoute route="/checkout" param="isPaid">
@@ -80,7 +72,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route> */} 
+        ></Route>
         {/* EVENT */}
         <Route
           path="/event"
