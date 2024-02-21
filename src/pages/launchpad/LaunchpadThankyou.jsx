@@ -1,7 +1,7 @@
 const LaunchPadThankyou = () => {
   function redirect() {
       sessionStorage.removeItem("isRegistered");
-      window.location.href = "https://chat.whatsapp.com/L31UBK2FsKCGWUYAHaODuO";
+      window.location.href = "https://chat.whatsapp.com/CGptnpm5XgxIZ3zbl0e8EG";
   }
 
   return (
