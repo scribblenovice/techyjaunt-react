@@ -88,7 +88,6 @@ const Checkout = () => {
             alert("AN ERROR OCCURED");
           }
         });
-
       navigate("/checkout/thank-you");
     },
     onClose: () => {
