@@ -14,9 +14,12 @@ const LaunchPadThankyou = () => {
           <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
             YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 3! <br />
             <span className="text-sm md:text-base">
-              {" "} Kindly click the link below to join the paid community.
-<br />
-For any issues faced, please send a message to support@techyjaunt.com.           </span>
+              {" "}
+              Kindly click the link below to join the paid community.
+              <br />
+              For any issues faced, please send a message to
+              support@techyjaunt.com.{" "}
+            </span>
           </p>
           <button
             onClick={redirect}

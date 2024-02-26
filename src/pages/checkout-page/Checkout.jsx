@@ -76,7 +76,8 @@ const Checkout = () => {
         })
         .then((res) => {
           if (res.data.status === "paid") {
-            navigate("/checkout/thank-you");
+            // navigate("/checkout/thank-you");
+            console.log("paid");
           }
           if (res.data.status === "existing") {
             setModalError(true);
@@ -87,6 +88,8 @@ const Checkout = () => {
             alert("AN ERROR OCCURED");
           }
         });
+
+      navigate("/checkout/thank-you");
     },
     onClose: () => {
       sessionStorage.setItem("isPaid", false);
