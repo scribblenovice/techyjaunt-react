@@ -3,6 +3,7 @@ import TypingAnimation from "../../globalcomponents/TypingAnimation";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import HackathonForm from "./Hackathonform";
+import axios from "axios";
 
 const Hackathon = () => {
   const [openModal, setOpenModal] = useState(false);
