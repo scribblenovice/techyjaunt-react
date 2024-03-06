@@ -109,9 +109,11 @@ function App() {
         <Route
           path="/hackathon/thank-you"
           element={
-            <Suspense fallback={<GlobalBeat />}>
-              <HackathonThankYou />
-            </Suspense>
+            <ProtectedRoute route="/hackathon" param="hackathon-registered">
+              <Suspense fallback={<GlobalBeat />}>
+                <HackathonThankYou />
+              </Suspense>
+            </ProtectedRoute>
           }
         ></Route>
       </Routes>
