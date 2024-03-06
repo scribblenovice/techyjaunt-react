@@ -104,7 +104,6 @@ const Hackathon = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData)
   };
 
   const aboutArray = [
