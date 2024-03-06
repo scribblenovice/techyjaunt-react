@@ -33,9 +33,7 @@ const Homepage = () => {
           <Mission />
         </Element>
         <Partners isEvent={false} title={`OUR PARTNERS`} />
-        <Element name="hackathon">
           <NewsLetter />
-        </Element>
         <Founder />
         <CarouselSlider />
         <MailBtn mailLink={`mailto:Support@techyjaunt.com`} />

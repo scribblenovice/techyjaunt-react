@@ -1,43 +1,65 @@
-import { Fade } from "react-reveal";
+import { Fade, Zoom } from "react-reveal";
 import TypingAnimation from "../../globalcomponents/TypingAnimation";
 
 const Hackathon = () => {
+  const aboutArray = [
+    "$5000 up for grabs",
+    "Pitching competition (Traveling & accommodation covered)",
+    " $100 for all participating teams",
+    " Assistance throughout the product launch process",
+  ];
   return (
     <>
-      <div className="mx-auto  px-6 lg:px-8 relative isolate overflow-hidden bg-gray-900 bg-blend-multiply bg-cover bg-no-repeat hackathon">
-        <Fade bottom>
-          <div className="mx-auto h-screen grid place-items-center max-w-2xl grid-cols-1 gap-x-8 gap-y-16 xl:max-w-none">
-            <div className="">
-              <h2 className="techy text-center text-3xl md:text-5xl font-bolder tracking-tight text-white sm:text-4xl">
-                TECHYJAUNT HACKATHON
-              </h2>
-
-              <h3 className="saira text center text-xl font-bold text-center text-white py-5">
-                INNOVATE CAMPUS
-              </h3>
-              <div className="w-full grid place-items-center">
-                <TypingAnimation
-                  sequenceArray={[
-                    "Transforming challenges into technological solutions",
-                    5000,
-                    "$5000 Innovators in Residence Grant",
-                    5000,
-                  ]}
-                  typingClass="saira text-center text-lg md:text-2xl leading-8 text-gray-300 mx-auto"
-                  repeat={Infinity}
-                />
+      <section className="hackathon h-fit lg:h-screen grid place-items-center bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover">
+        <div className="py-20 mx-auto w-[90%] sm:w-[80%]">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-5">
+            <div className="aboutWriteUp p-5">
+              <Fade bottom>
+                <h2 className="text-white text-center text-xl lg:text-3xl font-black md:text-3xl">
+                  VIRTUAL AND PHYSICAL HACKATHON{" "}
+                </h2>
+              </Fade>
+              <div>
+                <Fade bottom>
+                  <div className="saira text-left md:text-center leading-8 py-5 text-white">
+                    Innovate on campus transforming challenges into
+                    technological solutions. $5000 Innovators in Residence
+                    Grant! Scheduled to run from the 9th to 15th of March 2024.
+                    The venue location is virtual. Top projects then get invited
+                    physically to pitch their solutions. Highlights of this
+                    hackathon include:
+                  </div>
+                </Fade>
+                <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
+                  {aboutArray.map((el) => {
+                    return (
+                      <Zoom>
+                        <div className="grid grid-cols-9">
+                          <div className="">
+                            <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
+                          </div>
+                          <p className="saira ml-2 col-span-8 text-white text-base">
+                            {el}
+                          </p>
+                        </div>
+                      </Zoom>
+                    );
+                  })}
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    href="https://bit.ly/3TnixrP"
+                    className="text-center saira block mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  >
+                    REGISTER HERE
+                  </a>
+                </div>
               </div>
-              <a
-                target="_blank"
-                href="https://bit.ly/3TnixrP"
-                className="text-center block mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 scale"
-              >
-                REGISTER HERE
-              </a>
             </div>
           </div>
-        </Fade>
-      </div>
+        </div>
+      </section>
     </>
   );
 };
