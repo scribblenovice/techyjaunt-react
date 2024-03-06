@@ -30,6 +30,17 @@ const Hackathon = () => {
                     hackathon include:
                   </div>
                 </Fade>
+                <Fade bottom>
+                  <div>
+                    <a
+                      target="_blank"
+                      href="https://bit.ly/3TnixrP"
+                      className="text-center saira block mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    >
+                      REGISTER HERE
+                    </a>
+                  </div>
+                </Fade>
                 <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
                   {aboutArray.map((el) => {
                     return (
@@ -45,15 +56,6 @@ const Hackathon = () => {
                       </Zoom>
                     );
                   })}
-                </div>
-                <div>
-                  <a
-                    target="_blank"
-                    href="https://bit.ly/3TnixrP"
-                    className="text-center saira block mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                  >
-                    REGISTER HERE
-                  </a>
                 </div>
               </div>
             </div>
