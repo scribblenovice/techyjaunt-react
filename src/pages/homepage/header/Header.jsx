@@ -34,6 +34,7 @@ const Header = () => {
                     "CYBER SECURITY",
                     2000,
                   ]}
+                  repeat={Infinity}
                 />{" "}
               </span>{" "}
               + Six(6) month mentorship from the best industry leaders from

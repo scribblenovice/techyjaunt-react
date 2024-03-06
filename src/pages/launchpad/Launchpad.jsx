@@ -307,6 +307,7 @@ const LaunchPad = () => {
                       "CYBER SECURITY",
                       2000,
                     ]}
+                    repeat={Infinity}
                     typingClass="text-blue-500 text-2xl sm:text-3xl md:text-5xl lg:text-7xl "
                   />
                 </div>

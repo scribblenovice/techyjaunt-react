@@ -1,5 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
-const TypingAnimation = ({typingClass, sequenceArray}) => {
+const TypingAnimation = ({typingClass, sequenceArray, repeat}) => {
   return (
       <TypeAnimation
         sequence={sequenceArray}
@@ -8,7 +8,7 @@ const TypingAnimation = ({typingClass, sequenceArray}) => {
         speed={50}
         deletionSpeed={50}
         style={{ display: "inline-block" }}
-        repeat={Infinity}
+        repeat={repeat}
       />
     );
 };

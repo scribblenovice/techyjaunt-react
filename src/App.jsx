@@ -15,6 +15,9 @@ const TechyjauntEvent = lazy(() => import("./pages/event/TechyjauntEvent"));
 const LaunchPadThankyou = lazy(() =>
   import("./pages/launchpad/LaunchpadThankyou")
 );
+const Hackathon = lazy(() =>
+  import("./pages/hackathon/Hackathon")
+);
 
 function App() {
   useEffect(() => {
@@ -63,7 +66,7 @@ function App() {
             </Suspense>
           }
         ></Route>
-  <Route
+        <Route
           path="/checkout/thank-you"
           element={
             <ProtectedRoute route="/checkout" param="isPaid">
@@ -90,6 +93,14 @@ function App() {
                 <EventThankYou />
               </Suspense>
             </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/hackathon"
+          element={
+              <Suspense fallback={<GlobalBeat />}>
+                <Hackathon />
+              </Suspense>
           }
         ></Route>
       </Routes>
