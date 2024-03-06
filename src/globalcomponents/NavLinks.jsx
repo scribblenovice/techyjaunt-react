@@ -37,7 +37,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
                 return (
                   <li
                     key={el.id}
-                    className={`${isLaunchPad ? "hidden" : "block"}`}
+                    className={`${isLaunchPad ? "hidden" : "block"} `}
                   >
                     <Link
                       to={el.path}

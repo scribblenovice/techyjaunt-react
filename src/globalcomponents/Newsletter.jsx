@@ -90,28 +90,51 @@ const NewsLetter = () => {
 
   return (
     <section className="py-20 text-center lg:text-left bg-stone-100">
-      <Fade bottom>
-        <div className="relative isolate overflow-hidden py-16 bg-gray-900 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 xl:max-w-none xl:grid-cols-2">
-              <div className="max-w-xl xl:max-w-xl grid place-self-center">
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Subscribe to our newsletter.
+      <div className="relative isolate overflow-hidden py-16 bg-gray-900 sm:py-24 lg:py-32 bg-blend-multiply bg-cover bg-no-repeat hackathon">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <Fade bottom>
+            <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 xl:max-w-none">
+              <div className=" grid place-self-center">
+                <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  TechyJaunt Hackathon
                 </h2>
-                <p className="mt-4 text-lg leading-8 text-gray-300 block xl:hidden">
+                {/* <p className="mt-4 text-lg leading-8 text-gray-300 block xl:hidden">
                   We provide you with weekly updates of happenings in the
                   African technology ecostystem
+                </p> */}
+                <h3 className="saira text center text-xl font-bold text-center text-white py-5">
+                  Theme: INNOVATE CAMPUS
+                </h3>
+                <p className="text-lg text-center leading-8 text-gray-300 ">
+                  Transforming challenges into technological solutions. $5000
+                  Innovators in Residence Grant!
                 </p>
-                <button
+                <a
+                  target="_blank"
+                  href="https://bit.ly/3TnixrP"
+                  className="text-center block mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                >
+                  REGISTER HERE
+                </a>
+                {/* <button
                   onClick={() => {
                     setOpenSubscribeModal(true);
                   }}
                   className="mt-8 mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 >
-                  SUBCRIBE NOW
-                </button>
+                  REGISTER HERE
+                </button> */}
               </div>
-              <dl className="xl:grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2 hidden">
+              {/* <div>
+                <h3 className="font-semibold text-white">
+                  THEME: INNOVATE CAMPUS
+                </h3>
+                <p>
+                  transforming challenges into technological solutions. <br />{" "}
+                  $5000 Innovators in Residence Grant!
+                </p>
+              </div> */}
+              {/* <dl className="xl:grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2 hidden">
                 <div className="flex flex-col items-start">
                   <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                     <svg
@@ -159,11 +182,11 @@ const NewsLetter = () => {
                     Our newsletter is well detailed and on point
                   </dd>
                 </div>
-              </dl>
+              </dl> */}
             </div>
-          </div>
+          </Fade>
         </div>
-      </Fade>
+      </div>
       <Modal
         show={openSubscribeModal}
         onClose={() => {
