@@ -11,9 +11,10 @@ const HackathonThankYou = () => {
                 YOU HAVE SUCCESSFULLY REGISTERED FOR THIS HACKATHON! <br />
                 <span className="inline-block text-sm md:text-base saira my-5">
                   {" "}
-                  WE HAVE SENT YOU A CONFIRMATION EMAIL REGARDING YOUR
-                  REGISTRATION. KINDLY JOIN OUR WHATSAPP COMMUNUITY FOR MORE
-                  INFORMATION USING THE LINK BELOW.
+                  You have successfully registered for the hackathon! Please
+                  join the general WhatsApp group. If you encounter any
+                  difficulties joining, kindly send an email to
+                  support@techyjaunt.com.
                 </span>
               </p>
               <a
