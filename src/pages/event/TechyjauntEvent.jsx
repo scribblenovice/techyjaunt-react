@@ -196,16 +196,6 @@ const TechyjauntEvent = () => {
                   </span>
                 </h1>
               </Fade>
-              {/* <Fade bottom>
-                <div className="py-5 flex justify-center items-center">
-                  <div className="mr-3">
-                    <EventSvg />
-                  </div>
-                  <p className="text-sm md:text-lg font-semibold text-gray-300">
-                    29th February, 2024
-                  </p>
-                </div>
-              </Fade> */}
               <Fade bottom>
                 <div className="counter w-full">
                   <CountdownTimer targetDate={`February 24, 2024, 07:00:00`} />

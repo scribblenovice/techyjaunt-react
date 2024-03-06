@@ -18,7 +18,9 @@ const LaunchPadThankyou = lazy(() =>
 const Hackathon = lazy(() =>
   import("./pages/hackathon/Hackathon")
 );
-
+const HackathonThankYou = lazy(() =>
+  import("./pages/hackathon/HackathonThankyou")
+);
 function App() {
   useEffect(() => {
     // Initialize Facebook Pixel with your Pixel ID
@@ -95,12 +97,21 @@ function App() {
             </ProtectedRoute>
           }
         ></Route>
+        {/* HACKATHON */}
         <Route
           path="/hackathon"
           element={
-              <Suspense fallback={<GlobalBeat />}>
-                <Hackathon />
-              </Suspense>
+            <Suspense fallback={<GlobalBeat />}>
+              <Hackathon />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/hackathon/thank-you"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <HackathonThankYou />
+            </Suspense>
           }
         ></Route>
       </Routes>
