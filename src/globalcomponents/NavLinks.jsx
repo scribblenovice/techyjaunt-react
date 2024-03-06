@@ -28,7 +28,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
                   href="/"
                   className={`${
                     scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
-                  } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
+                  } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0 hover:text-blue-500`}
                 >
                   HOME
                 </a>
@@ -49,7 +49,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
                         scrollNumber > 0
                           ? "text-white lg:text-black"
                           : "text-white"
-                      } text-center relative cursor-pointer text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0`}
+                      } text-center relative cursor-pointer text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in mt-16 lg:mt-0 hover:text-blue-500`}
                     >
                       {el.linkName}
                     </Link>
@@ -61,7 +61,7 @@ const NavLinks = ({ navclass, isLaunchPad }) => {
                   href="/launchpad"
                   className={`${
                     scrollNumber > 0 ? "text-white lg:text-black" : "text-white"
-                  } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in lg:hidden mt-16 lg:mt-0`}
+                  } text-center relative text-base lg:text-xl w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-blue-500 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-105 transition-all duration-200 ease-in lg:hidden mt-16 lg:mt-0 hover:text-blue-500`}
                 >
                   LAUNCHPAD
                 </a>
