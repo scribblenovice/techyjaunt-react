@@ -23,7 +23,7 @@ const Hackathon = () => {
                     "$5000 Innovators in Residence Grant",
                     5000,
                   ]}
-                  typingClass="saira text-lg md:text-2xl leading-8 text-gray-300 mx-auto"
+                  typingClass="saira text-center text-lg md:text-2xl leading-8 text-gray-300 mx-auto"
                   repeat={Infinity}
                 />
               </div>
