@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GlobalText from "../../globalcomponents/GlobalText";
 import { courses } from "../../resources/resources";
 import { PaystackButton } from "react-paystack";
@@ -105,7 +105,19 @@ const Checkout = () => {
   };
   return (
     <>
-      <section className="grid place-items-center h-screen bg-stone-100">
+      <div className="flex justify-center items-center flex-col w-screen h-screen">
+        <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
+          THIS PAGE IS CURRENTLY INACTIVE
+        </h1>
+        <p className="my-5">
+          Please go back to{" "}
+          <Link className="text-blue-500" href="/">
+            TechyJaunt.com
+          </Link>
+        </p>
+      </div>
+
+      {/* <section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
@@ -236,7 +248,7 @@ const Checkout = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
       <Modal show={open} onClose={close} position="center">
         <Modal.Header className="border-none h-2"></Modal.Header>
 
