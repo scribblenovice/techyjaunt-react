@@ -13,7 +13,7 @@ const HackathonThankYou = () => {
                 {" "}
                 You have successfully registered for the hackathon! Please join
                 the general WhatsApp group. If you encounter any difficulties
-                joining, kindly send an email to support@techyjaunt.com.
+                joining, kindly send an email to support@techyjaunt.com
               </span>
             </p>
             <a

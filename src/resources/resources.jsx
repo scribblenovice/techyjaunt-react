@@ -288,6 +288,41 @@ export const howHeard = [
     value: "fajo monie",
   },
 ];
+
+export const hackathonSkills = [
+  {
+    id: 1,
+    name: "Product management",
+    value: "Product management",
+  },
+  {
+    id: 2,
+    name: "Backend web development",
+    value: "Backend web development",
+  },
+  {
+    id: 3,
+    name: "Frontend web development ",
+    value: "Frontend web development ",
+  },
+  {
+    id: 4,
+    name: "Blockchain Web development ",
+    value: "Blockchain Web development ",
+  },
+  {
+    id: 5,
+    name: "UI&UX Design",
+    value: "UI&UX Design",
+  },
+   {
+    id: 6,
+    name: "Non technical skill",
+    value: "Non technical skill",
+  },
+];
+
+
 export const state = [
   {
     code: "FC",

@@ -2,7 +2,7 @@ import { Button, Modal } from "flowbite-react";
 import GlobalText from "../../globalcomponents/GlobalText";
 import GlobalSelect from "../../globalcomponents/GlobalSelect";
 import PhoneNumber from "../../globalcomponents/PhoneNumber";
-import { state } from "../../resources/resources";
+import { hackathonSkills, state } from "../../resources/resources";
 
 const HackathonForm = ({
   phoneval,
@@ -103,15 +103,23 @@ const HackathonForm = ({
                   htmlFor="skill-choice"
                   className="mr-2 font-medium  text-sm text-gray-500"
                 >
-                  What are your skills in relation to tech? (separated by commas)
+                  What are your skills in relation to tech?
                 </label>
-                  <GlobalText
+                <GlobalSelect
+                  menuClass={`h-44`}
+                  options={hackathonSkills}
+                  name="stateAttendedFrom"
+                  inputVal={formData.skills}
+                  handleChange={handleSelect1}
+                  errorTxt={formErrors.skills}
+                />
+                {/* <GlobalText
                     inputType="text"
                     inputName="skills"
                     id="skils"
                     handleChange={handleChange}
                     errorTxt={formErrors.skills}
-                  />
+                  /> */}
               </div>
             </div>
             <Modal.Footer>

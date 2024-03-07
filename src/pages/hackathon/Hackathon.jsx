@@ -54,7 +54,7 @@ const Hackathon = () => {
       isValid = false;
     }
     if (formData.skills === "") {
-      errors.skills = "enter your skillset";
+      errors.skills = "select a skill";
       isValid = false;
     }
     setFormErrors(errors);
@@ -133,6 +133,12 @@ const Hackathon = () => {
             phoneNumber: phone,
           });
         }}
+        handleSelect1={(e) => {
+          setFormData({
+            ...formData,
+            skills: e,
+          });
+        }}
         shake={shake}
         closeModal={() => {
           setOpenModal(false);
@@ -141,7 +147,7 @@ const Hackathon = () => {
             firstName: "",
             lastName: "",
             email: "",
-            phoneNumber: ""
+            phoneNumber: "",
           });
         }}
       />
