@@ -111,7 +111,7 @@ const Checkout = () => {
         </h1>
         <p className="my-5">
           Please go back to{" "}
-          <Link className="text-blue-500" href="/">
+          <Link className="text-blue-500" to="/">
             TechyJaunt.com
           </Link>
         </p>
