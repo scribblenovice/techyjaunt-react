@@ -88,7 +88,7 @@ const Community = () => {
             setModalError(false);
             setOpen(true);
             setMessage(
-              "YOU HAAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
+              "YOU HAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
             );
             setTimeout(() => {
               window.location.href =
