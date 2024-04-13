@@ -5,6 +5,7 @@ import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ClosedRegister from "./pages/launchpad/ClosedRegister";
+import Community from "./pages/community/Community";
 const EventThankYou = lazy(() => import("./pages/event/EventThankYou"));
 const Homepage = lazy(() => import("./pages/homepage/Homepage"));
 const LaunchPad = lazy(() => import("./pages/launchpad/Launchpad"));
@@ -116,6 +117,15 @@ function App() {
                 <HackathonThankYou />
               </Suspense>
             </ProtectedRoute>
+          }
+        ></Route>
+        {/* community */}
+        <Route
+          path="/community"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <Community />
+            </Suspense>
           }
         ></Route>
       </Routes>

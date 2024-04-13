@@ -1,11 +1,16 @@
-import { Fade, Zoom } from "react-reveal";
+import { Fade } from "react-reveal";
+import Avatars from "../../globalcomponents/Avatars";
+import { AvatarImg } from "../../resources/resources";
 import TypingAnimation from "../../globalcomponents/TypingAnimation";
+import Videos from "../homepage/videos/Videos";
+import CommunityForm from "./Communityform";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import HackathonForm from "./Hackathonform";
 import axios from "axios";
+import NavLinks from "../../globalcomponents/NavLinks";
+import src from "../../images/gallery/gallery4.webp";
 
-const Hackathon = () => {
+const Community = () => {
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
@@ -13,6 +18,11 @@ const Hackathon = () => {
   const countryCode = sessionStorage.getItem("countryCode");
   const [message, setMessage] = useState("");
   const [modalError, setModalError] = useState(true);
+  const [scrollNumber, setScrollNumber] = useState();
+  window.addEventListener("scroll", () => {
+    setScrollNumber(window.scrollY);
+  });
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -70,13 +80,20 @@ const Hackathon = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/hackathon-register", {
+        .post("https://techyjaunt-kx6a.onrender.com/community-register", {
           ...payload,
         })
         .then((res) => {
           if (res.data.status === "registered") {
-            sessionStorage.setItem("hackathon-registered", true);
-            navigate("/hackathon/thank-you");
+            setModalError(false);
+            setOpen(true);
+            setMessage(
+              "YOU HAAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
+            );
+            setTimeout(() => {
+              window.location.href =
+                "https://chat.whatsapp.com/GrWTvqGpf742giBu1BOZsE";
+            }, 1500);
           }
           if (res.data.status === "existing") {
             setModalError(true);
@@ -105,16 +122,15 @@ const Hackathon = () => {
       [name]: value,
     });
   };
-
-  const aboutArray = [
-    "$5000 up for grabs",
-    "Pitching competition (Traveling & accommodation covered)",
-    " $100 for all participating teams",
-    " Assistance throughout the product launch process",
-  ];
   return (
     <>
-      <HackathonForm
+      <NavLinks
+        navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
+          scrollNumber > 0 ? "nav-change" : "text-white"
+        }`}
+        isLaunchPad={true}
+      />
+      <CommunityForm
         open={open}
         close={() => {
           setOpen(false);
@@ -151,69 +167,44 @@ const Hackathon = () => {
           });
         }}
       />
-      <div className="flex justify-center items-center flex-col w-screen h-screen">
-        <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-          THE HACKATHON IS CURRENTLY POSTPONED. MORE INFO WILL BE SHARED LATER
-        </h1>
-        <p className="my-5">
-          Please go back to{" "}
-          <Link className="text-blue-500" to="/">
-            TechyJaunt.com
-          </Link>
-        </p>
-      </div>
-      {/* <section className="hackathon h-fit lg:h-screen grid place-items-center bg-center bg-no-repeat bg-gray-700 bg-blend-multiply bg-cover">
-        <div className="py-20 mx-auto w-[90%] sm:w-[80%]">
-          <div className="grid grid-cols-1 gap-x-10 gap-y-5">
-            <div className="aboutWriteUp p-5">
-              <Fade bottom>
-                <h2 className="text-white text-center text-xl lg:text-3xl font-black md:text-3xl">
-                  VIRTUAL AND PHYSICAL HACKATHON{" "}
-                </h2>
-              </Fade>
-              <div>
-                <Fade bottom>
-                  <div className="saira text-left md:text-center leading-8 py-5 text-white">
-                    Innovate on campus transforming challenges into
-                    technological solutions. $5000 Innovators in Residence
-                    Grant! Scheduled to run from the 9th to 15th of March 2024.
-                    The venue location is virtual. Top projects then get invited
-                    physically to pitch their solutions. Highlights of this
-                    hackathon include:
-                  </div>
-                </Fade>
-                <Fade bottom>
-                  <div>
-                    <button
-                      onClick={() => setOpenModal(true)}
-                      className="text-center saira block mx-auto w-[70%] rounded-md bg-blue-500 transition-all ease-linear duration-300 px-3.5 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                    >
-                      REGISTER HERE
-                    </button>
-                  </div>
-                </Fade>
-                <div className="grid grid-cols-2 gap-y-7 gap-x-2 py-5">
-                  {aboutArray.map((el) => {
-                    return (
-                      <Zoom>
-                        <div className="grid grid-cols-9">
-                          <div className="">
-                            <i className="ri-check-line text-xs bg-blue-500 w-5 h-5 rounded-full grid place-items-center text-white"></i>
-                          </div>
-                          <p className="saira ml-2 col-span-8 text-white text-base">
-                            {el}
-                          </p>
-                        </div>
-                      </Zoom>
-                    );
-                  })}
-                </div>
+      <header className="flex justify-center h-fit lg:h-screen py-20 launchpad-jumbo bg-center bg-cover bg-blend-multiply bg-gray-800">
+        <div className="mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
+          <div className="h-full md:h-[70%] flex flex-col justify-around md:justify-evenly">
+            <Fade bottom>
+              <h1 className="font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5 lg:mb-0">
+                TECHYJAUNT COMMUNITY
+              </h1>
+            </Fade>
+            <Fade bottom>
+              <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
+                Join a community of over 30,000 tech enthusiasts. As the African
+                Tech space continues to gro, we ensure you stay informed through
+                our vibrant community
+              </p>
+              <button
+                onClick={() => setOpenModal(true)}
+                className="py-3 my-5 px-10 bg-blue-500 rounded-md font-medium text-white hover:scale-105 transition-all duration-200 ease-in text-base lg:text-xl"
+              >
+                SIGN UP HERE
+              </button>
+              <div className="flex items-center flex-wrap">
+                <Avatars />
+                <p className="text-white text-sm sm:text-base font-medium">
+                  Over 30K+ community members
+                </p>
               </div>
-            </div>
+            </Fade>
           </div>
+          <Fade bottom>
+            <div className="w-full sm:w-[80%] lg:w-[40vw] py-10">
+              {/* videos */}
+              {/* <Videos /> */}
+              <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" />
+            </div>
+          </Fade>
         </div>
-      </section> */}
+      </header>
     </>
   );
 };
-export default Hackathon;
+export default Community;

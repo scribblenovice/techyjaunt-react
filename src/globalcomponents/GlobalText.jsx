@@ -10,7 +10,8 @@ export function GlobalText({
   errorTxt,
   isDisabled,
   placeTxt,
-  isRequired
+  isRequired,
+  ...rest
 }) {
   return (
     <div className={`w-full`}>

@@ -284,7 +284,7 @@ server.post("/event-register", (req, res) => {
 });
 
 
-// TECHYJAUNT EVENT REGISTRATION
+// TECHYJAUNT hackathon REGISTRATION
 server.post("/hackathon-register", (req, res) => {
   const { firstName, lastName, email, phoneNumber, skills } = req.body;
   let launchpadListId = "0924d0f6-dbe9-11ee-a149-f523ad48b042";
@@ -344,6 +344,68 @@ server.post("/hackathon-register", (req, res) => {
       });
     });
 });
+
+// techyjaunt community
+server.post("/community-register", (req, res) => {
+  const { firstName, lastName, email, phoneNumber, skills } = req.body;
+  let launchpadListId = "56fcc9f4-c91c-11ed-a5a5-197bd1869247";
+  if (
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    phoneNumber === "" ||
+    skills === ""
+  ) {
+    return res.status(500).json({
+      status: "failed",
+    });
+  }
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        Skills: skills,
+      },
+      tags: ["COMMUNITY"],
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "existing",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
 
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
