@@ -178,7 +178,7 @@ const Community = () => {
             <Fade bottom>
               <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
                 Join a community of over 30,000 tech enthusiasts. As the African
-                Tech space continues to gro, we ensure you stay informed through
+                Tech space continues to grow, we ensure you stay informed through
                 our vibrant community
               </p>
               <button
