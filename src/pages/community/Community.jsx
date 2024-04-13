@@ -9,6 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 import NavLinks from "../../globalcomponents/NavLinks";
 import src from "../../images/gallery/gallery4.webp";
+import Carouselnew from "../../globalcomponents/Carouselnew";
 
 const Community = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -178,7 +179,7 @@ const Community = () => {
             <Fade bottom>
               <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
                 Join a community of over 30,000 tech enthusiasts. As the African
-                Tech space continues to gro, we ensure you stay informed through
+                Tech space continues to grow, we ensure you stay informed through
                 our vibrant community
               </p>
               <button
@@ -196,10 +197,11 @@ const Community = () => {
             </Fade>
           </div>
           <Fade bottom>
-            <div className="w-full sm:w-[80%] lg:w-[40vw] py-10">
+            <div className="w-full h-full md:py-5 lg:py-0">
+              <Carouselnew/>
               {/* videos */}
               {/* <Videos /> */}
-              <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" />
+              {/* <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" /> */}
             </div>
           </Fade>
         </div>

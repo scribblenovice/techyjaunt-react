@@ -1,0 +1,41 @@
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg1{
+    background-image: url('./images/community/comm1.webp');
+}
+.bg2{
+    background-image: url('./images/community/comm2.webp');
+}
+.bg3{
+    background-image: url('./images/community/comm3.webp');
+}
+.zoom {
+    animation: scaleInOut 7s alternate;
+  }
+  
+  @keyframes scaleInOut {
+    0% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
