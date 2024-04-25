@@ -347,14 +347,15 @@ server.post("/hackathon-register", (req, res) => {
 
 // techyjaunt community
 server.post("/community-register", (req, res) => {
-  const { firstName, lastName, email, phoneNumber, skills } = req.body;
+  const { firstName, lastName, email, phoneNumber, skills, state } = req.body;
   let launchpadListId = "56fcc9f4-c91c-11ed-a5a5-197bd1869247";
   if (
     firstName === "" ||
     lastName === "" ||
     email === "" ||
     phoneNumber === "" ||
-    skills === ""
+    skills === "" ||
+    state === ""
   ) {
     return res.status(500).json({
       status: "failed",
@@ -374,6 +375,7 @@ server.post("/community-register", (req, res) => {
         FirstName: firstName,
         LastName: lastName,
         Skills: skills,
+        State: state,
       },
       tags: ["COMMUNITY"],
       status: "SUBSCRIBED",

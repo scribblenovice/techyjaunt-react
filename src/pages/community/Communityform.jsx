@@ -25,7 +25,6 @@ const CommunityForm = ({
 }) => {
   return (
     <>
-     
       <Modal show={openModal} onClose={closeModal}>
         <Modal.Header>TECHYJAUNT COMMUNITY SIGN UP</Modal.Header>
         <Modal.Body>
@@ -99,7 +98,25 @@ const CommunityForm = ({
                 />
               </div>
             </div>
-            <div className="relative w-full group text-gray-500 grid grid-cols-1 md:gap-6 gap-y-5">
+            <div className="relative w-full group text-gray-500 grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-y-5">
+              <div>
+                <label
+                  htmlFor="skill-choice"
+                  className="mr-2 font-medium  text-sm text-gray-500"
+                >
+                  Your State of Residence?
+                </label>
+                <div className="w-full">
+                  <GlobalSelect
+                    menuClass={`h-44 bg-black text-white`}
+                    options={state}
+                    name="stateAttendedFrom"
+                    inputVal={formData.state}
+                    handleChange={handleSelect2}
+                    errorTxt={formErrors.state}
+                  />
+                </div>
+              </div>
               <div>
                 <label
                   htmlFor="skill-choice"
@@ -108,20 +125,13 @@ const CommunityForm = ({
                   What are your skills in relation to tech?
                 </label>
                 <GlobalSelect
-                  menuClass={`h-44`}
+                  menuClass={`h-44 bg-black text-white`}
                   options={hackathonSkills}
                   name="stateAttendedFrom"
                   inputVal={formData.skills}
                   handleChange={handleSelect1}
                   errorTxt={formErrors.skills}
                 />
-                {/* <GlobalText
-                    inputType="text"
-                    inputName="skills"
-                    id="skils"
-                    handleChange={handleChange}
-                    errorTxt={formErrors.skills}
-                  /> */}
               </div>
             </div>
             <Modal.Footer>

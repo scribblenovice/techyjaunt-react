@@ -1,6 +1,6 @@
 import { Fade } from "react-reveal";
 import Avatars from "../../globalcomponents/Avatars";
-import { AvatarImg } from "../../resources/resources";
+import { AvatarImg, state } from "../../resources/resources";
 import TypingAnimation from "../../globalcomponents/TypingAnimation";
 import Videos from "../homepage/videos/Videos";
 import CommunityForm from "./Communityform";
@@ -30,6 +30,7 @@ const Community = () => {
     email: "",
     phoneNumber: "",
     skills: "",
+    state: "",
   });
 
   const payload = {
@@ -38,6 +39,7 @@ const Community = () => {
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
     skills: formData.skills,
+    state: formData.state,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -68,6 +70,10 @@ const Community = () => {
       errors.skills = "select a skill";
       isValid = false;
     }
+    if (formData.state === "") {
+      errors.state = "select a state";
+      isValid = false;
+    }
     setFormErrors(errors);
     return isValid;
   };
@@ -76,7 +82,6 @@ const Community = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validateForm();
-    console.log(payload);
     if (isValid) {
       setShake(false);
       // Submit the form data or perform other actions
@@ -156,6 +161,12 @@ const Community = () => {
             skills: e,
           });
         }}
+        handleSelect2={(e) => {
+          setFormData({
+            ...formData,
+            state: e,
+          });
+        }}
         shake={shake}
         closeModal={() => {
           setOpenModal(false);
@@ -179,8 +190,8 @@ const Community = () => {
             <Fade bottom>
               <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
                 Join a community of over 30,000 tech enthusiasts. As the African
-                Tech space continues to grow, we ensure you stay informed through
-                our vibrant community
+                Tech space continues to grow, we ensure you stay informed
+                through our vibrant community
               </p>
               <button
                 onClick={() => setOpenModal(true)}
@@ -198,7 +209,7 @@ const Community = () => {
           </div>
           <Fade bottom>
             <div className="w-full h-full md:py-5 lg:py-0">
-              <Carouselnew/>
+              <Carouselnew />
               {/* videos */}
               {/* <Videos /> */}
               {/* <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" /> */}

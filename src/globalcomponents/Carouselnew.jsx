@@ -35,10 +35,10 @@ const Carouselnew = () => {
   }, [currentSlide]);
 
   return (
-    <div className="relative h-[350px] sm:h-[400px] md:h-[500px]">
-      <div className="carousel-container h-full">
+    <div className="relative h-[350px] sm:h-[400px] md:h-[500px] rounded-lg">
+      <div className="carousel-container h-full rounded-lg">
         <div
-          className="carousel-slides h-full"
+          className="carousel-slides h-full rounded-lg"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
