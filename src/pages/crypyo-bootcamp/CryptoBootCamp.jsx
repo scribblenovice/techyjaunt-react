@@ -4,8 +4,6 @@ import src from "../../images/crypto-bootcamp/trader.jpg";
 import Fade from "react-reveal";
 import CryptoForm from "./CryptoForm";
 import { useState } from "react";
-import EmailPassed from "../../globalcomponents/EmailPassed";
-import EmailFailed from "../../globalcomponents/EmailFailed";
 import EmailLoading from "../../globalcomponents/EmailLoading";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
