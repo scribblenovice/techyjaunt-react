@@ -1,18 +1,18 @@
-import { Fade } from "react-reveal";
-import Avatars from "../../globalcomponents/Avatars";
-import { AvatarImg, state } from "../../resources/resources";
-import TypingAnimation from "../../globalcomponents/TypingAnimation";
-import Videos from "../homepage/videos/Videos";
-import CommunityForm from "./Communityform";
-import { Link, useNavigate } from "react-router-dom";
+import CountdownTimer from "../../globalcomponents/Countdown";
+import FooterSection from "../../globalcomponents/FooterSection";
+import src from "../../images/crypto-bootcamp/trader.jpg";
+import Fade from "react-reveal";
+import CryptoForm from "./CryptoForm";
 import { useState } from "react";
+import EmailPassed from "../../globalcomponents/EmailPassed";
+import EmailFailed from "../../globalcomponents/EmailFailed";
+import EmailLoading from "../../globalcomponents/EmailLoading";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import NavLinks from "../../globalcomponents/NavLinks";
-import src from "../../images/gallery/gallery4.webp";
-import Carouselnew from "../../globalcomponents/Carouselnew";
 
-const Community = () => {
-  const [pending, setPending] = useState(false)
+const CryptoBootCamp = () => {
+  const [pending, setPending] = useState(false);
+  // reg modal
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
@@ -84,7 +84,7 @@ const Community = () => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      setPending(true)
+      setPending(true);
       setShake(false);
       // Submit the form data or perform other actions
       axios
@@ -93,27 +93,27 @@ const Community = () => {
         })
         .then((res) => {
           if (res.data.status === "registered") {
-            setPending(false)
+            setPending(false);
             setModalError(false);
             setOpen(true);
             setMessage(
               "YOU HAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
             );
-            sessionStorage.setItem("isRegistered", true);
-            navigate("/community/thank-you");
-            // setTimeout(() => {
-            //   window.location.href =
-            //     "https://chat.whatsapp.com/GrWTvqGpf742giBu1BOZsE";
-            // }, 1500);
+            // sessionStorage.setItem("isRegistered", true);
+            // navigate("/community/thank-you");
+            // // setTimeout(() => {
+            // //   window.location.href =
+            // //     "https://chat.whatsapp.com/GrWTvqGpf742giBu1BOZsE";
+            // // }, 1500);
           }
           if (res.data.status === "existing") {
-            setPending(false)
+            setPending(false);
             setModalError(true);
             setOpen(true);
             setMessage("THIS EMAIL ALREADY EXISTS!");
           }
           if (res.data.status === "failed") {
-            setPending(false)
+            setPending(false);
             setModalError(true);
             setOpen(true);
             setMessage("REGISTRATION FAILED! PLEASE TRY AGAIN");
@@ -122,10 +122,12 @@ const Community = () => {
         .catch((error) => {
           // Handle error
           if (error.response) {
-            setPending(false)
+            setPending(false);
             setModalError(true);
             setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
+            setMessage(
+              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
+            );
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
             // console.log(
@@ -135,15 +137,19 @@ const Community = () => {
             // console.log('Data:', error.response.data);
           } else if (error.request) {
             // The request was made but no response was received
-            setPending(false)
+            setPending(false);
             setModalError(true);
             setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
+            setMessage(
+              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
+            );
           } else {
-            setPending(false)
+            setPending(false);
             setModalError(true);
             setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
+            setMessage(
+              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
+            );
             // console.log("Error setting up the request:", error.message);
           }
           // console.log("Error config:", error.config);
@@ -164,15 +170,10 @@ const Community = () => {
       [name]: value,
     });
   };
+
   return (
     <>
-      <NavLinks
-        navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
-          scrollNumber > 0 ? "nav-change" : "text-white"
-        }`}
-        isLaunchPad={true}
-      />
-      <CommunityForm
+      <CryptoForm
         open={open}
         close={() => {
           setOpen(false);
@@ -215,46 +216,53 @@ const Community = () => {
           });
         }}
       />
-      <header className="flex justify-center h-fit lg:h-screen py-20 launchpad-jumbo bg-center bg-cover bg-blend-multiply bg-gray-800">
-        <div className="mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
-          <div className="h-full md:h-[70%] flex flex-col justify-around md:justify-evenly">
-            <Fade bottom>
-              <h1 className="font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5 lg:mb-0">
-                TECHYJAUNT COMMUNITY
-              </h1>
-            </Fade>
-            <Fade bottom>
-              <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
-                Join a community of over 30,000 tech enthusiasts. As the African
-                Tech space continues to grow, we ensure you stay informed
-                through our vibrant community
-              </p>
-              <button
-                onClick={() => setOpenModal(true)}
-                className="py-3 my-5 px-10 bg-blue-500 rounded-md font-medium text-white hover:scale-105 transition-all duration-200 ease-in text-base lg:text-xl"
-              >
-                SIGN UP HERE
-              </button>
-              <div className="flex items-center flex-wrap">
-                <Avatars />
-                <p className="text-white text-sm sm:text-base font-medium">
-                  Over 30K+ community members
-                </p>
-              </div>
-            </Fade>
+      <section class="bg-center bg-no-repeat crypto-bg bg-gray-700 bg-blend-multiply">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 md:py-32">
+          <h1 class="mb-5 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl">
+            Crypto Scholarship Opportunity!
+          </h1>
+          <p class="mb-5 text-base font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+            Techyjaunt is offering a 100% funded scholarship for you to learn
+            how to trade like a pro or start your crypto journey alongside
+            thousands of beneficiaries across Africa.
+          </p>
+          <button
+            onClick={() => setOpenModal(true)}
+            className="mb-5 bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-2"
+          >
+            Apply here for free
+          </button>
+          <div className="counter w-full text-white">
+            <CountdownTimer targetDate={`June 4, 2024, 07:00:00`} />
           </div>
-          <Fade bottom>
-            <div className="w-full h-full md:py-5 lg:py-0">
-              <Carouselnew />
-              {/* videos */}
-              {/* <Videos /> */}
-              {/* <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" /> */}
-            </div>
-          </Fade>
         </div>
-      </header>
+      </section>
+      <section className="">
+        <div className="px-4 py-16 mx-auto max-w-screen-xl text-center">
+          <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-y-5">
+            <div className=" grid place-content-center">
+              <Fade></Fade>
+              <h2 className="py-5 text-2xl sm:text-3xl font-bold tracking-tight leading-none md:text-4xl">
+                CURIOUS ABOUT CRYPTO?
+              </h2>
+              <p className="text-left">
+                Here's your chance to become a Crypto Expert and learn from the
+                best industry leaders across the world. This programme offers
+                much benefits to attendees such as: $60,000 worth of Crypto
+                Giveaway for all awardees, Trading Mentorship, Understanding
+                DeFi, Getting a job in the crypto space and so much more.
+              </p>
+            </div>
+            <div className="rounded-lg md:px-3">
+              <img src={src} alt="" className="rounded-lg w-full h-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section></section>
+      <FooterSection />
       {pending && <EmailLoading />}
     </>
   );
 };
-export default Community;
+export default CryptoBootCamp;

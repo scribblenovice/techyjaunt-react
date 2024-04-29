@@ -1621,3 +1621,26 @@ export const eventPartnersImg = [
   { id: 5, src: eventPartner6 },
   { id: 6, src: eventPartner7 }
 ];
+
+
+export const solarSolutions = [
+  {
+    title: "$60,000 worth of Crypto Giveaway for all Awardees",
+  },
+  {
+    title: "Become a PROFITABLE Crypto Trader in months",
+  },
+  {
+    title: "Exclusive fully funded SCHOLARSHIP opportunity for Africans",
+   
+  },
+  {
+    title: "Trading Mentorship",
+  },
+  {
+    title: " Live & Recorded Classes",
+  },
+  {
+    title: "Solar home appliances",
+  },
+];

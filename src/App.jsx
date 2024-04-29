@@ -4,8 +4,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-import ClosedRegister from "./pages/launchpad/ClosedRegister";
-import Community from "./pages/community/Community";
+const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
+const Community = lazy(() => import("./pages/community/Community"));
+const CryptoBootCamp = lazy(() =>
+  import("./pages/crypyo-bootcamp/CryptoBootCamp")
+);
+const CommunityThankYou = lazy(() =>
+  import("./pages/community/CommunityThankyou")
+);
 const EventThankYou = lazy(() => import("./pages/event/EventThankYou"));
 const Homepage = lazy(() => import("./pages/homepage/Homepage"));
 const LaunchPad = lazy(() => import("./pages/launchpad/Launchpad"));
@@ -17,9 +23,7 @@ const TechyjauntEvent = lazy(() => import("./pages/event/TechyjauntEvent"));
 const LaunchPadThankyou = lazy(() =>
   import("./pages/launchpad/LaunchpadThankyou")
 );
-const Hackathon = lazy(() =>
-  import("./pages/hackathon/Hackathon")
-);
+const Hackathon = lazy(() => import("./pages/hackathon/Hackathon"));
 const HackathonThankYou = lazy(() =>
   import("./pages/hackathon/HackathonThankyou")
 );
@@ -41,17 +45,17 @@ function App() {
               <Homepage />
             </Suspense>
           }
-        ></Route>
+        />
         {/* LAUNCHPAD */}
         <Route
           path="/launchpad"
           element={
             <Suspense fallback={<GlobalBeat />}>
-              <ClosedRegister/>
+              <ClosedRegister />
               {/* <LaunchPad /> */}
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="/launchpad/thank-you"
           element={
@@ -61,7 +65,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route>
+        />
         {/* CHECKOUT */}
         <Route
           path="/checkout"
@@ -70,7 +74,7 @@ function App() {
               <Checkout />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="/checkout/thank-you"
           element={
@@ -80,7 +84,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route>
+        />
         {/* EVENT */}
         <Route
           path="/event"
@@ -89,7 +93,7 @@ function App() {
               <TechyjauntEvent />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="/event/thank-you"
           element={
@@ -99,7 +103,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route>
+        />
         {/* HACKATHON */}
         <Route
           path="/hackathon"
@@ -108,7 +112,7 @@ function App() {
               <Hackathon />
             </Suspense>
           }
-        ></Route>
+        />
         <Route
           path="/hackathon/thank-you"
           element={
@@ -118,7 +122,7 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        ></Route>
+        />
         {/* community */}
         <Route
           path="/community"
@@ -127,7 +131,26 @@ function App() {
               <Community />
             </Suspense>
           }
-        ></Route>
+        />
+        <Route
+          path="/community/thank-you"
+          element={
+            // <ProtectedRoute route="/community" param="isRegistered">
+            <Suspense fallback={<GlobalBeat />}>
+              <CommunityThankYou />
+            </Suspense>
+            // </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/crypto-bootcamp"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <CryptoBootCamp />
+            </Suspense>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

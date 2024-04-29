@@ -38,4 +38,8 @@
       transform: scale(1);
     }
   }
+  .crypto-bg{
+    background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
+
+  }
   
