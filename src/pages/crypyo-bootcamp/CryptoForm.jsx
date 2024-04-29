@@ -2,8 +2,15 @@ import { Button, Modal } from "flowbite-react";
 import GlobalText from "../../globalcomponents/GlobalText";
 import GlobalSelect from "../../globalcomponents/GlobalSelect";
 import PhoneNumber from "../../globalcomponents/PhoneNumber";
-import { hackathonSkills, state } from "../../resources/resources";
+import {
+  cryptoCourse,
+  cryptoKnowledge,
+  gender,
+  hackathonSkills,
+  state,
+} from "../../resources/resources";
 import NavLinks from "../../globalcomponents/NavLinks";
+import { useEffect, useState } from "react";
 
 const CryptoForm = ({
   phoneval,
@@ -17,12 +24,29 @@ const CryptoForm = ({
   formData,
   handleSelect1,
   handleSelect2,
+  handleSelect3,
+  handleSelect4,
   handleChange2,
   shake,
   phone,
   open,
   close,
 }) => {
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const response = await fetch("https://restcountries.com/v2/all");
+      const data = await response.json();
+      const countriesData = data.map((country) => ({
+        name: country.name,
+        image: country.flags.svg,
+      }));
+      setCountries(countriesData);
+    };
+
+    fetchCountries();
+  }, []);
+
   return (
     <>
       <Modal show={openModal} onClose={closeModal}>
@@ -72,6 +96,42 @@ const CryptoForm = ({
                   htmlFor="phone"
                   className="mb-5 font-medium  text-sm text-gray-500"
                 >
+                  Country
+                </label>
+                <GlobalSelect
+                  options={countries}
+                  menuClass={`h-64 bg-black text-white`}
+                  name="country"
+                  inputVal={formData.country}
+                  handleChange={handleSelect3}
+                  errorTxt={formErrors.country}
+                />
+              </div>
+              <div className="">
+                <label
+                  htmlFor="email"
+                  className="font-medium text-sm text-gray-500"
+                >
+                  Sex
+                </label>
+
+                <GlobalSelect
+                  options={gender}
+                  menuClass={` bg-black text-white`}
+                  name="gender"
+                  inputVal={formData.gender}
+                  handleChange={handleSelect4}
+                  errorTxt={formErrors.gender}
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
+              <div className=" w-full">
+                <label
+                  htmlFor="phone"
+                  className="mb-5 font-medium  text-sm text-gray-500"
+                >
                   Phone Number
                 </label>
                 <PhoneNumber
@@ -101,19 +161,19 @@ const CryptoForm = ({
             <div className="relative w-full group text-gray-500 grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-y-5">
               <div>
                 <label
-                  htmlFor="skill-choice"
+                  htmlFor="crypto-course"
                   className="mr-2 font-medium  text-sm text-gray-500"
                 >
-                  Your State of Residence?
+                  Course of interest
                 </label>
                 <div className="w-full">
                   <GlobalSelect
                     menuClass={`h-44 bg-black text-white`}
-                    options={state}
-                    name="stateAttendedFrom"
-                    inputVal={formData.state}
+                    options={cryptoCourse}
+                    inputName="cryptoCourse"
+                    inputVal={formData.cryptoCourse}
                     handleChange={handleSelect2}
-                    errorTxt={formErrors.state}
+                    errorTxt={formErrors.cryptoCourse}
                   />
                 </div>
               </div>
@@ -122,15 +182,15 @@ const CryptoForm = ({
                   htmlFor="skill-choice"
                   className="mr-2 font-medium  text-sm text-gray-500"
                 >
-                  What are your skills in relation to tech?
+                  Current Crypto Knowledge
                 </label>
                 <GlobalSelect
-                  menuClass={`h-44 bg-black text-white`}
-                  options={hackathonSkills}
+                  menuClass={`bg-black text-white`}
+                  options={cryptoKnowledge}
                   name="stateAttendedFrom"
-                  inputVal={formData.skills}
+                  inputVal={formData.cryptoKnowledge}
                   handleChange={handleSelect1}
-                  errorTxt={formErrors.skills}
+                  errorTxt={formErrors.cryptoKnowledge}
                 />
               </div>
             </div>

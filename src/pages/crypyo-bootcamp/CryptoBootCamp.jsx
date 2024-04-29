@@ -7,6 +7,7 @@ import { useState } from "react";
 import EmailLoading from "../../globalcomponents/EmailLoading";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { gender } from "../../resources/resources";
 
 const CryptoBootCamp = () => {
   const [pending, setPending] = useState(false);
@@ -26,19 +27,23 @@ const CryptoBootCamp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    country: "",
+    gender: "",
     email: "",
     phoneNumber: "",
-    skills: "",
-    state: "",
+    cryptoCourse: "",
+    cryptoKnowledge: "",
   });
 
   const payload = {
     firstName: formData.firstName.trim(),
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
+    country: formData.country,
+    gender: formData.gender,
     phoneNumber: formData.phoneNumber.trim(),
-    skills: formData.skills,
-    state: formData.state,
+    cryptoKnowledge: formData.cryptoKnowledge,
+    cryptoCourse: formData.cryptoCourse,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -65,12 +70,20 @@ const CryptoBootCamp = () => {
       errors.phoneNumber = "phone number is required";
       isValid = false;
     }
-    if (formData.skills === "") {
-      errors.skills = "select a skill";
+    if (formData.cryptoCourse === "") {
+      errors.cryptoCourse = "choose a course of interest";
       isValid = false;
     }
-    if (formData.state === "") {
-      errors.state = "select a state";
+    if (formData.cryptoKnowledge === "") {
+      errors.cryptoKnowledge = "select an option";
+      isValid = false;
+    }
+    if (formData.country === "") {
+      errors.country = "select your country";
+      isValid = false;
+    }
+    if (formData.gender === "") {
+      errors.gender = "select your gender";
       isValid = false;
     }
     setFormErrors(errors);
@@ -86,7 +99,7 @@ const CryptoBootCamp = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/community-register", {
+        .post("https://techyjaunt-kx6a.onrender.com/crypto-bootcamp-reg", {
           ...payload,
         })
         .then((res) => {
@@ -193,13 +206,25 @@ const CryptoBootCamp = () => {
         handleSelect1={(e) => {
           setFormData({
             ...formData,
-            skills: e,
+            cryptoKnowledge: e,
           });
         }}
         handleSelect2={(e) => {
           setFormData({
             ...formData,
-            state: e,
+            cryptoCourse: e,
+          });
+        }}
+        handleSelect3={(e) => {
+          setFormData({
+            ...formData,
+            country: e,
+          });
+        }}
+        handleSelect4={(e) => {
+          setFormData({
+            ...formData,
+            gender: e,
           });
         }}
         shake={shake}

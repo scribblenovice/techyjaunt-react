@@ -24,7 +24,7 @@ server.post("/signup", (req, res) => {
     email,
     phoneNumber,
     selectedCourse,
-    knowlegeOfTechyJaunt
+    knowlegeOfTechyJaunt,
   } = req.body;
   let launchpadListId = "06ba6394-abf1-11ee-8ac2-07cd7c67eebe";
 
@@ -54,7 +54,7 @@ server.post("/signup", (req, res) => {
         FirstName: firstName,
         LastName: lastName,
         SelectedCourse: selectedCourse,
-        HowYouHeard: knowlegeOfTechyJaunt
+        HowYouHeard: knowlegeOfTechyJaunt,
       },
       tags: ["STUDENT"],
       status: "SUBSCRIBED",
@@ -62,7 +62,7 @@ server.post("/signup", (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           status: "registered",
@@ -250,7 +250,7 @@ server.post("/event-register", (req, res) => {
         EmailAddress: email,
         FirstName: firstName,
         LastName: lastName,
-        State: stateAttendedFrom
+        State: stateAttendedFrom,
       },
       tags: ["EVENT"],
       status: "SUBSCRIBED",
@@ -282,7 +282,6 @@ server.post("/event-register", (req, res) => {
       });
     });
 });
-
 
 // TECHYJAUNT hackathon REGISTRATION
 server.post("/hackathon-register", (req, res) => {
@@ -408,6 +407,81 @@ server.post("/community-register", (req, res) => {
     });
 });
 
+// techyjaunt crypto bootcamp
+server.post("/crypto-bootcamp-reg", (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    country,
+    gender,
+    cryptoCourse,
+    cryptoKnowledge,
+  } = req.body;
+  let launchpadListId = "cb52e782-04c8-11ef-9361-0513f19ef29c";
+  if (
+    firstName === "" ||
+    lastName === "" ||
+    email === "" ||
+    phoneNumber === "" ||
+    country === "" ||
+    gender === "" ||
+    cryptoCourse === "" ||
+    cryptoKnowledge === ""
+  ) {
+    return res.status(500).json({
+      status: "failed",
+    });
+  }
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        PhoneNumber: phoneNumber,
+        Country: country,
+        CryptoCourse: cryptoCourse,
+        CryptoKnowledge: cryptoKnowledge,
+      },
+      tags: ["COMMUNITY"],
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "existing",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
 
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));

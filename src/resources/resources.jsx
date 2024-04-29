@@ -36,7 +36,7 @@ import gallery9 from "../images/gallery/gallery9.webp";
 import gallery10 from "../images/gallery/gallery10.webp";
 
 // SPEAKERS
-import speaker1 from "../images/speakers/speaker1.webp"
+import speaker1 from "../images/speakers/speaker1.webp";
 import speaker2 from "../images/speakers/speaker2.webp";
 import speaker3 from "../images/speakers/speaker3.webp";
 import speaker4 from "../images/speakers/speaker4.webp";
@@ -46,7 +46,7 @@ import speaker7 from "../images/speakers/speaker7.webp";
 import speaker8 from "../images/speakers/speaker8.webp";
 
 //EVENT PARTNER
-import eventPartner1 from "../images/eventpartners/eventpartner1.webp"
+import eventPartner1 from "../images/eventpartners/eventpartner1.webp";
 import eventPartner2 from "../images/eventpartners/eventpartner2.webp";
 import eventPartner3 from "../images/eventpartners/eventpartner3.webp";
 import eventPartner4 from "../images/eventpartners/eventpartner4.webp";
@@ -231,7 +231,7 @@ export const galleryImg = [
 export const courses = [
   {
     id: 1,
-  name: "UI/UX DESIGN",
+    name: "UI/UX DESIGN",
     value: "ui/ux design",
   },
   {
@@ -315,13 +315,12 @@ export const hackathonSkills = [
     name: "UI&UX Design",
     value: "UI&UX Design",
   },
-   {
+  {
     id: 6,
     name: "Non technical skill",
     value: "Non technical skill",
   },
 ];
-
 
 export const state = [
   {
@@ -1426,8 +1425,6 @@ export const state = [
   },
 ];
 
-
-
 export const eventImg = [
   {
     id: 0,
@@ -1558,59 +1555,58 @@ export const EventSvg = () => {
       </g>
     </svg>
   );
-}
+};
 
 export const speakers = [
   {
     id: 0,
     src: speaker1,
     name: "Dimeji Falana",
-    title:"CEO/Co-Founder Edves, Lagos"
+    title: "CEO/Co-Founder Edves, Lagos",
   },
   {
     id: 1,
     src: speaker2,
     name: "Adebayo Adebayo",
-    title:"Co-Founder ICP Hub Sahara"
+    title: "Co-Founder ICP Hub Sahara",
   },
   {
     id: 2,
     src: speaker3,
     name: "Peter Tomala",
-    title:"CEO/Founder World Play League, Wilmington"
+    title: "CEO/Founder World Play League, Wilmington",
   },
   {
     id: 3,
     src: speaker4,
     name: "Ezeudeka George .I.",
-     title:"CEO/Co-Founder TechyJaunt"
+    title: "CEO/Co-Founder TechyJaunt",
   },
   {
     id: 4,
     src: speaker5,
     name: "Okechukwu Victor Alvan",
-     title:"Co-Founder Blockchain UNN, Enugu"
+    title: "Co-Founder Blockchain UNN, Enugu",
   },
   {
     id: 5,
     src: speaker6,
     name: "Steve Gregory",
-     title:"CEO, US Currency.com"
+    title: "CEO, US Currency.com",
   },
   {
     id: 6,
     src: speaker7,
     name: "Eliezer Ajah",
-     title:"Talent Development Lead, Genesys Tech Hub"
+    title: "Talent Development Lead, Genesys Tech Hub",
   },
   {
     id: 7,
     src: speaker8,
     name: "Irene Udebuana",
-     title:"CEO/Co-Founder, EQUISTEM AFRICA"
-  }
+    title: "CEO/Co-Founder, EQUISTEM AFRICA",
+  },
 ];
-
 
 export const eventPartnersImg = [
   { id: 0, src: eventPartner1 },
@@ -1619,9 +1615,8 @@ export const eventPartnersImg = [
   { id: 3, src: eventPartner4 },
   { id: 4, src: eventPartner5 },
   { id: 5, src: eventPartner6 },
-  { id: 6, src: eventPartner7 }
+  { id: 6, src: eventPartner7 },
 ];
-
 
 export const solarSolutions = [
   {
@@ -1632,7 +1627,6 @@ export const solarSolutions = [
   },
   {
     title: "Exclusive fully funded SCHOLARSHIP opportunity for Africans",
-   
   },
   {
     title: "Trading Mentorship",
@@ -1642,5 +1636,62 @@ export const solarSolutions = [
   },
   {
     title: "Solar home appliances",
+  },
+];
+
+export const gender = [
+  {
+    id: 0,
+    name: "Male",
+  },
+  {
+    id: 1,
+    name: "Female",
+  },
+];
+
+export const cryptoCourse = [
+  {
+    id: 0,
+    name: "Crypto trading",
+  },
+  {
+    id: 1,
+    name: "Introduction to NFT",
+  },
+  {
+    id: 2,
+    name: "Introduction to Blockchain",
+  },
+  {
+    id: 3,
+    name: "Introduction to Cryptocurrency",
+  },
+  {
+    id: 4,
+    name: "Introduction to DEFI",
+  },
+  {
+    id: 5,
+    name: "Introduction to P2P Trading",
+  },
+  {
+    id: 6,
+    name: "Introduction to building a career in blockchain",
+  },
+];
+
+export const cryptoKnowledge = [
+  {
+    id: 0,
+    name: "Beginner",
+  },
+  {
+    id: 1,
+    name: "Intermediate",
+  },
+  {
+    id: 2,
+    name: "Professional",
   },
 ];
