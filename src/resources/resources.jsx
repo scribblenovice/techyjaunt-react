@@ -1695,3 +1695,13 @@ export const cryptoKnowledge = [
     name: "Professional",
   },
 ];
+export const cryptoBenefits = [
+  "Become a PROFITABLE Crypto Trader in months",
+  "Exclusive fully funded SCHOLARSHIP opportunity for Africans",
+  "Trading Mentorship",
+  "Live & Recorded Classes",
+  "Understanding DeFi",
+  "Introduction to P2P trading",
+  "Introduction to NFTs",
+  "⁠Getting a job in the crypto space",
+];

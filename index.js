@@ -415,7 +415,6 @@ server.post("/crypto-bootcamp-reg", (req, res) => {
     email,
     phoneNumber,
     country,
-    gender,
     cryptoCourse,
     cryptoKnowledge,
   } = req.body;
@@ -426,7 +425,6 @@ server.post("/crypto-bootcamp-reg", (req, res) => {
     email === "" ||
     phoneNumber === "" ||
     country === "" ||
-    gender === "" ||
     cryptoCourse === "" ||
     cryptoKnowledge === ""
   ) {

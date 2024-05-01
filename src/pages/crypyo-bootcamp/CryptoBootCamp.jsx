@@ -1,13 +1,21 @@
 import CountdownTimer from "../../globalcomponents/Countdown";
 import FooterSection from "../../globalcomponents/FooterSection";
 import src from "../../images/crypto-bootcamp/trader.jpg";
+import src1 from "../../images/crypto-bootcamp/crypto-flier.png";
 import Fade from "react-reveal";
 import CryptoForm from "./CryptoForm";
 import { useState } from "react";
 import EmailLoading from "../../globalcomponents/EmailLoading";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { gender } from "../../resources/resources";
+import { cryptoBenefits, gender } from "../../resources/resources";
+import icon1 from "../../images/crypto-bootcamp/icons/binance-coin-cryptocurrency.svg";
+import icon2 from "../../images/crypto-bootcamp/icons/bitcoin-cryptocurrency.svg";
+import icon3 from "../../images/crypto-bootcamp/icons/bitcoin-gold-cryptocurrency.svg";
+import icon4 from "../../images/crypto-bootcamp/icons/tether-cryptocurrency.svg";
+import { Element, Link } from "react-scroll";
+import TypingAnimation from "../../globalcomponents/TypingAnimation";
+import TextCarousel from "../../globalcomponents/TextCarousel";
 
 const CryptoBootCamp = () => {
   const [pending, setPending] = useState(false);
@@ -28,7 +36,6 @@ const CryptoBootCamp = () => {
     firstName: "",
     lastName: "",
     country: "",
-    gender: "",
     email: "",
     phoneNumber: "",
     cryptoCourse: "",
@@ -40,7 +47,6 @@ const CryptoBootCamp = () => {
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
     country: formData.country,
-    gender: formData.gender,
     phoneNumber: formData.phoneNumber.trim(),
     cryptoKnowledge: formData.cryptoKnowledge,
     cryptoCourse: formData.cryptoCourse,
@@ -82,10 +88,7 @@ const CryptoBootCamp = () => {
       errors.country = "select your country";
       isValid = false;
     }
-    if (formData.gender === "") {
-      errors.gender = "select your gender";
-      isValid = false;
-    }
+
     setFormErrors(errors);
     return isValid;
   };
@@ -108,14 +111,12 @@ const CryptoBootCamp = () => {
             setModalError(false);
             setOpen(true);
             setMessage(
-              "YOU HAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
+              "YOU REGISTERED FOR THE TECHYJAUNT CRYPTO BOOTACAMP!, YOU WILL BE REDIRECTED SHORTLY"
             );
-            // sessionStorage.setItem("isRegistered", true);
-            // navigate("/community/thank-you");
-            // // setTimeout(() => {
-            // //   window.location.href =
-            // //     "https://chat.whatsapp.com/GrWTvqGpf742giBu1BOZsE";
-            // // }, 1500);
+            sessionStorage.setItem("cryptoRegistered", true);
+            setTimeout(() => {
+              navigate("/crypto-bootcamp/thank-you");
+            }, 2000);
           }
           if (res.data.status === "existing") {
             setPending(false);
@@ -221,12 +222,6 @@ const CryptoBootCamp = () => {
             country: e,
           });
         }}
-        handleSelect4={(e) => {
-          setFormData({
-            ...formData,
-            gender: e,
-          });
-        }}
         shake={shake}
         closeModal={() => {
           setOpenModal(false);
@@ -249,40 +244,109 @@ const CryptoBootCamp = () => {
             how to trade like a pro or start your crypto journey alongside
             thousands of beneficiaries across Africa.
           </p>
-          <button
-            onClick={() => setOpenModal(true)}
-            className="mb-5 bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-2"
-          >
-            Apply here for free
-          </button>
+          <div className="my-8">
+            <Link
+              to="reg"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-4"
+            >
+              GET STARTED
+            </Link>
+            \
+          </div>
           <div className="counter w-full text-white">
-            <CountdownTimer targetDate={`June 4, 2024, 07:00:00`} />
+            <CountdownTimer
+              crypto={true}
+              targetDate={`December 31, 2030, 07:00:00`}
+            />
           </div>
         </div>
       </section>
       <section className="">
-        <div className="px-4 py-16 mx-auto max-w-screen-xl text-center">
+        <div className="px-4 py-16 mx-auto max-w-screen-xl text-center relative">
           <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-y-5">
-            <div className=" grid place-content-center">
-              <Fade></Fade>
-              <h2 className="py-5 text-2xl sm:text-3xl font-bold tracking-tight leading-none md:text-4xl">
-                CURIOUS ABOUT CRYPTO?
-              </h2>
-              <p className="text-left">
-                Here's your chance to become a Crypto Expert and learn from the
-                best industry leaders across the world. This programme offers
-                much benefits to attendees such as: $60,000 worth of Crypto
-                Giveaway for all awardees, Trading Mentorship, Understanding
-                DeFi, Getting a job in the crypto space and so much more.
-              </p>
-            </div>
-            <div className="rounded-lg md:px-3">
-              <img src={src} alt="" className="rounded-lg w-full h-full" />
-            </div>
+            <img
+              src={icon1}
+              alt=""
+              className="absolute top-10 opacity-50 scale-150"
+            />
+            <img
+              loading="lazy"
+              src={icon2}
+              alt=""
+              className="absolute right-5 md:-right-20 opacity-50 scale-150"
+            />
+            <img
+              loading="lazy"
+              src={icon3}
+              alt=""
+              className="absolute opacity-50 -bottom-10 right-11 scale-150"
+            />
+            <img
+              loading="lazy"
+              src={icon4}
+              alt=""
+              className="absolute opacity-50 -bottom-12 md:bottom-4 left-10 scale-150"
+            />
+            <Fade>
+              <div className=" grid place-content-center py-10">
+                <h2 className="py-5 text-2xl text-center sm:text-3xl font-bold tracking-tight leading-none md:text-4xl">
+                  CURIOUS ABOUT CRYPTO?
+                </h2>
+                <p className="text-left">
+                  Here's your chance to become a Crypto Expert and learn from
+                  the best industry leaders across the world. This programme
+                  offers much benefits to attendees such as: $60,000 worth of
+                  Crypto Giveaway for all awardees, Trading Mentorship,
+                  Understanding DeFi, Getting a job in the crypto space and so
+                  much more.
+                </p>
+              </div>
+              <div className="rounded-lg md:px-3">
+                <img src={src} alt="" className="rounded-lg w-full h-full" />
+              </div>
+            </Fade>
           </div>
+          <Fade>
+            <div className="bg-blue-500 text-white mt-20">
+              <h2 className="py-5 text-2xl text-center sm:text-3xl font-bold tracking-tight leading-none md:text-4xl">
+                BENEFITS OF OUR PROGRAMME
+              </h2>
+              <TextCarousel texts={cryptoBenefits} />
+            </div>
+          </Fade>
         </div>
       </section>
-      <section></section>
+      <Element name="reg">
+        <section className="bg-gray-100">
+          <div className="px-4 py-16 mx-auto max-w-screen-xl text-center">
+            <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-y-5">
+              <div className="rounded-lg md:px-3">
+                <img
+                  src={src1}
+                  alt=""
+                  className="rounded-lg w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px]"
+                />
+              </div>
+              <div className=" grid place-content-center ">
+                <Fade></Fade>
+                <h3 className="orbitron py-5 text-xl sm:text-2xl font-bold tracking-tight leading-none md:text-3xl">
+                  LIMITED SLOTS AVAILABLE
+                </h3>
+                <button
+                  onClick={() => setOpenModal(true)}
+                  className="mb-5 border-blue-500 border-2 bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-2"
+                >
+                  APPLY HERE FOR FREE
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Element>
       <FooterSection />
       {pending && <EmailLoading />}
     </>

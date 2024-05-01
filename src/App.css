@@ -42,4 +42,24 @@
     background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
 
   }
+  .orbitron{
+    font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+  }
   
+  .slide{
+    animation: slider 100s linear infinite;
+  }
+  @keyframes slider {
+    from{
+      transform: translateX(0);
+    }
+    to{
+      transform: translateX(-100%);
+    }
+  }
+  .hidescrollbar::-webkit-scrollbar{
+display: none;
+  }
+  .cryptoAbout{
+    background-image: url(./images/crypto-bootcamp/crypto.jpg);
+  }

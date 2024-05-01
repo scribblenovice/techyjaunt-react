@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+import CryptoThankyou from "./pages/crypyo-bootcamp/CyptoThankyou";
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
 const Community = lazy(() => import("./pages/community/Community"));
 const CryptoBootCamp = lazy(() =>
@@ -135,20 +136,31 @@ function App() {
         <Route
           path="/community/thank-you"
           element={
-            // <ProtectedRoute route="/community" param="isRegistered">
-            <Suspense fallback={<GlobalBeat />}>
-              <CommunityThankYou />
-            </Suspense>
-            // </ProtectedRoute>
+            <ProtectedRoute route="/community" param="isRegistered">
+              <Suspense fallback={<GlobalBeat />}>
+                <CommunityThankYou />
+              </Suspense>
+            </ProtectedRoute>
           }
         />
 
+        {/* cryptobootcamp */}
         <Route
           path="/crypto-bootcamp"
           element={
             <Suspense fallback={<GlobalBeat />}>
               <CryptoBootCamp />
             </Suspense>
+          }
+        />
+        <Route
+          path="/crypto-bootcamp/thank-you"
+          element={
+            // <ProtectedRoute route="/crypto-bootcamp" param="cryptoRegistered">
+            <Suspense fallback={<GlobalBeat />}>
+              <CryptoThankyou />
+            </Suspense>
+            // </ProtectedRoute>
           }
         />
       </Routes>

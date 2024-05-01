@@ -25,10 +25,8 @@ const CryptoForm = ({
   handleSelect1,
   handleSelect2,
   handleSelect3,
-  handleSelect4,
   handleChange2,
   shake,
-  phone,
   open,
   close,
 }) => {
@@ -50,7 +48,7 @@ const CryptoForm = ({
   return (
     <>
       <Modal show={openModal} onClose={closeModal}>
-        <Modal.Header>TECHYJAUNT COMMUNITY SIGN UP</Modal.Header>
+        <Modal.Header>CRYPTO SCHOLARSHIP REGISTRATION</Modal.Header>
         <Modal.Body>
           <form
             className="space-y-6"
@@ -90,7 +88,7 @@ const CryptoForm = ({
                 />
               </div>
             </div>
-            <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
+            <div className="grid grid-cols-1 md:gap-6 gap-y-5">
               <div className=" w-full">
                 <label
                   htmlFor="phone"
@@ -100,28 +98,11 @@ const CryptoForm = ({
                 </label>
                 <GlobalSelect
                   options={countries}
-                  menuClass={`h-64 bg-black text-white`}
+                  menuClass={`max-h-64 bg-black text-white`}
                   name="country"
                   inputVal={formData.country}
                   handleChange={handleSelect3}
                   errorTxt={formErrors.country}
-                />
-              </div>
-              <div className="">
-                <label
-                  htmlFor="email"
-                  className="font-medium text-sm text-gray-500"
-                >
-                  Sex
-                </label>
-
-                <GlobalSelect
-                  options={gender}
-                  menuClass={` bg-black text-white`}
-                  name="gender"
-                  inputVal={formData.gender}
-                  handleChange={handleSelect4}
-                  errorTxt={formErrors.gender}
                 />
               </div>
             </div>

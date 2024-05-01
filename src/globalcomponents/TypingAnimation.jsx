@@ -5,8 +5,8 @@ const TypingAnimation = ({typingClass, sequenceArray, repeat}) => {
         sequence={sequenceArray}
         className={typingClass}
         wrapper="span"
-        speed={50}
-        deletionSpeed={50}
+        speed={10}
+        deletionSpeed={5}
         style={{ display: "inline-block" }}
         repeat={repeat}
       />
