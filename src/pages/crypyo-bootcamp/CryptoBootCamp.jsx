@@ -321,31 +321,32 @@ const CryptoBootCamp = () => {
         </div>
       </section>
       <Element name="reg">
-        <section className="bg-gray-100">
-          <div className="px-4 py-16 mx-auto max-w-screen-xl text-center">
-            <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-y-5">
-              <div className="rounded-lg md:px-3">
-                <img
-                  src={src1}
-                  alt=""
-                  className="rounded-lg w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px]"
-                />
-              </div>
-              <div className=" grid place-content-center ">
-                <Fade></Fade>
-                <h3 className="orbitron py-5 text-xl sm:text-2xl font-bold tracking-tight leading-none md:text-3xl">
-                  LIMITED SLOTS AVAILABLE
-                </h3>
-                <button
-                  onClick={() => setOpenModal(true)}
-                  className="mb-5 border-blue-500 border-2 bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-2"
-                >
-                  APPLY HERE FOR FREE
-                </button>
+        <Fade>
+          <section className="bg-gray-100">
+            <div className="px-4 py-16 mx-auto max-w-screen-xl text-center">
+              <div className=" w-full grid grid-cols-1 md:grid-cols-2 gap-y-5">
+                <div className="rounded-lg md:px-3">
+                  <img
+                    src={src1}
+                    alt=""
+                    className="rounded-lg w-full h-[450px] sm:h-[500px] md:h-[550px] lg:h-[600px]"
+                  />
+                </div>
+                <div className=" grid place-content-center ">
+                  <h3 className="orbitron py-5 text-xl sm:text-2xl font-bold tracking-tight leading-none md:text-3xl">
+                    LIMITED SLOTS AVAILABLE
+                  </h3>
+                  <button
+                    onClick={() => setOpenModal(true)}
+                    className="mb-5 border-blue-500 border-2 bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-2"
+                  >
+                    APPLY HERE FOR FREE
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Fade>
       </Element>
       <FooterSection />
       {pending && <EmailLoading />}
