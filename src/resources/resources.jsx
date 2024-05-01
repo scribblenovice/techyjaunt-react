@@ -1696,8 +1696,8 @@ export const cryptoKnowledge = [
   },
 ];
 export const cryptoBenefits = [
-  "Become a PROFITABLE Crypto Trader in months",
-  "Exclusive fully funded SCHOLARSHIP opportunity for Africans",
+  "Becoming a profitable Crypto Trader in months",
+  "Exclusive fully funded scholarship opportunity for Africans",
   "Trading Mentorship",
   "Live & Recorded Classes",
   "Understanding DeFi",

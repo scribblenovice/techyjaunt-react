@@ -233,7 +233,7 @@ const Community = () => {
                 onClick={() => setOpenModal(true)}
                 className="py-3 my-5 px-10 bg-blue-500 rounded-md font-medium text-white hover:scale-105 transition-all duration-200 ease-in text-base lg:text-xl"
               >
-                SIGN UP HERE
+                JOIN OUR TECH COMMUNITY HERE
               </button>
               <div className="flex items-center flex-wrap">
                 <Avatars />

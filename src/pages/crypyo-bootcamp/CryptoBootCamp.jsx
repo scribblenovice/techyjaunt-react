@@ -253,9 +253,8 @@ const CryptoBootCamp = () => {
               duration={500}
               className="cursor-pointer bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-4"
             >
-              GET STARTED
+              APPLY NOW
             </Link>
-            \
           </div>
           <div className="counter w-full text-white">
             <CountdownTimer
@@ -299,25 +298,22 @@ const CryptoBootCamp = () => {
                 <p className="text-left">
                   Here's your chance to become a Crypto Expert and learn from
                   the best industry leaders across the world. This programme
-                  offers much benefits to attendees such as: $60,000 worth of
-                  Crypto Giveaway for all awardees, Trading Mentorship,
-                  Understanding DeFi, Getting a job in the crypto space and so
-                  much more.
+                  offers much benefits to attendees such as:
                 </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2">
+                  {cryptoBenefits.map((el, i) => (
+                    <div className="flex items-center py-2">
+                      <i class="ri-arrow-right-s-fill text-blue-500"></i>
+                      <p className="text-left">{el}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="rounded-lg md:px-3">
                 <img src={src} alt="" className="rounded-lg w-full h-full" />
               </div>
             </Fade>
           </div>
-          <Fade>
-            <div className="bg-blue-500 text-white mt-20">
-              <h2 className="py-5 text-2xl text-center sm:text-3xl font-bold tracking-tight leading-none md:text-4xl">
-                BENEFITS OF OUR PROGRAMME
-              </h2>
-              <TextCarousel texts={cryptoBenefits} />
-            </div>
-          </Fade>
         </div>
       </section>
       <Element name="reg">

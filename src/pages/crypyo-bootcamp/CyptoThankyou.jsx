@@ -14,14 +14,15 @@ const CryptoThankyou = () => {
               BOOTCAMP! <br />
               <span className="inline-block text-sm md:text-base saira my-5">
                 {" "}
-                We have sent you a confirmation amail regarding your
-                registration. Kindly join our whatsapp community for more
-                information using the button below
+                Your registration to join the TechyJaunt crypto accelerator
+                bootcamp has been successful and you will be getting an email
+                from us shortly. Please join our general WhatsApp group using
+                the button below. If you encounter any difficulties joining, please send an email to support@techyjaunt.com for assistance.
               </span>
             </p>
             <Link
               to=""
-              className="saira flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
+              className="saira text-center bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
             >
               JOIN THE WHATSAPP COMMUNITY{" "}
               {/* <div className="lg:ml-2">
