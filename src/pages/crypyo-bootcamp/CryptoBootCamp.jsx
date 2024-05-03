@@ -35,7 +35,6 @@ const CryptoBootCamp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    country: "",
     email: "",
     phoneNumber: "",
     cryptoCourse: "",
@@ -46,7 +45,6 @@ const CryptoBootCamp = () => {
     firstName: formData.firstName.trim(),
     lastName: formData.lastName.trim(),
     email: formData.email.trim(),
-    country: formData.country,
     phoneNumber: formData.phoneNumber.trim(),
     cryptoKnowledge: formData.cryptoKnowledge,
     cryptoCourse: formData.cryptoCourse,
@@ -82,10 +80,6 @@ const CryptoBootCamp = () => {
     }
     if (formData.cryptoKnowledge === "") {
       errors.cryptoKnowledge = "select an option";
-      isValid = false;
-    }
-    if (formData.country === "") {
-      errors.country = "select your country";
       isValid = false;
     }
 

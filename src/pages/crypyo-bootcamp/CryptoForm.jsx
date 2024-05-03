@@ -95,24 +95,6 @@ const CryptoForm = ({
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:gap-6 gap-y-5">
-              <div className=" w-full">
-                <label
-                  htmlFor="phone"
-                  className="mb-5 font-medium  text-sm text-gray-500"
-                >
-                  Country
-                </label>
-                <GlobalSelect
-                  options={countries}
-                  menuClass={`max-h-48 bg-black text-white pt-5`}
-                  name="country"
-                  inputVal={formData.country}
-                  handleChange={handleSelect3}
-                  errorTxt={formErrors.country}
-                />
-              </div>
-            </div>
 
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
               <div className=" w-full">
