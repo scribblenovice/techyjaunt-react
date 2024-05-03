@@ -54,7 +54,6 @@ const CryptoForm = ({
 
   return (
     <>
-      {console.log(countries)}
       <Modal show={openModal} onClose={closeModal}>
         <Modal.Header>CRYPTO SCHOLARSHIP REGISTRATION</Modal.Header>
         <Modal.Body>
