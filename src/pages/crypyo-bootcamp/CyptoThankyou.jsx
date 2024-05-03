@@ -17,11 +17,11 @@ const CryptoThankyou = () => {
                 Your registration to join the TechyJaunt crypto accelerator
                 bootcamp has been successful and you will be getting an email
                 from us shortly. Please join our general WhatsApp group using
-                the button below. If you encounter any difficulties joining, please send an email to support@techyjaunt.com for assistance.
+                the button below. If you encounter any difficulties joining, please send an email to <a href="mailto:support@techyjaunt.com">support@techyjaunt.com</a> for assistance.
               </span>
             </p>
             <Link
-              to=""
+              to="https://chat.whatsapp.com/HFPmzBcMcB3KDk3mFsnNR7"
               className="saira text-center bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
             >
               JOIN THE WHATSAPP COMMUNITY{" "}

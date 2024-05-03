@@ -108,15 +108,7 @@ const CryptoBootCamp = () => {
         .then((res) => {
           if (res.data.status === "registered") {
             setPending(false);
-            setModalError(false);
-            setOpen(true);
-            setMessage(
-              "YOU REGISTERED FOR THE TECHYJAUNT CRYPTO BOOTACAMP!, YOU WILL BE REDIRECTED SHORTLY"
-            );
-            sessionStorage.setItem("cryptoRegistered", true);
-            setTimeout(() => {
-              navigate("/crypto-bootcamp/thank-you");
-            }, 2000);
+            navigate("/crypto-bootcamp/thank-you");
           }
           if (res.data.status === "existing") {
             setPending(false);
@@ -245,16 +237,12 @@ const CryptoBootCamp = () => {
             thousands of beneficiaries across Africa.
           </p>
           <div className="my-8">
-            <Link
-              to="reg"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
+            <button
+              onClick={() => setOpenModal(true)}
               className="cursor-pointer bg-white font-bold hover:bg-blue-500 hover:text-white transition-all ease-linear duration-200 text-blue-500 rounded-md py-4 px-4"
             >
               APPLY NOW
-            </Link>
+            </button>
           </div>
           <div className="counter w-full text-white">
             <CountdownTimer
