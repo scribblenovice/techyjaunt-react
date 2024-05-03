@@ -42,11 +42,11 @@ const CryptoForm = ({
       const filteredCountries = countriesData.filter((country) => {
         return country.name != "Nigeria";
       });
-      const countries = [
+      const filtered = [
         { name: "Nigeria", image: "https://flagcdn.com/ng.svg" },
         ...filteredCountries,
       ];
-      setCountries(countries);
+      setCountries(filtered);
     };
 
     fetchCountries();

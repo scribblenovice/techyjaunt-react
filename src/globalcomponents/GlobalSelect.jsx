@@ -24,9 +24,9 @@ const GlobalSelect = ({
           className: "hidden",
         }}
       >
-        {options.map((el) => {
+        {options.map((el, index) => {
           return (
-            <Option key={el.id || el.lat} value={el.name.toLowerCase()}>
+            <Option key={index} value={el.name.toLowerCase()}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 {el.image && (
                   <img
