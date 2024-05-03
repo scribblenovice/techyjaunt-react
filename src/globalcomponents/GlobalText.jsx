@@ -11,7 +11,7 @@ export function GlobalText({
   isDisabled,
   placeTxt,
   isRequired,
-  ...rest
+ handleBlur,handleFocus
 }) {
   return (
     <div className={`w-full`}>
@@ -31,6 +31,8 @@ export function GlobalText({
         value={inputVal}
         placeholder={placeTxt}
         required={isRequired}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
       {errorTxt && <p className="text-xs text-red-500">{errorTxt}</p>}
     </div>

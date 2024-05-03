@@ -39,7 +39,14 @@ const CryptoForm = ({
         name: country.name,
         image: country.flags.svg,
       }));
-      setCountries(countriesData);
+      const filteredCountries = countriesData.filter((country) => {
+        return country.name != "Nigeria";
+      });
+      const countries = [
+        { name: "Nigeria", image: "https://flagcdn.com/ng.svg" },
+        ...filteredCountries,
+      ];
+      setCountries(countries);
     };
 
     fetchCountries();
@@ -47,6 +54,7 @@ const CryptoForm = ({
 
   return (
     <>
+      {console.log(countries)}
       <Modal show={openModal} onClose={closeModal}>
         <Modal.Header>CRYPTO SCHOLARSHIP REGISTRATION</Modal.Header>
         <Modal.Body>
