@@ -105,7 +105,7 @@ const CryptoForm = ({
                 </label>
                 <GlobalSelect
                   options={countries}
-                  menuClass={`max-h-64 bg-black text-white`}
+                  menuClass={`max-h-48 bg-black text-white pt-5`}
                   name="country"
                   inputVal={formData.country}
                   handleChange={handleSelect3}
