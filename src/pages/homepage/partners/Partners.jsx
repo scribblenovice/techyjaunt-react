@@ -5,7 +5,7 @@ import coinstoreImg from "../../../images/partners/coinstore.webp";
 
 const Partners = ({ isEvent, title }) => {
   return (
-    <section className="py-10 lg:py-20">
+    <section className="p">
       <div className="w-[90%] sm:w-[80%] mx-auto">
         <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl px-4 pl-4 mb-6 border-l-4 border-blue-500">
          {title}
@@ -22,7 +22,7 @@ const Partners = ({ isEvent, title }) => {
                   <img
                     loading="lazy"
                     className={`${
-                      j.id == 2 || j.id == 3 ? "w-[40%]" : "w-[70%]"
+                      j.id == 2 || j.id == 3 ? "w-[40%]" : j.id == 10? "w-[100%]": "w-[70%]"
                     }`}
                     key={j.id}
                     src={j.src}

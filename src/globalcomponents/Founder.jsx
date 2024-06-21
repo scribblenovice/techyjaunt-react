@@ -3,28 +3,28 @@ import founderImg from "../images/founder.jpg";
 
 const Founder = () => {
   return (
-    <section className=" pt-10 bg-stone-100 font-poppins" id="about">
-      <div className="w-[90%] smw-[80%] py-4 mx-auto lg:py-6">
-        <div className="px-4 pl-4 mb-10 border-l-4 border-blue-500">
+    <section className="bg-stone-100 font-poppins" id="about">
+      <div className="w-[90%] sm:w-[80%] mx-auto">
+        <div className="px-4 pl-4 mb-10 border-l-4">
           <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
             MEET OUR FOUNDER
           </h2>
         </div>
-        <Fade bottom>
-          <div className="grid md:grid-cols-2 md:gap-x-10">
+        <Fade>
+          <div className="grid lg:grid-cols-2 md:gap-x-10">
             <div className="rounded-lg">
               <img
                 loading="lazy"
                 src={founderImg}
                 alt=""
-                className=" rounded-lg w-full h-[80%]"
+                className=" rounded-lg w-full mx-auto h-full"
               />
             </div>
-            <div>
+            <div className="flex flex-col justify-center pt-10 lg:pt-0 ">
               <h2 className="text-gray-800 text-lg sm:text-xl mb-5">
                 George Ezeudeka Ikechukwu
               </h2>
-              <p className="font-normal mb-10 text-base leading-7 text-gray-500 glow">
+              <p className="font-normal mb-10 text-base leading-7 text-gray-500">
                 Meet George, the Founder/CEO of TechyJaunt. He's passionate
                 about emerging technologies like Web3, Blockchain, and AI. His
                 mission is to introduce Africans to the world of technology, one

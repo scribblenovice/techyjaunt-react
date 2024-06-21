@@ -12,6 +12,10 @@ import partner4 from "../images/partners/IMG_5004.webp";
 import partner5 from "../images/partners/lbank.webp";
 import partner6 from "../images/partners/yessi.webp";
 import partner7 from "../images/partners/moremi.webp";
+import partner8 from "../images/partners/eventpartner1.webp";
+import partner9 from "../images/partners/eventpartner2.webp";
+import partner10 from "../images/partners/eventpartner4.webp";
+import partner11 from "../images/partners/eventpartner5.webp";
 
 // thumbnails
 import thumb1 from "../images/videos/header/thumbnail/thumb1.webp";
@@ -81,6 +85,22 @@ export const PartnerImg = [
   {
     id: 6,
     src: partner7,
+  },
+  {
+    id: 7,
+    src: partner8,
+  },
+  {
+    id: 8,
+    src: partner9,
+  },
+  {
+    id: 9,
+    src: partner10,
+  },
+  {
+    id: 10,
+    src: partner11,
   },
 ];
 

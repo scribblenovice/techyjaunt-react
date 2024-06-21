@@ -5,16 +5,16 @@ const AboutUs = () => {
   return (
     <section
       name="about"
-      className="py-10 lg:py-20 bg-stone-100 font-poppins"
+      className="pt-12 lg:pt-20 bg-stone-100 font-poppins"
       id="about"
     >
-      <div className="w-[90%] sm:w-[80%] py-4 mx-auto lg:py-6">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="w-[90%] sm:w-[80%] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="w-full mb-10 lg:mb-0">
             <div className="lg:max-w-md">
               <Fade bottom>
                 <div className="px-4 pl-4 mb-6 border-l-4 border-blue-500">
-                  <h2 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl">
+                  <h2 className=" text-3xl font-black text-gray-700 md:text-5xl">
                     ABOUT US
                   </h2>
                 </div>
@@ -102,7 +102,7 @@ const AboutUs = () => {
                         </svg>
                       </span>
                       <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
-                        2
+                        3
                       </p>
                       <h2 className="text-sm text-gray-700">Cohorts</h2>
                     </div>
@@ -296,7 +296,7 @@ const AboutUs = () => {
                         </svg>
                       </span>
                       <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
-                        1000+
+                        30000+
                       </p>
                       <h2 className="text-sm text-gray-700">Members</h2>
                     </div>
@@ -391,7 +391,7 @@ const AboutUs = () => {
                         </svg>
                       </span>
                       <p className="mt-4 mb-2 text-3xl font-bold text-gray-700">
-                        1000+
+                        3000+
                       </p>
                       <h2 className="text-sm text-gray-700">Trained</h2>
                     </div>
