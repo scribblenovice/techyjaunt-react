@@ -52,8 +52,8 @@ function App() {
           path="/launchpad"
           element={
             <Suspense fallback={<GlobalBeat />}>
-              <ClosedRegister />
-              {/* <LaunchPad /> */}
+              {/* <ClosedRegister /> */}
+              <LaunchPad />
             </Suspense>
           }
         />
