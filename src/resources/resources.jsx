@@ -1725,3 +1725,24 @@ export const cryptoBenefits = [
   "Introduction to NFTs",
   "⁠Getting a job in the crypto space",
 ];
+
+export const FancyUnderline = ({ className }) => {
+  return (
+    <svg
+      className={className}
+      width="173"
+      height="12"
+      viewBox="0 0 173 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.99997 5.29882C30.2273 2.04152 103.492 -1.62911 170.732 9.74672"
+        stroke="#FFC27A"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};

@@ -8,11 +8,13 @@ export default withMT({
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'founder':"url(./src/images/founder.webp)"
-      }
+      backgroundImage: {
+        founder: "url(./src/images/founder.webp)",
+      },
+      colors: {
+        "tech-blue": "#0175FB;",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
 });
-
