@@ -68,7 +68,7 @@ const LaunchPad = () => {
     email: "",
     phoneNumber: "",
     selectedCourse: "",
-    knowlegeOfTechyJaunt: ""
+    knowlegeOfTechyJaunt: "",
   });
 
   const payload = {
@@ -77,7 +77,7 @@ const LaunchPad = () => {
     email: formData.email.trim(),
     phoneNumber: formData.phoneNumber.trim(),
     selectedCourse: formData.selectedCourse,
-    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt
+    knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -231,10 +231,7 @@ const LaunchPad = () => {
             </Fade>
             <Fade bottom>
               <p className="font-medium text-white text-base md:text-lg leading-8 glow">
-                Embark on a transformative tech journey guided by industry
-                experts. Unlock the power of in-demand tech skills, accessible
-                from anywhere on the globe. Start your adventure into the world
-                of technology today!
+              Start an exciting tech journey with help  and mentorship from industry experts. Learn important tech skills from anywhere in the world. Begin your adventure into tech today!
               </p>
               <button
                 onClick={() => setOpenModal(true)}
@@ -245,7 +242,7 @@ const LaunchPad = () => {
               <div className="flex items-center flex-wrap">
                 <Avatars />
                 <p className="mt-5 lg:mt-0 text-white text-sm sm:text-base font-medium">
-                  Over 1K+ professionals onboarded and trained
+                  Over 5K+ professionals onboarded and trained
                 </p>
               </div>
             </Fade>
@@ -324,13 +321,12 @@ const LaunchPad = () => {
                 Unlock Your Potential with TechyJaunt's 6-month Tech Program!
               </h2>
               <p className="font-normal text-white mb-5 text-base leading-8">
-                Discover an immersive tech experience that empowers you with
-                in-demand skills, all under the guidance of industry luminaries.
-                Our students hail from diverse states and backgrounds, united by
-                a singular ambition to thrive in the world of technology. You're
-                just one click away from commencing your journey in any of these
-                thriving tech domains. Take that pivotal step towards your tech
-                destiny today!
+                Join us for a fun tech experience where you can learn important
+                tech skills with the help of expert mentors. Our students come
+                from many different places, all wanting to succeed in tech.
+                You’re just one click away from starting your journey in
+                exciting tech fields. Take the first step towards your
+                tech future today!
               </p>
               <button
                 onClick={() => setOpenModal(true)}

@@ -22,7 +22,7 @@ const LaunchPadThankyou = () => {
           </p>
           <a
             target="_blank"
-            href="https://chat.whatsapp.com/CGptnpm5XgxIZ3zbl0e8EG"
+            href="https://chat.whatsapp.com/INxF0IOlf9095myX4FDm6E"
             // onClick={redirect}
             className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
           >

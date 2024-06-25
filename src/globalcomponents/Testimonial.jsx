@@ -7,8 +7,8 @@ const Testimonial = () => {
         <div className=" mx-auto text-center">
           <p className="text-lg leading-tight text-gray-800 sm:text-4xl lg:text-4xl">
             We have successfully onboarded over{" "}
-            <span className="text-blue-500"> 10k+</span> people into the tech
-            space and trained over <span className="text-blue-500"> 1000+</span>{" "}
+            <span className="text-blue-500"> 30k+</span> people into the tech
+            space and trained over <span className="text-blue-500"> 5000+</span>{" "}
             professionals
           </p>
         </div>

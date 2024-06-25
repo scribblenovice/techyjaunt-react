@@ -29,7 +29,7 @@ const FormModal = ({
   return (
     <>
       <Modal show={openModal} onClose={closeModal}>
-        <Modal.Header>SIGN UP FOR THE COHORT 3!</Modal.Header>
+        <Modal.Header>SIGN UP FOR THE COHORT!</Modal.Header>
         <Modal.Body>
           <form
             className="space-y-6"
