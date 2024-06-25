@@ -85,48 +85,21 @@ video {
   }
 }
 .thumb1 {
-  background: rgb(252, 252, 252);
-  background: linear-gradient(
-      180deg,
-      rgba(252, 252, 252, 0) 19%,
-      rgba(252, 252, 255, 0.045) 45%,
-      rgba(243, 241, 236, 0.012) 70%,
-      rgba(63, 131, 248, 0.816) 93%
-    ),
-    url("./images/videos/header/thumbnail/thumb1.webp");
+  background: url("./images/videos/header/thumbnail/thumb1.webp");
   background-position: center;
   background-size: cover;
-  /* border-radius: 3% 3% 51% 51% / 2% 2% 38% 39%; */
   background-repeat: no-repeat;
 }
 .thumb2 {
-  background: rgb(252, 252, 252);
-  background: linear-gradient(
-      180deg,
-      rgba(252, 252, 252, 0) 19%,
-      rgba(252, 252, 255, 0.045) 45%,
-      rgba(243, 241, 236, 0.012) 70%,
-      rgba(63, 131, 248, 0.816) 93%
-    ),
-    url("./images/videos/header/thumbnail/thumb2.webp");
+  background: url("./images/videos/header/thumbnail/thumb2.webp");
   background-position: center;
   background-size: cover;
-  /* border-radius: 3% 3% 51% 51% / 2% 2% 38% 39%; */
   background-repeat: no-repeat;
 }
 .thumb3 {
-  background: rgb(252, 252, 252);
-  background: linear-gradient(
-      180deg,
-      rgba(252, 252, 252, 0) 19%,
-      rgba(252, 252, 255, 0.045) 45%,
-      rgba(243, 241, 236, 0.012) 70%,
-      rgba(63, 131, 248, 0.816) 80%
-    ),
-    url("./images/videos/header/thumbnail/thumb3.webp");
+  background: url("./images/videos/header/thumbnail/thumb3.webp");
   background-position: center;
   background-size: cover;
-  /* border-radius: 3% 3% 51% 51% / 2% 2% 38% 39%; */
   background-repeat: no-repeat;
 }
 .thumbtext {
