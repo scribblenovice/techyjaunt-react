@@ -9,6 +9,7 @@ const Header = () => {
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
       <div>
+        <p className="">START YOUR TECH JOURNEY</p>
         <h1 className="text-left text-[29px] font-semibold text-gray-800 my-10">
           Crafting Top{" "}
           <span className="text-tech-blue relative whitespace-nowrap">
