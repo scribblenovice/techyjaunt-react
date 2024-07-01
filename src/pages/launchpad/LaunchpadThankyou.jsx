@@ -12,7 +12,7 @@ const LaunchPadThankyou = () => {
             className={`ri-checkbox-circle-line text-green-300 text-9xl lg:text-[200px]`}
           ></i>
           <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
-            YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 3! <br />
+            YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 4! <br />
             <span className="text-sm md:text-base">
               {" "}
               WE HAVE SENT YOU A CONFIRMATION EMAIL REGARDING YOUR APPLICATION.
