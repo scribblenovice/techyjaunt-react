@@ -60,11 +60,12 @@ function App() {
         <Route
           path="/launchpad/thank-you"
           element={
-            <ProtectedRoute route="/launchpad" param="isRegistered">
-              <Suspense fallback={<GlobalBeat />}>
-                <LaunchPadThankyou />
-              </Suspense>
-            </ProtectedRoute>
+            <LaunchPadThankyou />
+            // <ProtectedRoute route="/launchpad" param="isRegistered">
+            //   <Suspense fallback={<GlobalBeat />}>
+            //     <LaunchPadThankyou />
+            //   </Suspense>
+            // </ProtectedRoute>
           }
         />
         {/* CHECKOUT */}
