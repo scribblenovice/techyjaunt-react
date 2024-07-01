@@ -79,12 +79,11 @@ function App() {
         <Route
           path="/checkout/thank-you"
           element={
-            <CheckoutThankYou />
-            // <ProtectedRoute route="/checkout" param="isPaid">
-            //   <Suspense fallback={<GlobalBeat />}>
-            //     <CheckoutThankYou />
-            //   </Suspense>
-            // </ProtectedRoute>
+            <ProtectedRoute route="/checkout" param="isPaid">
+              <Suspense fallback={<GlobalBeat />}>
+                <CheckoutThankYou />
+              </Suspense>
+            </ProtectedRoute>
           }
         />
         {/* EVENT */}

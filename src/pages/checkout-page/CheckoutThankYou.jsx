@@ -12,7 +12,7 @@ const LaunchPadThankyou = () => {
             className={`ri-checkbox-circle-line text-green-300 text-9xl lg:text-[200px]`}
           ></i>
           <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
-            YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 3! <br />
+            YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 4! <br />
             <span className="text-sm md:text-base">
               {" "}
               Kindly click the link below to join the paid community.
@@ -23,7 +23,7 @@ const LaunchPadThankyou = () => {
           </p>
           <a
             target="_blank"
-            href="https://chat.whatsapp.com/GaGQIf9a9yU8OdD9Dc8H48 "
+            href="https://chat.whatsapp.com/FnzlvTUQPD4Jbct6Q3grd8"
             // onClick={redirect}
             className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
           >
