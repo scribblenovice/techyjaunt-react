@@ -60,12 +60,11 @@ function App() {
         <Route
           path="/launchpad/thank-you"
           element={
-            <LaunchPadThankyou />
-            // <ProtectedRoute route="/launchpad" param="isRegistered">
-            //   <Suspense fallback={<GlobalBeat />}>
-            //     <LaunchPadThankyou />
-            //   </Suspense>
-            // </ProtectedRoute>
+            <ProtectedRoute route="/launchpad" param="isRegistered">
+              <Suspense fallback={<GlobalBeat />}>
+                <LaunchPadThankyou />
+              </Suspense>
+            </ProtectedRoute>
           }
         />
         {/* CHECKOUT */}
@@ -80,11 +79,12 @@ function App() {
         <Route
           path="/checkout/thank-you"
           element={
-            <ProtectedRoute route="/checkout" param="isPaid">
-              <Suspense fallback={<GlobalBeat />}>
-                <CheckoutThankYou />
-              </Suspense>
-            </ProtectedRoute>
+            <CheckoutThankYou />
+            // <ProtectedRoute route="/checkout" param="isPaid">
+            //   <Suspense fallback={<GlobalBeat />}>
+            //     <CheckoutThankYou />
+            //   </Suspense>
+            // </ProtectedRoute>
           }
         />
         {/* EVENT */}
