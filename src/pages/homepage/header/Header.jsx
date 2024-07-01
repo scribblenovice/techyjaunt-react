@@ -7,10 +7,10 @@ import { FancyUnderline } from "../../../resources/resources";
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-x-10">
       <div>
-        <p className="">START YOUR TECH JOURNEY</p>
-        <h1 className="text-left text-[29px] font-semibold text-gray-800 my-10">
+        <p className="text-tech-blue font-semibold hidden lg:block">START YOUR TECH JOURNEY</p>
+        <h1 className="text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-10">
           Crafting Top{" "}
           <span className="text-tech-blue relative whitespace-nowrap">
             <FancyUnderline className="absolute left-0 -bottom-2" /> Tech

@@ -8,12 +8,12 @@ const Videos = () => {
     <>
       <div className="flex gap-x-2 w-full">
         <Switcher renderVid={renderVid} />
-        <div className="w-fit flex flex-col">
+        <div className="w-[30%] flex flex-col bg-red-400">
           {thumbImg.map((el) => {
             return (
               <button 
                 key={el.id}
-                className="mb-4 overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-fit h-fit"
+                className="mb-4 overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-full h-fit"
                 onClick={() => setRenderVid(el.id)}
               >
                 <div
