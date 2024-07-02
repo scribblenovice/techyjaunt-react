@@ -2,14 +2,31 @@ import Avatars from "../../../globalcomponents/Avatars";
 import Videos from "../videos/Videos";
 import { useNavigate } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import { FancyUnderline } from "../../../resources/resources";
+import {
+  Circle,
+  CurlyLine,
+  FancyUnderline,
+  Star,
+  Star2,
+} from "../../../resources/resources";
 
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-x-10">
+    <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative lg:py-36 w-full xl:w-[95%]">
+      <Circle
+        color="#0075FD"
+        className="absolute hidden xl:block top-36 left-[25%]"
+      />
+
+      <CurlyLine className="absolute hidden xl:block right-56 top-14" />
+      <Star className="absolute hidden xl:block top-28 -left-12" />
+      <Star2 className="absolute hidden xl:block top-36 left-[48%]" />
+
       <div>
-        <p className="text-tech-blue font-semibold hidden lg:block">START YOUR TECH JOURNEY</p>
+        <p className="text-tech-blue font-semibold hidden xl:block">
+          START YOUR TECH JOURNEY
+        </p>
         <h1 className="text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-10">
           Crafting Top{" "}
           <span className="text-tech-blue relative whitespace-nowrap">
@@ -32,11 +49,19 @@ const Header = () => {
         <div className="flex items-center flex-wrap">
           <Avatars />
           <p className="text-xl text-gray-500 font-normal leading-7">
-            Over 1K+ professionals trained.
+            Over 5K+ professionals trained.
           </p>
         </div>
       </div>
-      <div>
+      <div className="relative grid place-items-center">
+        <Circle
+          color="#FFC27A"
+          className="absolute hidden xl:block -top-16 left-36"
+        />
+        <Circle
+          color="#6D39ED"
+          className="absolute hidden xl:block -bottom-5 left-24"
+        />
         <Videos />
       </div>
     </div>

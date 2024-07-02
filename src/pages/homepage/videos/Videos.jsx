@@ -7,13 +7,15 @@ const Videos = () => {
   return (
     <>
       <div className="flex gap-x-2 w-full">
-        <Switcher renderVid={renderVid} />
-        <div className="w-[30%] flex flex-col bg-red-400">
+        <div className="w-full">
+        <Switcher renderVid={renderVid} />  
+        </div>
+        <div className="flex flex-col gap-y-5">
           {thumbImg.map((el) => {
             return (
               <button 
                 key={el.id}
-                className="mb-4 overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-full h-fit"
+                className="overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-full h-fit"
                 onClick={() => setRenderVid(el.id)}
               >
                 <div
@@ -21,7 +23,7 @@ const Videos = () => {
                     renderVid == el.id ? "bg-none" : "bg-gray-800 opacity-40"
                   } testvid`}
                 ></div>
-                <img src={el.src} alt="" className={`testvid w-24 h-20 sm:w-16 sm:h-16 lg:w-20 lg:h-20 testvid border-[3px] border-gray-900`} />
+                <img src={el.src} alt="" className={`testvid w-full h-20 sm:h-24 lg:h-28 xl:h-32 testvid border-[3px] border-gray-900`} />
               </button>
             );
           })}
