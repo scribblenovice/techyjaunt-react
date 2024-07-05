@@ -60,10 +60,10 @@ nav > ul > li > a {
 .jumbo {
   background-image: url("./images/pxfuel.jpg");
 }
-h2 {
+/* h2 {
   font-family: "Orbitron", sans-serif, Helvetica, sans-serif;
   font-weight: 900;
-}
+} */
 p,
 a {
   font-family: "Rubik" sans-serif, Helvetica, sans-serif;

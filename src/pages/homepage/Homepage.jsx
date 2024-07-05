@@ -17,7 +17,7 @@ const Homepage = () => {
     setScrollNumber(window.scrollY);
   });
   return (
-    <main className=" w-[90%] mx-auto">
+    <main className=" mx-auto">
       <>
         {/* <NavLinks
           navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
