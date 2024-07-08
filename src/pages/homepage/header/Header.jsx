@@ -7,6 +7,7 @@ import {
   CourseSection,
   CurlyLine,
   FancyUnderline,
+  PartnerImg,
   Star,
   Star2,
 } from "../../../resources/resources";
@@ -92,7 +93,7 @@ const Header = () => {
           <CardSlider />
         </div>
       </div>
-      <div className="w-[90%] xl:w-[85%] mx-auto py-10">
+      <div className="w-[90%] xl:w-[85%] mx-auto py-20">
         <h2 className=" font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
           What{" "}
           <span className="text-tech-blue relative inline-block">
@@ -136,24 +137,60 @@ const Header = () => {
           <p>
             <span className="relative">
               Boot{" "}
-              <span className="absolute w-12 h-1 rounded-lg bg-tech-blue -bottom-1 left-0"></span>{" "}
+              <span className="absolute w-12 h-1 rounded-lg bg-tech-blue -bottom-2 left-0"></span>{" "}
             </span>
             camp
           </p>
           <p>Bootcamp + Mentorship</p>
         </div>
-        <div className="some1 gap-8">
+        <div className="some1 gap-x-8 gap-y-12">
           {CourseSection.map((el, index) => {
             return (
               <div className="relative" id={index}>
-                <img src={el.img} alt="" className="rounded-lg" />
-                <div className={`flex justify-between flex-col absolute text-white p-4 top-[60%] left-0 right-0 -bottom-5 ${el.bg} rounded-bl-lg rounded-br-lg`}>
+                <img src={el.img} alt="" className="rounded-lg w-full" />
+                <div
+                  className={`flex justify-between flex-col absolute text-white p-4 top-[60%] left-0 right-0 -bottom-5 ${el.bg} rounded-bl-lg rounded-br-lg`}
+                >
                   <h3 className="font-semibold text-2xl">
                     I am interested in {el.fullName}
                   </h3>
-                  <Link>Visit More <i className="ri-arrow-right-line text-lg ml-5"></i></Link>
+                  <Link>
+                    Visit More{" "}
+                    <i className="ri-arrow-right-line text-lg ml-5"></i>
+                  </Link>
                 </div>
               </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="w-[90%] xl:w-[85%] mx-auto py-10">
+        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
+          Our Partners
+          <FancyUnderline className="absolute -bottom-2 left-7" />{" "}
+        </h2>
+        <div
+          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 test pt-10`}
+        >
+          {PartnerImg.map((j) => {
+            return (
+              // <Zoom>
+                <div className="w-full h-full grid place-items-center">
+                  <img
+                    loading="lazy"
+                    className={`${
+                      j.id == 2 || j.id == 3
+                        ? "w-[40%]"
+                        : j.id == 10
+                        ? "w-[100%]"
+                        : "w-[70%]"
+                    }`}
+                    key={j.id}
+                    src={j.src}
+                    alt=""
+                  />
+                </div>
+              // </Zoom>
             );
           })}
         </div>
