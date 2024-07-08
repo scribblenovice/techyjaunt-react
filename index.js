@@ -55,7 +55,7 @@ server.post("/signup", (req, res) => {
         LastName: lastName,
         SelectedCourse: selectedCourse,
         HowYouHeard: knowlegeOfTechyJaunt,
-        PhoneNuber: phoneNumber
+        PhoneNumber: phoneNumber
       },
       tags: ["STUDENT"],
       status: "SUBSCRIBED",
