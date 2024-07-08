@@ -63,3 +63,12 @@ display: none;
   .cryptoAbout{
     background-image: url(./images/crypto-bootcamp/crypto.jpg);
   }
+
+.some{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.some1{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
