@@ -307,6 +307,16 @@ export const howHeard = [
     name: "FAJO MONIE",
     value: "fajo monie",
   },
+  {
+    id: 6,
+    name: "TWITTER",
+    value: "twitter",
+  },
+  {
+    id: 7,
+    name: "YOUTUBE",
+    value: "youtube",
+  },
 ];
 
 export const hackathonSkills = [
