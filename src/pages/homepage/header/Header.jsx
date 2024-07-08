@@ -136,7 +136,7 @@ const Header = () => {
           <p>
             <span className="relative">
               Boot{" "}
-              <span className="absolute w-12 h-1 rounded-lg bg-tech-blue"></span>{" "}
+              <span className="absolute w-12 h-1 rounded-lg bg-tech-blue -bottom-1 left-0"></span>{" "}
             </span>
             camp
           </p>
