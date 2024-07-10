@@ -25,6 +25,7 @@ server.post("/signup", (req, res) => {
     phoneNumber,
     selectedCourse,
     knowlegeOfTechyJaunt,
+    gender,
   } = req.body;
   let launchpadListId = "f5df6366-355d-11ef-a271-c910cdc2b923";
 
@@ -34,7 +35,8 @@ server.post("/signup", (req, res) => {
     email === "" ||
     phoneNumber === "" ||
     selectedCourse === "" ||
-    knowlegeOfTechyJaunt === ""
+    knowlegeOfTechyJaunt === "" ||
+    gender === ""
   ) {
     return res.status(500).json({
       status: "failed",
@@ -55,7 +57,8 @@ server.post("/signup", (req, res) => {
         LastName: lastName,
         SelectedCourse: selectedCourse,
         HowYouHeard: knowlegeOfTechyJaunt,
-        PhoneNumber: phoneNumber
+        PhoneNumber: phoneNumber,
+        Gender: gender
       },
       tags: ["STUDENT"],
       status: "SUBSCRIBED",

@@ -69,6 +69,7 @@ const LaunchPad = () => {
     phoneNumber: "",
     selectedCourse: "",
     knowlegeOfTechyJaunt: "",
+    gender: ""
   });
 
   const payload = {
@@ -78,6 +79,7 @@ const LaunchPad = () => {
     phoneNumber: formData.phoneNumber.trim(),
     selectedCourse: formData.selectedCourse,
     knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
+    gender: formData.gender
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -89,7 +91,7 @@ const LaunchPad = () => {
       isValid = false;
     }
     if (!formData.lastName.trim()) {
-      errors.lastname = "enter your first name";
+      errors.lastname = "enter your last name";
       isValid = false;
     }
     if (!formData.email.trim()) {
@@ -113,7 +115,10 @@ const LaunchPad = () => {
       errors.knowlegeOfTechyJaunt = "select an option";
       isValid = false;
     }
-
+    if (formData.gender === "") {
+      errors.gender = "select a gender";
+      isValid = false;
+    }
     setFormErrors(errors);
     return isValid;
   };

@@ -24,7 +24,7 @@ const FormModal = ({
   shake,
   phone,
   open,
-  close
+  close,
 }) => {
   return (
     <>
@@ -68,6 +68,44 @@ const FormModal = ({
                   errorTxt={formErrors.lastname}
                 />
               </div>
+            </div>
+            <div>
+              <div className="font-medium  text-sm text-gray-500 flex">
+                <p className="mr-5">Gender:</p>
+                <div className="flex">
+                  <div className="mr-5">
+                    <label htmlFor="male" className="mr-1">
+                      Male
+                    </label>
+                    <input
+                      type="radio"
+                      onChange={handleChange}
+                      name="gender"
+                      id="male"
+                      value="male"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="female"
+                      onChange={handleChange}
+                      className="mr-1"
+                    >
+                      Female
+                    </label>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </div>
+              {formErrors.gender && (
+                <p className="text-xs text-red-500">{formErrors.gender}</p>
+              )}
             </div>
             <div className="grid md:grid-cols-2 md:gap-6 gap-y-5">
               <div className=" w-full">

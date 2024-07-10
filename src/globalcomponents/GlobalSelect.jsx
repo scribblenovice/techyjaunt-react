@@ -24,6 +24,7 @@ const GlobalSelect = ({
           className: "hidden",
         }}
       >
+       
         {options.map((el, index) => {
           return (
             <Option key={index} value={el.name.toLowerCase()}>
