@@ -66,6 +66,19 @@ import courseImg4 from "../images/courses/frontend.webp";
 import courseImg5 from "../images/courses/backend.webp";
 import courseImg6 from "../images/courses/data.webp";
 
+// achievement
+import icon1 from "../images/icon/icon1.png";
+import icon2 from "../images/icon/icon2.png";
+import icon3 from "../images/icon/icon3.png";
+import icon4 from "../images/icon/icon4.png";
+
+export const achievementIcons = [
+  { img: icon1, num: "300", value: "Instructor" },
+  { img: icon2, num: "10,000", value: "Video" },
+  { img: icon3, num: "20,000+", value: "Student" },
+  { img: icon4, num: "1,000,000+", value: "Users" },
+];
+
 export const PartnerImg = [
   {
     id: 0,
@@ -197,6 +210,7 @@ export const testimonialInfo = [
     writeUp:
       "The knowledge and skills gained under the guidance of the UI &UX Tutor have been invaluable. His dedication, expertise, and unwavering support have truly transformed our learning journey.",
     fullName: "Sharon",
+    course: "UI-UX"
   },
   {
     id: 0,
@@ -204,6 +218,7 @@ export const testimonialInfo = [
     writeUp:
       "With the guidance of our tutor, I've been able to envision a roadmap to follow on my journey as a UI/UX designer",
     fullName: "Amarachi",
+    course: "UI-UX"
   },
   {
     id: 0,
@@ -211,6 +226,7 @@ export const testimonialInfo = [
     writeUp:
       "Grateful to our tutor for his invaluable support and talent in simplifying complex concepts to enhance learning. This has created a motivated environment that has enabled me to grow",
     fullName: "David",
+    course: "UI-UX"
   },
 ];
 
@@ -2202,41 +2218,63 @@ export const CourseSection = [
     icon: <PenNib />,
     img: courseImg1,
     fullName: "UX Design",
-    bg: "bg-[#0075FD]"
+    bg: "bg-[#0075FD]",
   },
   {
     name: "Product Mgmt",
     icon: <Briefcase />,
     img: courseImg2,
     fullName: "Product Management",
-    bg:"bg-[#1A906B]"
+    bg: "bg-[#1A906B]",
   },
   {
     name: "Cyber Security",
     icon: <Detective />,
     img: courseImg3,
     fullName: "Cyber Security",
-    bg:"bg-[#A74F46]"
+    bg: "bg-[#A74F46]",
   },
   {
     name: "Frontend",
     icon: <FileHtml />,
     img: courseImg4,
     fullName: "Frontend Development",
-    bg: "bg-[#A78700]"
+    bg: "bg-[#A78700]",
   },
   {
     name: "Backend",
     icon: <Graph />,
     img: courseImg5,
     fullName: "Backend Devlopment",
-    bg:"bg-[#000269]"
+    bg: "bg-[#000269]",
   },
   {
     name: "Data Analysis",
     icon: <DataBase />,
     img: courseImg6,
     fullName: "Data Analysis",
-    bg:"bg-[#0075FD]"
+    bg: "bg-[#0075FD]",
   },
 ];
+export const Comma = ({className}) => {
+  return (
+    <svg
+    className={className}
+      width="47"
+      height="32"
+      viewBox="0 0 47 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.1222 0.0498047H8.03336C3.82417 0.0498047 0.400024 3.11002 0.400024 6.87183V11.4199C0.400024 15.1817 3.82417 18.2419 8.03336 18.2419H13.1222C13.9392 18.2419 14.7117 18.0965 15.4502 17.8829C14.4243 23.2388 9.22772 27.3379 2.94447 27.3379C1.53807 27.3379 0.400024 28.355 0.400024 29.6119C0.400024 30.8689 1.53807 31.8859 2.94447 31.8859C12.7645 31.8859 20.7556 24.7442 20.7556 15.9679V6.87183C20.7556 3.11002 17.3314 0.0498047 13.1222 0.0498047ZM38.5667 0.0498047H33.4778C29.2686 0.0498047 25.8445 3.11002 25.8445 6.87183V11.4199C25.8445 15.1817 29.2686 18.2419 33.4778 18.2419H38.5667C39.3836 18.2419 40.1561 18.0965 40.8947 17.8829C39.8688 23.2388 34.6722 27.3379 28.3889 27.3379C26.9825 27.3379 25.8445 28.355 25.8445 29.6119C25.8445 30.8689 26.9825 31.8859 28.3889 31.8859C38.2089 31.8859 46.2 24.7442 46.2 15.9679V6.87183C46.2 3.11002 42.7759 0.0498047 38.5667 0.0498047Z"
+        fill="#0075FD"
+      />
+      <path
+        d="M15.9413 17.977L16.0947 17.176L15.3113 17.4026C14.6037 17.6072 13.8794 17.7419 13.1222 17.7419H8.03336C4.046 17.7419 0.900024 14.8542 0.900024 11.4199V6.87183C0.900024 3.43751 4.046 0.549805 8.03336 0.549805H13.1222C17.1096 0.549805 20.2556 3.43751 20.2556 6.87183V15.9679C20.2556 24.4167 12.5427 31.3859 2.94447 31.3859C1.7599 31.3859 0.900024 30.5414 0.900024 29.6119C0.900024 28.6825 1.7599 27.8379 2.94447 27.8379C9.43459 27.8379 14.8643 23.5994 15.9413 17.977ZM41.3858 17.977L41.5392 17.176L40.7558 17.4026C40.0481 17.6072 39.3238 17.7419 38.5667 17.7419H33.4778C29.4904 17.7419 26.3445 14.8542 26.3445 11.4199V6.87183C26.3445 3.43751 29.4904 0.549805 33.4778 0.549805H38.5667C42.5541 0.549805 45.7 3.43751 45.7 6.87183V15.9679C45.7 24.4167 37.9871 31.3859 28.3889 31.3859C27.2043 31.3859 26.3445 30.5414 26.3445 29.6119C26.3445 28.6825 27.2043 27.8379 28.3889 27.8379C34.879 27.8379 40.3088 23.5994 41.3858 17.977Z"
+        stroke="black"
+        stroke-opacity="0.1"
+      />
+    </svg>
+  );
+};

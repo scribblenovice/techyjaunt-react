@@ -37,13 +37,6 @@ const GlobalSelect = ({
                 )}
                 {el.name}
               </div>
-
-              {/* <img
-                src={el.image}
-                alt=""
-                className={`${el.image ? "" : "none"}`}
-              />
-              {el.name} */}
             </Option>
           );
         })}
