@@ -67,7 +67,7 @@ const CardSlider = () => {
                   >{el.name}</div>
                   {/* {el} */}
                   <img
-                    className="w-full h-[70%] bg-red-400 rounded-lg"
+                    className="w-full h-[70%] rounded-lg"
                     src={src}
                   />
                   <div className="my-2">

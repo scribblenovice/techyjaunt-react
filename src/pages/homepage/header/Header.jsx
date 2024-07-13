@@ -16,6 +16,8 @@ import {
 import CardSlider from "../../../globalcomponents/CardSlider";
 import icon from "../../../images/icon/icon.png";
 import TestimonialSlider from "../../../globalcomponents/TestimonialSlider";
+import src1 from "../../../images/rectangle.png";
+import src2 from "../../../images/rectangle1.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -137,12 +139,9 @@ const Header = () => {
             Techyjaunt
           </span>
         </h2>
-        <div className="text-base xl:text-2xl text-[#6D737A] flex gap-10 my-8">
+        <div className="text-sm sm:text-base xl:text-2xl text-[#6D737A] flex gap-10 my-8">
           <p>
-            <span className="relative">
-              Boot{" "}
-              <span className="absolute w-12 h-1 rounded-lg bg-tech-blue -bottom-2 left-0"></span>{" "}
-            </span>
+            <span className="relative border-b-4 border-tech-blue">Boot</span>
             camp
           </p>
           <p>Bootcamp + Mentorship</p>
@@ -158,7 +157,7 @@ const Header = () => {
                   <h3 className="font-semibold text-2xl">
                     I am interested in {el.fullName}
                   </h3>
-                  <Link>
+                  <Link className="my-1">
                     Visit More{" "}
                     <i className="ri-arrow-right-line text-lg ml-5"></i>
                   </Link>
@@ -218,11 +217,7 @@ const Header = () => {
               {achievementIcons.map((el) => {
                 return (
                   <div className="flex items-center">
-                    <img
-                      src={el.img}
-                      alt=""
-                      className="w-[30%] p-3"
-                    />
+                    <img src={el.img} alt="" className="w-[30%] p-3" />
                     <div className="ml-1 md:ml-5">
                       <p className="font-semibold text-lg md:text-2xl xl:text-4xl">
                         {el.num}
@@ -238,8 +233,8 @@ const Header = () => {
           </div>
           <div className="grid justify-items-center">
             <div className="w-fit relative bottom-10">
-            <Circle className="absolute bg-[#1A906B] rounded-full right-20 top-10"/>
-              <Circle className="absolute bg-[#ED4459] rounded-full right-5 top-1/4 scale-150"/>
+              <Circle className="absolute bg-[#1A906B] rounded-full right-20 top-10" />
+              <Circle className="absolute bg-[#ED4459] rounded-full right-5 top-1/4 scale-150" />
               <Star className="absolute bottom-24 -left-3 scale-[1.5] md:scale-[2] -rotate-12" />
               <img src={icon} alt="" />
             </div>
@@ -247,9 +242,54 @@ const Header = () => {
         </div>
       </div>
       <div className="w-[90%] xl:w-[85%] mx-auto py-10">
-        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">Student <span className="text-tech-blue relative"><FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2"/> Feedback</span></h2>
-      <p className="text-[#6D737A] text-base xl:text-2xl my-8">Various versions have evolved over the years, sometimes by accident,</p>
-      <TestimonialSlider/>
+        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
+          Student{" "}
+          <span className="text-tech-blue relative">
+            <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+            Feedback
+          </span>
+        </h2>
+        <p className="text-[#6D737A] text-base xl:text-2xl mt-8">
+          Various versions have evolved over the years, sometimes by accident,
+        </p>
+        <TestimonialSlider />
+      </div>
+      <div className="bg-no-repeat bg-cover bg-center bg-tech-bg my-10 bg-blend-multiply bg-tech-blue">
+        <div className="w-full lg:w-[80%] xl:w-[70%] mx-auto py-16 sm:py-24 lg:py-32 px-1 lg:px-0">
+          <h2 className="text-white text-center text-3xl md:text-4xl xl:text-5xl font-medium">
+            Join our growing community of{" "}
+            <span className="text-[#FBAF1B]">30,000</span> community members ,
+            Professionals trained{" "}
+          </h2>
+        </div>
+      </div>
+      <div className="bg-[#E4FCFF]">
+        <div className="w-[90%] xl:w-[85%] mx-auto py-5 lg:py-20 grid grid-cols-2 gap-x-5 md:gap-x-10">
+          <div className="relative">
+            <CurlyLine className="absolute right-0 -top-24 scale-75 hidden lg:block" />
+            <Circle className="bg-[#6D39E9] rounded-full absolute scale-[3] right-14 bottom-10 hidden lg:block" />
+            <Circle className="bg-[#20B486] rounded-full absolute -bottom-5 hidden lg:block" />
+            <Circle className="bg-[#F9475D] rounded-full absolute left-1/2 -top-10 hidden lg:block" />
+            <img
+              src={src1}
+              alt=""
+              className="absolute left-5 bottom-5 z-0 hidden lg:block"
+            />
+            <img src={src2} alt="" className="z-10 relative" />
+          </div>
+          <div>
+            <h2 className="font-semibold text-sm sm:text-base md:text-2xl lg:text-4xl">
+              Join <span className="text-tech-blue">Techyjaunt</span> learning
+              platform today
+            </h2>
+            <p className="text-xs sm:text-sm md:text-lg lg:text-2xl my-5">
+              Start Learning for free
+            </p>
+            <button className="bg-tech-blue font-medium p-2 md:p-3 lg:p-4 rounded-xl text-white text-sm lg:text-base">
+              Sign up for free
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
