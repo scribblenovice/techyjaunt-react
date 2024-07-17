@@ -13,11 +13,10 @@ const Testimonial = () => {
           </p>
         </div>
         <div className="grid max-w-xl grid-cols-1 mx-auto mt-8 text-center lg:max-w-full sm:mt-12 lg:mt-20 lg:grid-cols-3 gap-x-6 xl:gap-x-12 gap-y-6">
-          
-          {testimonialInfo.map((i)=>{
+          {testimonialInfo.map((i, index)=>{
             return (
               <Zoom>
-                <div className="overflow-hidden bg-white rounded-md shadow">
+                <div key={index} className="overflow-hidden bg-white rounded-md shadow">
                   <div className="px-8 py-12">
                     <div className="relative w-28 h-28 mx-auto">
                       <img
