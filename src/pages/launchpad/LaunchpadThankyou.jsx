@@ -1,9 +1,15 @@
-const LaunchPadThankyou = () => {
-  function redirect() {
-      sessionStorage.removeItem("isRegistered");
-      window.location.href = "https://chat.whatsapp.com/CGptnpm5XgxIZ3zbl0e8EG";
-  }
+import axios from "axios";
+import { useEffect, useState } from "react";
 
+const LaunchPadThankyou = () => {
+  const [whatsappLink, setWhatsappLink] = useState('')
+  useEffect(()=>{
+    axios
+    .get("http://localhost:3001/get-link")
+    .then((res) => {
+     setWhatsappLink(res?.data?.data?.fields?.NewLink)
+    });
+  }, [])
   return (
     <>
       <div className="w-screen h-screen grid place-items-center bg-gradient-to-r from-blue-500 to-blue-700">
@@ -22,7 +28,7 @@ const LaunchPadThankyou = () => {
           </p>
           <a
             target="_blank"
-            href="https://chat.whatsapp.com/FHCgLKqK0cTEi5nG8pOyUH"
+            href={whatsappLink}
             // onClick={redirect}
             className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
           >

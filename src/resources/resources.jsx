@@ -1735,3 +1735,5 @@ export const cryptoBenefits = [
   "Introduction to NFTs",
   "⁠Getting a job in the crypto space",
 ];
+
+const links=["gogole.com"]

@@ -4,7 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-import CryptoThankyou from "./pages/crypyo-bootcamp/CyptoThankyou";
+const CryptoThankyou = lazy(() =>
+  import("./pages/crypyo-bootcamp/CyptoThankyou")
+);
+const AdminWelcome = lazy(() => import("./admin/AdminWelcome"));
+const SecretPage = lazy(() => import("./admin/SecretPage"));
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
 const Community = lazy(() => import("./pages/community/Community"));
 const CryptoBootCamp = lazy(() =>
@@ -161,6 +165,24 @@ function App() {
               <CryptoThankyou />
             </Suspense>
             // </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <AdminWelcome />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/admin/change-link"
+          element={
+            <ProtectedRoute route="/admin" param="isAdmin">
+              <Suspense fallback={<GlobalBeat />}>
+                <SecretPage />
+              </Suspense>
+            </ProtectedRoute>
           }
         />
       </Routes>

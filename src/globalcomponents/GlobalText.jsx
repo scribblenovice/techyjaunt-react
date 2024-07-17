@@ -11,10 +11,11 @@ export function GlobalText({
   isDisabled,
   placeTxt,
   isRequired,
- handleBlur,handleFocus
+ handleBlur,handleFocus,
+ style
 }) {
   return (
-    <div className={`w-full`}>
+    <div className={`w-full`} style={style}>
       <Input
         className={`!border ${
           errorTxt ? "!border-red-500" : "!border-gray-400"
