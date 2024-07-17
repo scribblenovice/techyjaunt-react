@@ -213,7 +213,7 @@ export const testimonialInfo = [
     course: "UI-UX"
   },
   {
-    id: 0,
+    id: 1,
     img: testimonial2,
     writeUp:
       "With the guidance of our tutor, I've been able to envision a roadmap to follow on my journey as a UI/UX designer",
@@ -221,11 +221,27 @@ export const testimonialInfo = [
     course: "UI-UX"
   },
   {
-    id: 0,
+    id: 2,
     img: testimonial3,
     writeUp:
       "Grateful to our tutor for his invaluable support and talent in simplifying complex concepts to enhance learning. This has created a motivated environment that has enabled me to grow",
     fullName: "David",
+    course: "UI-UX"
+  },
+  {
+    id: 3,
+    img: testimonial3,
+    writeUp:
+      "Firstly, I want to thank the team for the opportunity, it was very helpful. I went through the course to the end and I can actually design now but I am still brushing up and improving myself and I can do a lot of design now.",
+    fullName: "Kelvin Ojelum",
+    course: "UI-UX"
+  },
+  {
+    id: 3,
+    img: testimonial3,
+    writeUp:
+      "Based on my experience with the previous Techy Jaunt Cohort, it was educational and worthwhile. I got to learn about UI/UX design and this made my Journey in Tech look so seamless.",
+    fullName: "Onyema Susan",
     course: "UI-UX"
   },
 ];

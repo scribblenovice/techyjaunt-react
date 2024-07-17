@@ -61,7 +61,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     // publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
     publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
   };
@@ -148,7 +148,7 @@ const Checkout = () => {
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-            <span className="techy text-blue-500">TECHYJAUNT</span> COHORT 3.0
+            <span className="techy text-blue-500">TECHYJAUNT</span>
             SCHOLARSHIP
           </h1>
           <p className="text-center py-5 font-medium text-base md:text-lg leading-8">
