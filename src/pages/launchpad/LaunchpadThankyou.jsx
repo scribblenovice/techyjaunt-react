@@ -5,7 +5,7 @@ const LaunchPadThankyou = () => {
   const [whatsappLink, setWhatsappLink] = useState('')
   useEffect(()=>{
     axios
-    .get("http://localhost:3001/get-link")
+    .get("https://techyjaunt-kx6a.onrender.com/get-link")
     .then((res) => {
      setWhatsappLink(res?.data?.data?.fields?.NewLink)
     });
