@@ -9,6 +9,7 @@ import NewLaunchpad from "./pages/homepage/new-website/new-launchpad/NewLaunchpa
 import CourseInfoPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
 import AllCoursesPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
 import RegistrationPage from "./pages/homepage/new-website/registration-page/RegistrationPage";
+
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
 const Community = lazy(() => import("./pages/community/Community"));
 const CryptoBootCamp = lazy(() =>
@@ -32,7 +33,6 @@ const Hackathon = lazy(() => import("./pages/hackathon/Hackathon"));
 const HackathonThankYou = lazy(() =>
   import("./pages/hackathon/HackathonThankyou")
 );
-import SnackbarProvider from "react-simple-snackbar";
 function App() {
   useEffect(() => {
     // Initialize Facebook Pixel with your Pixel ID
@@ -41,7 +41,7 @@ function App() {
     ReactPixel.pageView("PageView");
   }, []);
   return (
-    <SnackbarProvider>
+    
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -231,7 +231,7 @@ function App() {
         /> */}
         </Routes>
       </BrowserRouter>
-    </SnackbarProvider>
+   
   );
 }
 

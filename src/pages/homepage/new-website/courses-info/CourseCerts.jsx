@@ -5,7 +5,7 @@ const CourseCerts = ({ data }) => {
       <div className="bg-[#E4FCFF]">
         <div className="w-[95%] md:w-[90%] grid grid-cols-1 lg:grid-cols-2 py-20 mx-auto gap-5 lg:gap-10">
           <div className="relative">
-            <p className="absolute left-1/2 transform -translate-x-1/2 top-[30%] text-tech-blue font-semibold text-base md:text-2xl ">{data.courseName.toUpperCase()}</p>
+            <p className="absolute left-1/2 transform -translate-x-1/2 top-[30%] text-tech-blue font-semibold text-base md:text-2xl whitespace-nowrap">{data.courseName.toUpperCase()}</p>
             <img loading="lazy" src={src} alt="" />
           </div>
           <div>

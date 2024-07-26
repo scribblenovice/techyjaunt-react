@@ -9,13 +9,14 @@ import {
   validateCourses,
   validateInfo,
 } from "../../../../validation/Validation";
-import useCustomSnackbar from "../../../../globalcomponents/Snackbar";
+
 import Loader from "../../../../globalcomponents/Loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 const RegistrationPage = () => {
-  const { showSnackbar, isSuccess } = useCustomSnackbar();
+  // const { showSnackbar, showError, showSuccess } = useCustomSnackbar();
   // ---------------------handling progress bar-----------------------
   const [contactError, setContactError] = useState({});
   const [infoError, setInfoError] = useState({});
@@ -23,6 +24,11 @@ const RegistrationPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [pending, setPending] = useState(false);
   const steps = [1, 2, 3, 4];
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => {
+    enqueueSnackbar(message, { variant });
+  };
+
   const goToNextStep = () => {
     let isValid;
     if (currentStep === 0) {
@@ -79,7 +85,7 @@ const RegistrationPage = () => {
     selectedCourse: formData.selectedCourse,
     knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = () => {
     setPending(true);
     // Submit the form data or perform other actions
@@ -89,32 +95,33 @@ const RegistrationPage = () => {
         setPending(false);
         if (res.data.status === "registered") {
           sessionStorage.setItem("isRegistered", true);
+          handleSnackbar("successful", "success");
           navigate("/launchpad/thank-you");
-          isSuccess(true);
         }
         if (res.data.status === "alreadysignedup") {
-          showSnackbar("you've already signed up for this cohort!");
-          isSuccess(false);
+          // showError();
+          // showSnackbar("you've already signed up for this cohort!");
+          handleSnackbar("you've already signed up for this cohort!", "error");
         }
         if (res.data.status === "failed") {
+          showError();
           showSnackbar("registration failed, please try again!");
-          isSuccess(false);
         }
       })
       .catch((error) => {
         setPending(false);
         if (error.response) {
-            isSuccess(false);
-            showSnackbar("registration failed, please try again!");
+          showError();
+          showSnackbar("registration failed, please try again!");
           // The request was made and the server responded with a status code that falls out of the range of 2xx
         } else if (error.request) {
           // The request was made but no response was received
-          isSuccess(false);
-          showSnackbar("please check your internet connection!");
+          showError();
+          showSnackbar("please check your internet connection!!");
           // console.log("No response received");
         } else {
-            isSuccess(false);
-            showSnackbar("registration failed, please try again!");
+          showError();
+          showSnackbar("registration failed, please try again!");
         }
       });
   };

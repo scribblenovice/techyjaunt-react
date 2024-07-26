@@ -348,16 +348,11 @@ export const howHeard = [
   },
   {
     id: 5,
-    name: "FAJO MONIE",
-    value: "fajo monie",
-  },
-  {
-    id: 6,
     name: "TWITTER",
     value: "twitter",
   },
   {
-    id: 7,
+    id: 6,
     name: "YOUTUBE",
     value: "youtube",
   },
