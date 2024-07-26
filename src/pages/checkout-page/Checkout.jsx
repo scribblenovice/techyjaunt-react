@@ -61,40 +61,36 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 500000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+    // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
   };
-  const componentProps = {
-    ...config,
-    text: "PAY NOW",
-    onSuccess: () => {
-      sessionStorage.setItem("isPaid", true);
-      axios
-        .post("https://techyjaunt-kx6a.onrender.com/payment", {
-          ...formData,
-          completedPayment: "yes",
-        })
-        .then((res) => {
-          if (res.data.status === "paid") {
-            // navigate("/checkout/thank-you");
-            console.log("paid");
-          }
-          if (res.data.status === "existing") {
-            setModalError(true);
-            setOpen(true);
-            alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
-          }
-          if (res.data.status === "failed") {
-            alert("AN ERROR OCCURED");
-          }
-        });
-      navigate("/checkout/thank-you");
-    },
-    onClose: () => {
-      sessionStorage.setItem("isPaid", false);
-      alert("YOU HAVE CANCELLED THE TRANSACTION");
-    },
+
+  const onSuccess = (reference) => {
+    axios
+      .post("https://techyjaunt-kx6a.onrender.com/payment", {
+        ...formData,
+        completedPayment: "yes",
+      })
+      .then((res) => {
+        if (res.data.status === "paid") {
+          sessionStorage.setItem("isPaid", true);
+          navigate("/checkout/thank-you");
+        }
+        if (res.data.status === "existing") {
+          setModalError(true);
+          setOpen(true);
+          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
+        }
+        if (res.data.status === "failed") {
+          alert("AN ERROR OCCURED");
+        }
+      });
   };
+  const onClose = () => {
+    alert("PAYMENT FAILED");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -105,7 +101,7 @@ const Checkout = () => {
   };
   return (
     <>
-      <div className="flex justify-center items-center flex-col w-screen h-screen">
+      {/* <div className="flex justify-center items-center flex-col w-screen h-screen">
         <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
           THIS PAGE IS CURRENTLY INACTIVE
         </h1>
@@ -115,13 +111,13 @@ const Checkout = () => {
             TechyJaunt.com
           </Link>
         </p>
-      </div>
+      </div> */}
 
-      {/* <section className="grid place-items-center h-screen bg-stone-100">
+      <section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-            <span className="techy text-blue-500">TECHYJAUNT</span> COHORT 3.0
+            <span className="techy text-blue-500">TECHYJAUNT</span>
             SCHOLARSHIP
           </h1>
           <p className="text-center py-5 font-medium text-base md:text-lg leading-8">
@@ -243,12 +239,15 @@ const Checkout = () => {
               </div>
             </div>
             <PaystackButton
-              className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
-              {...componentProps}
+              {...config}
+              className="mx-auto bg-blue-500 text-white p-4 rounded"
+              text="Pay Now"
+              onSuccess={onSuccess}
+              onClose={onClose}
             />
           </div>
         </div>
-      </section> */}
+      </section>
       <Modal show={open} onClose={close} position="center">
         <Modal.Header className="border-none h-2"></Modal.Header>
 
