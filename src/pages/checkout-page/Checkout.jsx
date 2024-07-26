@@ -61,7 +61,7 @@ const Checkout = () => {
   const config = {
     reference: new Date().getTime().toString(),
     email: formData.email,
-    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: 5000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
     // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
   };

@@ -147,7 +147,7 @@ server.post("/subscribe", (req, res) => {
 
 //payment
 server.post("/payment", (req, res) => {
-  let paidListId = "688c74b4-afe2-11ee-9534-f9dec77b0681";
+  let paidListId = "8fce3572-4b90-11ef-be1e-553041d2c7af";
   const {
     firstName,
     lastName,
