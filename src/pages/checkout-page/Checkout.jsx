@@ -116,7 +116,7 @@ const Checkout = () => {
       <section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
-          <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
+          <h1 className=" text-black text-center font-black text-2xl sm:text-3xl md:text-4xl tracking-widest">
             <span className="techy text-blue-500">TECHYJAUNT</span>
             SCHOLARSHIP
           </h1>
