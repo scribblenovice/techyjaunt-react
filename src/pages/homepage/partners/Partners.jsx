@@ -3,13 +3,13 @@ import { FancyUnderline, PartnerImg } from "../../../resources/resources";
 
 const Partners = ({ isEvent, title }) => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto py-20">
-        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
+    <div className="w-[90%] xl:w-[85%] mx-auto py-20 flex flex-col">
+        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
           Our Partners
           <FancyUnderline className="absolute -bottom-2 left-7" />{" "}
         </h2>
         <div
-          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 test pt-10`}
+          className={`grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-10 test pt-10`}
         >
           {PartnerImg.map((j) => {
             return (
@@ -19,10 +19,10 @@ const Partners = ({ isEvent, title }) => {
                   loading="lazy"
                   className={`${
                     j.id == 2 || j.id == 3
-                      ? "w-[40%]"
+                      ? "w-[60%]"
                       : j.id == 10
                       ? "w-[100%]"
-                      : "w-[70%]"
+                      : "w-[90%]"
                   }`}
                   key={j.id}
                   src={j.src}

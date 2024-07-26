@@ -1,6 +1,7 @@
-import { Circle, CurlyLine } from "../../../resources/resources";
-import src1 from "../../../images/rectangle.png";
-import src2 from "../../../images/rectangle1.png";
+import { Circle, CurlyLine } from "../../../../resources/resources";
+import src1 from "../../../../images/rectangle.png";
+import src2 from "../../../../images/rectangle1.webp";
+import { NavLink } from "react-router-dom";
 const CTASection = () => {
   return (
     <div className="bg-[#E4FCFF]">
@@ -19,15 +20,17 @@ const CTASection = () => {
         </div>
         <div>
           <h2 className="font-semibold text-sm sm:text-base md:text-2xl lg:text-4xl">
-            Join <span className="text-tech-blue">Techyjaunt</span> learning
-            platform today
+            Join <span className="text-tech-blue">Techyjaunt</span> community
+            today
           </h2>
-          <p className="text-xs sm:text-sm md:text-lg lg:text-2xl my-3 lg:my-5">
-            Start Learning for free
+          <p className="text-xs sm:text-sm md:text-base my-3 lg:my-5">
+            Join a community of over 30,000 tech enthusiasts. As the African
+            Tech space continues to grow, we ensure you stay informed through
+            our vibrant community
           </p>
-          <button className="bg-tech-blue font-medium p-2 md:p-3 lg:p-4 rounded-xl text-white text-sm lg:text-base">
+          <NavLink className="inline-block bg-tech-blue font-medium p-2 md:p-3 lg:p-4 rounded-xl text-white text-sm lg:text-base hover:bg-gray-500 transition-all ease-linear duration-200">
             Sign up for free
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

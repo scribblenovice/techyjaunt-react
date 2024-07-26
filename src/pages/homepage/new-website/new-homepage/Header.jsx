@@ -1,6 +1,6 @@
-import Avatars from "../../../globalcomponents/Avatars";
-import Videos from "../videos/Videos";
-import { Link, useNavigate } from "react-router-dom";
+import Avatars from "../../../../globalcomponents/Avatars";
+
+import { NavLink, useNavigate } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import {
   Circle,
@@ -8,7 +8,9 @@ import {
   FancyUnderline,
   Star,
   Star2,
-} from "../../../resources/resources";
+} from "../../../../resources/resources";
+import Videos from "../../videos/Videos";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -39,17 +41,33 @@ const Header = () => {
               Instructors
             </span>
           </h1>
-          <p className="mb-10 leading-7 text-xl text-gray-500 font-normal">
-            Our Tech Tranings are Designed to help you learn from the best
-            industry leaders
+          <p className="mb-10 leading-7 text-xl text-gray-700 font-normal">
+            Start your journey into tech with Techyjaunt. We aim to be the
+            bridge to journey Africans into tech one peron at a time.
           </p>
-          <button className="bg-tech-blue p-4 rounded-lg text-white mb-10">
-            Get Started
-            <i className="ri-arrow-right-line ml-6"></i>
-          </button>
+          <div className="mb-10 flex gap-5">
+            <NavLink
+              to="/launchpad"
+              className="cursor-pointer inline-block bg-tech-blue py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
+            >
+              Get Started
+              <i className="ri-arrow-right-line ml-3"></i>
+            </NavLink>
+            <Link
+              to="courses"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="cursor-pointer inline-block bg-tech-blue p-4 rounded-lg text-white"
+            >
+              Our Courses <i className="ri-arrow-right-line ml-3"></i>
+            </Link>
+          </div>
+
           <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-gray-500 font-normal leading-7">
+            <p className="text-xl text-black font-normal leading-7">
               Over 5K+ professionals trained.
             </p>
           </div>

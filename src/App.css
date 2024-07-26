@@ -17,62 +17,61 @@
   background-position: center;
 }
 
-.bg1{
-    background-image: url('./images/community/comm1.webp');
+.bg1 {
+  background-image: url("./images/community/comm1.webp");
 }
-.bg2{
-    background-image: url('./images/community/comm2.webp');
+.bg2 {
+  background-image: url("./images/community/comm2.webp");
 }
-.bg3{
-    background-image: url('./images/community/comm3.webp');
+.bg3 {
+  background-image: url("./images/community/comm3.webp");
 }
 .zoom {
-    animation: scaleInOut 7s alternate;
-  }
-  
-  @keyframes scaleInOut {
-    0% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  .crypto-bg{
-    background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
+  animation: scaleInOut 7s alternate;
+}
 
+@keyframes scaleInOut {
+  0% {
+    transform: scale(1.2);
   }
-  .orbitron{
-    font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+  100% {
+    transform: scale(1);
   }
-  
-  .slide{
-    animation: slider 100s linear infinite;
-  }
-  @keyframes slider {
-    from{
-      transform: translateX(0);
-    }
-    to{
-      transform: translateX(-100%);
-    }
-  }
-  .hidescrollbar::-webkit-scrollbar{
-display: none;
-  }
-  .cryptoAbout{
-    background-image: url(./images/crypto-bootcamp/crypto.jpg);
-  }
+}
+.crypto-bg {
+  background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
+}
+.orbitron {
+  font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+}
 
-.some{
+.slide {
+  animation: slider 100s linear infinite;
+}
+@keyframes slider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.hidescrollbar::-webkit-scrollbar {
+  display: none;
+}
+.cryptoAbout {
+  background-image: url(./images/crypto-bootcamp/crypto.jpg);
+}
+
+.some {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
 }
-.some1{
+.some1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
 }
-.some2{
+.some2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
@@ -104,10 +103,10 @@ display: none;
   color: white;
   border: none;
   cursor: pointer;
-  transition:  all linear .3s;
+  transition: all linear 0.3s;
 }
-.carousel-control:hover{
-  background: #0175FB;
+.carousel-control:hover {
+  background: #0175fb;
 }
 
 .carousel-control-prev {
@@ -143,4 +142,52 @@ display: none;
   overflow: hidden;
   background-size: cover;
   background-position: center;
+}
+.ctabg {
+  background-image: url(./images/launchpad/frame.png);
+}
+.courseunitbg {
+  background: rgb(220, 220, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(220, 220, 242, 0) 65%,
+    rgba(206, 206, 206, 0.623) 100%
+  );
+}
+.certbg {
+  background: url(./images/courses/certs.png);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+  -webkit-transition: all 5000s ease-in-out 0s;
+  transition-property: background-color, color;
+  -webkit-transition-property: background-color, color;
+}
+.fade-left {
+  animation: fade-left 0.5s linear;
+}
+.fade-in{
+  animation: fade-in 0.5s linear;
+}
+@keyframes fade-left {
+  from {
+    opacity: 100;
+    transform: translateX(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fade-in{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
 }

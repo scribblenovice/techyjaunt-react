@@ -5,6 +5,10 @@ import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import CryptoThankyou from "./pages/crypyo-bootcamp/CyptoThankyou";
+import NewLaunchpad from "./pages/homepage/new-website/new-launchpad/NewLaunchpad";
+import CourseInfoPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
+import AllCoursesPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
+import RegistrationPage from "./pages/homepage/new-website/registration-page/RegistrationPage";
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
 const Community = lazy(() => import("./pages/community/Community"));
 const CryptoBootCamp = lazy(() =>
@@ -28,6 +32,7 @@ const Hackathon = lazy(() => import("./pages/hackathon/Hackathon"));
 const HackathonThankYou = lazy(() =>
   import("./pages/hackathon/HackathonThankyou")
 );
+import SnackbarProvider from "react-simple-snackbar";
 function App() {
   useEffect(() => {
     // Initialize Facebook Pixel with your Pixel ID
@@ -36,9 +41,51 @@ function App() {
     ReactPixel.pageView("PageView");
   }, []);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
+    <SnackbarProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <Homepage />
+                </Suspense>
+              }
+            />
+            <Route path="launchpad">
+              <Route
+                element={
+                  <Suspense fallback={<GlobalBeat />}>
+                    <NewLaunchpad />
+                  </Suspense>
+                }
+                index
+              />
+              <Route
+                path="register"
+                element={
+                  <Suspense fallback={<GlobalBeat />}>
+                    <RegistrationPage />
+                  </Suspense>
+                }
+              />
+              {/* <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute route="/launchpad" param="isRegistered">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <LaunchPadThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            /> */}
+            </Route>
+            <Route path="/course/:courseName" element={<AllCoursesPage />} />
+          </Route>
+
+          {/* old routing */}
+          {/* <Route
           path="/"
           index={true}
           element={
@@ -46,14 +93,33 @@ function App() {
               <Homepage />
             </Suspense>
           }
-        />
-        {/* LAUNCHPAD */}
-        <Route
+        /> */}
+          {/* LAUNCHPAD */}
+          {/* <Route path="/launchpad">
+          <Route
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <NewLaunchpad />
+              </Suspense>
+            }
+            index
+          />
+          <Route
+            path="thank-you"
+            element={
+              <ProtectedRoute route="/launchpad" param="isRegistered">
+                <Suspense fallback={<GlobalBeat />}>
+                  <LaunchPadThankyou />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+        </Route> */}
+          {/* <Route
           path="/launchpad"
           element={
             <Suspense fallback={<GlobalBeat />}>
-              <ClosedRegister />
-              {/* <LaunchPad /> */}
+              <LaunchPad />
             </Suspense>
           }
         />
@@ -66,9 +132,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
-        {/* CHECKOUT */}
-        <Route
+        /> */}
+          {/* CHECKOUT */}
+          {/* <Route
           path="/checkout"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -85,9 +151,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
-        {/* EVENT */}
-        <Route
+        /> */}
+          {/* EVENT */}
+          {/* <Route
           path="/event"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -104,9 +170,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
-        {/* HACKATHON */}
-        <Route
+        /> */}
+          {/* HACKATHON */}
+          {/* <Route
           path="/hackathon"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -123,9 +189,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
-        {/* community */}
-        <Route
+        /> */}
+          {/* community */}
+          {/* <Route
           path="/community"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -142,10 +208,10 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
+        /> */}
 
-        {/* cryptobootcamp */}
-        <Route
+          {/* cryptobootcamp */}
+          {/* <Route
           path="/crypto-bootcamp"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -162,9 +228,10 @@ function App() {
             </Suspense>
             // </ProtectedRoute>
           }
-        />
-      </Routes>
-    </BrowserRouter>
+        /> */}
+        </Routes>
+      </BrowserRouter>
+    </SnackbarProvider>
   );
 }
 

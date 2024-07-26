@@ -45,6 +45,7 @@ const TestimonialSlider = () => {
                   <Comma className="absolute right-2 top-2 scale-75" />
                   <div className="flex items-center gap-x-2">
                     <img
+                    loading="lazy"
                       src={el.img}
                       alt=""
                       className="w-[45px] h-[45px] md:w-[55px] md:h-[55px] xl:w-[70px] xl:h-[70px] rounded-full"

@@ -1,8 +1,8 @@
 // AVATARS
-import avatar1 from "../images/testimonial/testimonial1.jpg";
+import avatar1 from "../images/testimonial/testimonial1.webp";
 import avatar2 from "../images//videos/header/thumbnail/thumb2.webp";
 import avatar3 from "../images/videos/header/thumbnail/thumb3.webp";
-import avatar4 from "../images/testimonial/testimonial2.jpg";
+import avatar4 from "../images/testimonial/testimonial2.webp";
 
 // PARTNERS IMAGES
 import partner1 from "../images/partners/fajo.webp";
@@ -23,9 +23,11 @@ import thumb2 from "../images/videos/header/thumbnail/thumb2.webp";
 import thumb3 from "../images/videos/header/thumbnail/thumb3.webp";
 
 // testimonials
-import testimonial1 from "../images/testimonial/testimonial1.jpg";
-import testimonial2 from "../images/testimonial/testimonial2.jpg";
-import testimonial3 from "../images/testimonial/testimonial3.jpg";
+import testimonial1 from "../images/testimonial/testimonial1.webp";
+import testimonial2 from "../images/testimonial/testimonial2.webp";
+import testimonial3 from "../images/testimonial/testimonial3.webp";
+import testimonial4 from "../images/testimonial/testimonial4.webp";
+import testimonial5 from "../images/testimonial/testimonial5.webp";
 
 //GALLERY
 import gallery1 from "../images/gallery/gallery1.webp";
@@ -71,12 +73,13 @@ import icon1 from "../images/icon/icon1.png";
 import icon2 from "../images/icon/icon2.png";
 import icon3 from "../images/icon/icon3.png";
 import icon4 from "../images/icon/icon4.png";
+import { Link } from "react-router-dom";
 
 export const achievementIcons = [
-  { img: icon1, num: "300", value: "Instructor" },
-  { img: icon2, num: "10,000", value: "Video" },
-  { img: icon3, num: "20,000+", value: "Student" },
-  { img: icon4, num: "1,000,000+", value: "Users" },
+  { img: icon1, num: "50", value: "Instructors" },
+  { img: icon2, num: "5,000+", value: "Trained" },
+  { img: icon3, num: "35,000+", value: "Members" },
+  { img: icon4, num: "4", value: "Cohorts" },
 ];
 
 export const PartnerImg = [
@@ -210,7 +213,7 @@ export const testimonialInfo = [
     writeUp:
       "The knowledge and skills gained under the guidance of the UI &UX Tutor have been invaluable. His dedication, expertise, and unwavering support have truly transformed our learning journey.",
     fullName: "Sharon",
-    course: "UI-UX"
+    course: "UI-UX",
   },
   {
     id: 1,
@@ -218,7 +221,7 @@ export const testimonialInfo = [
     writeUp:
       "With the guidance of our tutor, I've been able to envision a roadmap to follow on my journey as a UI/UX designer",
     fullName: "Amarachi",
-    course: "UI-UX"
+    course: "UI-UX",
   },
   {
     id: 2,
@@ -226,23 +229,23 @@ export const testimonialInfo = [
     writeUp:
       "Grateful to our tutor for his invaluable support and talent in simplifying complex concepts to enhance learning. This has created a motivated environment that has enabled me to grow",
     fullName: "David",
-    course: "UI-UX"
+    course: "UI-UX",
   },
   {
     id: 3,
-    img: testimonial3,
+    img: testimonial4,
     writeUp:
       "Firstly, I want to thank the team for the opportunity, it was very helpful. I went through the course to the end and I can actually design now but I am still brushing up and improving myself and I can do a lot of design now.",
     fullName: "Kelvin Ojelum",
-    course: "UI-UX"
+    course: "UI-UX",
   },
   {
     id: 3,
-    img: testimonial3,
+    img: testimonial5,
     writeUp:
       "Based on my experience with the previous Techy Jaunt Cohort, it was educational and worthwhile. I got to learn about UI/UX design and this made my Journey in Tech look so seamless.",
     fullName: "Onyema Susan",
-    course: "UI-UX"
+    course: "UI-UX",
   },
 ];
 
@@ -2235,6 +2238,7 @@ export const CourseSection = [
     img: courseImg1,
     fullName: "UX Design",
     bg: "bg-[#0075FD]",
+    linkName: "ui-ux",
   },
   {
     name: "Product Mgmt",
@@ -2242,6 +2246,7 @@ export const CourseSection = [
     img: courseImg2,
     fullName: "Product Management",
     bg: "bg-[#1A906B]",
+    linkName: "project-mgmt",
   },
   {
     name: "Cyber Security",
@@ -2249,6 +2254,7 @@ export const CourseSection = [
     img: courseImg3,
     fullName: "Cyber Security",
     bg: "bg-[#A74F46]",
+    linkName: "cyber-security",
   },
   {
     name: "Frontend",
@@ -2256,6 +2262,7 @@ export const CourseSection = [
     img: courseImg4,
     fullName: "Frontend Development",
     bg: "bg-[#A78700]",
+    linkName: "frontend-dev",
   },
   {
     name: "Backend",
@@ -2263,6 +2270,7 @@ export const CourseSection = [
     img: courseImg5,
     fullName: "Backend Devlopment",
     bg: "bg-[#000269]",
+    linkName: "backend-dev",
   },
   {
     name: "Data Analysis",
@@ -2270,12 +2278,96 @@ export const CourseSection = [
     img: courseImg6,
     fullName: "Data Analysis",
     bg: "bg-[#0075FD]",
+    linkName: "data-analysis",
   },
 ];
-export const Comma = ({className}) => {
+
+export const allCousesInfo = [
+  {
+    tag: "ui-ux",
+    courseName: "UI/UX",
+    writeUp:
+      "This design bootcamp program is  taught by tech leaders and created as project-based learning  to help you  develop the skills needed  to create  user experience for product or digital properties",
+    about1: "",
+    about2: "",
+    toLearn: [
+      {
+        unitName: "User Research",
+        goal: "learn how to conduct interview and create personas to understand the needs of your users,and keep them at the center of your design process",
+      },
+      {
+        unitName: "Ideation",
+        goal: "Learn how to use various ideation techniques like brainstorming, lightning demos, and mind maps to generate ideas, evaluate products, and create potential solutions for your problem to solve.",
+      },
+      {
+        unitName: "Sketching and wireframing",
+        goal: "Learn visual design fundamentals and create a lo-fi sketch of your solution using Whimsica",
+      },
+    ],
+    brochure: "../../public/docs/UI&Ux Course outline.pdf",
+    pdf: "UI&Ux Course outline.pdf",
+  },
+  {
+    tag: "data-analysis",
+    courseName: "Data Analysis",
+    writeUp:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
+    about1: "",
+    about2: "",
+    toLearn: [{ unitName: "", goal: "" }],
+    brochure: "../../public/docs/Data analysis Launchpad Outline.pdf",
+    pdf: "Data analysis Launchpad Outline.pdf",
+  },
+  {
+    tag: "project-mgmt",
+    courseName: "Product Management",
+    writeUp:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
+    about1: "",
+    about2: "",
+    toLearn: [{ unitName: "", goal: "" }],
+    brochure: "../../public/docs/Product management course outline.pdf",
+    pdf: "Product management course outline.pdf",
+  },
+  {
+    tag: "frontend-dev",
+    courseName: "Frontend Development",
+    writeUp:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
+    about1: "",
+    about2: "",
+    toLearn: [{ unitName: "", goal: "" }],
+    brochure: "../../public/docs/Frontend web development Launchpad outline.pdf",
+    pdf: "Frontend web development Launchpad outline.pdf",
+  },
+  {
+    tag: "backend-dev",
+    courseName: "Backend Development",
+    writeUp:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
+    about1: "",
+    about2: "",
+    toLearn: [{ unitName: "", goal: "", skills: "" }],
+    brochure: "../../public/docs/Backend development.pdf",
+    pdf: "Backend development.pdf",
+  },
+  {
+    tag: "cyber-security",
+    courseName: "Cyber Security",
+    writeUp:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
+    about1: "",
+    about2: "",
+    toLearn: [{ unitName: "", goal: "", skills: "" }],
+    brochure: "../docs/../public/Cybersecurity Launchapad Outline.pdf",
+    pdf: "Cybersecurity Launchapad Outline.pdf",
+  },
+];
+
+export const Comma = ({ className }) => {
   return (
     <svg
-    className={className}
+      className={className}
       width="47"
       height="32"
       viewBox="0 0 47 32"
@@ -2290,6 +2382,218 @@ export const Comma = ({className}) => {
         d="M15.9413 17.977L16.0947 17.176L15.3113 17.4026C14.6037 17.6072 13.8794 17.7419 13.1222 17.7419H8.03336C4.046 17.7419 0.900024 14.8542 0.900024 11.4199V6.87183C0.900024 3.43751 4.046 0.549805 8.03336 0.549805H13.1222C17.1096 0.549805 20.2556 3.43751 20.2556 6.87183V15.9679C20.2556 24.4167 12.5427 31.3859 2.94447 31.3859C1.7599 31.3859 0.900024 30.5414 0.900024 29.6119C0.900024 28.6825 1.7599 27.8379 2.94447 27.8379C9.43459 27.8379 14.8643 23.5994 15.9413 17.977ZM41.3858 17.977L41.5392 17.176L40.7558 17.4026C40.0481 17.6072 39.3238 17.7419 38.5667 17.7419H33.4778C29.4904 17.7419 26.3445 14.8542 26.3445 11.4199V6.87183C26.3445 3.43751 29.4904 0.549805 33.4778 0.549805H38.5667C42.5541 0.549805 45.7 3.43751 45.7 6.87183V15.9679C45.7 24.4167 37.9871 31.3859 28.3889 31.3859C27.2043 31.3859 26.3445 30.5414 26.3445 29.6119C26.3445 28.6825 27.2043 27.8379 28.3889 27.8379C34.879 27.8379 40.3088 23.5994 41.3858 17.977Z"
         stroke="black"
         stroke-opacity="0.1"
+      />
+    </svg>
+  );
+};
+export const TwitterIcon = () => {
+  return (
+    <div>
+      <Link
+        style={{ color: "#69ace0" }}
+        to="https://twitter.com/techyjaunt/"
+        target="_blank"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-7 w-7"
+          fill="currentColor"
+          style={{ color: "#1da1f2" }}
+          viewBox="0 0 24 24"
+        >
+          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+        </svg>
+      </Link>
+    </div>
+  );
+};
+
+export const LinkedinIcon = () => {
+  return (
+    <div>
+      <Link
+        style={{ color: "#000000" }}
+        to="https://www.linkedin.com/company/techyjaunt/"
+        target="_blank"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-7 w-7"
+          fill="currentColor"
+          style={{ color: "#0077b5" }}
+          viewBox="0 0 24 24"
+        >
+          <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+        </svg>
+      </Link>
+    </div>
+  );
+};
+export const TelegramIcon = () => {
+  return (
+    <div>
+      <Link to="https://t.me/TechyJaunt1" target="_blank">
+        <svg
+          className="h-7 w-7"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          xmlSpace="preserve"
+          xmlns:serif="http://www.serif.com/"
+          style={{
+            color: "#0088cc",
+            fillRule: "evenodd",
+            clipRule: "evenodd",
+            strokeLinejoin: "round",
+            strokeMiterlimit: "1.41421",
+          }}
+        >
+          <path
+            id="telegram-1"
+            d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"
+          />
+        </svg>
+      </Link>
+    </div>
+  );
+};
+
+export const InstagramIcon = () => {
+  return (
+    <div>
+      <Link
+        to="https://instagram.com/techyjaunt?igshid=NTc4MTIwNjQ2YQ=="
+        target="_blank"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-7 w-7"
+          fill="currentColor"
+          style={{ color: "#c13584" }}
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </Link>
+    </div>
+  );
+};
+export const WhatsappIcon = () => {
+  return (
+    <div>
+      <Link
+        style={{ color: "white" }}
+        to="https://chat.whatsapp.com/L8r0m9LFzcA9bxAKfgePPp"
+        target="_blank"
+        className=""
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-7 w-7"
+          fill="currentColor"
+          style={{ color: "#128c7e" }}
+          viewBox="0 0 24 24"
+        >
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+      </Link>
+    </div>
+  );
+};
+
+export const Clock = ({ className }) => {
+  return (
+    <>
+      <svg
+        className={className}
+        width="80"
+        height="80"
+        viewBox="0 0 80 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M34.7826 5.21739C18.4542 5.21739 5.21739 18.4542 5.21739 34.7826C5.21739 51.111 18.4542 64.3478 34.7826 64.3478C38.4557 64.3478 41.9725 63.6779 45.2174 62.4536V67.9729C41.9235 69.0073 38.4181 69.5652 34.7826 69.5652C15.5727 69.5652 0 53.9923 0 34.7826C0 15.5727 15.5727 0 34.7826 0C53.9923 0 69.5652 15.5727 69.5652 34.7826C69.5652 35.9565 69.5071 37.1169 69.3934 38.2609H64.1454C64.279 37.12 64.3478 35.9593 64.3478 34.7826C64.3478 18.4542 51.111 5.21739 34.7826 5.21739ZM32.1739 13.913C33.4939 13.913 34.5861 14.8951 34.7586 16.1679L34.7826 16.5217V34.7826H46.087C47.527 34.7826 48.6957 35.9513 48.6957 37.3913C48.6957 38.7113 47.7137 39.8035 46.4407 39.976L46.087 40H32.1739C30.8539 40 29.7619 39.0181 29.589 37.745L29.5652 37.3913V16.5217C29.5652 15.0817 30.7339 13.913 32.1739 13.913ZM72.1739 41.7391H56.5217C52.1983 41.7391 48.6957 45.2417 48.6957 49.5652V72.1739C48.6957 76.4974 52.1983 80 56.5217 80H72.1739C76.4974 80 80 76.4974 80 72.1739V49.5652C80 45.2417 76.4974 41.7391 72.1739 41.7391ZM71.3043 73.0435H57.3913C56.4313 73.0435 55.6522 72.2643 55.6522 71.3043C55.6522 70.3443 56.4313 69.5652 57.3913 69.5652H71.3043C72.2643 69.5652 73.0435 70.3443 73.0435 71.3043C73.0435 72.2643 72.2643 73.0435 71.3043 73.0435ZM71.3043 62.6087H57.3913C56.4313 62.6087 55.6522 61.8296 55.6522 60.8696C55.6522 59.9096 56.4313 59.1304 57.3913 59.1304H71.3043C72.2643 59.1304 73.0435 59.9096 73.0435 60.8696C73.0435 61.8296 72.2643 62.6087 71.3043 62.6087ZM71.3043 52.1739H57.3913C56.4313 52.1739 55.6522 51.3948 55.6522 50.4348C55.6522 49.4748 56.4313 48.6957 57.3913 48.6957H71.3043C72.2643 48.6957 73.0435 49.4748 73.0435 50.4348C73.0435 51.3948 72.2643 52.1739 71.3043 52.1739Z"
+          fill="#212121"
+        />
+      </svg>
+    </>
+  );
+};
+export const Screen = ({ className }) => {
+  return (
+    <svg
+      className={className}
+      width="74"
+      height="70"
+      viewBox="0 0 74 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 0C3.69365 0 0 3.69365 0 8.25V46.75C0 51.3062 3.69365 55 8.25 55H27.5V59.5833C27.5 62.1148 25.448 64.1667 22.9167 64.1667H21.0833C19.5646 64.1667 18.3333 65.3979 18.3333 66.9167C18.3333 68.4354 19.5646 69.6667 21.0833 69.6667H52.25C53.7687 69.6667 55 68.4354 55 66.9167C55 65.3979 53.7687 64.1667 52.25 64.1667H50.4167C47.8852 64.1667 45.8333 62.1148 45.8333 59.5833V55H65.0833C69.6395 55 73.3333 51.3062 73.3333 46.75V8.25C73.3333 3.69365 69.6395 0 65.0833 0H8.25ZM40.3333 55V59.5833C40.3333 61.2337 40.7297 62.7917 41.433 64.1667H31.9004C32.6036 62.7917 33 61.2337 33 59.5833V55H40.3333ZM5.5 8.25C5.5 6.73123 6.73123 5.5 8.25 5.5H65.0833C66.6021 5.5 67.8333 6.73123 67.8333 8.25V36.6667H5.5V8.25ZM5.5 42.1667H67.8333V46.75C67.8333 48.2687 66.6021 49.5 65.0833 49.5H8.25C6.73123 49.5 5.5 48.2687 5.5 46.75V42.1667Z"
+        fill="#212121"
+      />
+    </svg>
+  );
+};
+
+export const Person = ({ className }) => {
+  return (
+    <svg
+      className={className}
+      width="74"
+      height="70"
+      viewBox="0 0 74 70"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_91_1510)">
+        <path
+          d="M36.665 39.1894C48.0512 39.1894 57.2891 30.4126 57.2891 19.5947C57.2891 8.77679 48.0512 0 36.665 0C25.2788 0 16.0409 8.77679 16.0409 19.5947C16.0409 30.4126 25.2788 39.1894 36.665 39.1894ZM54.9975 43.5437H47.1059C43.9264 44.9317 40.3888 45.7209 36.665 45.7209C32.9412 45.7209 29.4179 44.9317 26.2241 43.5437H18.3325C8.20666 43.5437 0 51.3408 0 60.9613V63.1384C0 66.7444 3.07929 69.67 6.87469 69.67H66.4553C70.2507 69.67 73.33 66.7444 73.33 63.1384V60.9613C73.33 51.3408 65.1233 43.5437 54.9975 43.5437Z"
+          fill="black"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_91_1510">
+          <rect width="73.33" height="69.67" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export const Community = () => {
+  return (
+    <svg
+      width="74"
+      height="74"
+      viewBox="0 0 111 111"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M68.2372 46.25C71.9039 46.25 75.0009 48.6878 75.9962 52.0312H72.8438C65.8193 52.0312 60.125 57.7256 60.125 64.75V64.9813C54.8474 66.0524 50.875 70.7186 50.875 76.3125V96.6061C41.6108 94.498 34.6964 86.2105 34.6964 76.3079V54.3438C34.6964 49.8737 38.3201 46.25 42.7902 46.25H68.2372ZM89.0312 52.0312C96.0377 52.0312 101.72 57.6959 101.75 64.6954V54.3438C101.75 49.8737 98.1263 46.25 93.6562 46.25L78.0455 46.2457C79.3969 47.8808 80.3474 49.8593 80.7465 52.0312H89.0312ZM32.9822 46.2457C31.366 48.2008 30.3232 50.6474 30.1114 53.3281L30.0714 54.3438V76.3079C30.0714 80.2234 30.956 83.9326 32.5363 87.246C31.0142 87.6576 29.4103 87.875 27.7557 87.875C17.5353 87.875 9.25 79.5898 9.25 69.3694V54.3438C9.25 50.0971 12.5204 46.6145 16.6799 46.2768L17.3438 46.25L32.9822 46.2457ZM55.5 13.875C63.1632 13.875 69.375 20.0871 69.375 27.75C69.375 35.4129 63.1632 41.625 55.5 41.625C47.8368 41.625 41.625 35.4129 41.625 27.75C41.625 20.0871 47.8368 13.875 55.5 13.875ZM85.5625 18.5C91.9482 18.5 97.125 23.6767 97.125 30.0625C97.125 36.4483 91.9482 41.625 85.5625 41.625C79.1768 41.625 74 36.4483 74 30.0625C74 23.6767 79.1768 18.5 85.5625 18.5ZM25.4375 18.5C31.8233 18.5 37 23.6767 37 30.0625C37 36.4483 31.8233 41.625 25.4375 41.625C19.0517 41.625 13.875 36.4483 13.875 30.0625C13.875 23.6767 19.0517 18.5 25.4375 18.5ZM64.75 69.375H62.4375C58.6062 69.375 55.5 72.4812 55.5 76.3125V83.25H67.0625V82.0938C67.0625 80.1781 68.6156 78.625 70.5312 78.625C72.4469 78.625 74 80.1781 74 82.0938V83.25H87.875V82.0938C87.875 80.1781 89.4281 78.625 91.3438 78.625C93.2594 78.625 94.8125 80.1781 94.8125 82.0938V83.25H106.375V76.3125C106.375 72.4812 103.269 69.375 99.4375 69.375H97.125V64.75C97.125 60.2799 93.5013 56.6562 89.0312 56.6562H72.8438C68.3737 56.6562 64.75 60.2799 64.75 64.75V69.375ZM71.6875 64.75C71.6875 64.1113 72.205 63.5938 72.8438 63.5938H89.0312C89.67 63.5938 90.1875 64.1113 90.1875 64.75V69.375H71.6875V64.75ZM55.5 99.4375V90.1875H67.0625V93.6562C67.0625 95.5719 68.6156 97.125 70.5312 97.125C72.4469 97.125 74 95.5719 74 93.6562V90.1875H87.875V93.6562C87.875 95.5719 89.4281 97.125 91.3438 97.125C93.2594 97.125 94.8125 95.5719 94.8125 93.6562V90.1875H106.375V99.4375C106.375 103.269 103.269 106.375 99.4375 106.375H62.4375C58.6062 106.375 55.5 103.269 55.5 99.4375Z"
+        fill="#212121"
+      />
+    </svg>
+  );
+};
+
+export const Community2 = () => {
+  return (
+    <svg
+      width="74"
+      height="74"
+      viewBox="0 0 111 79"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M33.3 39.5001C44.0358 39.5001 52.725 30.8109 52.725 20.0751C52.725 9.33937 44.0358 0.650146 33.3 0.650146C22.5642 0.650146 13.875 9.33937 13.875 20.0751C13.875 30.8109 22.5642 39.5001 33.3 39.5001ZM46.62 45.0501H45.1805C41.573 46.7845 37.5666 47.8251 33.3 47.8251C29.0334 47.8251 25.0444 46.7845 21.4195 45.0501H19.98C8.94937 45.0501 0 53.9995 0 65.0302V70.0251C0 74.6212 3.72891 78.3502 8.325 78.3502H58.275C62.8711 78.3502 66.6 74.6212 66.6 70.0251V65.0302C66.6 53.9995 57.6506 45.0501 46.62 45.0501ZM83.25 39.5001C92.4422 39.5001 99.9 32.0423 99.9 22.8501C99.9 13.658 92.4422 6.20015 83.25 6.20015C74.0578 6.20015 66.6 13.658 66.6 22.8501C66.6 32.0423 74.0578 39.5001 83.25 39.5001ZM91.575 45.0501H90.9159C88.5052 45.8826 85.9556 46.4376 83.25 46.4376C80.5444 46.4376 77.9948 45.8826 75.5841 45.0501H74.925C71.3869 45.0501 68.1263 46.0734 65.2645 47.7211C69.4964 52.2825 72.15 58.3355 72.15 65.0302V71.6901C72.15 72.0717 72.0633 72.4359 72.0459 72.8001H102.675C107.271 72.8001 111 69.0712 111 64.4751C111 53.7394 102.311 45.0501 91.575 45.0501Z"
+        fill="#0175FB"
       />
     </svg>
   );
