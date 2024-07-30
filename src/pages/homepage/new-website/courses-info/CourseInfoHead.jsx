@@ -10,15 +10,15 @@ const CourseInfoHead = ({ data }) => {
           color="#0075FD"
           className=" absolute hidden xl:block top-36 left-[50%]"
         />
-        <div>
-          <h1 className=" text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-10">
+        <div className="xl:py-20">
+          <h1 className=" text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 my-5">
             <span className="relative inline-block text-tech-blue">
               Welcome To Techyjaunt
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
             </span>{" "}
             {data?.courseName} Course
           </h1>
-          <p className="mb-10 leading-7 text-xl text-gray-700 font-normal">
+          <p className="mb-5 leading-7 text-xl text-gray-700 font-normal">
             {data?.writeUp}
           </p>
           <div className="flex justify-center xl:justify-start gap-10">
@@ -40,7 +40,7 @@ const CourseInfoHead = ({ data }) => {
             alt=""
             className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
           />
-          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-28 px-4 py-20 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
+          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-28 px-4 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
             <a href={data?.brochure} download={data.pdf} className="text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl">
               Download Brochure
             </a>

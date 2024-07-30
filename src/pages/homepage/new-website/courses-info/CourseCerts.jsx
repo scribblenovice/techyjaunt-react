@@ -10,8 +10,8 @@ const CourseCerts = ({ data }) => {
           </div>
           <div>
             <h2 className="text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl text-center md:text-left">Taught by Experienced Industry Experts</h2>
-            <p className="text-base md:text-lg text-gray-700 mt-3">
-              Techjaunty instructors are experienced practitioners who work at
+            <p className="text-base md:text-lg text-gray-700 mt-5">
+              Techjaunt instructors are experienced practitioners who work at
               the world most innovative companies. They are expert in their
               field, and enter the classroom with years of experience making
               sure your learning the most up-to-date and practical skills

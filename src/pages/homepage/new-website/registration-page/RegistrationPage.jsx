@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PhoneNumber from "../../../../globalcomponents/PhoneNumber";
 import StepProgressBar from "../../../../globalcomponents/StepProgress";
 import ContactReg from "./ContactReg";
 import PersonInfoReg from "./PersonInfoReg";
@@ -99,29 +98,23 @@ const RegistrationPage = () => {
           navigate("/launchpad/thank-you");
         }
         if (res.data.status === "alreadysignedup") {
-          // showError();
-          // showSnackbar("you've already signed up for this cohort!");
           handleSnackbar("you've already signed up for this cohort!", "error");
         }
         if (res.data.status === "failed") {
-          showError();
-          showSnackbar("registration failed, please try again!");
+          handleSnackbar("registration failed, please try again!", "error");
         }
       })
       .catch((error) => {
         setPending(false);
         if (error.response) {
-          showError();
-          showSnackbar("registration failed, please try again!");
+          handleSnackbar("registration failed, please try again!", "error");
           // The request was made and the server responded with a status code that falls out of the range of 2xx
         } else if (error.request) {
           // The request was made but no response was received
-          showError();
-          showSnackbar("please check your internet connection!!");
+          handleSnackbar("please check your internet connection!", "error");
           // console.log("No response received");
         } else {
-          showError();
-          showSnackbar("registration failed, please try again!");
+          handleSnackbar("registration failed, please try again!", "error");
         }
       });
   };
@@ -214,7 +207,7 @@ const RegistrationPage = () => {
                   onClick={goToPreviousStep}
                   disabled={currentStep === 0 ? true : false}
                   className={`w-24 px-4 py-2 bg-gray-300 rounded ${
-                    currentStep === 0 ? "" : "hover:bg-black hover:text-white"
+                    currentStep === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-black hover:text-white"
                   }  transition-all ease-linear duration-200`}
                 >
                   Previous

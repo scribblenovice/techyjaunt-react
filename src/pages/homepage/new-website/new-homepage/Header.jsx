@@ -48,7 +48,7 @@ const Header = () => {
           <div className="mb-10 flex gap-5">
             <NavLink
               to="/launchpad"
-              className="cursor-pointer inline-block bg-tech-blue py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
+              className="inline-flex items-center cursor-pointer bg-tech-blue py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
             >
               Get Started
               <i className="ri-arrow-right-line ml-3"></i>
@@ -59,12 +59,11 @@ const Header = () => {
               smooth={true}
               offset={-100}
               duration={500}
-              className="cursor-pointer inline-block bg-tech-blue p-4 rounded-lg text-white"
+              className="cursor-pointer inline-flex items-center bg-tech-blue p-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
             >
               Our Courses <i className="ri-arrow-right-line ml-3"></i>
             </Link>
           </div>
-
           <div className="flex items-center flex-wrap">
             <Avatars />
             <p className="text-xl text-black font-normal leading-7">

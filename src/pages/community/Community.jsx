@@ -1,6 +1,14 @@
 import { Fade } from "react-reveal";
 import Avatars from "../../globalcomponents/Avatars";
-import { AvatarImg, state } from "../../resources/resources";
+import {
+  AvatarImg,
+  Circle,
+  CurlyLine,
+  FancyUnderline,
+  Star,
+  Star2,
+  state,
+} from "../../resources/resources";
 import TypingAnimation from "../../globalcomponents/TypingAnimation";
 import Videos from "../homepage/videos/Videos";
 import CommunityForm from "./Communityform";
@@ -10,9 +18,15 @@ import axios from "axios";
 import NavLinks from "../../globalcomponents/NavLinks";
 import src from "../../images/gallery/gallery4.webp";
 import Carouselnew from "../../globalcomponents/Carouselnew";
+import Loader from "../../globalcomponents/Loader";
+import { useSnackbar } from "notistack";
 
 const Community = () => {
-  const [pending, setPending] = useState(false)
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => {
+    enqueueSnackbar(message, { variant });
+  };
+  const [pending, setPending] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
@@ -84,7 +98,7 @@ const Community = () => {
     e.preventDefault();
     const isValid = validateForm();
     if (isValid) {
-      setPending(true)
+      setPending(true);
       setShake(false);
       // Submit the form data or perform other actions
       axios
@@ -92,61 +106,30 @@ const Community = () => {
           ...payload,
         })
         .then((res) => {
+          setPending(false);
           if (res.data.status === "registered") {
-            setPending(false)
-            setModalError(false);
-            setOpen(true);
-            setMessage(
-              "YOU HAVE SUCCESSFULLY SIGNED UP TO OUR COMMUNITY, YOU WILL BE REDIRECTED SHORTLY"
-            );
+            handleSnackbar("successful", "success");
             sessionStorage.setItem("isRegistered", true);
-            navigate("/community/thank-you");
-            // setTimeout(() => {
-            //   window.location.href =
-            //     "https://chat.whatsapp.com/GrWTvqGpf742giBu1BOZsE";
-            // }, 1500);
+            navigate("thank-you");
           }
           if (res.data.status === "existing") {
-            setPending(false)
-            setModalError(true);
-            setOpen(true);
-            setMessage("THIS EMAIL ALREADY EXISTS!");
+            handleSnackbar("this email already exists!", "error");
           }
           if (res.data.status === "failed") {
-            setPending(false)
-            setModalError(true);
-            setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE TRY AGAIN");
+            handleSnackbar("registration failed, please try again!", "error");
           }
         })
         .catch((error) => {
+          setPending(false);
           // Handle error
           if (error.response) {
-            setPending(false)
-            setModalError(true);
-            setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            // console.log(
-            //   "Server responded with a non-2xx status code:",
-            //   error.response.status
-            // );
-            // console.log('Data:', error.response.data);
+            handleSnackbar("registration failed, please try again!", "error");
           } else if (error.request) {
+            handleSnackbar("please check your internet connection!", "error");
             // The request was made but no response was received
-            setPending(false)
-            setModalError(true);
-            setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
           } else {
-            setPending(false)
-            setModalError(true);
-            setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN");
-            // console.log("Error setting up the request:", error.message);
+            handleSnackbar("registration failed, please try again!", "error");
           }
-          // console.log("Error config:", error.config);
         });
     }
     if (!isValid) {
@@ -166,12 +149,12 @@ const Community = () => {
   };
   return (
     <>
-      <NavLinks
+      {/* <NavLinks
         navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
           scrollNumber > 0 ? "nav-change" : "text-white"
         }`}
         isLaunchPad={true}
-      />
+      /> */}
       <CommunityForm
         open={open}
         close={() => {
@@ -215,45 +198,58 @@ const Community = () => {
           });
         }}
       />
-      <header className="flex justify-center h-fit lg:h-screen py-20 launchpad-jumbo bg-center bg-cover bg-blend-multiply bg-gray-800">
-        <div className="mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
-          <div className="h-full md:h-[70%] flex flex-col justify-around md:justify-evenly">
-            <Fade bottom>
-              <h1 className="font-black text-3xl md:text-5xl tracking-widest leading-[70px] mb-5 lg:mb-0">
-                TECHYJAUNT COMMUNITY
-              </h1>
-            </Fade>
-            <Fade bottom>
-              <p className="mt-5 font-medium text-white text-base md:text-lg leading-8 glow min-h-[100px] md:min-h-fit">
-                Join a community of over 30,000 tech enthusiasts. As the African
-                Tech space continues to grow, we ensure you stay informed
-                through our vibrant community
-              </p>
-              <button
-                onClick={() => setOpenModal(true)}
-                className="py-3 my-5 px-10 bg-blue-500 rounded-md font-medium text-white hover:scale-105 transition-all duration-200 ease-in text-base lg:text-xl"
-              >
-                JOIN OUR TECH COMMUNITY HERE
-              </button>
-              <div className="flex items-center flex-wrap">
-                <Avatars />
-                <p className="text-white text-sm sm:text-base font-medium">
-                  Over 30K+ community members
-                </p>
-              </div>
-            </Fade>
+      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] xl:w-[80%]">
+        <Circle
+          color="#0075FD"
+          className="absolute hidden xl:block top-36 left-[25%]"
+        />
+        <CurlyLine className="absolute hidden xl:block right-56 top-14" />
+        <Star className="absolute hidden xl:block top-28 -left-12" />
+        <Star2 className="absolute hidden xl:block top-36 left-[48%]" />
+        <div>
+          <p className="text-tech-blue font-semibold hidden xl:block">
+            START YOUR TECH JOURNEY
+          </p>
+          <h1 className="text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 my-10">
+            Welcome to
+            <span className="text-tech-blue relative whitespace-nowrap">
+              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+              Techyjaunt Community
+            </span>
+          </h1>
+          <p className="mb-10 leading-7 text-xl text-gray-700 font-normal">
+            Join a community of over 30,000 tech enthusiasts. As the African
+            Tech space continues to grow, we ensure you stay informed through
+            our vibrant community
+          </p>
+          <button
+            onClick={() => setOpenModal(true)}
+            className="mb-10 bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-base md:text-xl py-3 px-10 rounded-lg mx-auto w-fit"
+          >
+            JOIN OUR TECH COMMUNITY HERE
+          </button>
+          <div className="flex items-center flex-wrap">
+            <Avatars />
+            <p className="text-xl text-black font-normal leading-7">
+              Over 5K+ professionals trained.
+            </p>
           </div>
-          <Fade bottom>
-            <div className="w-full h-full md:py-5 lg:py-0">
-              <Carouselnew />
-              {/* videos */}
-              {/* <Videos /> */}
-              {/* <img src={src} alt="" className="rounded-lg w-full h-full border-white border-4" /> */}
-            </div>
-          </Fade>
         </div>
-      </header>
-      {pending && <EmailLoading />}
+        <div className="relative grid place-items-center">
+          <Circle
+            color="#FFC27A"
+            className="absolute hidden xl:block -top-16 left-36"
+          />
+          <Circle
+            color="#6D39ED"
+            className="absolute hidden xl:block -bottom-5 left-24"
+          />
+          <div className="w-full h-full md:py-5 lg:py-0">
+            <Carouselnew />
+          </div>
+        </div>
+      </div>
+      {pending && <Loader />}
     </>
   );
 };

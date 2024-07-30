@@ -45,7 +45,7 @@ const TestimonialSlider = () => {
                   <Comma className="absolute right-2 top-2 scale-75" />
                   <div className="flex items-center gap-x-2">
                     <img
-                    loading="lazy"
+                      loading="lazy"
                       src={el.img}
                       alt=""
                       className="w-[45px] h-[45px] md:w-[55px] md:h-[55px] xl:w-[70px] xl:h-[70px] rounded-full"
@@ -57,7 +57,9 @@ const TestimonialSlider = () => {
                       <p className="text-xs lg:text-base">{el.course}</p>
                     </div>
                   </div>
-                  <p className="text-xs md:text-base my-5 leading-5">{el.writeUp}</p>
+                  <p className="text-sm md:text-lg my-5 leading-5">
+                    {el.writeUp}
+                  </p>
                 </div>
               </Fade>
             </div>
@@ -74,8 +76,7 @@ const TestimonialSlider = () => {
         onClick={nextSlide}
         className="carousel-control carousel-control-next p-1 md:p-2 xl:p-3"
       >
-      
-      <i class="ri-arrow-right-s-line"></i>
+        <i class="ri-arrow-right-s-line"></i>
       </button>
 
       <div className="carousel-indicators left-1/2">

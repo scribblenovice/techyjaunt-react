@@ -1498,7 +1498,7 @@ export const eventImg = [
   {
     id: 0,
     src: gallery8,
-    info: "BOLCKCHAIN HANGOUT IN PARTNERSHIP WITH LBANK | 2023",
+    info: "BLOCKCHAIN HANGOUT IN PARTNERSHIP WITH LBANK | 2023",
   },
   {
     id: 1,
@@ -2282,13 +2282,11 @@ export const allCousesInfo = [
     tag: "ui-ux",
     courseName: "UI/UX",
     writeUp:
-      "This design bootcamp program is  taught by tech leaders and created as project-based learning  to help you  develop the skills needed  to create  user experience for product or digital properties",
-    about1: "",
-    about2: "",
+      "Explore the art of crafting intuitive and engaging user interfaces. Understand user experience principles and design beautiful, user-centered digital products.",
     toLearn: [
       {
         unitName: "User Research",
-        goal: "learn how to conduct interview and create personas to understand the needs of your users,and keep them at the center of your design process",
+        goal: "Learn how to conduct interview and create personas to understand the needs of your users,and keep them at the center of your design process",
       },
       {
         unitName: "Ideation",
@@ -2306,10 +2304,21 @@ export const allCousesInfo = [
     tag: "data-analysis",
     courseName: "Data Analysis",
     writeUp:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
-    about1: "",
-    about2: "",
-    toLearn: [{ unitName: "", goal: "" }],
+      " Unlock the power of data. Learn to collect, process, and analyze data to drive informed decision-making and uncover valuable insights.",
+    toLearn: [
+      {
+        unitName: "Introduction to Excel and Data Analytics",
+        goal: "Overview of Data Analytics, Overview of Excel and its capabilities in data analytics, Understanding basic concepts in data analytics, Navigating the Excel interface",
+      },
+      {
+        unitName: "Data Preparation and Analysis in Excel",
+        goal: "Importing data into Excel, Data cleaning and preparation, Data analysis techniques in Excel ( Data validation, conditional formatting, sorting and filtering data.), Introduction to pivot tables, creating pivot tables, analyzing data with pivot tables etc.",
+      },
+      {
+        unitName: "Excel Formulas and Functions for Data Analytics",
+        goal: "Overview of Excel formulas and functions, Basic statistical functions (sum, average, median, mode), Advanced functions for data analysis (COUNTIF, SUMIF, AVERAGEIF), Working with data types (text, numbers, dates), formatting cells, basic functions (IF, VLOOKUP, COUNT)",
+      },
+    ],
     brochure: "../../public/docs/Data analysis Launchpad Outline.pdf",
     pdf: "Data analysis Launchpad Outline.pdf",
   },
@@ -2317,10 +2326,21 @@ export const allCousesInfo = [
     tag: "project-mgmt",
     courseName: "Product Management",
     writeUp:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
-    about1: "",
-    about2: "",
-    toLearn: [{ unitName: "", goal: "" }],
+      "Learn to bridge the gap between technology and business. Develop skills in market research, product strategy, and team leadership to bring innovative products to life.",
+    toLearn: [
+      {
+        unitName: "Understanding Product Management",
+        goal: "Definition and role in a company, Key responsibilities of a Product Manager, Historical perspective on Product Management, How effective Product Management can drive business success, Common challenges without proper Product Management",
+      },
+      {
+        unitName: "Product Lifecycle",
+        goal: "Introduction, growth, maturity, and decline of a product, Role of a Product Manager in each stage, Idea generation, validation, and concept development, Creating a product roadmap",
+      },
+      {
+        unitName: "Market Research and Customer Understanding",
+        goal: "* Understanding customer needs, wants, and pain points, Conducting market research and competitor analysis, Creating user personas, Mapping the customer journey",
+      },
+    ],
     brochure: "../../public/docs/Product management course outline.pdf",
     pdf: "Product management course outline.pdf",
   },
@@ -2328,21 +2348,44 @@ export const allCousesInfo = [
     tag: "frontend-dev",
     courseName: "Frontend Development",
     writeUp:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
-    about1: "",
-    about2: "",
-    toLearn: [{ unitName: "", goal: "" }],
-    brochure: "../../public/docs/Frontend web development Launchpad outline.pdf",
+      "Dive into the world of web design and interactivity. Learn how to create visually appealing and user-friendly websites using HTML, CSS, and JavaScript.",
+    toLearn: [
+      {
+        unitName: "HTML: HyperText Markup Language",
+        goal: "Introduction and overview, HTML syntax, HTML elements and their respective attributes, HTML grouping, HTML forms, HTML, tables, HTML events, HTML header elements and meta tags, Semantic HTML",
+      },
+      {
+        unitName: "CSS: Cascading Style Sheets",
+        goal: " Introduction to CSS, How CSS can be added to HTML, CSS selectors,  Background and font styling, CSS Box model, CSS display and positioning, CSS media queries, CSS float and clear, CSS animations, CSS flexbox and grid",
+      },
+      {
+        unitName: "Javascript",
+        goal: "Introduction to JavaScript, rules and syntax, commenting, Linkiing Javascript to HTML, Document Object model (DOM), Javascript variables adn operators, Strings and their methids, Conditional statements, Loop statements, Functions, Event listeners, DOM Manipulation etc.",
+      },
+    ],
+    brochure:
+      "../../public/docs/Frontend web development Launchpad outline.pdf",
     pdf: "Frontend web development Launchpad outline.pdf",
   },
   {
     tag: "backend-dev",
     courseName: "Backend Development",
     writeUp:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
-    about1: "",
-    about2: "",
-    toLearn: [{ unitName: "", goal: "", skills: "" }],
+      "Discover the backbone of web applications. Master server-side programming, databases, and APIs to build robust and scalable web services.",
+    toLearn: [
+      {
+        unitName: "Introduction to Node.js",
+        goal: " Course Overview and Introduction to Node.js, Setting Up Node.js Development Environment (Node.js, code editor, Postman and npm, Writing and Running Your First Node.js Program etc.",
+      },
+      {
+        unitName: "Asynchronous Programming with Callbacks",
+        goal: "Understanding Callback Functions, Working with Asynchronous Functions, Introduction to Promises etc.",
+      },
+      {
+        unitName: "Building Web Applications with Node.js",
+        goal: "Introduction to Express.js, Setting Up an Express.js Application, Creating Routes and Handling Requests etc.",
+      },
+    ],
     brochure: "../../public/docs/Backend development.pdf",
     pdf: "Backend development.pdf",
   },
@@ -2350,10 +2393,21 @@ export const allCousesInfo = [
     tag: "cyber-security",
     courseName: "Cyber Security",
     writeUp:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur animi eligendi voluptas quis odit consequuntur rem non cupiditate quaerat dolorum voluptate modi nihil unde, at consectetur",
-    about1: "",
-    about2: "",
-    toLearn: [{ unitName: "", goal: "", skills: "" }],
+      "Protect the digital world from threats. Gain expertise in securing networks, systems, and data, and become proficient in ethical hacking and threat analysis.",
+    toLearn: [
+      {
+        unitName: "Introduction to Cybersecurity",
+        goal: "Basics of cybersecurity, understanding cyber threats, attack landscape, and the principles of security",
+      },
+      {
+        unitName: "Various Cyber-attacks",
+        goal: "Understanding the various cyber attacks with real world scenarios.",
+      },
+      {
+        unitName: "Cyber Hygiene",
+        goal: "Strong password habits, password management, password attacks and best practices for staying safe online.",
+      },
+    ],
     brochure: "../docs/../public/Cybersecurity Launchapad Outline.pdf",
     pdf: "Cybersecurity Launchapad Outline.pdf",
   },

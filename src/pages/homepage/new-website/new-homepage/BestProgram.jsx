@@ -20,11 +20,11 @@ const BestProgram = () => {
           return (
             <div
               id={index}
-              className="h-[200px] md:h-full flex flex-col justify-center md:justify-start border-2 border-tech-blue rounded-lg p-8 gap-2"
+              className="h-[200px] md:h-full flex flex-col justify-center md:justify-start rounded-lg p-8 gap-2 bg-tech-blue text-white"
             >
-              <h2 className="font-medium text-xl border-b-4 border-tech-blue">{el.headText}</h2>
+              <h2 className="font-medium text-xl border-b-2 border-b-white">{el.headText}</h2>
               {/* {el.icon} */}
-              <p className="text-black text-base md:text-lg"> {el.parTexr}</p>
+              <p className=" text-base md:text-lg"> {el.parTexr}</p>
             </div>
           );
         })}

@@ -35,7 +35,7 @@ const Carouselnew = () => {
   }, [currentSlide]);
 
   return (
-    <div className="relative h-[350px] sm:h-[400px] md:h-[500px] rounded-lg">
+    <div className="relative h-[300px] md:h-[375px] xl:h-[450px] rounded-lg md:w-[80%] xl:w-full mx-auto">
       <div className="carousel-container h-full rounded-lg">
         <div
           className="carousel-slides h-full rounded-lg"
@@ -49,13 +49,6 @@ const Carouselnew = () => {
               <img src={slide.source} alt="" className={`${
                   currentSlide === slide.id ? "zoom" : ""
                 } h-full w-full absolute top-0 bottom-0 left-0 right-0 z-0 bg-blue-gray-700 bg-center bg-cover bg-no-repeat rounded-lg`} />
-              {/* <div
-                className={`${
-                  currentSlide === slide.id ? "zoom" : ""
-                } h-full w-full absolute top-0 bottom-0 left-0 right-0 z-0 bg-blue-gray-700 bg-center bg-cover bg-no-repeat rounded-lg ${
-                  slide.class
-                }`}
-              ></div> */}
             </div>
           ))}
         </div>

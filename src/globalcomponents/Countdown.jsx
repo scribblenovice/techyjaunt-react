@@ -1,6 +1,19 @@
 import React from "react";
-import DateTimeDisplay from "./DateTimeDisplay";
+import DateTimeDisplay, { CoursesCounterDispay } from "./DateTimeDisplay";
 import { useCountdown } from "../hooks/UseCountdown";
+
+export const CoursesCouter = ({ targetDate }) => {
+  const [days, hours, minutes, seconds] = useCountdown(targetDate);
+  return (
+    <div className={` grid grid-cols-2 gap-x-5 px-5 w-full lg:w-[60%] mx-auto`}>
+      <CoursesCounterDispay
+        value={days}
+        type={`${days < 2 ? "Day" : "Days"}`}
+      />
+      <CoursesCounterDispay value={hours} type={`${hours < 2 ? "Hour" : "Hours"}`} />
+    </div>
+  );
+};
 
 const ShowCounter = ({ days, hours, minutes, seconds, crypto }) => {
   return (

@@ -51,7 +51,7 @@ const PersonInfoReg = ({ handleChange, formErrors, formData, className }) => {
                 id="male"
                 value="male"
                 checked={formData.gender === "male" ? true : false}
-                className="w-5 h-5"
+                className="w-5 h-5 ml-1"
               />
             </div>
             <div>

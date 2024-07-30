@@ -1,5 +1,6 @@
 import { Community, Community2, Screen } from "../../../../resources/resources";
 import src from "../../../../images/launchpad/frame2.png";
+import { NavLink } from "react-router-dom";
 const CourseLearnMode = () => {
   return (
     <>
@@ -44,7 +45,7 @@ const CourseLearnMode = () => {
             </p>
           </div>
         </div>
-        <button className="bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-2xl md:text-4xl py-3 px-10 rounded-lg mx-auto mt-10">Start class today</button>
+        <NavLink to="/launchpad/register" className="inline-block bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-2xl md:text-4xl py-3 px-10 rounded-lg mx-auto mt-10">Start class today</NavLink>
       </div>
     </>
   );

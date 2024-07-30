@@ -12,7 +12,7 @@ const CourseUnits = ({ data }) => {
             download={data.pdf}
             className="px-2 whitespace-nowrap md:px-5 text-center absolute -bottom-7 left-1/2 transform -translate-x-1/2 inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
           >
-            Download Brochure
+            Download Brochure for more details
           </a>
           {data?.toLearn.map((el, index) => {
             return (

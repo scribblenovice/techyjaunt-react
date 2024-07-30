@@ -1,6 +1,6 @@
 import { Input } from "@material-tailwind/react";
 
-export function GlobalText({
+export function  GlobalText({
   labelTxt,
   id,
   handleChange,

@@ -1,10 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import logoSrc from "../images/techy_jaunt_logo.svg";
-import { CourseSection, LinkedinIcon, TwitterIcon, TelegramIcon, InstagramIcon, WhatsappIcon } from "../resources/resources";
+import {
+  CourseSection,
+  LinkedinIcon,
+  TwitterIcon,
+  TelegramIcon,
+  InstagramIcon,
+  WhatsappIcon,
+} from "../resources/resources";
 import GlobalText from "./GlobalText";
 import { useState } from "react";
+import NewsLetter from "./Newsletter";
 const FooterSection = () => {
-  const [isFocused, setIsFocused] = useState(false);
   return (
     <footer class="">
       <div className="w-[90%] pt-20 pb-14 mx-auto">
@@ -25,15 +32,15 @@ const FooterSection = () => {
             </p>
             <div className="flex gap-5 mt-5">
               {/* twitter */}
-              <TwitterIcon/>
+              <TwitterIcon />
               {/* linkedin */}
-              <LinkedinIcon/>
+              <LinkedinIcon />
               {/* Telegram */}
-              <TelegramIcon/>
+              <TelegramIcon />
               {/* instagram */}
-              <InstagramIcon/>
+              <InstagramIcon />
               {/* whatsapp */}
-              <WhatsappIcon/>
+              <WhatsappIcon />
             </div>
           </div>
           <div className="lg:justify-self-center">
@@ -55,7 +62,11 @@ const FooterSection = () => {
                 </Link>
               </li>
               <li>
-                <NavLink to="https://medium.com/@techyJaunt/" target="_blank" className="hover:text-tech-blue transition-all ease-linear duration-300">
+                <NavLink
+                  to="https://medium.com/@techyJaunt/"
+                  target="_blank"
+                  className="hover:text-tech-blue transition-all ease-linear duration-300"
+                >
                   Blog
                 </NavLink>
               </li>
@@ -67,7 +78,10 @@ const FooterSection = () => {
               {CourseSection.map((el) => {
                 return (
                   <li>
-                    <NavLink to={`/course/${el.linkName}`} className="inline-block hover:text-tech-blue transition-all ease-linear duration-300">
+                    <NavLink
+                      to={`/course/${el.linkName}`}
+                      className="inline-block hover:text-tech-blue transition-all ease-linear duration-300"
+                    >
                       {el.fullName}
                     </NavLink>
                   </li>
@@ -80,23 +94,17 @@ const FooterSection = () => {
             <p className="text-[#6D737A]">
               Stay informed about happenings in the African tech space
             </p>
-            <GlobalText
-              placeTxt="Email Address"
-              labelTxt="Email Address"
-              labelClass="block"
-              handleFocus={() => setIsFocused(true)}
-              handleBlur={() => setIsFocused(false)}
-              focused={isFocused}
-            />
-            <button className="w-32 bg-tech-blue p-2 rounded-md text-white hover:bg-gray-500 transition-all ease-linear duration-200">
+            <NewsLetter />
+            {/* <button className="w-32 bg-tech-blue p-2 rounded-md text-white hover:bg-gray-500 transition-all ease-linear duration-200">
               Subscribe now
-            </button>
+            </button> */}
           </div>
         </div>
         <p className="text-[#6D737A] text-center mt-20 text-base md:text-lg">
-            {" "}
-            <span className="text-tech-blue">&copy;</span> Techyjaunt 2024. All rights reserved.
-          </p>
+          {" "}
+          <span className="text-tech-blue">&copy;</span> Techyjaunt 2024. All
+          rights reserved.
+        </p>
       </div>
     </footer>
   );

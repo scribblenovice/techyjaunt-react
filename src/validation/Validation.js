@@ -1,4 +1,3 @@
-
 export const validateContact = (formData, update) => {
   let errors = {};
   let isValid = true;
