@@ -12,11 +12,9 @@ import { useSnackbar } from "notistack";
 
 const Checkout = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => () => {
-    console.log("hi")
+  const handleSnackbar = (message, variant) => {
     // variant could be success, error, warning, info, or default
-    enqueueSnackbar(message, variant);
-    
+    enqueueSnackbar(message, {variant});
   };
 
   const [message, setMessage] = useState("");
@@ -70,13 +68,14 @@ const Checkout = () => {
 
   // paystack
   const [reference, setReference] = useState("");
-  const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
+  // const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
+  const publicKey = "pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f"
 
   const initializePayment = async () => {
     const isValid = validateForm();
     const paymentDetails = {
       ...formData,
-      amount: 7500 * 100, // Convert to kobo
+      amount: 750000, // Convert to kobo
       reference: new Date().getTime().toString(),
     };
     if (isValid) {
@@ -90,16 +89,15 @@ const Checkout = () => {
             },
           }
         );
-
         const { authorization_url } = response.data.data;
         setReference(response.data.data.reference);
         window.location.href = authorization_url;
       } catch (error) {
         // console.error("Payment initialization error:", error);
-        handleSnackbar("message", "error");
+        handleSnackbar(error, "error");
       }
     }else{
-      enqueueSnackbar("please fill up your form", "error")
+      handleSnackbar("please fill up your form", "error")
     }
   };
 
