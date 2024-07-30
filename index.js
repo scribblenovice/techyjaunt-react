@@ -557,6 +557,33 @@ server.get("/get-link", (req, res) => {
     });
 });
 
+server.post("/verify-payment", async (req, res) => {
+  const { reference } = req.body;
+  try {
+    const response = await axios.get(
+      `https://api.paystack.co/transaction/verify/${reference}`,
+      {
+        headers: {
+          Authorization: `Bearer ${SECRET_KEY}`,
+        },
+      }
+    );
+
+    if (response.data.data.status === "success") {
+      // Handle successful payment verification
+      res.json({ success: true, message: "Payment verified successfully" });
+    } else {
+      // Handle failed payment verification
+      res.json({ success: false, message: "Payment verification failed" });
+    }
+  } catch (error) {
+    console.error("Payment verification error:", error);
+    res
+      .status(500)
+      .json({ success: false, message: "Payment verification error" });
+  }
+});
+
 server.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
 });

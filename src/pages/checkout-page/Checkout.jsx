@@ -8,8 +8,17 @@ import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
+import { useSnackbar } from "notistack";
 
 const Checkout = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => () => {
+    console.log("hi")
+    // variant could be success, error, warning, info, or default
+    enqueueSnackbar(message, variant);
+    
+  };
+
   const [message, setMessage] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [open, setOpen] = useState(false);
@@ -58,38 +67,90 @@ const Checkout = () => {
     setFormErrors(errors);
     return isValid;
   };
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: formData.email,
-    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
-    // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
+
+  // paystack
+  const [reference, setReference] = useState("");
+  const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
+
+  const initializePayment = async () => {
+    const isValid = validateForm();
+    const paymentDetails = {
+      ...formData,
+      amount: 7500 * 100, // Convert to kobo
+      reference: new Date().getTime().toString(),
+    };
+    if (isValid) {
+      try {
+        const response = await axios.post(
+          "https://api.paystack.co/transaction/initialize",
+          paymentDetails,
+          {
+            headers: {
+              Authorization: `Bearer ${publicKey}`,
+            },
+          }
+        );
+
+        const { authorization_url } = response.data.data;
+        setReference(response.data.data.reference);
+        window.location.href = authorization_url;
+      } catch (error) {
+        // console.error("Payment initialization error:", error);
+        handleSnackbar("message", "error");
+      }
+    }else{
+      enqueueSnackbar("please fill up your form", "error")
+    }
   };
 
-  const onSuccess = (reference) => {
-    axios
-      .post("https://techyjaunt-kx6a.onrender.com/payment", {
-        ...formData,
-        completedPayment: "yes",
-      })
-      .then((res) => {
-        if (res.data.status === "paid") {
-          sessionStorage.setItem("isPaid", true);
-          navigate("/checkout/thank-you");
-        }
-        if (res.data.status === "existing") {
-          setModalError(true);
-          setOpen(true);
-          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
-        }
-        if (res.data.status === "failed") {
-          alert("AN ERROR OCCURED");
-        }
-      });
+  const verifyPayment = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/verify-payment",
+        { reference }
+      );
+
+      if (response.data.success) {
+        console.log("Payment verified successfully");
+      } else {
+        console.log("Payment verification failed");
+      }
+    } catch (error) {
+      console.error("Payment verification error:", error);
+    }
   };
-  const onClose = () => {
-    alert("PAYMENT FAILED");
-  };
+  // const config = {
+  //   reference: new Date().getTime().toString(),
+  //   email: formData.email,
+  //   amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+  //   publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+  //   // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
+  // };
+
+  // const onSuccess = (reference) => {
+  //   axios
+  //     .post("https://techyjaunt-kx6a.onrender.com/payment", {
+  //       ...formData,
+  //       completedPayment: "yes",
+  //     })
+  //     .then((res) => {
+  //       if (res.data.status === "paid") {
+  //         sessionStorage.setItem("isPaid", true);
+  //         navigate("/checkout/thank-you");
+  //       }
+  //       if (res.data.status === "existing") {
+  //         setModalError(true);
+  //         setOpen(true);
+  //         alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
+  //       }
+  //       if (res.data.status === "failed") {
+  //         alert("AN ERROR OCCURED");
+  //       }
+  //     });
+  // };
+  // const onClose = () => {
+  //   alert("PAYMENT FAILED");
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,7 +158,6 @@ const Checkout = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
   return (
     <>
@@ -171,7 +231,7 @@ const Checkout = () => {
                 </label>
                 <GlobalText
                   id="amount"
-                  inputVal={`NGN: ${config.amount / 100}`}
+                  inputVal={`NGN: 7500`}
                   isDisabled={true}
                 />
               </div>
@@ -238,13 +298,16 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <PaystackButton
-              {...config}
+            <button
+              // {...config}
+              onClick={initializePayment}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
-              text="Pay Now"
-              onSuccess={onSuccess}
-              onClose={onClose}
-            />
+              // text="Pay Now"
+              // onSuccess={onSuccess}
+              // onClose={onClose}
+            >
+              Pay Now
+            </button>
           </div>
         </div>
       </section>
