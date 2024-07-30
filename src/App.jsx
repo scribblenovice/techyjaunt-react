@@ -90,17 +90,25 @@ function App() {
                 </Suspense>
               }
             />
-             <Route
-          path="thank-you"
-          element={
-            <ProtectedRoute route="/community" param="isRegistered">
-              <Suspense fallback={<GlobalBeat />}>
-                <CommunityThankYou />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute route="/community" param="isRegistered">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <CommunityThankYou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
           </Route>
+          <Route
+            path="/checkout"
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <Checkout />
+              </Suspense>
+            }
+          />
         </Route>
 
         {/* old routing */}
