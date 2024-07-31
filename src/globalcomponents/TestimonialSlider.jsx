@@ -70,13 +70,13 @@ const TestimonialSlider = () => {
         onClick={prevSlide}
         className="carousel-control carousel-control-prev p-1 md:p-2 xl:p-3"
       >
-        <i class="ri-arrow-left-s-line"></i>
+        <i className="ri-arrow-left-s-line"></i>
       </button>
       <button
         onClick={nextSlide}
         className="carousel-control carousel-control-next p-1 md:p-2 xl:p-3"
       >
-        <i class="ri-arrow-right-s-line"></i>
+        <i className="ri-arrow-right-s-line"></i>
       </button>
 
       <div className="carousel-indicators left-1/2">

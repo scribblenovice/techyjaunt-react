@@ -98,7 +98,7 @@ const RegistrationPage = () => {
           navigate("/launchpad/thank-you");
         }
         if (res.data.status === "alreadysignedup") {
-          handleSnackbar("you've already signed up for this cohort!", "error");
+          handleSnackbar("this email already exists!", "error");
         }
         if (res.data.status === "failed") {
           handleSnackbar("registration failed, please try again!", "error");
