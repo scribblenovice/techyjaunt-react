@@ -14,7 +14,7 @@ const Checkout = () => {
   const { enqueueSnackbar } = useSnackbar();
   const handleSnackbar = (message, variant) => {
     // variant could be success, error, warning, info, or default
-    enqueueSnackbar(message, {variant});
+    enqueueSnackbar(message, { variant });
   };
 
   const [message, setMessage] = useState("");
@@ -69,14 +69,29 @@ const Checkout = () => {
   // paystack
   const [reference, setReference] = useState("");
   // const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
-  const publicKey = "pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f"
-
+  const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
+  const callbackUrl = "http://localhost:5173/verify";
   const initializePayment = async () => {
     const isValid = validateForm();
     const paymentDetails = {
-      ...formData,
+      email: formData.email,
       amount: 750000, // Convert to kobo
       reference: new Date().getTime().toString(),
+      callback_url: callbackUrl,
+      metadata: {
+        custom_fields: [
+          {
+            display_name: "First Name",
+            variable_name: "first_name",
+            value: formData.firstName,
+          },
+          {
+            display_name: "Last Name",
+            variable_name: "last_name",
+            value: formData.lastName,
+          },
+        ],
+      },
     };
     if (isValid) {
       try {
@@ -91,32 +106,17 @@ const Checkout = () => {
         );
         const { authorization_url } = response.data.data;
         setReference(response.data.data.reference);
+        localStorage.setItem("paymentReference", reference);
+        localStorage.setItem("formData", JSON.stringify(formData));
         window.location.href = authorization_url;
       } catch (error) {
-        // console.error("Payment initialization error:", error);
-        handleSnackbar(error, "error");
+           handleSnackbar(error.response.data.message, "error");
       }
-    }else{
-      handleSnackbar("please fill up your form", "error")
+    } else {
+      handleSnackbar("please fill the form", "error");
     }
   };
 
-  const verifyPayment = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/verify-payment",
-        { reference }
-      );
-
-      if (response.data.success) {
-        console.log("Payment verified successfully");
-      } else {
-        console.log("Payment verification failed");
-      }
-    } catch (error) {
-      console.error("Payment verification error:", error);
-    }
-  };
   // const config = {
   //   reference: new Date().getTime().toString(),
   //   email: formData.email,

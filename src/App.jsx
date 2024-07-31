@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+import VerifyPayment from "./pages/checkout-page/VerifyPayment";
+import ErrorPayment from "./pages/checkout-page/ErrorPayment";
 const CryptoThankyou = lazy(() =>
   import("./pages/crypyo-bootcamp/CyptoThankyou")
 );
@@ -88,6 +90,22 @@ function App() {
                 <CheckoutThankYou />
               </Suspense>
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/verify"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <VerifyPayment />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/error"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <ErrorPayment />
+            </Suspense>
           }
         />
         {/* EVENT */}
