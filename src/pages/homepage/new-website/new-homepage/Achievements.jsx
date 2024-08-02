@@ -10,17 +10,13 @@ const Achievements = () => {
     <div className="w-[90%] xl:w-[85%] mx-auto py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="flex flex-col">
-          <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
+          <h2 className="mb-5 relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
             Our{" "}
             <span className="text-tech-blue">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
               Achievements
             </span>
           </h2>
-          <p className="text-black text-base xl:text-2xl my-8">
-           
-          </p>
-
           <div className="grid grid-cols-2 gap-y-5">
             {achievementIcons.map((el) => {
               return (
@@ -30,7 +26,7 @@ const Achievements = () => {
                     <p className="font-semibold text-lg md:text-2xl xl:text-4xl">
                       {el.num}
                     </p>
-                    <p className="text-black text-xs md:text-base xl:text-2xl">
+                    <p className="text-gray-700 text-xs md:text-base xl:text-2xl">
                       {el.value}
                     </p>
                   </div>

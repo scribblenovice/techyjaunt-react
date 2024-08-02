@@ -31,7 +31,7 @@ const Bootcamp = () => {
                 <h3 className="font-semibold text-2xl">
                   I am interested in {el.fullName}
                 </h3>
-                <Link to={`/course/${el.linkName}`} className="my-1">
+                <Link to={`/course/${el.linkName}`} className="my-1 w-fit">
                   Visit More{" "}
                   <i className="ri-arrow-right-line text-lg ml-5"></i>
                 </Link>

@@ -66,7 +66,7 @@ const Header = () => {
           </div>
           <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-black font-normal leading-7">
+            <p className="text-xl text-gray-700 font-normal leading-7">
               Over 5K+ professionals trained.
             </p>
           </div>

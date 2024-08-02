@@ -164,22 +164,6 @@ const CommunityForm = ({
           <div className="text-xl md:text-2xl text-center">{message}</div>
         </Modal.Body>
       </Modal>
-      <Modal show={open} onClose={close} position="center">
-        <Modal.Header className="border-none h-2"></Modal.Header>
-
-        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
-          <div>
-            <i
-              className={`${
-                modalError
-                  ? "ri-error-warning-line text-red-500"
-                  : "ri-checkbox-circle-line text-green-500"
-              }  text-7xl`}
-            ></i>
-          </div>
-          <div className="text-xl md:text-2xl text-center">{message}</div>
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

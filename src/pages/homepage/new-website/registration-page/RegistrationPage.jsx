@@ -94,7 +94,7 @@ const RegistrationPage = () => {
         setPending(false);
         if (res.data.status === "registered") {
           sessionStorage.setItem("isRegistered", true);
-          handleSnackbar("successful", "success");
+          handleSnackbar("registration successful", "success");
           navigate("/launchpad/thank-you");
         }
         if (res.data.status === "alreadysignedup") {

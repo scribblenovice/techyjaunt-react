@@ -6,7 +6,7 @@ import {
 
 const BestProgram = () => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto py-20">
+    <div className="w-[90%] xl:w-[85%] mx-auto py-10 lg:py-20">
       <h2 className=" font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
         Our{" "}
         <span className="text-tech-blue relative inline-block">

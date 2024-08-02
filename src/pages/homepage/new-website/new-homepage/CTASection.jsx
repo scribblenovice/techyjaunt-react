@@ -18,7 +18,7 @@ const CTASection = () => {
             Join <span className="text-tech-blue">Techyjaunt</span> community
             today
           </h2>
-          <p className="text-sm md:text-base">
+          <p className="text-sm md:text-base xl:text-lg">
             Join a community of over 30,000 tech enthusiasts. As the African
             Tech space continues to grow, we ensure you stay informed through
             our vibrant community

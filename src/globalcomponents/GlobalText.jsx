@@ -21,7 +21,7 @@ export function  GlobalText({
       <Input
         className={`!border ${
           errorTxt ? "!border-red-500" : "!border-gray-400"
-        } text-gray-900 focus:!border-black focus:!border-2 ring-0 focus:shadow-none`}
+        } text-gray-900 focus:!border-black focus:!border-2 ring-0 focus:shadow-none !bg-white`}
         labelProps={{
           className: !focused ? labelClass : "hidden",
         }}

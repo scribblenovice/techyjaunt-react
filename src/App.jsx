@@ -2,14 +2,19 @@ import "./App.css";
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
-import GlobalBeat from "./globalcomponents/BeatLoader";
-import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-import CryptoThankyou from "./pages/crypyo-bootcamp/CyptoThankyou";
-import NewLaunchpad from "./pages/homepage/new-website/new-launchpad/NewLaunchpad";
-import CourseInfoPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
-import AllCoursesPage from "./pages/homepage/new-website/courses-info/CourseInfoPage";
-import RegistrationPage from "./pages/homepage/new-website/registration-page/RegistrationPage";
-
+const GlobalBeat = lazy(() => import("./globalcomponents/BeatLoader"));
+const ProtectedRoute = lazy(() => import("./globalcomponents/ProtectedRoutes"));
+const NewLaunchpad = lazy(() =>
+  import("./pages/homepage/new-website/new-launchpad/NewLaunchpad")
+);
+const AllCoursesPage = lazy(() =>
+  import("./pages/homepage/new-website/courses-info/CourseInfoPage")
+);
+const RegistrationPage = lazy(() =>
+  import("./pages/homepage/new-website/registration-page/RegistrationPage")
+);
+const AdminWelcome = lazy(() => import("./admin/AdminWelcome"));
+const SecretPage = lazy(() => import("./admin/SecretPage"));
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
 const Community = lazy(() => import("./pages/community/Community"));
 const CryptoBootCamp = lazy(() =>
@@ -44,6 +49,26 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
+          <Route path="admin">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <AdminWelcome />
+                </Suspense>
+              }
+            />
+            <Route
+              path="change-link"
+              element={
+                <ProtectedRoute route="/admin" param="isAdmin">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <SecretPage />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
           <Route
             index
             element={
@@ -69,7 +94,7 @@ function App() {
                 </Suspense>
               }
             />
-            {/* <Route
+            <Route
               path="thank-you"
               element={
                 <ProtectedRoute route="/launchpad" param="isRegistered">
@@ -78,7 +103,7 @@ function App() {
                   </Suspense>
                 </ProtectedRoute>
               }
-            /> */}
+            />
           </Route>
           <Route path="/course/:courseName" element={<AllCoursesPage />} />
           <Route path="community">
@@ -93,7 +118,10 @@ function App() {
             <Route
               path="thank-you"
               element={
-                <ProtectedRoute route="/community" param="isRegistered">
+                <ProtectedRoute
+                  route="/community"
+                  param="isCommunityRegistered"
+                >
                   <Suspense fallback={<GlobalBeat />}>
                     <CommunityThankYou />
                   </Suspense>

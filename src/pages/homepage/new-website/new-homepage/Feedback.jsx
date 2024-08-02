@@ -3,7 +3,7 @@ import { FancyUnderline } from "../../../../resources/resources";
 
 const FeedBack = () => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto py-10 flex flex-col">
+    <div className="w-[90%] xl:w-[85%] mx-auto py-5 lg:py-10 flex flex-col">
       <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
         Student{" "}
         <span className="text-tech-blue relative">
@@ -11,7 +11,7 @@ const FeedBack = () => {
           Feedback
         </span>
       </h2>
-      <p className="text-[#6D737A] text-base xl:text-2xl mt-8">
+      <p className="text-gray-700 text-base xl:text-2xl mt-8">
        Here is what some past students have to say about us
       </p>
       <TestimonialSlider />

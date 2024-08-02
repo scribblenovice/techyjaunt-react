@@ -109,7 +109,7 @@ const Community = () => {
           setPending(false);
           if (res.data.status === "registered") {
             handleSnackbar("successful", "success");
-            sessionStorage.setItem("isRegistered", true);
+            sessionStorage.setItem("isCommunityRegistered", true);
             navigate("thank-you");
           }
           if (res.data.status === "existing") {
@@ -195,6 +195,8 @@ const Community = () => {
             lastName: "",
             email: "",
             phoneNumber: "",
+            skills: "",
+            state: "",
           });
         }}
       />
@@ -230,7 +232,7 @@ const Community = () => {
           </button>
           <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-black font-normal leading-7">
+            <p className="text-xl text-gray-700  font-normal leading-7">
               Over 5K+ professionals trained.
             </p>
           </div>

@@ -55,7 +55,7 @@ server.post("/signup", (req, res) => {
         LastName: lastName,
         SelectedCourse: selectedCourse,
         HowYouHeard: knowlegeOfTechyJaunt,
-        PhoneNuber: phoneNumber
+        PhoneNuber: phoneNumber,
       },
       tags: ["STUDENT"],
       status: "SUBSCRIBED",
@@ -190,7 +190,7 @@ server.post("/payment", (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           status: "paid",
@@ -469,6 +469,81 @@ server.post("/crypto-bootcamp-reg", (req, res) => {
       if (data.error.code === "INVALID_PARAMETERS") {
         return res.status(200).json({
           status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+// CHANGE LINK
+server.post("/change-link", (req, res) => {
+  const { newLink } = req.body;
+  let launchpadListId = "3ba60ad4-4450-11ef-8a91-35a8181df958";
+
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts/b11e9384-4456-11ef-9d2a-6bb348736cd8`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        api_key,
+        email_address: "support@techyjaunt.com",
+        fields: {
+          EmailAddress: "support@techyjaunt.com",
+          FirstName: "techyjaunt",
+          LastName: "admin",
+          NewLink: newLink,
+        },
+        status: "SUBSCRIBED",
+      }),
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "LINK HAS BEEN SUCCESSFULLY CHANGED",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "THIS LINK ALREADY EXISTS",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "FAILED, PLEASE TRY AGAIN",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+// fetch link
+server.get("/get-link", (req, res) => {
+  let launchpadListId = "3ba60ad4-4450-11ef-8a91-35a8181df958";
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts/b11e9384-4456-11ef-9d2a-6bb348736cd8?api_key=${api_key}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          data: data,
         });
       }
     })

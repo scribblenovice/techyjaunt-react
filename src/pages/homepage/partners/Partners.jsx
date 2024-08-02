@@ -3,7 +3,7 @@ import { FancyUnderline, PartnerImg } from "../../../resources/resources";
 
 const Partners = ({ isEvent, title }) => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto py-20 flex flex-col">
+    <div className="w-[90%] xl:w-[85%] mx-auto py-10 lg:py-20 flex flex-col">
         <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
           Our Partners
           <FancyUnderline className="absolute -bottom-2 left-7" />{" "}
