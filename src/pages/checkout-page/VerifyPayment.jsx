@@ -12,7 +12,6 @@ const VerifyPayment = () => {
   const reference = query.get("reference");
   useEffect(() => {
     const verifyPayment = async () => {
-      //   const reference = window.localStorage.getItem('paymentReference');
       console.log(reference);
       const formData = JSON.parse(window.localStorage.getItem("formData"));
       if (!reference) {
@@ -38,6 +37,10 @@ const VerifyPayment = () => {
     verifyPayment();
   }, [navigate]);
 
-  return <div>Verifying payment...</div>;
+  return (
+    <div className="bg-tech-blue flex justify-center items-center text-xl md:text-2xl xl:text-3xl text-white">
+      Verifying payment...
+    </div>
+  );
 };
 export default VerifyPayment;

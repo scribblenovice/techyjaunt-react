@@ -17,11 +17,6 @@ const Checkout = () => {
     enqueueSnackbar(message, { variant });
   };
 
-  const [message, setMessage] = useState("");
-  const [openModal, setOpenModal] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [modalError, setModalError] = useState(true);
-  const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -83,12 +78,16 @@ const Checkout = () => {
           {
             display_name: "First Name",
             variable_name: "first_name",
-            value: formData.firstName,
+            value:
+              formData.firstName.charAt(0).toUpperCase() +
+              formData.firstName.slice(1),
           },
           {
             display_name: "Last Name",
             variable_name: "last_name",
-            value: formData.lastName,
+            value:
+              formData.lastName.charAt(0).toUpperCase() +
+              formData.lastName.slice(1),
           },
         ],
       },
@@ -110,46 +109,12 @@ const Checkout = () => {
         localStorage.setItem("formData", JSON.stringify(formData));
         window.location.href = authorization_url;
       } catch (error) {
-           handleSnackbar(error.response.data.message, "error");
+        handleSnackbar("an error occured", "error");
       }
     } else {
       handleSnackbar("please fill the form", "error");
     }
   };
-
-  // const config = {
-  //   reference: new Date().getTime().toString(),
-  //   email: formData.email,
-  //   amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-  //   publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
-  //   // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
-  // };
-
-  // const onSuccess = (reference) => {
-  //   axios
-  //     .post("https://techyjaunt-kx6a.onrender.com/payment", {
-  //       ...formData,
-  //       completedPayment: "yes",
-  //     })
-  //     .then((res) => {
-  //       if (res.data.status === "paid") {
-  //         sessionStorage.setItem("isPaid", true);
-  //         navigate("/checkout/thank-you");
-  //       }
-  //       if (res.data.status === "existing") {
-  //         setModalError(true);
-  //         setOpen(true);
-  //         alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
-  //       }
-  //       if (res.data.status === "failed") {
-  //         alert("AN ERROR OCCURED");
-  //       }
-  //     });
-  // };
-  // const onClose = () => {
-  //   alert("PAYMENT FAILED");
-  // };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -297,34 +262,14 @@ const Checkout = () => {
               </div>
             </div>
             <button
-              // {...config}
               onClick={initializePayment}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
-              // text="Pay Now"
-              // onSuccess={onSuccess}
-              // onClose={onClose}
             >
               Pay Now
             </button>
           </div>
         </div>
       </section>
-      <Modal show={open} onClose={close} position="center">
-        <Modal.Header className="border-none h-2"></Modal.Header>
-
-        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
-          <div>
-            <i
-              className={`${
-                modalError
-                  ? "ri-error-warning-line text-red-500"
-                  : "ri-checkbox-circle-line text-green-500"
-              }  text-7xl`}
-            ></i>
-          </div>
-          <div className="text-xl md:text-2xl text-center">{message}</div>
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

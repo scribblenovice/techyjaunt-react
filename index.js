@@ -560,17 +560,10 @@ server.get("/get-link", (req, res) => {
 
 server.post("/verify-payment", async (req, res) => {
   let paidListId = "8fce3572-4b90-11ef-be1e-553041d2c7af";
-  const SECRET_KEY = 'sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421'
-  const {
-    reference,
-    firstName,
-    lastName,
-    email,
-    phoneNumber,
-    selectedCourse,
-    completedPayment,
-  } = req.body;
-  console.log(reference)
+  const SECRET_KEY = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
+  const { reference, firstName, lastName, email, phoneNumber, selectedCourse } =
+    req.body;
+  console.log(reference);
   try {
     const response = await axios.get(
       `https://api.paystack.co/transaction/verify/${reference}`,
@@ -580,7 +573,7 @@ server.post("/verify-payment", async (req, res) => {
         },
       }
     );
-
+    console.log(response);
     if (response.data.data.status === "success") {
       // Handle successful payment verification
       res.json({ success: true, message: "Payment verified successfully" });
@@ -598,7 +591,6 @@ server.post("/verify-payment", async (req, res) => {
             LastName: lastName,
             SelectedCourse: selectedCourse,
             PhoneNumber: phoneNumber,
-            HasPaid: completedPayment,
           },
           tags: ["PAID"],
           status: "SUBSCRIBED",
@@ -607,27 +599,9 @@ server.post("/verify-payment", async (req, res) => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          // if (data.status === "SUBSCRIBED") {
-          //   return res.status(200).json({
-          //     status: "paid",
-          //   });
-          // }
-          // if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
-          //   return res.status(200).json({
-          //     status: "existing",
-          //   });
-          // }
-          // if (data.error.code === "INVALID_PARAMETERS") {
-          //   return res.status(304).json({
-          //     status: "invalid",
-          //   });
-          // }
         })
         .catch((err) => {
           console.log(err);
-          // return res.status(500).json({
-          //   status: "failed",
-          // });
         });
     } else {
       // Handle failed payment verification

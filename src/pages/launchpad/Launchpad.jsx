@@ -172,8 +172,6 @@ const LaunchPad = () => {
     console.log(formData);
   };
   
-
-
   return (
     <>
       <div className="bg-stone-100">
