@@ -34,7 +34,7 @@ const GlobalSelect2 = ({
       >
         {options.map((el, index) => {
           return (
-            <Option key={index} value={el.name.toLowerCase()}>
+            <Option key={index} value={el.name.toLowerCase()} className="hover:!bg-white hover:!text-black transition-all ease-linear duration-200 hover:!bg-opacity-100 focus:!bg-opacity-100 aria-selected:!bg-white aria-selected:!text-black focus:!bg-white focus:!text-black">
               <div style={{ display: "flex", alignItems: "center" }}>
                 {el.image && (
                   <img

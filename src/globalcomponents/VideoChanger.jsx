@@ -46,7 +46,7 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
         ref={videoRef}
       ></video>
       <div
-        className={`absolute top-0 bottom-0 left-0 right-0 test-vid ${thumbNail} ${
+        className={`absolute top-0 bottom-0 left-0 right-0 test-vid rounded-md ${thumbNail} ${
           count > 0 && durationSec != currentTimeSec ? "hidden" : "block"
         }`}
       >

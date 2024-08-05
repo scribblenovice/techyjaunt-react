@@ -10,6 +10,7 @@ const GlobalSelect = ({
   return (
     <>
       <Select
+      id="select"
         onChange={handleChange}
         value={inputVal}
         name={inputName}

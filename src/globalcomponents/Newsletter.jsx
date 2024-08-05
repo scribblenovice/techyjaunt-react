@@ -4,9 +4,10 @@ import GlobalText from "./GlobalText";
 import { Fade } from "react-reveal";
 import { useSnackbar } from "notistack";
 import Loader from "./Loader";
+import useCustomSnackbar from "../hooks/UseCustomSnackbar";
 
 const NewsLetter = () => {
-  const [isFocused, setIsFocused] = useState(false);
+  const { handleSnackbar } = useCustomSnackbar();
   const [shake, setShake] = useState(false);
   const [pending, setPending] = useState(false);
   const [emailSubscriber, setEmailSubscribe] = useState({
@@ -15,10 +16,6 @@ const NewsLetter = () => {
     email: "",
   });
   const [formErrors, setFormErrors] = useState({});
-  const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => {
-    enqueueSnackbar(message, { variant });
-  };
   const validateForm = () => {
     let errors = {};
     let isValid = true;
@@ -62,6 +59,9 @@ const NewsLetter = () => {
               "you have successfully subscribed for our newsletter",
               "success"
             );
+            setEmailSubscribe({ firstName: "",
+              lastName: "",
+              email: "",})
           }
           if (res.data.status === "existing") {
             handleSnackbar("this email already exist", "error");
@@ -102,82 +102,70 @@ const NewsLetter = () => {
   return (
     <>
       <form
-        className="mx-auto grid grid-cols-1 place-items-center w-full gap-y-5"
+        className="mx-auto w-full gap-y-5"
         method="/subscribe"
         onSubmit={handleSubmit}
       >
         <div className="grid grid-cols-2 gap-2">
           <div>
+            <label htmlFor="first" className="text-gray-700 text-xs">
+              First name
+            </label>
             <input
+              id="first"
               type="text"
               name="firstName"
               onChange={handleChange}
               placeholder="first name"
-              className={`w-full ${formErrors?.firstName?"border-red-500": ""}`}
+              className={`w-full rounded-md text-gray-600 ${
+                formErrors?.firstName ? "border-red-500" : ""
+              }`}
             />
             {formErrors?.firstName && (
               <p className="text-xs text-red-500">{formErrors.firstName}</p>
             )}
           </div>
           <div>
+            <label htmlFor="last" className="text-gray-700 text-xs">
+              Last name
+            </label>
             <input
+              id="last"
               type="text"
               onChange={handleChange}
               placeholder="last name"
               name="lastName"
-              className={`w-full ${formErrors?.lastName?"border-red-500": ""}`}
+              className={`w-full rounded-md text-gray-600 ${
+                formErrors?.lastName ? "border-red-500" : ""
+              }`}
             />
             {formErrors?.lastName && (
               <p className="text-xs text-red-500">{formErrors.lastName}</p>
             )}
           </div>
-
-          {/* <GlobalText
-            id="first-name"
-            inputName="firstName"
-            inputType="text"
-            placeTxt="First Name"
-            labelTxt="First Name"
-            labelClass="block"
-            handleChange={handleChange}
-            errorTxt={formErrors.firstName}
-            handleFocus={() => setIsFocused(true)}
-            handleBlur={() => setIsFocused(false)}
-            focused={isFocused}
-          /> */}
-          {/* <GlobalText
-            id="last-name"
-            inputName="lastName"
-            inputType="text"
-            placeTxt="Last Name"
-            labelTxt="Last Name"
-            labelClass="block"
-            handleChange={handleChange}
-            errorTxt={formErrors.lastName}
-            handleFocus={() => setIsFocused(true)}
-            handleBlur={() => setIsFocused(false)}
-            focused={isFocused}
-          /> */}
         </div>
-        {/* <div>
-          <GlobalText
+        <div className="w-full mt-2">
+          <label htmlFor="email" className="text-gray-700 text-xs">
+            Email address
+          </label>
+          <input
             id="email"
-            inputType="text"
-            placeTxt="Email Address"
-            labelTxt="Email Address"
-            labelClass="block"
-            handleFocus={() => setIsFocused(true)}
-            handleBlur={() => setIsFocused(false)}
-            focused={isFocused}
-            inputName="email"
-            handleChange={handleChange}
-            errorTxt={formErrors.email}
+            type="text"
+            onChange={handleChange}
+            placeholder="email address"
+            name="email"
+            className={`w-full rounded-md text-gray-600 ${
+              formErrors?.email ? "border-red-500" : ""
+            }`}
           />
-        </div> */}
+          {formErrors?.email && (
+            <p className="text-xs text-red-500">{formErrors.email}</p>
+          )}
+        </div>
         <button
           type="submit"
           onClick={handleSubmit}
-          className={`cursor-pointer mx-auto bg-blue-500 text-white p-4 rounded ${
+          className={`cursor-pointer mx-auto mt-5 bg-blue-500 text-white p-2 text-sm rounded ${
             shake ? "shake" : ""
           }`}
         >

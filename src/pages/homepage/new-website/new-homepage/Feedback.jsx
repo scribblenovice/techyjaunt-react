@@ -11,7 +11,7 @@ const FeedBack = () => {
           Feedback
         </span>
       </h2>
-      <p className="text-gray-700 text-base xl:text-2xl mt-8">
+      <p className="text-gray-700 text-base xl:text-2xl mt-8 text-center">
        Here is what some past students have to say about us
       </p>
       <TestimonialSlider />

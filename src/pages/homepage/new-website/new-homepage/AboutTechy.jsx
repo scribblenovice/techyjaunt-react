@@ -4,7 +4,7 @@ import src from "../../../../images/founder.jpg";
 const AboutTechy = () => {
   return (
     <>
-      <div className="w-[90%] xl:w-[85%] mx-auto">
+      <div className="w-[90%] xl:w-[85%] mx-auto py-10">
         <h2 className=" font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:text-left">
           About{" "}
           <span className="text-tech-blue relative inline-block">

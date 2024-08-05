@@ -1,4 +1,5 @@
 import FooterSection from "../../../../globalcomponents/FooterSection";
+import NavLinks from "../../../../globalcomponents/NavLinks";
 import LaunchpadBottomCTA from "./LaunchpadBottomCTA";
 import LaunchpadCourses from "./LaunchpadCourses";
 import LaunchpadHeadSection from "./LaunchpadHeadSection";
@@ -8,6 +9,7 @@ import LaunchpadTopCTA from "./LaunchpadTopCTA";
 const NewLaunchpad = () => {
   return (
     <>
+    {/* <NavLinks/> */}
       <LaunchpadHeadSection />
       <LaunchpadTopCTA/>
       <LaunchpadCourses />

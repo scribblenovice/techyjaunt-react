@@ -2,6 +2,7 @@ import "./App.css";
 import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
+import RegistrationPage from "./pages/homepage/new-website/registration-page/RegistrationPage";
 const GlobalBeat = lazy(() => import("./globalcomponents/BeatLoader"));
 const ProtectedRoute = lazy(() => import("./globalcomponents/ProtectedRoutes"));
 const NewLaunchpad = lazy(() =>
@@ -10,9 +11,9 @@ const NewLaunchpad = lazy(() =>
 const AllCoursesPage = lazy(() =>
   import("./pages/homepage/new-website/courses-info/CourseInfoPage")
 );
-const RegistrationPage = lazy(() =>
-  import("./pages/homepage/new-website/registration-page/RegistrationPage")
-);
+// const RegistrationPage = lazy(() =>
+//   import("./pages/homepage/new-website/registration-page/RegistrationPage")
+// );
 const AdminWelcome = lazy(() => import("./admin/AdminWelcome"));
 const SecretPage = lazy(() => import("./admin/SecretPage"));
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
@@ -89,9 +90,9 @@ function App() {
             <Route
               path="register"
               element={
-                <Suspense fallback={<GlobalBeat />}>
+                // <Suspense fallback={<GlobalBeat />}>
                   <RegistrationPage />
-                </Suspense>
+                // {/* </Suspense> */}
               }
             />
             <Route

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logoSrc from "../images/techy_jaunt_logo.svg";
 import {
   CourseSection,
@@ -11,15 +11,16 @@ import {
 import GlobalText from "./GlobalText";
 import { useState } from "react";
 import NewsLetter from "./Newsletter";
+import { Link } from "react-scroll";
 const FooterSection = () => {
   return (
     <footer class="">
       <div className="w-[90%] pt-20 pb-14 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <Link className="font-semibold text-tech-blue text-4xl md:text-5xl">
+            <NavLink className="font-semibold text-tech-blue text-4xl md:text-5xl">
               Techyjaunt
-            </Link>
+            </NavLink>
 
             <p className="text-[#6D737A] text-base my-5">
               We are a community that educates and trains tech enthusiasts in
@@ -47,17 +48,24 @@ const FooterSection = () => {
             <h4 className="font-semibold text-xl">Explore</h4>
             <ul className="text-[#6D737A] flex flex-col gap-5 mt-5">
               <li>
-                <NavLink className="hover:text-tech-blue transition-all ease-linear duration-300">
+                <NavLink className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300">
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink className="hover:text-tech-blue transition-all ease-linear duration-300">
+                <NavLink className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300">
                   About
                 </NavLink>
               </li>
               <li>
-                <Link className="hover:text-tech-blue transition-all ease-linear duration-300">
+                <Link
+                  to="courses"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300"
+                >
                   Course
                 </Link>
               </li>
@@ -65,7 +73,7 @@ const FooterSection = () => {
                 <NavLink
                   to="https://medium.com/@techyJaunt/"
                   target="_blank"
-                  className="hover:text-tech-blue transition-all ease-linear duration-300"
+                  className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300"
                 >
                   Blog
                 </NavLink>
@@ -95,9 +103,6 @@ const FooterSection = () => {
               Stay informed about happenings in the African tech space
             </p>
             <NewsLetter />
-            {/* <button className="w-32 bg-tech-blue p-2 rounded-md text-white hover:bg-gray-500 transition-all ease-linear duration-200">
-              Subscribe now
-            </button> */}
           </div>
         </div>
         <p className="text-[#6D737A] text-center mt-20 text-base md:text-lg">

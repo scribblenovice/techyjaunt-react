@@ -13,6 +13,7 @@ import Loader from "../../../../globalcomponents/Loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import useCustomSnackbar from "../../../../hooks/UseCustomSnackbar";
 
 const RegistrationPage = () => {
   // const { showSnackbar, showError, showSuccess } = useCustomSnackbar();
@@ -22,11 +23,12 @@ const RegistrationPage = () => {
   const [coursesError, setCoursesError] = useState({});
   const [currentStep, setCurrentStep] = useState(0);
   const [pending, setPending] = useState(false);
+  const { handleSnackbar } = useCustomSnackbar();
   const steps = [1, 2, 3, 4];
-  const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => {
-    enqueueSnackbar(message, { variant });
-  };
+  // const { enqueueSnackbar } = useSnackbar();
+  // const handleSnackbar = (message, variant) => {
+  //   enqueueSnackbar(message, { variant });
+  // };
 
   const goToNextStep = () => {
     let isValid;
@@ -207,7 +209,9 @@ const RegistrationPage = () => {
                   onClick={goToPreviousStep}
                   disabled={currentStep === 0 ? true : false}
                   className={`w-24 px-4 py-2 bg-gray-300 rounded ${
-                    currentStep === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-black hover:text-white"
+                    currentStep === 0
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-black hover:text-white"
                   }  transition-all ease-linear duration-200`}
                 >
                   Previous

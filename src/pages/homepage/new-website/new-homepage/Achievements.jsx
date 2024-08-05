@@ -9,15 +9,15 @@ const Achievements = () => {
   return (
     <div className="w-[90%] xl:w-[85%] mx-auto py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div className="flex flex-col">
-          <h2 className="mb-5 relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-center xl:self-start">
+        <div className="flex flex-col self-center">
+          <div className="grid grid-cols-2 gap-y-5">
+          <h2 className="col-span-2 mb-5 relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-center xl:self-start whitespace-nowrap">
             Our{" "}
             <span className="text-tech-blue">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
               Achievements
             </span>
           </h2>
-          <div className="grid grid-cols-2 gap-y-5">
             {achievementIcons.map((el) => {
               return (
                 <div className="flex items-center">

@@ -24,7 +24,7 @@ const CoursesReg = ({
             inputVal={formData.selectedCourse}
             handleChange={handleSelect1}
             errorTxt={formErrors?.selectedCourse}
-            menuClass="bg-tech-blue text-white"
+            menuClass="aria-selected:bg-white aria-selected:text-black text-white bg-black"
           />
         </div>
       </div>
@@ -37,7 +37,7 @@ const CoursesReg = ({
         </label>
         <div className="w-full">
           <GlobalSelect2
-            menuClass="bg-tech-blue text-white"
+            menuClass="aria-selected:bg-white aria-selected:text-black text-white bg-black"
             options={howHeard}
             name="knowlegeOfTechyJaunt"
             inputVal={formData.knowlegeOfTechyJaunt}

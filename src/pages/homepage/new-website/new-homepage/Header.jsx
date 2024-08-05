@@ -17,10 +17,10 @@ const Header = () => {
 
   return (
     <>
-      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] xl:w-[80%]">
+      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 w-[90%] xl:w-[80%]">
         <Circle
           color="#0075FD"
-          className="absolute hidden xl:block top-36 left-[25%]"
+          className="absolute hidden xl:block top-20 left-[25%]"
         />
         <CurlyLine className="absolute hidden xl:block right-56 top-14" />
         <Star className="absolute hidden xl:block top-28 -left-12" />
@@ -29,7 +29,7 @@ const Header = () => {
           <p className="text-tech-blue font-semibold hidden xl:block">
             START YOUR TECH JOURNEY
           </p>
-          <h1 className="text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-10">
+          <h1 className="text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-5">
             Crafting Top{" "}
             <span className="text-tech-blue relative whitespace-nowrap">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
@@ -41,17 +41,17 @@ const Header = () => {
               Instructors
             </span>
           </h1>
-          <p className="mb-10 leading-7 text-xl text-gray-700 font-normal">
+          <p className="mb-5 leading-7 text-xl text-gray-700 font-normal">
             Start your journey into tech with Techyjaunt. We aim to be the
             bridge to journey Africans into tech one peron at a time.
           </p>
-          <div className="mb-10 flex gap-5">
+          <div className="mb-5 flex gap-5">
             <NavLink
               to="/launchpad"
-              className="inline-flex items-center cursor-pointer bg-tech-blue py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
+              className="whitespace-nowrap inline-flex items-center cursor-pointer bg-tech-blue p-2 md:p-3 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
             >
               Get Started
-              <i className="ri-arrow-right-line ml-3"></i>
+              <i className="ri-arrow-right-line ml-2"></i>
             </NavLink>
             <Link
               to="courses"
@@ -59,23 +59,23 @@ const Header = () => {
               smooth={true}
               offset={-100}
               duration={500}
-              className="cursor-pointer inline-flex items-center bg-tech-blue p-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
+              className="whitespace-nowrap cursor-pointer inline-flex items-center bg-tech-blue p-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200"
             >
               Our Courses <i className="ri-arrow-right-line ml-3"></i>
             </Link>
           </div>
           <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-gray-700 font-normal leading-7">
+            <p className="text-xl text-gray-700 font-normal leading-7 xl:mt-5">
               Over 5K+ professionals trained.
             </p>
           </div>
         </div>
         <div className="relative grid place-items-center">
-          <Circle
+          {/* <Circle
             color="#FFC27A"
             className="absolute hidden xl:block -top-16 left-36"
-          />
+          /> */}
           <Circle
             color="#6D39ED"
             className="absolute hidden xl:block -bottom-5 left-24"

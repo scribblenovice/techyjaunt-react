@@ -12,19 +12,19 @@ const LaunchpadHeadSection = () => {
           className="absolute hidden xl:block top-36 left-[50%]"
         />
         <div>
-          <h1 className="text-tech-blue text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800 my-10">
+          <h1 className="text-tech-blue text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800">
             Welcome To Techyjaunt
             <span className="text-black relative whitespace-nowrap">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
               BootCamp
             </span>{" "}
           </h1>
-          <p className="mb-10 leading-7 text-xl text-[#6D737A] font-normal">
+          <p className="my-7 leading-7 text-xl text-[#6D737A] font-normal">
             Techyjaunt bootcamp program is taught by tech leaders and created as
             project-based learning to help you develop the skills needed to
             Solve problems
           </p>
-          <div className="flex justify-center xl:justify-start gap-10">
+          <div className="flex justify-center xl:justify-start gap-7">
             <NavLink to="register" className="bg-tech-blue text-xl py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200 mb-10">
               Apply Now
             </NavLink>

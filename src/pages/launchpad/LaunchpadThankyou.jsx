@@ -3,15 +3,13 @@ import { useEffect, useState } from "react";
 import src from "../../images/launchpad/thankyou.webp";
 import { Link } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 
 const LaunchPadThankyou = () => {
-  const { enqueueSnackbar } = useSnackbar();
+  const { handleSnackbar } = useCustomSnackbar();
   const [whatsappLink, setWhatsappLink] = useState("");
   useEffect(() => {
     const isRegistered = sessionStorage.getItem("isRegistered");
-    const handleSnackbar = (message, variant) => {
-      enqueueSnackbar(message, { variant });
-    };
     if (isRegistered) {
       handleSnackbar("registration successful", "success");
     }

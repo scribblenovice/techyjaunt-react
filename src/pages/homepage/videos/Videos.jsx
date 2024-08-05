@@ -23,7 +23,7 @@ const Videos = () => {
                     renderVid == el.id ? "bg-none" : "bg-gray-800 opacity-40"
                   } testvid`}
                 ></div>
-                <img src={el.src} alt="" className={`testvid w-full  h-20 sm:h-24 lg:h-28 testvid border-[3px] border-gray-900`} />
+                <img src={el.src} alt="" className={`testvid w-full h-20 md:h-[90px] testvid border-[3px] border-gray-900`} />
               </button>
             );
           })}

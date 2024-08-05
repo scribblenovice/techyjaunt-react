@@ -7,7 +7,6 @@ const PhoneNumberInput = ({ inputName, handleChange, inputVal, errorTxt }) => {
   return (
     <>
       <PhoneInput
-      
         forceDialCode={true}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
@@ -39,8 +38,8 @@ const PhoneNumberInput = ({ inputName, handleChange, inputVal, errorTxt }) => {
           } text-gray-900`,
           dropdownStyleProps: {
             listItemCountryNameClassName:"",
-            className: "rounded-md scrollbar-none !border-none !outline-none p-2 bg-tech-blue",
-            listItemClassName: "aria-selected:bg-blue-gray-50 aria-selected:text-blue-gray-900 py-1 hover:bg-opacity-80 rounded-md px-2 flex transition-all ease-linear duration-200 text-white hover:text-blue-gray-900 hover:bg-blue-gray-50 focus:text-blue-gray-50 focus:bg-blue-gray-900",
+            className: "rounded-md scrollbar-none !border-none !outline-none p-2 !bg-black",
+            listItemClassName: "aria-selected:bg-white aria-selected:text-black text-white hover:text-black hover:bg-white py-1 rounded-md px-2 flex transition-all ease-linear duration-200",
             listItemDialCodeClassName: "ml-auto !text-inherit",
           },
           dropdownArrowClassName:"ml-2"
