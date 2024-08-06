@@ -160,8 +160,8 @@ const BookSchedule = () => {
     <>
       <section className="w-[95%] mx-auto lg:w-[90%] my-10">
         <div className="grid grid-cols-1 md:grid-cols-2 mb-10">
-          <h2 className="text-center md:text-left text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl">
-            TechyJaunt
+          <h2 className="text-center md:text-left text-tech-blue font-bold text-lg md:text-2xl lg:text-4xl">
+            Build and launch a successful crypto exchange
           </h2>
           <div className="">
             <StepProgressBar
@@ -178,7 +178,7 @@ const BookSchedule = () => {
           <div className="flex flex-col gap-5">
             {currentStep != 4 && (
               <p className="w-full md:w-[80%]">
-                Please fill in the form to book a meeting with a consultant
+Book a free 15-minute consultation with George
               </p>
             )}
             {currentStep === 0 && (
@@ -252,7 +252,7 @@ const BookSchedule = () => {
             {currentStep === 4 && (
               <div className="fade-in flex flex-col gap-10 items-center w-full md:w-[80%]">
                 <p className="text-center">
-                  Please click on the submit button to Speak to a consultant or go back to
+                  Please click on the submit button to submit your meeting details or go back to
                   review your meeting information
                 </p>
                 <div className="flex space-x-2 mx-auto md:mx-0">
