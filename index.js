@@ -632,9 +632,35 @@ server.get("/get-schedule", (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       return res.status(200).json({
+        status: "success",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+// delete schedule
+server.post("/delete-schedule", (req, res) => {
+  const { userId } = req.body;
+  let launchpadListId = "88336d88-53dc-11ef-a73c-2f5b267643d3";
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts/${userId}?api_key=${api_key}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return res.status(200).json({
         data: data,
       });
-     
     })
     .catch((err) => {
       console.log(err);

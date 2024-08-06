@@ -29,7 +29,7 @@ const SecretPage = () => {
       <div className="w-screen h-screen grid place-items-center bg-gradient-to-r from-blue-500 to-blue-700">
       <button
         onClick={goBack}
-        className="bg-white p-3 text-blue rounded-md m-5 place-self-start"
+        className="bg-white p-3 text-blue rounded-md m-5 absolute top-5 left-5"
       >
         GO BACK
       </button>

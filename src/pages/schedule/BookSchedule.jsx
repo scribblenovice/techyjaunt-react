@@ -103,16 +103,16 @@ const BookSchedule = () => {
     meetingDate: moment(formData.meetingTime).format("DD-MM-YYYY"),
     meetingTime: moment(formData.meetingTime).format("HH:mm a"),
     extraDetails:
-      formData.extraDetails.trim() != ""
-        ? formData.extraDetails.trim()
-        : "no extra details",
+      formData.extraDetails.trim() != "" ? formData.extraDetails.trim() : "-",
   };
   const navigate = useNavigate();
   const handleSubmit = () => {
     setPending(true);
     // Submit the form data or perform other actions
     axios
-      .post("https://techyjaunt-kx6a.onrender.com/schedule-meeting", { ...payload })
+      .post("https://techyjaunt-kx6a.onrender.com/schedule-meeting", {
+        ...payload,
+      })
       .then((res) => {
         setPending(false);
         if (res.data.status === "registered") {
@@ -122,9 +122,20 @@ const BookSchedule = () => {
             "success"
           );
           setTimeout(() => {
-            window.location.href = ("https://wa.me/message/S4HHZEQFXJOWP1");
+            window.location.href = "https://wa.me/message/S4HHZEQFXJOWP1";
           }, 2000);
           setCurrentStep(0);
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            companyName: "",
+            companyPosition: "",
+            companyWebsite: "",
+            meetingTime: "",
+            extraDetails: "",
+          });
         }
         if (res.data.status === "alreadysignedup") {
           handleSnackbar("this email already exists!", "error");
@@ -252,8 +263,8 @@ const BookSchedule = () => {
             {currentStep === 4 && (
               <div className="fade-in flex flex-col gap-10 items-center w-full md:w-[80%]">
                 <p className="text-center">
-                  Please click on the submit button to Speak to a consultant or go back to
-                  review your meeting information
+                  Please click on the submit button to Speak to a consultant or
+                  go back to review your meeting information
                 </p>
                 <div className="flex space-x-2 mx-auto md:mx-0">
                   <button
