@@ -632,7 +632,7 @@ server.get("/get-schedule", (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       return res.status(200).json({
-        status: "success",
+        data: data,
       });
     })
     .catch((err) => {
@@ -659,7 +659,7 @@ server.post("/delete-schedule", (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       return res.status(200).json({
-        data: data,
+        status:"success"
       });
     })
     .catch((err) => {
