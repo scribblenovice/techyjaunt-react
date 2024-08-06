@@ -543,7 +543,6 @@ server.get("/get-link", (req, res) => {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           data: data,
@@ -558,6 +557,94 @@ server.get("/get-link", (req, res) => {
     });
 });
 
+// book meeting
+server.post("/schedule-meeting", (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    companyName,
+    companyPosition,
+    companyWebsite,
+    meetingDate,
+    meetingTime,
+    extraDetails,
+  } = req.body;
+  console.log(req.body);
+  let launchpadListId = "88336d88-53dc-11ef-a73c-2f5b267643d3";
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: email,
+      fields: {
+        EmailAddress: email,
+        FirstName: firstName,
+        LastName: lastName,
+        PhoneNumber: phoneNumber,
+        CompanyName: companyName,
+        CompanyPosition: companyPosition,
+        CompanyWebsite: companyWebsite,
+        MeetingDate: meetingDate,
+        MeetingTime: meetingTime,
+        ExtraDetails: extraDetails,
+      },
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "alreadysignedup",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+// get schedule
+server.get("/get-schedule", (req, res) => {
+  let launchpadListId = "88336d88-53dc-11ef-a73c-2f5b267643d3";
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts?api_key=${api_key}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      return res.status(200).json({
+        data: data,
+      });
+     
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
+// verify payment
 server.post("/verify-payment", async (req, res) => {
   let paidListId = "8fce3572-4b90-11ef-be1e-553041d2c7af";
   const SECRET_KEY = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";

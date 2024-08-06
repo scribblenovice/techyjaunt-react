@@ -4,8 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
-import VerifyPayment from "./pages/checkout-page/VerifyPayment";
-import ErrorPayment from "./pages/checkout-page/ErrorPayment";
+// import VerifyPayment from "./pages/checkout-page/VerifyPayment";
+// import ErrorPayment from "./pages/checkout-page/ErrorPayment";
+const BookSchedule = lazy(() => import("./pages/schedule/BookSchedule"));
+const AdminNav = lazy(() => import("./admin/AdminNav"));
+const ViewScheduler = lazy(() => import("./admin/ViewSchedule"));
 const CryptoThankyou = lazy(() =>
   import("./pages/crypyo-bootcamp/CyptoThankyou")
 );
@@ -92,7 +95,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
+        {/* <Route
           path="/verify"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -107,7 +110,7 @@ function App() {
               <ErrorPayment />
             </Suspense>
           }
-        />
+        /> */}
         {/* EVENT */}
         <Route
           path="/event"
@@ -193,6 +196,7 @@ function App() {
             </Suspense>
           }
         />
+
         <Route
           path="/admin/change-link"
           element={
@@ -201,6 +205,34 @@ function App() {
                 <SecretPage />
               </Suspense>
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/admin-nav"
+          element={
+            <ProtectedRoute route="/admin" param="isAdmin">
+              <Suspense fallback={<GlobalBeat />}>
+                <AdminNav />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/view-schedule"
+          element={
+            <ProtectedRoute route="/admin" param="isAdmin">
+              <Suspense fallback={<GlobalBeat />}>
+                <ViewScheduler />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/schedule"
+          element={
+            <Suspense fallback={<GlobalBeat />}>
+              <BookSchedule />
+            </Suspense>
           }
         />
       </Routes>

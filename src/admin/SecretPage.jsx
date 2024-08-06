@@ -2,8 +2,13 @@ import { useState } from "react";
 import GlobalText from "../globalcomponents/GlobalText";
 import { Modal } from "flowbite-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SecretPage = () => {
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
   const [openModal, setOpenModal] = useState(false);
   const [newLink, setNewLink] = useState("");
   const handleChange = (e) => {
@@ -22,6 +27,12 @@ const SecretPage = () => {
   return (
     <>
       <div className="w-screen h-screen grid place-items-center bg-gradient-to-r from-blue-500 to-blue-700">
+      <button
+        onClick={goBack}
+        className="bg-white p-3 text-blue rounded-md m-5 place-self-start"
+      >
+        GO BACK
+      </button>
         <div className="flex flex-col w-[90%] md:w-[70%] lg:w-[50%]">
           <h1 className="text-2xl font-bold text-center">
             WELCOME TECHYJAUNT ADMIN

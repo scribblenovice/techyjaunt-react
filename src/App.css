@@ -17,49 +17,67 @@
   background-position: center;
 }
 
-.bg1{
-    background-image: url('./images/community/comm1.webp');
+.bg1 {
+  background-image: url("./images/community/comm1.webp");
 }
-.bg2{
-    background-image: url('./images/community/comm2.webp');
+.bg2 {
+  background-image: url("./images/community/comm2.webp");
 }
-.bg3{
-    background-image: url('./images/community/comm3.webp');
+.bg3 {
+  background-image: url("./images/community/comm3.webp");
 }
 .zoom {
-    animation: scaleInOut 7s alternate;
-  }
-  
-  @keyframes scaleInOut {
-    0% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  .crypto-bg{
-    background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
+  animation: scaleInOut 7s alternate;
+}
 
+@keyframes scaleInOut {
+  0% {
+    transform: scale(1.2);
   }
-  .orbitron{
-    font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+  100% {
+    transform: scale(1);
   }
-  
-  .slide{
-    animation: slider 100s linear infinite;
+}
+.crypto-bg {
+  background-image: url(../src/images/crypto-bootcamp/hero-bg.jpg);
+}
+.orbitron {
+  font-family: Orbitron, Roboto, Arial, Helvetica, sans-serif;
+}
+
+.slide {
+  animation: slider 100s linear infinite;
+}
+@keyframes slider {
+  from {
+    transform: translateX(0);
   }
-  @keyframes slider {
-    from{
-      transform: translateX(0);
-    }
-    to{
-      transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
   }
-  .hidescrollbar::-webkit-scrollbar{
-display: none;
+}
+.hidescrollbar::-webkit-scrollbar {
+  display: none;
+}
+.cryptoAbout {
+  background-image: url(./images/crypto-bootcamp/crypto.jpg);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+  -webkit-transition: all 5000s ease-in-out 0s;
+  transition-property: background-color, color;
+  -webkit-transition-property: background-color, color;
+}
+/* .fade-in{
+  animation: fade .2s linear;
+}
+@keyframes fade {
+  from{
+    opacity: 0;
+  } to{
+    opacity: 1;
   }
-  .cryptoAbout{
-    background-image: url(./images/crypto-bootcamp/crypto.jpg);
-  }
+} */

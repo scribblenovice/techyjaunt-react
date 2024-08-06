@@ -15,7 +15,7 @@ const AdminWelcome = () => {
       setPassCode("");
     } else {
       sessionStorage.setItem("isAdmin", true);
-      navigate("/admin/change-link");
+      navigate("/admin/admin-nav");
     }
   };
   const adminkey = import.meta.env.VITE_ADMIN_KEY;

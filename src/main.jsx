@@ -5,7 +5,9 @@ import "./index.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import "remixicon/fonts/remixicon.css";
 import { SnackbarProvider } from "notistack";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <SnackbarProvider
     maxSnack={2}
@@ -14,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   >
     <React.StrictMode>
       <ThemeProvider>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </ThemeProvider>
     </React.StrictMode>
   </SnackbarProvider>

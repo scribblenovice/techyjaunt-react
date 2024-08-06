@@ -8,15 +8,13 @@ import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
-import { useSnackbar } from "notistack";
 
 const Checkout = () => {
-  const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => {
-    // variant could be success, error, warning, info, or default
-    enqueueSnackbar(message, { variant });
-  };
-
+  const [message, setMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalError, setModalError] = useState(true);
+  const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -60,67 +58,46 @@ const Checkout = () => {
     setFormErrors(errors);
     return isValid;
   };
-
-  // paystack
-  const [reference, setReference] = useState("");
-  // const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
-  const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
-  const callbackUrl = "http://localhost:5173/verify";
-  const initializePayment = async () => {
-    const isValid = validateForm();
-    const paymentDetails = {
-      email: formData.email,
-      amount: 750000, // Convert to kobo
-      reference: new Date().getTime().toString(),
-      callback_url: callbackUrl,
-      metadata: {
-        custom_fields: [
-          {
-            display_name: "First Name",
-            variable_name: "first_name",
-            value:
-              formData.firstName.charAt(0).toUpperCase() +
-              formData.firstName.slice(1),
-          },
-          {
-            display_name: "Last Name",
-            variable_name: "last_name",
-            value:
-              formData.lastName.charAt(0).toUpperCase() +
-              formData.lastName.slice(1),
-          },
-        ],
-      },
-    };
-    if (isValid) {
-      try {
-        const response = await axios.post(
-          "https://api.paystack.co/transaction/initialize",
-          paymentDetails,
-          {
-            headers: {
-              Authorization: `Bearer ${publicKey}`,
-            },
-          }
-        );
-        const { authorization_url } = response.data.data;
-        setReference(response.data.data.reference);
-        localStorage.setItem("paymentReference", reference);
-        localStorage.setItem("formData", JSON.stringify(formData));
-        window.location.href = authorization_url;
-      } catch (error) {
-        handleSnackbar("an error occured", "error");
-      }
-    } else {
-      handleSnackbar("please fill the form", "error");
-    }
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: formData.email,
+    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+    // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
   };
+
+  const onSuccess = (reference) => {
+    axios
+      .post("https://techyjaunt-kx6a.onrender.com/payment", {
+        ...formData,
+        completedPayment: "yes",
+      })
+      .then((res) => {
+        if (res.data.status === "paid") {
+          sessionStorage.setItem("isPaid", true);
+          navigate("/checkout/thank-you");
+        }
+        if (res.data.status === "existing") {
+          setModalError(true);
+          setOpen(true);
+          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
+        }
+        if (res.data.status === "failed") {
+          alert("AN ERROR OCCURED");
+        }
+      });
+  };
+  const onClose = () => {
+    alert("PAYMENT FAILED");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+    console.log(formData);
   };
   return (
     <>
@@ -194,7 +171,7 @@ const Checkout = () => {
                 </label>
                 <GlobalText
                   id="amount"
-                  inputVal={`NGN: 7500`}
+                  inputVal={`NGN: ${config.amount / 100}`}
                   isDisabled={true}
                 />
               </div>
@@ -261,15 +238,32 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <button
-              onClick={initializePayment}
+            <PaystackButton
+              {...config}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
-            >
-              Pay Now
-            </button>
+              text="Pay Now"
+              onSuccess={onSuccess}
+              onClose={onClose}
+            />
           </div>
         </div>
       </section>
+      <Modal show={open} onClose={close} position="center">
+        <Modal.Header className="border-none h-2"></Modal.Header>
+
+        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
+          <div>
+            <i
+              className={`${
+                modalError
+                  ? "ri-error-warning-line text-red-500"
+                  : "ri-checkbox-circle-line text-green-500"
+              }  text-7xl`}
+            ></i>
+          </div>
+          <div className="text-xl md:text-2xl text-center">{message}</div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
