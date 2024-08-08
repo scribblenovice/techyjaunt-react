@@ -70,12 +70,12 @@ function App() {
           {/* launchpad */}
           <Route path="launchpad">
             <Route
+            index
               element={
                 <Suspense fallback={<GlobalBeat />}>
                   <NewLaunchpad />
                 </Suspense>
               }
-              index
             />
             <Route
               path="register"
@@ -194,54 +194,6 @@ function App() {
         </Route>
 
         {/* old routing */}
-        {/* <Route
-          path="/"
-          index={true}
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <Homepage />
-            </Suspense>
-          }
-        /> */}
-        {/* LAUNCHPAD */}
-        {/* <Route path="/launchpad">
-          <Route
-            element={
-              <Suspense fallback={<GlobalBeat />}>
-                <NewLaunchpad />
-              </Suspense>
-            }
-            index
-          />
-          <Route
-            path="thank-you"
-            element={
-              <ProtectedRoute route="/launchpad" param="isRegistered">
-                <Suspense fallback={<GlobalBeat />}>
-                  <LaunchPadThankyou />
-                </Suspense>
-              </ProtectedRoute>
-            }
-          />
-        </Route> */}
-        {/* <Route
-          path="/launchpad"
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <LaunchPad />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/launchpad/thank-you"
-          element={
-            <ProtectedRoute route="/launchpad" param="isRegistered">
-              <Suspense fallback={<GlobalBeat />}>
-                <LaunchPadThankyou />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        /> */}
         {/* CHECKOUT */}
         {/* <Route
           path="/checkout"
@@ -315,26 +267,6 @@ function App() {
             </ProtectedRoute>
           }
         /> */}
-        {/* community */}
-        {/* <Route
-          path="/community"
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <Community />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/community/thank-you"
-          element={
-            <ProtectedRoute route="/community" param="isRegistered">
-              <Suspense fallback={<GlobalBeat />}>
-                <CommunityThankYou />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        /> */}
-
         {/* cryptobootcamp */}
         {/* <Route
           path="/crypto-bootcamp"
@@ -354,53 +286,7 @@ function App() {
             // </ProtectedRoute>
           }
         />
-        <Route
-          path="/admin"
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <AdminWelcome />
-            </Suspense>
-          }
-        />
-
-        <Route
-          path="/admin/change-link"
-          element={
-            <ProtectedRoute route="/admin" param="isAdmin">
-              <Suspense fallback={<GlobalBeat />}>
-                <SecretPage />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/admin-nav"
-          element={
-            <ProtectedRoute route="/admin" param="isAdmin">
-              <Suspense fallback={<GlobalBeat />}>
-                <AdminNav />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/view-schedule"
-          element={
-            <ProtectedRoute route="/admin" param="isAdmin">
-              <Suspense fallback={<GlobalBeat />}>
-                <ViewScheduler />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/schedule"
-          element={
-            <Suspense fallback={<GlobalBeat />}>
-              <BookSchedule />
-            </Suspense>
-          }
-        />*/}
+      */}
       </Routes>
     </BrowserRouter>
   );
