@@ -2,14 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const LaunchPadThankyou = () => {
-  const [whatsappLink, setWhatsappLink] = useState('')
-  useEffect(()=>{
-    axios
-    .get("https://techyjaunt-kx6a.onrender.com/get-link")
-    .then((res) => {
-     setWhatsappLink(res?.data?.data?.fields?.NewLink)
+  const [whatsappLink, setWhatsappLink] = useState("");
+  useEffect(() => {
+    axios.get("https://techyjaunt-kx6a.onrender.com/get-link").then((res) => {
+      setWhatsappLink(res?.data?.data?.fields?.NewLink);
     });
-  }, [])
+  }, []);
   return (
     <>
       <div className="w-screen h-screen grid place-items-center bg-gradient-to-r from-blue-500 to-blue-700">
@@ -18,18 +16,20 @@ const LaunchPadThankyou = () => {
             className={`ri-checkbox-circle-line text-green-300 text-9xl lg:text-[200px]`}
           ></i>
           <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
-            YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 4! <br />
+            Thanks for applying, but Cohort 4 applications are now closed. We
+            have, however, added you to the waitlist for our next cohort. <br />{" "}
+            Join our WhatsApp community for more updates
+            {/* YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 4! <br />
             <span className="text-sm md:text-base">
               {" "}
               WE HAVE SENT YOU A CONFIRMATION EMAIL REGARDING YOUR APPLICATION.
               KINDLY JOIN OUR WHATSAPP COMMUNUITY FOR MORE INFORMATION USING THE
               LINK BELOW.
-            </span>
+            </span> */}
           </p>
           <a
             target="_blank"
             href={whatsappLink}
-            // onClick={redirect}
             className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
           >
             JOIN OUR WHATSAPP COMMUNITY{" "}
