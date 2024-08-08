@@ -8,11 +8,27 @@ export default withMT({
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        'founder':"url(./src/images/founder.webp)"
-      }
+      backgroundImage: {
+        founder: "url(./src/images/founder.webp)",
+        "tech-bg": "url(./src/images/techbg.webp)",
+      },
+      colors: {
+        "tech-blue": "#0175FB;",
+      },
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [
+    require("flowbite/plugin"),
+    function ({ addUtilities }) {
+      addUtilities({
+        ".scrollbar-none": {
+          "scrollbar-width": "none" /* Firefox */,
+          "-ms-overflow-style": "none" /* Internet Explorer 10+ */,
+          "&::-webkit-scrollbar": {
+            display: "none" /* Safari and Chrome */,
+          },
+        },
+      });
+    },
+  ],
 });
-

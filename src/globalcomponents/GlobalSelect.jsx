@@ -10,6 +10,7 @@ const GlobalSelect = ({
   return (
     <>
       <Select
+      id="select"
         onChange={handleChange}
         value={inputVal}
         name={inputName}
@@ -38,13 +39,6 @@ const GlobalSelect = ({
                 )}
                 {el.name}
               </div>
-
-              {/* <img
-                src={el.image}
-                alt=""
-                className={`${el.image ? "" : "none"}`}
-              />
-              {el.name} */}
             </Option>
           );
         })}

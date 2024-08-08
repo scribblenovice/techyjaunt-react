@@ -238,6 +238,10 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
+            {/* // <PaystackButtons
+            //   className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
+            //   {...componentProps}
+            // /> */}
             <PaystackButton
               {...config}
               className="mx-auto bg-blue-500 text-white p-4 rounded"

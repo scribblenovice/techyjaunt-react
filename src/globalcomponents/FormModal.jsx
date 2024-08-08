@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Button, Modal } from "flowbite-react";
+
+import { Modal } from "flowbite-react";
 import GlobalText from "../globalcomponents/GlobalText";
-import axios from "axios";
+
 import GlobalSelect from "./GlobalSelect";
 import { courses, howHeard } from "../resources/resources";
-import { useNavigate } from "react-router-dom";
+
 import PhoneNumber from "./PhoneNumber";
 import GlobalBeat from "./BeatLoader";
 

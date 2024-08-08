@@ -12,6 +12,16 @@ const ViewScheduler = lazy(() => import("./admin/ViewSchedule"));
 const CryptoThankyou = lazy(() =>
   import("./pages/crypyo-bootcamp/CyptoThankyou")
 );
+// import RegistrationPage from "./pages/homepage/new-website/registration-page/RegistrationPage";
+const NewLaunchpad = lazy(() =>
+  import("./pages/homepage/new-website/new-launchpad/NewLaunchpad")
+);
+const AllCoursesPage = lazy(() =>
+  import("./pages/homepage/new-website/courses-info/CourseInfoPage")
+);
+const RegistrationPage = lazy(() =>
+  import("./pages/homepage/new-website/registration-page/RegistrationPage")
+);
 const AdminWelcome = lazy(() => import("./admin/AdminWelcome"));
 const SecretPage = lazy(() => import("./admin/SecretPage"));
 const ClosedRegister = lazy(() => import("./pages/launchpad/ClosedRegister"));
@@ -47,7 +57,144 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+        <Route path="/">
+        {/* homepage */}
+          <Route
+            index
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <Homepage />
+              </Suspense>
+            }
+          />
+          {/* launchpad */}
+          <Route path="launchpad">
+            <Route
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <NewLaunchpad />
+                </Suspense>
+              }
+              index
+            />
+            <Route
+              path="register"
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <RegistrationPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute route="/launchpad" param="isRegistered">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <LaunchPadThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          {/* courses useparam */}
+          <Route path="/course/:courseName" element={<AllCoursesPage />} />
+          {/* community route */}
+          <Route path="community">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <Community />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute
+                  route="/community"
+                  param="isCommunityRegistered"
+                >
+                  <Suspense fallback={<GlobalBeat />}>
+                    <CommunityThankYou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          {/* checkout route */}
+          <Route path="/checkout">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <Checkout />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <CheckoutThankYou />
+                </Suspense>
+              }
+            />
+          </Route>
+          {/* admin route */}
+          <Route path="/admin">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <AdminWelcome />
+                </Suspense>
+              }
+            />
+            <Route
+              path="admin-nav"
+              element={
+                <ProtectedRoute route="/admin" param="isAdmin">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <AdminNav />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="change-link"
+              element={
+                <ProtectedRoute route="/admin" param="isAdmin">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <SecretPage />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="view-schedule"
+              element={
+                <ProtectedRoute route="/admin" param="isAdmin">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <ViewScheduler />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+          {/* schedule */}
+          <Route
+            path="schedule"
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <BookSchedule />
+              </Suspense>
+            }
+          />
+        </Route>
+
+        {/* old routing */}
+        {/* <Route
           path="/"
           index={true}
           element={
@@ -55,13 +202,32 @@ function App() {
               <Homepage />
             </Suspense>
           }
-        />
+        /> */}
         {/* LAUNCHPAD */}
-        <Route
+        {/* <Route path="/launchpad">
+          <Route
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <NewLaunchpad />
+              </Suspense>
+            }
+            index
+          />
+          <Route
+            path="thank-you"
+            element={
+              <ProtectedRoute route="/launchpad" param="isRegistered">
+                <Suspense fallback={<GlobalBeat />}>
+                  <LaunchPadThankyou />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+        </Route> */}
+        {/* <Route
           path="/launchpad"
           element={
             <Suspense fallback={<GlobalBeat />}>
-              {/* <ClosedRegister /> */}
               <LaunchPad />
             </Suspense>
           }
@@ -75,9 +241,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
+        /> */}
         {/* CHECKOUT */}
-        <Route
+        {/* <Route
           path="/checkout"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -112,7 +278,7 @@ function App() {
           }
         /> */}
         {/* EVENT */}
-        <Route
+        {/* <Route
           path="/event"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -129,9 +295,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
+        /> */}
         {/* HACKATHON */}
-        <Route
+        {/* <Route
           path="/hackathon"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -148,9 +314,9 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
+        /> */}
         {/* community */}
-        <Route
+        {/* <Route
           path="/community"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -167,10 +333,10 @@ function App() {
               </Suspense>
             </ProtectedRoute>
           }
-        />
+        /> */}
 
         {/* cryptobootcamp */}
-        <Route
+        {/* <Route
           path="/crypto-bootcamp"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -234,7 +400,7 @@ function App() {
               <BookSchedule />
             </Suspense>
           }
-        />
+        />*/}
       </Routes>
     </BrowserRouter>
   );

@@ -14,16 +14,13 @@ const fetchData = async () => {
 };
 
 const ViewScheduler = () => {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleSnackbar = (message, variant) => {
-      enqueueSnackbar(message, { variant });
-    };
-  
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => {
+    enqueueSnackbar(message, { variant });
+  };
+
   const [pending, setPending] = useState(false);
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
   const { data, error, isLoading, refetch } = useQuery("fetchData", fetchData, {
     refetchInterval: 5000, // Refetch data every 5 seconds
   });
@@ -43,11 +40,7 @@ const ViewScheduler = () => {
     return dateTimeA - dateTimeB;
   });
 
-  console.log(scheduleData?.data?.data);
-  console.log(mainData);
-
   const deletSchedule = (id) => {
-    console.log(id);
     setPending(true);
     axios
       .post("https://techyjaunt-kx6a.onrender.com/delete-schedule", {
@@ -66,12 +59,16 @@ const ViewScheduler = () => {
     <>
       {pending && <Loader />}
       <div className="container mx-auto p-4">
-        <button
-          onClick={goBack}
-          className="bg-blue-500 p-3 text-white rounded-md mb-5"
-        >
-          GO BACK
-        </button>
+        <div className="flex justify-between items-center">
+          <button
+            onClick={()=>navigate("/admin/admin-nav")}
+            className="bg-blue-500 p-3 text-white rounded-md mb-5 hover:bg-gray-500 transition-all  ease-linear duration-200"
+          >
+            GO BACK
+          </button>
+          <h2 className="text-lg font-semibold">MEETING SCHEDULE</h2>
+        </div>
+
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>

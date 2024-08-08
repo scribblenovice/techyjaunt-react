@@ -6,14 +6,16 @@ const Videos = () => {
   const [renderVid, setRenderVid] = useState(0);
   return (
     <>
-      <div className="flex justify-between">
-        <Switcher renderVid={renderVid} />
-        <div className="w-fit flex flex-col">
+      <div className="flex gap-x-2 w-full">
+        <div className="w-full">
+        <Switcher renderVid={renderVid} />  
+        </div>
+        <div className="flex flex-col gap-y-5">
           {thumbImg.map((el) => {
             return (
-              <button
+              <button 
                 key={el.id}
-                className="mb-7 overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-fit h-fit"
+                className="overflow-x-hidden overflow-y-hidden relative hover:scale-105 transition-all duration-200 ease-in w-full h-fit"
                 onClick={() => setRenderVid(el.id)}
               >
                 <div
@@ -21,7 +23,7 @@ const Videos = () => {
                     renderVid == el.id ? "bg-none" : "bg-gray-800 opacity-40"
                   } testvid`}
                 ></div>
-                <img src={el.src} alt="" className={`testvid w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 testvid `} />
+                <img src={el.src} alt="" className={`testvid w-full h-20 md:h-[90px] testvid border-[3px] border-gray-900`} />
               </button>
             );
           })}

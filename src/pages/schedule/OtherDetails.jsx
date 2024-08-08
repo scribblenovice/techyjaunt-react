@@ -55,21 +55,13 @@ const OtherDetails = ({
         </label>
         <div className="w-full">
           <textarea
-          className="resize-none w-full rounded-md focus:!border-[1px] focus:!outline-[5px]"
+          className="resize-none focus:ring-0 w-full rounded-md"
             name="extraDetails"
             id="extra"
             onChange={handleChange}
             value={formData.extraDetails}
             res
           ></textarea>
-          {/* <GlobalSelect2
-            menuClass="aria-selected:bg-white aria-selected:text-black text-white bg-black"
-            options={howHeard}
-            name="knowlegeOfTechyJaunt"
-            inputVal={formData.knowlegeOfTechyJaunt}
-            handleChange={handleSelect2}
-            errorTxt={formErrors?.knowlegeOfTechyJaunt}
-          /> */}
         </div>
       </div>
     </div>

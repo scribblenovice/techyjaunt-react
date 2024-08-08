@@ -30,8 +30,8 @@ const StepProgressBar = ({
                 <div
                   className={`absolute top-1/2 transform -translate-y-1/2 z-10 ${progressHeight} transition-all ease-linear duration-300 ${
                     currentStep > index
-                      ? "bg-blue-500 w-full"
-                      : "bg-blue-500 w-0"
+                      ? "bg-tech-blue w-full"
+                      : "bg-tech-blue w-0"
                   }`}
                 ></div>
               </div>
@@ -39,20 +39,6 @@ const StepProgressBar = ({
           </div>
         ))}
       </div>
-      {/* <div className="flex space-x-2">
-        <button
-          onClick={goToPreviousStep}
-          className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-        >
-          Previous
-        </button>
-        <button
-          onClick={goToNextStep}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Next
-        </button>
-      </div> */}
     </div>
   );
 };

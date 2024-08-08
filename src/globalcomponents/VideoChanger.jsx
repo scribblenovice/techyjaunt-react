@@ -38,20 +38,21 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
     }
   };
   return (
-    <div className=" box lg:mx-auto testvid w-[80%] h-full relative video bg-black overflow-hidden">
+    <div className="box lg:mx-auto h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] relative video bg-black overflow-hidden rounded-lg">
       <video
-        className="w-full h-[47vh] sm:h-[400px] md:h-[450px] lg:h-[500px] "
+        // className="w-full h-[47vh] sm:h-[400px] md:h-[450px] lg:h-[500px] "
+        className="absolute top-0 left-0 w-full h-full"
         src={vidSrc}
         ref={videoRef}
       ></video>
       <div
-        className={`absolute top-0 bottom-0 left-0 right-0 test-vid ${thumbNail} ${
+        className={`absolute top-0 bottom-0 left-0 right-0 test-vid rounded-md ${thumbNail} ${
           count > 0 && durationSec != currentTimeSec ? "hidden" : "block"
         }`}
       >
-        <h3 className="thumbtext text-xl md:text-3xl absolute text-white bottom-24 right-0 left-0 mx-auto text-center">
+        {/* <h3 className="thumbtext text-xl md:text-3xl absolute text-white bottom-24 right-0 left-0 mx-auto text-center">
           {fullName}
-        </h3>
+        </h3> */}
       </div>
       <div className="playbtn rounded-full absolute right-0 left-0 mx-auto text-center bottom-8">
         <button
@@ -59,14 +60,14 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
             setCount(count + 1);
             handlePlay();
           }}
-          className=" w-12 h-12 rounded-full bg-white focus:outline-none"
+          className=" w-12 h-12 rounded-full bg-white focus:outline-none border-tech-blue border-4"
         >
           <i
             className={`${
               isPlaying && durationSec != currentTimeSec
                 ? "ri-pause-line"
                 : "ri-play-fill"
-            } text-blue-500 text-4xl`}
+            } text-tech-blue text-4xl`}
           ></i>
         </button>
       </div>

@@ -7,16 +7,16 @@ const AdminNav = () => {
         <h1 className="text-2xl font-bold text-center text-black my-10">
           WELCOME TECHYJAUNT ADMIN
         </h1>
-        <div className="flex gap-10 flex-col md:flex-row">
+        <div className="flex gap-5 flex-col md:flex-row">
           <NavLink
             to="/admin/change-link"
-            className="p-2 rounded-md bg-blue-500 text-white w-fit"
+            className="p-2 rounded-md bg-blue-500 text-white w-fit hover:bg-gray-500 transition-all  ease-linear duration-200"
           >
             CHANGE LAUNCHPAD LINK
           </NavLink>
           <NavLink
             to="/admin/view-schedule"
-            className="p-2 rounded-md bg-blue-500 text-white w-fit"
+            className="p-2 rounded-md bg-blue-500 text-white w-fit hover:bg-gray-500 transition-all  ease-linear duration-200"
           >
             VIEW MEETING SCHEDULE
           </NavLink>

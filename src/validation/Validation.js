@@ -31,6 +31,10 @@ export const validateInfo = (formData, update) => {
     errors.lastName = "enter your last name";
     isValid = false;
   }
+  if (formData.gender === "") {
+    errors.gender = "select a gender";
+    isValid = false;
+  }
   update(errors);
   return isValid;
 };

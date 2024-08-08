@@ -164,7 +164,6 @@ const BookSchedule = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   return (
