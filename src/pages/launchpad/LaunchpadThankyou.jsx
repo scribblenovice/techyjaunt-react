@@ -15,10 +15,10 @@ const LaunchPadThankyou = () => {
           <i
             className={`ri-checkbox-circle-line text-green-300 text-9xl lg:text-[200px]`}
           ></i>
-          <p className="text-center text-xl sm:text-2xl md:text-4xl text-white font-bold">
-            Thanks for applying, but Cohort 4 applications are now closed. We
-            have, however, added you to the waitlist for our next cohort. <br />{" "}
-            Join our WhatsApp community for more updates
+          <p className="text-center text-xl sm:text-2xl md:text-3xl text-white font-bold">
+            Thank you for applying, but Cohort 4 applications are now closed. We
+            have, however, added you to the waitlist for our next cohort. Join
+            our WhatsApp community for more updates
             {/* YOU HAVE SUCCESSFULLY REGISTERED FOR TECHYJAUNT COHORT 4! <br />
             <span className="text-sm md:text-base">
               {" "}
@@ -30,6 +30,7 @@ const LaunchPadThankyou = () => {
           <a
             target="_blank"
             href={whatsappLink}
+            // onClick={redirect}
             className="flex items-center  bg-white text-blue-500 px-5 py-3 rounded-md font-bold hover:scale-105 transition-all ease-in duration-300"
           >
             JOIN OUR WHATSAPP COMMUNITY{" "}

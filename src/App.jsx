@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
+import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 // import VerifyPayment from "./pages/checkout-page/VerifyPayment";
 // import ErrorPayment from "./pages/checkout-page/ErrorPayment";
 const BookSchedule = lazy(() => import("./pages/schedule/BookSchedule"));
@@ -227,12 +228,23 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* schedule */}
         <Route
           path="/schedule"
           element={
             <Suspense fallback={<GlobalBeat />}>
               <BookSchedule />
             </Suspense>
+          }
+        />
+        <Route
+          path="/schedule/thank-you"
+          element={
+            <ProtectedRoute route="/schedule" param="scheduleRegistered">
+              <Suspense fallback={<GlobalBeat />}>
+                <ScheduleThankyou />
+              </Suspense>
+            </ProtectedRoute>
           }
         />
       </Routes>
