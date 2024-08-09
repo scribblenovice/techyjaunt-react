@@ -143,7 +143,7 @@ const ViewScheduler = () => {
             <i class="ri-close-circle-line"></i>
           </button>
           <div className="flex flex-col gap-5 items-center py-5">
-            <h2 className="font-bold text-xl text-center pt-2">
+            <h2 className="font-bold text-xl text-center pt-3">
               Are you sure you want to proceed? <br />
               This process is irreversible!
             </h2>
