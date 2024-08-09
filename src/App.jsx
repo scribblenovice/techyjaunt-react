@@ -58,7 +58,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-        {/* homepage */}
+          {/* homepage */}
           <Route
             index
             element={
@@ -70,7 +70,7 @@ function App() {
           {/* launchpad */}
           <Route path="launchpad">
             <Route
-            index
+              index
               element={
                 <Suspense fallback={<GlobalBeat />}>
                   <NewLaunchpad />
@@ -97,7 +97,14 @@ function App() {
             />
           </Route>
           {/* courses useparam */}
-          <Route path="/course/:courseName" element={<AllCoursesPage />} />
+          <Route
+            path="/course/:courseName"
+            element={
+              <Suspense fallback={<GlobalBeat />}>
+                <AllCoursesPage />
+              </Suspense>
+            }
+          />
           {/* community route */}
           <Route path="community">
             <Route

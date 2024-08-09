@@ -230,7 +230,7 @@ const LaunchPad = () => {
           }}
         />
 
-        <section className="flex justify-center h-fit py-20 lg:h-[100vh] launchpad-jumbo bg-gray-800 bg-blend-multiply">
+        <section className="flex justify-center h-fit py-20z lg:h-[100vh] launchpad-jumbo bg-gray-800 bg-blend-multiply">
           <div className="mt-12 lg:mt-10 w-[90%] sm:w-[80%] mx-auto grid grid-cols-1 gap-y-10 lg:gap-y-0 lg:grid-cols-2 lg:gap-x-10 place-items-center">
             <div className="h-full lg:h-[70%] flex flex-col justify-around md:justify-evenly">
               <Fade bottom>
@@ -263,7 +263,7 @@ const LaunchPad = () => {
               </Fade>
             </div>
             <Fade bottom>
-              <div className="testvid w-full sm:w-[80%] mx-auto overflow-hidden h-[350px] sm:h-[400px] md:h-[500px] box bg-black rounded-lg lg:w-[40vw] py-10 relative">
+              <div className="testvid py-10 w-full sm:w-[80%] mx-auto overflow-hidden h-[350px] sm:h-[400px] md:h-[500px] box bg-black rounded-lg lg:w-[40vw] relative">
                 {/* videos */}
                 <video
                   className="w-full h-[85%] mx-auto relative -top-8 z-10"
