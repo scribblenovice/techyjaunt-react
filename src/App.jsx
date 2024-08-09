@@ -240,11 +240,11 @@ function App() {
         <Route
           path="/schedule/thank-you"
           element={
-            <ProtectedRoute route="/schedule" param="scheduleRegistered">
+            // <ProtectedRoute route="/schedule" param="scheduleRegistered">
               <Suspense fallback={<GlobalBeat />}>
                 <ScheduleThankyou />
               </Suspense>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
       </Routes>
