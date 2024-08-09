@@ -4,7 +4,20 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Loader from "../globalcomponents/Loader";
-import { useSnackbar } from "notistack";
+import Modal from "@mui/material/Modal";
+import useCustomSnackbar from "../hooks/UseCustomSnackbar";
+import { Box } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+};
 
 const fetchData = async () => {
   const { data } = await axios.get(
@@ -14,40 +27,17 @@ const fetchData = async () => {
 };
 
 const ViewScheduler = () => {
-    const { enqueueSnackbar } = useSnackbar();
-    const handleSnackbar = (message, variant) => {
-      enqueueSnackbar(message, { variant });
-    };
-  
+  const [openModal, setOpenModal] = useState(false);
+  const { handleSnackbar } = useCustomSnackbar();
   const [pending, setPending] = useState(false);
   const navigate = useNavigate();
-  const goBack = () => {
-    navigate(-1);
-  };
   const { data, error, isLoading, refetch } = useQuery("fetchData", fetchData, {
     refetchInterval: 5000, // Refetch data every 5 seconds
   });
   const scheduleData = !isLoading ? data : "";
-  const parseDateTime = (dateStr, timeStr) => {
-    const formattedTimeStr = timeStr
-      .replace(/\s*(am|pm)/i, " $1")
-      .toUpperCase();
-    const [day, month, year] = dateStr.split("-");
-    return new Date(`${year}-${month}-${day}T${formattedTimeStr}`);
-  };
+  const mainData = scheduleData?.data?.data;
 
-  // Sort the array
-  const mainData = scheduleData?.data?.data.sort((a, b) => {
-    const dateTimeA = parseDateTime(a.fields.MeetingDate, a.fields.MeetingTime);
-    const dateTimeB = parseDateTime(b.fields.MeetingDate, b.fields.MeetingTime);
-    return dateTimeA - dateTimeB;
-  });
-
-  console.log(scheduleData?.data?.data);
-  console.log(mainData);
-
-  const deletSchedule = (id) => {
-    console.log(id);
+  const deleteSchedule = (id) => {
     setPending(true);
     axios
       .post("https://techyjaunt-kx6a.onrender.com/delete-schedule", {
@@ -66,12 +56,16 @@ const ViewScheduler = () => {
     <>
       {pending && <Loader />}
       <div className="container mx-auto p-4">
-        <button
-          onClick={goBack}
-          className="bg-blue-500 p-3 text-white rounded-md mb-5"
-        >
-          GO BACK
-        </button>
+        <div className="flex justify-between items-center">
+          <button
+            onClick={() => navigate("/admin/admin-nav")}
+            className="bg-blue-500 p-3 text-white rounded-md mb-5 hover:bg-gray-500 transition-all  ease-linear duration-200"
+          >
+            GO BACK
+          </button>
+          <h2 className="text-lg font-semibold">MEETING SCHEDULE</h2>
+        </div>
+
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
@@ -97,7 +91,7 @@ const ViewScheduler = () => {
                 >
                   <td className="p-2 text-center">
                     <button
-                      onClick={() => deletSchedule(user?.id)}
+                      onClick={() => setOpenModal(true)}
                       className="text-red-500 text-lg"
                     >
                       <i class="ri-delete-bin-6-line"></i>
@@ -135,6 +129,33 @@ const ViewScheduler = () => {
           </table>
         </div>
       </div>
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box sx={style} className="rounded-lg relative">
+          <button
+            onClick={() => setOpenModal(false)}
+            className="text-red-500 absolute text-3xl top-4 right-4"
+          >
+            <i class="ri-close-circle-line"></i>
+          </button>
+          <div className="flex flex-col gap-5 items-center py-5">
+            <h2 className="font-bold text-xl text-center pt-3">
+              Are you sure you want to proceed? <br />
+              This process is irreversible!
+            </h2>
+            <button
+              onClick={() => deleteSchedule(user?.id)}
+              className="font-bold rounded-md bg-red-600 p-2 text-white hover:bg-red-500 hover:text-gray-100 transition-all ease-linear duration-100"
+            >
+              PROCEED
+            </button>
+          </div>
+        </Box>
+      </Modal>
     </>
   );
 };
