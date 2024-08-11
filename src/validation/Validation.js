@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from "moment";
 
 export const validateContact = (formData, update) => {
   let errors = {};
@@ -79,14 +79,32 @@ export const validateMeeting = (formData, update) => {
     errors.meetingTime = "Please select a valid meeting time";
     isValid = false;
   } else {
-    const meetingMoment = moment(formData.meetingTime, 'YYYY-MM-DDTHH:mm'); // Parse the meetingTime
-    const startOfWorkDay = moment(meetingMoment).set({ hour: 8, minute: 0, second: 0 });
-    const endOfWorkDay = moment(meetingMoment).set({ hour: 18, minute: 0, second: 0 });
-    const today = moment().startOf('day'); // Get today's date at 00:00
+    const meetingDay = moment(formData.meetingTime)
+      .format("dddd")
+      .toLowerCase();
+    const meetingMoment = moment(formData.meetingTime, "YYYY-MM-DDTHH:mm"); // Parse the meetingTime
+    const startOfWorkDay = moment(meetingMoment).set({
+      hour: 8,
+      minute: 0,
+      second: 0,
+    });
+    const endOfWorkDay = moment(meetingMoment).set({
+      hour: 18,
+      minute: 0,
+      second: 0,
+    });
+    const today = moment().startOf("day"); // Get today's date at 00:00
 
     // Validate the time is within working hours (8:00 AM to 6:00 PM)
-    if (meetingMoment.isBefore(startOfWorkDay) || meetingMoment.isAfter(endOfWorkDay)) {
+    if (
+      meetingMoment.isBefore(startOfWorkDay) ||
+      meetingMoment.isAfter(endOfWorkDay)
+    ) {
       errors.meetingTime = "Meeting time must be between 8:00 AM and 6:00 PM";
+      isValid = false;
+    }
+    if (meetingDay === "saturday" || meetingDay === "sunday") {
+      errors.meetingTime = "Meeting time must be between Monday and Friday";
       isValid = false;
     }
 
@@ -100,4 +118,3 @@ export const validateMeeting = (formData, update) => {
   update(errors);
   return isValid;
 };
-
