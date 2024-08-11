@@ -113,7 +113,7 @@ const ViewScheduler = () => {
                       <i class="ri-delete-bin-6-line"></i>
                     </button>
                   </td>
-                  <td className="p-2 text-left">{index}</td>
+                  <td className="p-2 text-left">{index +1}</td>
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     {user?.fields?.FirstName + " " + user?.fields?.LastName}
                   </td>
