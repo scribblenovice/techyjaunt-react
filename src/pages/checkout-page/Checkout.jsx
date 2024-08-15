@@ -101,7 +101,7 @@ const Checkout = () => {
   };
   return (
     <>
-       <div className="flex justify-center items-center flex-col w-screen h-screen">
+      <div className="flex justify-center items-center flex-col w-screen h-screen">
         <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
           Payment for cohort 4 has been closed!
         </h1>
@@ -112,7 +112,6 @@ const Checkout = () => {
           </Link>
         </p>
       </div>
-
       {/*<section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
@@ -241,7 +240,7 @@ const Checkout = () => {
             {/* // <PaystackButtons
             //   className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
             //   {...componentProps}
-            // /> */}
+            // />
             <PaystackButton
               {...config}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
@@ -267,7 +266,8 @@ const Checkout = () => {
           </div>
           <div className="text-xl md:text-2xl text-center">{message}</div>
         </Modal.Body>
-      </Modal>*/}
+      </Modal>
+      */}
     </>
   );
 };
