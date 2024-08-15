@@ -1,5 +1,4 @@
 "use client";
-import NavLinks from "../../globalcomponents/NavLinks";
 import vidSrc from "../../images/launchpad/launchpadvid.mp4";
 import { useState, useRef, useEffect } from "react";
 import FormModal from "../../globalcomponents/FormModal";

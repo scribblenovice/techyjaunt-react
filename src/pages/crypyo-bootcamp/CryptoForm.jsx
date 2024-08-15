@@ -9,7 +9,6 @@ import {
   hackathonSkills,
   state,
 } from "../../resources/resources";
-import NavLinks from "../../globalcomponents/NavLinks";
 import { useEffect, useState } from "react";
 
 const CryptoForm = ({
