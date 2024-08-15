@@ -50,9 +50,6 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
           count > 0 && durationSec != currentTimeSec ? "hidden" : "block"
         }`}
       >
-        {/* <h3 className="thumbtext text-xl md:text-3xl absolute text-white bottom-24 right-0 left-0 mx-auto text-center">
-          {fullName}
-        </h3> */}
       </div>
       <div className="playbtn rounded-full absolute right-0 left-0 mx-auto text-center bottom-8">
         <button
@@ -60,7 +57,7 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
             setCount(count + 1);
             handlePlay();
           }}
-          className=" w-12 h-12 rounded-full bg-white focus:outline-none border-tech-blue border-4"
+          className=" w-14 h-14 rounded-full bg-white focus:outline-none border-tech-blue border-4"
         >
           <i
             className={`${

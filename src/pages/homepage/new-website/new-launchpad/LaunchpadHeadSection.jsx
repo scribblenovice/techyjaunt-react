@@ -6,16 +6,16 @@ import { NavLink } from "react-router-dom";
 const LaunchpadHeadSection = () => {
   return (
     <>
-      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-0 relative lg:pt-20 w-[90%] xl:w-[80%]">
+      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-0 relative w-[90%] xl:w-[85%] pt-5">
         <Circle
           color="#0075FD"
           className="absolute hidden xl:block top-36 left-[50%]"
         />
-        <div>
+        <div className="">
           <h1 className="text-tech-blue text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800">
             Welcome To Techyjaunt
             <span className="text-black relative whitespace-nowrap">
-              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2 " />{" "}
               BootCamp
             </span>{" "}
           </h1>
@@ -25,7 +25,10 @@ const LaunchpadHeadSection = () => {
             Solve problems
           </p>
           <div className="flex justify-center xl:justify-start gap-7">
-            <NavLink to="register" className="bg-tech-blue text-xl py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200 mb-10">
+            <NavLink
+              to="register"
+              className="bg-tech-blue text-xl py-3 px-4 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200 mb-10"
+            >
               Apply Now
               <i className="ri-arrow-right-line ml-2"></i>
             </NavLink>
@@ -38,10 +41,17 @@ const LaunchpadHeadSection = () => {
           </div>
         </div>
         <div className="relative md:flex mx-auto xl:mx-0">
-          <img src={src} loading="lazy" alt="" className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]" />
-          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-28 px-4 py-8 sm:px-8 sm:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
+          <img
+            src={src}
+            loading="lazy"
+            alt=""
+            className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
+          />
+          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-20 px-4 py-8 sm:px-8 sm:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
             <div>
-              <h3 className="text-white font-medium text-xl">View Our Courses</h3>
+              <h3 className="text-white font-medium text-xl">
+                View Our Courses
+              </h3>
               <p className="text-tech-blue">
                 what you will find for each course
               </p>
@@ -66,18 +76,24 @@ const LaunchpadHeadSection = () => {
                 </li>
               </ul>
             </div>
-            <Link to="courses"
+            <Link
+              to="courses"
               spy={true}
               smooth={true}
               offset={-100}
-              duration={500} className="cursor-pointer text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl">
+              duration={500}
+              className="cursor-pointer text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
+            >
               View Our Courses
             </Link>
             <div>
               <p className="text-white sm:text-xl">
                 Start your Tech journey TODAY!
               </p>
-              <NavLink to="register" className="inline-block text-center bg-white text-black w-full rounded-md py-3 font-medium text-lg sm:text-2xl hover:text-white hover:bg-tech-blue transition-all ease-linear duration-200">
+              <NavLink
+                to="register"
+                className="inline-block text-center bg-white text-black w-full rounded-md py-3 font-medium text-lg sm:text-2xl hover:text-white hover:bg-tech-blue transition-all ease-linear duration-200"
+              >
                 Apply Now
               </NavLink>
             </div>

@@ -48,7 +48,7 @@ const FooterSection = () => {
             <h4 className="font-semibold text-xl">Explore</h4>
             <ul className="text-[#6D737A] flex flex-col gap-5 mt-5">
               <li>
-                <NavLink className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300">
+                <NavLink to="/" className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300">
                   Home
                 </NavLink>
               </li>

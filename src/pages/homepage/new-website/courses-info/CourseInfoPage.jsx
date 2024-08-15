@@ -8,18 +8,42 @@ import CourseCerts from "./CourseCerts";
 import CourseCTA from "./CourseCTA";
 import CTASection from "../new-homepage/CTASection";
 import FooterSection from "../../../../globalcomponents/FooterSection";
+import { CoursesNavLinks } from "../../../../globalcomponents/NavLinks";
+import { Element } from "react-scroll";
+import { Fade } from "react-reveal";
 
 export const CourseInfoPage = ({ data }) => {
   return (
     <>
-      <CourseInfoHead data={data} />
-      <CourseTimeline />
-      <CourseLearnMode />
-      <CourseUnits data={data} />
-      <CourseCerts data={data} />
-      <CourseCTA/>
-      <CTASection/>
-      <FooterSection/>
+      <CoursesNavLinks />
+      <Fade>
+        <CourseInfoHead data={data} />
+      </Fade>
+      <Fade>
+        <CourseTimeline />
+      </Fade>
+      <Fade>
+        <CourseLearnMode />
+      </Fade>
+      <Fade>
+        <Element name="brochure">
+          <CourseUnits data={data} />
+        </Element>
+      </Fade>
+      <Fade>
+        <CourseCerts data={data} />
+      </Fade>
+      <Fade>
+        <CourseCTA />
+      </Fade>
+      <Fade>
+        <Element name="community">
+          <CTASection />
+        </Element>
+      </Fade>
+      <Element name="contact">
+        <FooterSection />
+      </Element>
     </>
   );
 };

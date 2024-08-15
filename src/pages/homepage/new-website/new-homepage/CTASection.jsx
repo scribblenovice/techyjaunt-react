@@ -24,7 +24,7 @@ const CTASection = () => {
             our vibrant community
           </p>
           <NavLink
-            to="community"
+            to="/community"
             className="w-fit inline-flex items-center bg-tech-blue font-medium p-2 md:p-3 lg:p-4 rounded-md text-white text-sm lg:text-base hover:bg-gray-500 transition-all ease-linear duration-200"
           >
             Sign up for free <i className="ri-arrow-right-line ml-2"></i>

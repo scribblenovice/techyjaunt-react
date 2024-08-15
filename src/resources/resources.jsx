@@ -355,17 +355,7 @@ export const howHeard = [
     id: 6,
     name: "YOUTUBE",
     value: "youtube",
-  },
-  {
-    id: 6,
-    name: "TWITTER",
-    value: "twitter",
-  },
-  {
-    id: 7,
-    name: "YOUTUBE",
-    value: "youtube",
-  },
+  }
 ];
 
 export const hackathonSkills = [

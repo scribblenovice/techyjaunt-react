@@ -1,22 +1,15 @@
-import { Fade } from "react-reveal";
 import Avatars from "../../globalcomponents/Avatars";
 import {
-  AvatarImg,
   Circle,
   CurlyLine,
   FancyUnderline,
   Star,
   Star2,
-  state,
 } from "../../resources/resources";
-import TypingAnimation from "../../globalcomponents/TypingAnimation";
-import Videos from "../homepage/videos/Videos";
 import CommunityForm from "./Communityform";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import NavLinks from "../../globalcomponents/NavLinks";
-import src from "../../images/gallery/gallery4.webp";
 import Carouselnew from "../../globalcomponents/Carouselnew";
 import Loader from "../../globalcomponents/Loader";
 import { useSnackbar } from "notistack";
@@ -28,13 +21,9 @@ const Community = () => {
   };
   const [pending, setPending] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState();
   const [shake, setShake] = useState(false);
   const countryCode = sessionStorage.getItem("countryCode");
-  const [message, setMessage] = useState("");
-  const [modalError, setModalError] = useState(true);
-  const [scrollNumber, setScrollNumber] = useState();
   window.addEventListener("scroll", () => {
     setScrollNumber(window.scrollY);
   });
@@ -149,58 +138,54 @@ const Community = () => {
   };
   return (
     <>
-      {/* <NavLinks
-        navclass={` flex w-screen justify-center items-center h-20 fixed top-0 nav-bar z-50 ${
-          scrollNumber > 0 ? "nav-change" : "text-white"
-        }`}
-        isLaunchPad={true}
-      /> */}
-      <CommunityForm
-        open={open}
-        close={() => {
-          setOpen(false);
-        }}
-        openModal={openModal}
-        message={message}
-        modalError={modalError}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        formErrors={formErrors}
-        formData={formData}
-        handleChange2={(phone, e) => {
-          setPhone(phone);
-          setFormData({
-            ...formData,
-            phoneNumber: phone,
-          });
-        }}
-        handleSelect1={(e) => {
-          setFormData({
-            ...formData,
-            skills: e,
-          });
-        }}
-        handleSelect2={(e) => {
-          setFormData({
-            ...formData,
-            state: e,
-          });
-        }}
-        shake={shake}
-        closeModal={() => {
-          setOpenModal(false);
-          setFormErrors({});
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: "",
-            skills: "",
-            state: "",
-          });
-        }}
-      />
-      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] xl:w-[80%]">
+      <button
+        onClick={() => navigate(-1)}
+        className="z-[1000] absolute left-3 top-10 text-black rounded-md hover:text-tech-blue transition-all ease-linear duration-200"
+      >
+        <i className="ri-arrow-left-line ml-2"></i>Go back
+      </button>
+      {openModal && (
+        <CommunityForm
+          openModal={openModal}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          formErrors={formErrors}
+          formData={formData}
+          handleChange2={(phone, e) => {
+            setPhone(phone);
+            setFormData({
+              ...formData,
+              phoneNumber: phone,
+            });
+          }}
+          handleSelect1={(e) => {
+            setFormData({
+              ...formData,
+              skills: e,
+            });
+          }}
+          handleSelect2={(e) => {
+            setFormData({
+              ...formData,
+              state: e,
+            });
+          }}
+          shake={shake}
+          closeModal={() => {
+            setOpenModal(false);
+            setFormErrors({});
+            setFormData({
+              firstName: "",
+              lastName: "",
+              email: "",
+              phoneNumber: "",
+              skills: "",
+              state: "",
+            });
+          }}
+        />
+      )}
+      <div className="z-0 mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] xl:w-[80%]">
         <Circle
           color="#0075FD"
           className="absolute hidden xl:block top-36 left-[25%]"

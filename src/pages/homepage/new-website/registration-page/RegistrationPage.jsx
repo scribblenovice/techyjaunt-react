@@ -130,8 +130,14 @@ const RegistrationPage = () => {
 
   return (
     <>
-      <section className="w-[95%] mx-auto lg:w-[90%] my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 mb-10">
+      <button
+        onClick={() => navigate(-1)}
+        className="z-[100] absolute p-3 top-0 text-black rounded-md hover:text-tech-blue transition-all ease-linear duration-200"
+      >
+        <i className="ri-arrow-left-line ml-2"></i>Go back
+      </button>
+      <section className="w-[95%] mx-auto lg:w-[90%] my-10 relative z-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 mb-10 py-5">
           <h2 className="text-center md:text-left text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl">
             TechyJaunt
           </h2>

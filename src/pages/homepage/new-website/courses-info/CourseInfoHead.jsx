@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 const CourseInfoHead = ({ data }) => {
   return (
     <>
-      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-0 relative lg:pt-20 w-[90%] xl:w-[80%]">
+      <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-0 relative pt-5 w-[90%] xl:w-[80%]">
         <Circle
           color="#0075FD"
           className=" absolute hidden xl:block top-36 left-[50%]"

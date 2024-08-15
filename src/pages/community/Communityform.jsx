@@ -1,9 +1,20 @@
-import { Button, Modal } from "flowbite-react";
+import { Button } from "flowbite-react";
 import GlobalText from "../../globalcomponents/GlobalText";
 import GlobalSelect from "../../globalcomponents/GlobalSelect";
 import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import { hackathonSkills, state } from "../../resources/resources";
-import NavLinks from "../../globalcomponents/NavLinks";
+import Modal from "@mui/material/Modal";
+import { Box } from "@mui/material";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+};
 
 const CommunityForm = ({
   phoneval,
@@ -25,9 +36,22 @@ const CommunityForm = ({
 }) => {
   return (
     <>
-      <Modal show={openModal} onClose={closeModal}>
-        <Modal.Header>TECHYJAUNT COMMUNITY SIGN UP</Modal.Header>
-        <Modal.Body>
+      <Modal
+        open={openModal}
+        onClose={closeModal}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box sx={style} className="rounded-lg w-[90%] md:w-[80%] xl:w-[60%]">
+          <button
+            onClick={closeModal}
+            className="text-red-500 absolute text-3xl top-4 right-4"
+          >
+            <i class="ri-close-circle-line"></i>
+          </button>
+          <h2 className="text-center font-semibold my-2 text-lg md:text-xl">
+            TECHYJAUNT COMMUNITY SIGN UP
+          </h2>
           <form
             className="space-y-6"
             onSubmit={handleSubmit}
@@ -120,7 +144,7 @@ const CommunityForm = ({
               <div>
                 <label
                   htmlFor="skill-choice"
-                  className="mr-2 font-medium  text-sm text-gray-500"
+                  className="mr-2 font-medium  text-sm text-gray-500 whitespace-nowrap"
                 >
                   What are your skills in relation to tech?
                 </label>
@@ -134,7 +158,8 @@ const CommunityForm = ({
                 />
               </div>
             </div>
-            <Modal.Footer>
+            {/* <Modal.Footer> */}
+            <div className="w-full flex justify-center">
               <button
                 id="btn"
                 onClick={handleSubmit}
@@ -145,24 +170,9 @@ const CommunityForm = ({
               >
                 REGISTER
               </button>
-            </Modal.Footer>
+            </div>
           </form>
-        </Modal.Body>
-      </Modal>
-      <Modal show={open} onClose={close} position="center">
-        <Modal.Header className="border-none h-2"></Modal.Header>
-        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
-          <div>
-            <i
-              className={`${
-                modalError
-                  ? "ri-error-warning-line text-red-500"
-                  : "ri-checkbox-circle-line text-green-500"
-              }  text-7xl`}
-            ></i>
-          </div>
-          <div className="text-xl md:text-2xl text-center">{message}</div>
-        </Modal.Body>
+        </Box>
       </Modal>
     </>
   );

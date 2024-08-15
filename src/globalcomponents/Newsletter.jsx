@@ -120,6 +120,7 @@ const NewsLetter = () => {
               className={`w-full focus:ring-0 transition-all ease-linear duration-200 rounded-md text-gray-600 ${
                 formErrors?.firstName ? "border-red-500" : ""
               }`}
+              value={emailSubscriber.firstName}
             />
             {formErrors?.firstName && (
               <p className="text-xs text-red-500">{formErrors.firstName}</p>
@@ -138,6 +139,7 @@ const NewsLetter = () => {
               className={`w-full focus:ring-0 transition-all ease-linear duration-200 rounded-md text-gray-600 ${
                 formErrors?.lastName ? "border-red-500" : ""
               }`}
+              value={emailSubscriber.lastName}
             />
             {formErrors?.lastName && (
               <p className="text-xs text-red-500">{formErrors.lastName}</p>
@@ -157,6 +159,7 @@ const NewsLetter = () => {
             className={`w-full focus:ring-0 transition-all ease-linear duration-200 rounded-md text-gray-600 ${
               formErrors?.email ? "border-red-500" : ""
             }`}
+            value={emailSubscriber.email}
           />
           {formErrors?.email && (
             <p className="text-xs text-red-500">{formErrors.email}</p>
