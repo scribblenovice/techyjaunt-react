@@ -101,9 +101,9 @@ const Checkout = () => {
   };
   return (
     <>
-      {/* <div className="flex justify-center items-center flex-col w-screen h-screen">
-        <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-          THIS PAGE IS CURRENTLY INACTIVE
+       <div className="flex justify-center items-center flex-col w-screen h-screen">
+        <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
+          Payment for cohort 4 has been closed!
         </h1>
         <p className="my-5">
           Please go back to{" "}
@@ -111,9 +111,9 @@ const Checkout = () => {
             TechyJaunt.com
           </Link>
         </p>
-      </div> */}
+      </div>
 
-      <section className="grid place-items-center h-screen bg-stone-100">
+      {/*<section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-xl md:text-2xl xl:text-3xl tracking-widest">
@@ -267,7 +267,7 @@ const Checkout = () => {
           </div>
           <div className="text-xl md:text-2xl text-center">{message}</div>
         </Modal.Body>
-      </Modal>
+      </Modal>*/}
     </>
   );
 };

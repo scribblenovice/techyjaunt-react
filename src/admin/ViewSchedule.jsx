@@ -5,8 +5,8 @@ import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Loader from "../globalcomponents/Loader";
 import Modal from "@mui/material/Modal";
-import useCustomSnackbar from "../hooks/UseCustomSnackbar";
 import { Box } from "@mui/material";
+import { useSnackbar } from "notistack";
 
 const style = {
   position: "absolute",
@@ -27,8 +27,23 @@ const fetchData = async () => {
 };
 
 const ViewScheduler = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const { handleSnackbar } = useCustomSnackbar();
+  const [activeApplicant, setActiveApplicant] = useState([]);
+  const [open, setOpen] = useState(false);
+  const getApplicant = (value) => {
+    let applicant = mainData.filter((el) => {
+      return el.id === value;
+    });
+    setActiveApplicant(applicant[0])
+  };
+  const openModal=(value)=>{
+    getApplicant(value);
+    setOpen(true);
+    console.log()
+  }
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => {
+    enqueueSnackbar(message, { variant });
+  };
   const [pending, setPending] = useState(false);
   const navigate = useNavigate();
   const { data, error, isLoading, refetch } = useQuery("fetchData", fetchData, {
@@ -39,6 +54,7 @@ const ViewScheduler = () => {
 
   const deleteSchedule = (id) => {
     setPending(true);
+    setOpen(false);
     axios
       .post("https://techyjaunt-kx6a.onrender.com/delete-schedule", {
         userId: id,
@@ -91,7 +107,7 @@ const ViewScheduler = () => {
                 >
                   <td className="p-2 text-center">
                     <button
-                      onClick={() => setOpenModal(true)}
+                      onClick={() => openModal(user?.id)}
                       className="text-red-500 text-lg"
                     >
                       <i class="ri-delete-bin-6-line"></i>
@@ -130,14 +146,14 @@ const ViewScheduler = () => {
         </div>
       </div>
       <Modal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
+        open={open}
+        onClose={() => setOpen(false)}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
         <Box sx={style} className="rounded-lg relative">
           <button
-            onClick={() => setOpenModal(false)}
+            onClick={() => setOpen(false)}
             className="text-red-500 absolute text-3xl top-4 right-4"
           >
             <i class="ri-close-circle-line"></i>
@@ -148,7 +164,7 @@ const ViewScheduler = () => {
               This process is irreversible!
             </h2>
             <button
-              onClick={() => deleteSchedule(user?.id)}
+              onClick={() => deleteSchedule(activeApplicant?.id)}
               className="font-bold rounded-md bg-red-600 p-2 text-white hover:bg-red-500 hover:text-gray-100 transition-all ease-linear duration-100"
             >
               PROCEED

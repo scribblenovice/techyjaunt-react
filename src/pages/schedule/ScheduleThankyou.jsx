@@ -1,47 +1,29 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import src from "../../images/launchpad/thankyou.webp";
 import { Link } from "react-router-dom";
-import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 
-const LaunchPadThankyou = () => {
-  const { handleSnackbar } = useCustomSnackbar();
-  const [whatsappLink, setWhatsappLink] = useState("");
-  useEffect(() => {
-    const isRegistered = sessionStorage.getItem("isRegistered");
-    if (isRegistered) {
-      handleSnackbar("registration successful", "success");
-    }
-    axios.get("https://techyjaunt-kx6a.onrender.com/get-link").then((res) => {
-      setWhatsappLink(res?.data?.data?.fields?.NewLink);
-    });
-  }, []);
+const ScheduleThankyou = () => {
   return (
     <>
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 w-[90%] xl:w-[80%] mx-auto py-20 gap-5">
           <div>
-            <h2 className="text-center md:text-left text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl">
-              TechyJaunt
-            </h2>
             <img src={src} alt="" className="h-72 md:h-full mx-auto" />
           </div>
           <div className="flex flex-col justify-center gap-5">
             <h2 className="text-tech-blue font-semibold text-xl md:text-2xl text-center order-2 md:order-1">
-              YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 4!
+              CALL SCHEDULED
             </h2>
             <p className="text-gray-700 text-center order-3 md:order-2">
-              A confirmation mail has been sent regarding your application.
-              Kindly join the whatsapp community for more information using the
-              link below
+              You can speak with a consultant directly on WhatsApp by clicking
+              the button below
             </p>
             <Link
               target="_blank"
-              to={whatsappLink}
+              to="https://wa.me/message/S4HHZEQFXJOWP1"
               // onClick={redirect}
-              className="text-xs hover:bg-gray-500 whitespace-nowrap md:text-base order-1 md:order-3 mx-auto flex items-center w-fit bg-tech-blue text-white p-3 rounded-md font-bold  transition-all ease-in duration-300"
+              className="text-xs hover:bg-gray-500 whitespace-nowrap md:text-base order-1 md:order-3 mx-auto flex items-center w-fit bg-blue-500 text-white p-3 rounded-md font-bold  transition-all ease-in duration-300"
             >
-              JOIN OUR WHATSAPP COMMUNITY{" "}
+              SPEAK TO A CONSULTANT{" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 md:h-7 w-4 md:w-7 ml-2"
@@ -58,4 +40,4 @@ const LaunchPadThankyou = () => {
     </>
   );
 };
-export default LaunchPadThankyou;
+export default ScheduleThankyou;

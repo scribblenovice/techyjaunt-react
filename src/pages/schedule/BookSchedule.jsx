@@ -100,8 +100,8 @@ const BookSchedule = () => {
     companyName: formData.companyName.trim(),
     companyPosition: formData.companyPosition.trim(),
     companyWebsite: formData.companyWebsite.trim(),
-    meetingDate: moment(formData.meetingTime).format("DD-MM-YYYY"),
-    meetingTime: moment(formData.meetingTime).format("HH:mm a"),
+    meetingDate: `${moment(formData.meetingTime).format("dddd")}, ${moment(formData.meetingTime).format("LL")}`,
+    meetingTime: moment(formData.meetingTime).format("LT"),
     extraDetails:
       formData.extraDetails.trim() != "" ? formData.extraDetails.trim() : "-",
   };
@@ -116,14 +116,8 @@ const BookSchedule = () => {
       .then((res) => {
         setPending(false);
         if (res.data.status === "registered") {
-          sessionStorage.setItem("isRegistered", true);
-          handleSnackbar(
-            "your meeting has been scheduled, you will be redirected shortly",
-            "success"
-          );
-          setTimeout(() => {
-            window.location.href = "https://wa.me/message/S4HHZEQFXJOWP1";
-          }, 2000);
+          sessionStorage.setItem("scheduleRegistered", true);
+          navigate("/schedule/thank-you");
           setCurrentStep(0);
           setFormData({
             firstName: "",

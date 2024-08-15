@@ -1,16 +1,27 @@
 import { useState } from "react";
-import GlobalSelect2 from "../../globalcomponents/GlobalSelect2";
-import { courses, howHeard } from "../../resources/resources";
+import moment from "moment";
 
 const OtherDetails = ({
   formData,
   formErrors,
-  handleSelect2,
   className,
   handleChange,
 }) => {
   const [focused, setFocused] = useState(false);
   const today = new Date();
+  const minDateTime = today.toISOString().slice(0, 16);
+   // Get current date and time in the correct format
+   const getCurrentDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
   return (
     <div className={className}>
       <div>
@@ -23,7 +34,7 @@ const OtherDetails = ({
         <div className="w-full">
           <div>
             <input
-              min={today}
+              min={getCurrentDateTime()}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               aria-label="Date and time"
