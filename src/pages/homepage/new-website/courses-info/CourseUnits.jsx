@@ -8,8 +8,9 @@ const CourseUnits = ({ data }) => {
         <div className="flex relative flex-col gap-10 bg-blend-multiply">
           <div className="absolute courseunitbg top-0 bottom-0 left-0 right-0"></div>
           <a
-            href={`${import.meta.env.PUBLIC_URL}/${data.pdf}`}
+            href={data?.url}
             download={data.pdf}
+            target="_blank"
             className="px-2 whitespace-nowrap md:px-5 text-center absolute z-[1000] -bottom-7 left-1/2 transform -translate-x-1/2 inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
           >
             Download Brochure for more details

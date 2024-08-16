@@ -13,28 +13,17 @@ const NewLaunchpad = () => {
   return (
     <>
       <LaunchpadNavLinks />
-      <Fade>
-        <LaunchpadHeadSection />
-      </Fade>
-      <Fade>
-        <LaunchpadVideo />
-      </Fade>
-      <Fade>
-        <LaunchpadTopCTA />
-      </Fade>
-      <Fade>
-        <Element name="courses">
-          <LaunchpadCourses />
-        </Element>
-      </Fade>
-      <Fade>
-        <Element name="partners">
-          <LaunchpadPartners />
-        </Element>
-      </Fade>
-      <Fade>
-        <LaunchpadBottomCTA />
-      </Fade>
+
+      <LaunchpadHeadSection />
+      <LaunchpadVideo />
+      <LaunchpadTopCTA />
+      <Element name="courses">
+        <LaunchpadCourses />
+      </Element>
+      <Element name="partners">
+        <LaunchpadPartners />
+      </Element>
+      <LaunchpadBottomCTA />
       <Element name="contact">
         <FooterSection />
       </Element>

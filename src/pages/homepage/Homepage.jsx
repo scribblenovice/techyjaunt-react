@@ -24,41 +24,33 @@ const Homepage = () => {
     <main className="mx-auto">
       <>
         <HomeNavLink />
-        <Fade>
-          <Element name="home">
-            <Header />
-          </Element>
-        </Fade>
-        <Fade>
-          <Element name="about">
-            <AboutTechy />
-          </Element>
-        </Fade>
-        <Fade>
-          <BestProgram />
-        </Fade>
-        <Fade>
-          <Element name="courses">
-            <Bootcamp />
-          </Element>
-        </Fade>
-        <Fade>
-          <Partners />
-        </Fade>
-        <Fade>
-          <Achievements />
-        </Fade>
-        <Fade>
-          <Element name="testimonial">
-            <FeedBack />
-          </Element>
-        </Fade>
-        <Fade>
-          <CTAMessage />
-        </Fade>
-        <Fade>
-          <CTASection />
-        </Fade>
+
+        <Element name="home">
+          <Header />
+        </Element>
+
+        <Element name="about">
+          <AboutTechy />
+        </Element>
+
+        <BestProgram />
+
+        <Element name="courses">
+          <Bootcamp />
+        </Element>
+
+        <Partners />
+
+        <Achievements />
+
+        <Element name="testimonial">
+          <FeedBack />
+        </Element>
+
+        <CTAMessage />
+
+        <CTASection />
+
         <Element name="contact">
           <FooterSection />
         </Element>

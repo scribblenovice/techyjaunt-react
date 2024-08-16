@@ -13,7 +13,7 @@ const Partners = ({ isEvent, title }) => {
         >
           {PartnerImg.map((j) => {
             return (
-              // <Zoom>
+              <Zoom>
               <div className="w-full h-full grid place-items-center">
                 <img
                   loading="lazy"
@@ -29,7 +29,7 @@ const Partners = ({ isEvent, title }) => {
                   alt=""
                 />
               </div>
-              // </Zoom>
+             </Zoom>
             );
           })}
         </div>

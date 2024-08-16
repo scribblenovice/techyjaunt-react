@@ -355,7 +355,7 @@ export const howHeard = [
     id: 6,
     name: "YOUTUBE",
     value: "youtube",
-  }
+  },
 ];
 
 export const hackathonSkills = [
@@ -1775,7 +1775,7 @@ export const cryptoBenefits = [
   "⁠Getting a job in the crypto space",
 ];
 
-const links=["gogole.com"]
+const links = ["gogole.com"];
 export const FancyUnderline = ({ className }) => {
   return (
     <svg
@@ -2299,11 +2299,13 @@ export const allCousesInfo = [
       },
     ],
     brochure: "../../public/docs/UI&Ux Course outline.pdf",
-    pdf: "UI&Ux Course outline.pdf",
+    pdf: "UI_Ux_Course_outline_sptoq7.pdf",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803495/UI_Ux_Course_outline_sptoq7.pdf",
   },
   {
     tag: "data-analysis",
     courseName: "Data Analysis",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803494/Data_analysis_Launchpad_Outline_dudl0n.pdf",
     writeUp:
       " Unlock the power of data. Learn to collect, process, and analyze data to drive informed decision-making and uncover valuable insights.",
     toLearn: [
@@ -2321,11 +2323,12 @@ export const allCousesInfo = [
       },
     ],
     brochure: "../../public/docs/Data analysis Launchpad Outline.pdf",
-    pdf: "Data analysis Launchpad Outline.pdf",
+    pdf: "Data_analysis_Launchpad_Outline_dudl0n.pdf",
   },
   {
     tag: "project-mgmt",
     courseName: "Product Management",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803494/Product_management_course_outline_aswx4e.pdf",
     writeUp:
       "Learn to bridge the gap between technology and business. Develop skills in market research, product strategy, and team leadership to bring innovative products to life.",
     toLearn: [
@@ -2343,11 +2346,12 @@ export const allCousesInfo = [
       },
     ],
     brochure: "../../public/docs/Product management course outline.pdf",
-    pdf: "Product management course outline.pdf",
+    pdf: "Product_management_course_outline_aswx4e.pdf",
   },
   {
     tag: "frontend-dev",
     courseName: "Frontend Development",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803494/Frontend_web_development_Launchpad_outline_yfujwr.pdf",
     writeUp:
       "Dive into the world of web design and interactivity. Learn how to create visually appealing and user-friendly websites using HTML, CSS, and JavaScript.",
     toLearn: [
@@ -2366,11 +2370,12 @@ export const allCousesInfo = [
     ],
     brochure:
       "../../public/docs/Frontend web development Launchpad outline.pdf",
-    pdf: "Frontend web development Launchpad outline.pdf",
+    pdf: "Frontend_web_development_Launchpad_outline_yfujwr.pdf",
   },
   {
     tag: "backend-dev",
     courseName: "Backend Development",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803493/Backend_development_eggqci.pdf",
     writeUp:
       "Discover the backbone of web applications. Master server-side programming, databases, and APIs to build robust and scalable web services.",
     toLearn: [
@@ -2388,11 +2393,12 @@ export const allCousesInfo = [
       },
     ],
     brochure: "../../public/docs/Backend development.pdf",
-    pdf: "Backend development.pdf",
+    pdf: "Backend_development_eggqci.pdf",
   },
   {
     tag: "cyber-security",
     courseName: "Cyber Security",
+    url: "https://res.cloudinary.com/dnknyrthu/image/upload/v1723803493/Cybersecurity_Launchapad_Outline_k5noy4.pdf",
     writeUp:
       "Protect the digital world from threats. Gain expertise in securing networks, systems, and data, and become proficient in ethical hacking and threat analysis.",
     toLearn: [
@@ -2410,7 +2416,7 @@ export const allCousesInfo = [
       },
     ],
     brochure: "../docs/../public/Cybersecurity Launchapad Outline.pdf",
-    pdf: "Cybersecurity Launchapad Outline.pdf",
+    pdf: "Cybersecurity_Launchapad_Outline_k5noy4.pdf",
   },
 ];
 

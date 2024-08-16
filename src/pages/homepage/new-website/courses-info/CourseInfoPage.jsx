@@ -16,31 +16,21 @@ export const CourseInfoPage = ({ data }) => {
   return (
     <>
       <CoursesNavLinks />
-      <Fade>
-        <CourseInfoHead data={data} />
-      </Fade>
-      <Fade>
-        <CourseTimeline />
-      </Fade>
-      <Fade>
-        <CourseLearnMode />
-      </Fade>
-      <Fade>
-        <Element name="brochure">
-          <CourseUnits data={data} />
-        </Element>
-      </Fade>
-      {/* <Fade> */}
+
+      <CourseInfoHead data={data} />
+
+      <CourseTimeline />
+
+      <CourseLearnMode />
+
+      <Element name="brochure">
+        <CourseUnits data={data} />
+      </Element>
       <CourseCerts data={data} />
-      {/* </Fade> */}
-      <Fade>
-        <CourseCTA />
-      </Fade>
-      <Fade>
-        <Element name="community">
-          <CTASection />
-        </Element>
-      </Fade>
+      <CourseCTA />
+      <Element name="community">
+        <CTASection />
+      </Element>
       <Element name="contact">
         <FooterSection />
       </Element>

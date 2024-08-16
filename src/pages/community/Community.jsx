@@ -97,7 +97,6 @@ const Community = () => {
         .then((res) => {
           setPending(false);
           if (res.data.status === "registered") {
-            handleSnackbar("successful", "success");
             sessionStorage.setItem("isCommunityRegistered", true);
             navigate("thank-you");
           }

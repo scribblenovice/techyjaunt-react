@@ -2,7 +2,7 @@ import { useState } from "react";
 import Switcher from "../../../globalcomponents/Switcher";
 import { thumbImg } from "../../../resources/resources";
 
-const Videos = () => {
+const VideosDisplay = () => {
   const [renderVid, setRenderVid] = useState(0);
   return (
     <>
@@ -23,7 +23,7 @@ const Videos = () => {
                     renderVid == el.id ? "bg-none" : "bg-gray-800 opacity-40"
                   } testvid`}
                 ></div>
-                <img src={el.src} alt="" className={`testvid w-full h-16 md:h-[80px] testvid shadow-xl border-2 border-tech-blue border-opacity-50`} />
+                <img src={el.src} alt="" className={`testvid w-20 md:w-24 h-16 md:h-20 testvid shadow-xl border-2 border-tech-blue border-opacity-50`} />
               </button>
             );
           })}
@@ -32,4 +32,4 @@ const Videos = () => {
     </>
   );
 };
-export default Videos;
+export default VideosDisplay;

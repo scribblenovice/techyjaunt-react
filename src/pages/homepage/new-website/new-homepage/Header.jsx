@@ -9,8 +9,8 @@ import {
   Star,
   Star2,
 } from "../../../../resources/resources";
-import Videos from "../../videos/Videos";
 import { Link } from "react-scroll";
+import VideosDisplay from "../../videos/VideosDisplay";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const Header = () => {
             color="#6D39ED"
             className="absolute hidden xl:block -bottom-5 left-24"
           />
-          <Videos />
+          <VideosDisplay />
         </div>
       </div>
     </>
