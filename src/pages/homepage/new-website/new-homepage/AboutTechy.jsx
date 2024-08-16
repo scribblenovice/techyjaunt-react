@@ -15,7 +15,7 @@ const AboutTechy = () => {
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-2 gap-y-5">
           <div className="grid place-content-center">
-            <img src={src} alt="" loading="lazy" className="w-full h-full rounded-xl" />
+            <img src={src} alt="" className="w-full h-full rounded-xl" />
           </div>
           <div className="flex items-center">
             <p className="px-0 md:px-5 leading-7 text-base md:text-xl text-gray-700 font-normal">

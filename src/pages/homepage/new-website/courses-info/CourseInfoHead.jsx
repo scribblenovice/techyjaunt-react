@@ -22,7 +22,10 @@ const CourseInfoHead = ({ data }) => {
             {data?.writeUp}
           </p>
           <div className="flex justify-center xl:justify-start gap-10">
-            <NavLink to="/launchpad/register" className="inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200">
+            <NavLink
+              to="/launchpad/register"
+              className="inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200"
+            >
               Apply Now<i className="ri-arrow-right-line ml-2"></i>
             </NavLink>
           </div>
@@ -41,14 +44,21 @@ const CourseInfoHead = ({ data }) => {
             className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
           />
           <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-28 px-4 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
-            <a href={data?.brochure} download={data.pdf} className="text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl">
+            <a
+              href={`${import.meta.env.PUBLIC_URL}/${data.pdf}`}
+              download={data.pdf}
+              className="text-center inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
+            >
               Download Brochure
             </a>
             <div>
               <p className="text-white sm:text-xl">
                 Start your Tech journey TODAY!
               </p>
-              <NavLink to="/launchpad/register" className="text-center inline-block bg-white text-black w-full rounded-md py-3 font-medium text-lg sm:text-2xl hover:text-white hover:bg-tech-blue transition-all ease-linear duration-200">
+              <NavLink
+                to="/launchpad/register"
+                className="text-center inline-block bg-white text-black w-full rounded-md py-3 font-medium text-lg sm:text-2xl hover:text-white hover:bg-tech-blue transition-all ease-linear duration-200"
+              >
                 Apply Now
               </NavLink>
             </div>

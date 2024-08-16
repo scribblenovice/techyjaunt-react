@@ -11,7 +11,7 @@ const CTASection = () => {
           <Circle className="bg-[#6D39E9] rounded-full absolute scale-[3] right-14 bottom-10 hidden lg:block" />
           <Circle className="bg-[#20B486] rounded-full absolute -bottom-5 hidden lg:block" />
           <Circle className="bg-[#F9475D] rounded-full absolute left-1/2 -top-10 hidden lg:block" />
-          <img src={src2} loading="lazy" alt="" className="z-10 relative rounded-xl" />
+          <img src={src2} alt="" className="z-10 relative rounded-xl" />
         </div>
         <div className="flex flex-col gap-5">
           <h2 className="font-semibold text-base md:text-2xl lg:text-4xl">
