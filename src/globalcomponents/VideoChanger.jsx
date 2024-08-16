@@ -38,7 +38,7 @@ const VideoChanger = ({ fullName, thumbNail, vidSrc }) => {
     }
   };
   return (
-    <div className="box lg:mx-auto h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] relative video bg-black overflow-hidden rounded-lg">
+    <div className="box w-full lg:mx-auto h-[280px] sm:h-[350px] md:h-[450px] lg:h-[500px] relative video bg-black overflow-hidden rounded-lg">
       <video
         // className="w-full h-[47vh] sm:h-[400px] md:h-[450px] lg:h-[500px] "
         className="absolute top-0 left-0 w-full h-full"

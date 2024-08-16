@@ -6,7 +6,7 @@ const CourseCerts = ({ data }) => {
         <div className="w-[95%] md:w-[90%] grid grid-cols-1 lg:grid-cols-2 py-20 mx-auto gap-5 lg:gap-10">
           <div className="relative">
             <p className="absolute left-1/2 transform -translate-x-1/2 top-[30%] text-tech-blue font-semibold text-base md:text-2xl whitespace-nowrap">{data.courseName.toUpperCase()}</p>
-            <img loading="lazy" src={src} alt="" />
+            <img loading="lazy" src={src} alt="" className="w-full h-full" />
           </div>
           <div>
             <h2 className="text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl text-center md:text-left">Taught by Experienced Industry Experts</h2>

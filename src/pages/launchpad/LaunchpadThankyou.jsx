@@ -28,12 +28,13 @@ const LaunchPadThankyou = () => {
           </div>
           <div className="flex flex-col justify-center gap-5">
             <h2 className="text-tech-blue font-semibold text-xl md:text-2xl text-center order-2 md:order-1">
-              YOU HAVE SUCCESSFULLY REGISTERED FOR COHORT 4!
+              REGISTRATION FOR COHORT 4 IS CURRENTLY CLOSED!
             </h2>
             <p className="text-gray-700 text-center order-3 md:order-2">
-              A confirmation mail has been sent regarding your application.
-              Kindly join the whatsapp community for more information using the
-              link below
+              Thanks for applying, but Cohort 4 applications are closed. We
+              have, however, added you to the waitlist for our next cohort.
+              <br />
+              Join our whatsapp community for more updates
             </p>
             <Link
               target="_blank"

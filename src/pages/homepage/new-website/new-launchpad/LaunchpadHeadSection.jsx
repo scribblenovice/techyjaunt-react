@@ -45,7 +45,7 @@ const LaunchpadHeadSection = () => {
             src={src}
             loading="lazy"
             alt=""
-            className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
+            className="mx-auto w-full md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
           />
           <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-20 px-4 py-8 sm:px-8 sm:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
             <div>

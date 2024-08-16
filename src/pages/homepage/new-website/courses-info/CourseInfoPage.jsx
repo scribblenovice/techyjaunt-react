@@ -30,9 +30,9 @@ export const CourseInfoPage = ({ data }) => {
           <CourseUnits data={data} />
         </Element>
       </Fade>
-      <Fade>
-        <CourseCerts data={data} />
-      </Fade>
+      {/* <Fade> */}
+      <CourseCerts data={data} />
+      {/* </Fade> */}
       <Fade>
         <CourseCTA />
       </Fade>
