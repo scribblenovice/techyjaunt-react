@@ -17,7 +17,7 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
         scrollNumber > 0 ? "nav-change" : ""
       }`}
     >
-      <div className="h-fit w-[90%] xl:w-[80%] mx-auto flex justify-between items-center relative">
+      <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
         <img src={LogoSrc} className="w-20 h-20" alt="" />
         <div
           className={`${
@@ -145,7 +145,7 @@ export const LaunchpadNavLinks = () => {
           scrollNumber > 0 ? "nav-change" : ""
         }`}
       >
-        <div className="h-fit w-[90%] xl:w-[80%] mx-auto flex justify-between items-center relative">
+        <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
           <img src={LogoSrc} className="w-20 h-20" alt="" />
           <div
             className={`${
@@ -263,7 +263,7 @@ export const CoursesNavLinks = () => {
           scrollNumber > 0 ? "nav-change" : ""
         }`}
       >
-        <div className="h-fit w-[90%] xl:w-[80%] mx-auto flex justify-between items-center relative">
+        <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
           <img src={LogoSrc} className="w-20 h-20" alt="" />
           <div
             className={`${
@@ -300,7 +300,7 @@ export const CoursesNavLinks = () => {
                       : "text-white xl:text-gray-800"
                   } w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-tech-blue after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-100 transition-all duration-200 ease-in`}
                 >
-                 Course Brochure
+                  Course Brochure
                 </Link>
               </li>
               <li className="cursor-pointer">
@@ -317,7 +317,7 @@ export const CoursesNavLinks = () => {
                       : "text-white xl:text-gray-800"
                   } w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-tech-blue after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-100 transition-all duration-200 ease-in`}
                 >
-                 Community
+                  Community
                 </Link>
               </li>
               <li className="cursor-pointer">

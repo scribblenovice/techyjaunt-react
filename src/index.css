@@ -134,14 +134,14 @@ video {
   box-shadow: 5px 5px 20px rgba(255, 255, 255, 0.163);
 }
 .scale {
-  animation: scale 3s linear infinite;
+  animation: scale 4s linear infinite;
 }
 @keyframes scale {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);

@@ -24,11 +24,9 @@ const Homepage = () => {
     <main className="mx-auto">
       <>
         <HomeNavLink />
-
         <Element name="home">
           <Header />
         </Element>
-
         <Element name="about">
           <AboutTechy />
         </Element>

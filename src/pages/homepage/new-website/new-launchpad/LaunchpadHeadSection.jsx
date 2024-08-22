@@ -12,7 +12,7 @@ const LaunchpadHeadSection = () => {
           className="absolute hidden xl:block top-36 left-[50%]"
         />
         <div className="">
-          <h1 className="text-tech-blue text-left tracking-wide lg:leading-[60px] text-3xl lg:text-5xl font-semibold text-gray-800">
+          <h1 className="text-tech-blue text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-bold">
             Welcome To Techyjaunt
             <span className="text-black relative whitespace-nowrap">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2 " />{" "}

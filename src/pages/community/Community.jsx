@@ -184,7 +184,7 @@ const Community = () => {
           }}
         />
       )}
-      <div className="z-0 mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] xl:w-[80%]">
+      <div className="z-0 mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative pb-20 py-10 lg:py-20 w-[90%] ">
         <Circle
           color="#0075FD"
           className="absolute hidden xl:block top-36 left-[25%]"

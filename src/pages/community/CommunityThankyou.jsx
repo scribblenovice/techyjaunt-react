@@ -17,7 +17,7 @@ const CommunityThankYou = () => {
   }, []);
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 w-[90%] xl:w-[80%] mx-auto py-20 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-[90%]  mx-auto py-20 gap-5">
         <div>
           <h2 className="text-center md:text-left text-tech-blue font-bold text-xl md:text-3xl lg:text-5xl">
             TechyJaunt

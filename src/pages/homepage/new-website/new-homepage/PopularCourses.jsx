@@ -14,13 +14,13 @@ const PopularCourses = () => {
           <span className="text-tech-blue">Course</span>
         </h2>
 
-        <h2 className="block xl:hidden font-semibold text-2xl sm:text-3xl text-center mb-5">
-          <span className="relative inline-block">
-            Most <span className="text-tech-blue">Popular</span>
+        <h2 className="block xl:hidden font-semibold text-2xl sm:text-3xl text-center mb-5 tts">
+          <span className="relative inline-block tts">
+            Most <span className="text-tech-blue tts">Popular</span>
             <FancyUnderline className="absolute -bottom-2 " />
           </span>
           <br />
-          <span className="text-tech-blue">Courses</span>
+          <span className="text-tech-blue tts">Courses</span>
         </h2>
         <CardSlider />
       </div>

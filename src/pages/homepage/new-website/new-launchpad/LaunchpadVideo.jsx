@@ -14,7 +14,7 @@ const LaunchpadVideo = () => {
   return (
     <>
       <div>
-        <div className="h-[400px] xl:h-[450px] w-[90%] xl:w-[80%] mx-auto mb-[70px] md:-mt-32 xl:-mt-10">
+        <div className="h-[400px] xl:h-[450px] w-[90%]  mx-auto mb-[70px] md:-mt-32 xl:-mt-10">
           {error ? (
             <div className="flex justify-center items-center h-full bg-gray-200">
               <p className="text-center text-gray-600">

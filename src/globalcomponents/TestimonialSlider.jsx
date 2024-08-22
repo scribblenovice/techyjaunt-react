@@ -56,7 +56,7 @@ const TestimonialSlider = () => {
                       <p className="text-xs lg:text-base">{el.course}</p>
                     </div>
                   </div>
-                  <p className="text-sm md:text-lg my-5 leading-5">
+                  <p className="text-sm md:text-lg my-5 leading-5 text-gray-700">
                     {el.writeUp}
                   </p>
                 </div>

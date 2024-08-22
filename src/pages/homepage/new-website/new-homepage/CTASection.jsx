@@ -14,8 +14,8 @@ const CTASection = () => {
           <img src={src2} alt="" className="z-10 relative rounded-xl" />
         </div>
         <div className="flex flex-col gap-5">
-          <h2 className="font-semibold text-base md:text-2xl lg:text-4xl">
-            Join <span className="text-tech-blue">Techyjaunt</span> community
+          <h2 className="font-semibold font-semibold text-2xl sm:text-3xl xl:text-6xl tts">
+            Join <span className="text-tech-blue tts">Techyjaunt</span> community
             today
           </h2>
           <p className="text-sm md:text-base xl:text-lg">
