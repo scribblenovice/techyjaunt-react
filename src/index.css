@@ -64,6 +64,9 @@ a {
 .testvid {
   border-radius: 10px;
 }
+.cta-techbg{
+  background-image: url(./src/images/techbg.webp);
+}
 video {
   height: auto;
 }

@@ -43,7 +43,7 @@ const CourseInfoHead = ({ data }) => {
             alt=""
             className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
           />
-          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-28 px-4 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
+          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-[5%] px-4 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
             <a
               href={data.url}
               download={data.pdf}
