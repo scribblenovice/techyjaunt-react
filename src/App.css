@@ -4,6 +4,10 @@
 h1, h2, h3{
   font-family: 'TT Firs Neue Trl', sans-serif;
 }
+h1 span, h2 span, h3 span{
+  font-family: 'TT Firs Neue Trl', sans-serif;
+}
+
 .headerbg {
   background: rgb(220, 220, 242);
   background: linear-gradient(

@@ -7,7 +7,6 @@ import { useState } from "react";
 const Bootcamp = () => {
   const [hover, setHover] = useState(false);
   const [arrIndex, setArrIndex] = useState();
-  const arr = [0, 1, 2, 3, 4, 5];
   return (
     <div className=" w-[90%] mx-auto py-10">
       <Fade bottom>

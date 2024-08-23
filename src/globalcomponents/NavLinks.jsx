@@ -80,10 +80,11 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
             </li>
             <li className="cursor-pointer">
               <Link
+               
                 to="testimonial"
                 spy={true}
                 smooth={true}
-                offset={-50}
+                offset={-100}
                 duration={800}
                 onClick={() => setActiveHomeLink("testimonial")}
                 className={`${

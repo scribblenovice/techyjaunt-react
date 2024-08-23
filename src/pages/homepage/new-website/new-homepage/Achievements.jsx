@@ -6,6 +6,7 @@ import {
 } from "../../../../resources/resources";
 import icon from "../../../../images/icon/icon.png";
 import { Fade } from "react-reveal";
+import CountUpTimer from "../../../../hooks/CountUpTimer";
 const Achievements = () => {
   return (
     <div className="w-[90%] xl:w-[85%] mx-auto py-10">
@@ -26,12 +27,20 @@ const Achievements = () => {
                 <div className="flex items-center">
                   <img src={el.img} alt="" className="w-[30%] h-full p-3" />
                   <div className="ml-1 md:ml-5">
-                    <p className="font-semibold text-lg md:text-2xl xl:text-4xl">
+                    <CountUpTimer
+                      numberClass="font-semibold text-lg md:text-2xl xl:text-4xl text-black"
+                      titleClass="text-gray-700 text-xs md:text-base xl:text-2xl text-black"
+                      maxValue={el.num}
+                      interval={el.num <= 10 ? el.num / 1 : el.num / 10}
+                      title={el.value}
+                      intervalNum={100}
+                    />
+                    {/* <p className="font-semibold text-lg md:text-2xl xl:text-4xl">
                       {el.num}
                     </p>
                     <p className="text-gray-700 text-xs md:text-base xl:text-2xl">
                       {el.value}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               );

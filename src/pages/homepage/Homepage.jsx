@@ -30,17 +30,13 @@ const Homepage = () => {
         <Element name="about">
           <AboutTechy />
         </Element>
-
         <BestProgram />
 
         <Element name="courses">
           <Bootcamp />
         </Element>
-
         <Partners />
-
-        <Achievements />
-
+        {/* <Achievements /> */}
         <Element name="testimonial">
           <FeedBack />
         </Element>

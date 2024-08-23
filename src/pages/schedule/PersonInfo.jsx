@@ -36,44 +36,6 @@ const PersonInfo = ({ handleChange, formErrors, formData, className }) => {
           inputVal={formData.lastName}
         />
       </div>
-      {/* <div>
-        <div className="font-medium  text-sm text-gray-500 flex">
-          <p className="mr-5">Gender:</p>
-          <div className="flex">
-            <div className="mr-5">
-              <label htmlFor="male" className="mr-1">
-                Male
-              </label>
-              <input
-                type="radio"
-                onChange={handleChange}
-                name="gender"
-                id="male"
-                value="male"
-                checked={formData.gender === "male" ? true : false}
-                className="w-5 h-5 ml-1"
-              />
-            </div>
-            <div>
-              <label htmlFor="female" className="mr-1">
-                Female
-              </label>
-              <input
-                className="w-5 h-5"
-                type="radio"
-                name="gender"
-                id="female"
-                value="female"
-                checked={formData.gender === "female" ? true : false}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        </div>
-        {formErrors?.gender && (
-          <p className="text-xs text-red-500">{formErrors?.gender}</p>
-        )}
-      </div> */}
     </div>
   );
 };

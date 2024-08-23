@@ -6,18 +6,22 @@ const FeedBack = () => {
   return (
     <div className="w-[90%] xl:w-[85%] mx-auto py-5 lg:py-10 flex flex-col">
       <Fade bottom>
-      <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start tts">
-        Student{" "}
-        <span className="text-tech-blue relative tts">
-          <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
-          Feedback
-        </span>
-      </h2>
+        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start tts">
+          Student{" "}
+          <span className="text-tech-blue relative tts">
+            <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+            Feedback
+          </span>
+        </h2>
       </Fade>
-      <p className="text-gray-700 text-base xl:text-2xl mt-8 text-center">
-       Here is what some past students have to say about us
-      </p>
-      <TestimonialSlider />
+      <Fade bottom>
+        <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700 mt-8 text-center">
+          Here is what some past students have to say about us
+        </p>
+      </Fade>
+      <Fade>
+        <TestimonialSlider />
+      </Fade>
     </div>
   );
 };

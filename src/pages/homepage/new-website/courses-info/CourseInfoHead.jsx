@@ -4,34 +4,34 @@ import src from "../../../../images/launchpad/launchpadimg.webp";
 import { Link, NavLink } from "react-router-dom";
 const CourseInfoHead = ({ data }) => {
   return (
-    <>
+    <section className="headerbg">
       <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-0 relative pt-5 w-[90%] ">
         <Circle
           color="#0075FD"
           className=" absolute hidden xl:block top-36 left-[50%]"
         />
         <div className="xl:py-20">
-          <h1 className=" text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 my-5">
+          <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-bold">
             <span className="relative inline-block text-tech-blue">
               Welcome To Techyjaunt
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
             </span>{" "}
             {data?.courseName} Course
           </h1>
-          <p className="mb-5 leading-7 text-xl text-gray-700 font-normal">
+          <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700">
             {data?.writeUp}
           </p>
-          <div className="flex justify-center xl:justify-start gap-10">
+          <div className="flex justify-start">
             <NavLink
               to="/launchpad/register"
-              className="inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200"
+              className="tech-shadow inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200"
             >
               Apply Now<i className="ri-arrow-right-line ml-2"></i>
             </NavLink>
           </div>
-          <div className="flex items-center flex-wrap justify-center xl:justify-start">
+          <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-gray-500 font-normal leading-7">
+            <p className="text-xs lg:text-sm font-light text-gray-700">
               Over 5K+ professionals trained.
             </p>
           </div>
@@ -43,7 +43,7 @@ const CourseInfoHead = ({ data }) => {
             alt=""
             className="mx-auto md:mx-0 h-[40%] md:h-[70%] xl:h-[80%]"
           />
-          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-[5%] px-4 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl ">
+          <div className="mt-10 md:mt-0 md:h-[70%] xl:h-[80%] flex flex-col justify-center gap-8 md:gap-10 xl:absolute top-0 bg-black left-[55%] -right-[5%] px-8 py-10 sm:px-8 md:py-8 rounded-2xl md:rounded-none md:rounded-br-2xl md:rounded-tr-2xl">
             <a
               href={data.url}
               download={data.pdf}
@@ -66,7 +66,7 @@ const CourseInfoHead = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 export default CourseInfoHead;

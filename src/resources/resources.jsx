@@ -76,10 +76,10 @@ import icon4 from "../images/icon/icon4.png";
 import { Link } from "react-router-dom";
 
 export const achievementIcons = [
-  { img: icon1, num: "50", value: "Instructors" },
-  { img: icon2, num: "5,000+", value: "Trained" },
-  { img: icon3, num: "35,000+", value: "Members" },
-  { img: icon4, num: "4", value: "Cohorts" },
+  { img: icon1, num: 50, value: "Instructors" },
+  { img: icon2, num: 5000, value: "Trained" },
+  { img: icon3, num: 35000, value: "Members" },
+  { img: icon4, num: 4, value: "Cohorts" },
 ];
 
 export const PartnerImg = [

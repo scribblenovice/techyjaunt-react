@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const CountUpTimer = ({ maxValue, interval, title }) => {
+const CountUpTimer = ({ maxValue, interval, title, numberClass, titleClass, intervalNum }) => {
   const [count, setCount] = useState(0);
   const targetRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -44,7 +44,7 @@ const CountUpTimer = ({ maxValue, interval, title }) => {
           const nextCount = prevCount + interval;
           return nextCount <= maxValue ? nextCount : maxValue;
         });
-      }, 30);
+      }, (intervalNum || 30));
     }
 
     return () => clearInterval(intervalId);
@@ -54,8 +54,8 @@ const CountUpTimer = ({ maxValue, interval, title }) => {
     <div ref={targetRef} className="grid place-items-center">
       {isVisible && (
         <>
-          <p className="text-2xl md:text-5xl text-white">{count}+</p>
-          <span className="text-blue-500 text-sm">{title}</span>
+          <p className={`${numberClass || "text-2xl md:text-5xl text-white"}`}>{count}+</p>
+          <span className={`${titleClass || "text-blue-500 text-sm"}`}>{title}</span>
         </>
       )}
     </div>
