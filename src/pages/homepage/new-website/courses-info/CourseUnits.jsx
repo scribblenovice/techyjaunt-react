@@ -15,7 +15,7 @@ const CourseUnits = ({ data }) => {
             href={data?.url}
             download={data.pdf}
             target="_blank"
-            className="px-2 whitespace-nowrap md:px-5 text-center absolute z-[1000] -bottom-7 left-1/2 transform -translate-x-1/2 inline-block bg-[#FBAF1B] text-white hover:text-[#FBAF1B] hover:bg-white transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
+            className="px-2 whitespace-nowrap md:px-5 text-center absolute z-[1000] -bottom-7 left-1/2 transform -translate-x-1/2 inline-block bg-tech-blue text-white hover:bg-gray-500 transition-all ease-linear duration-200 rounded-md py-3 font-medium text-lg sm:text-2xl"
           >
             Download Brochure for more details
           </a>

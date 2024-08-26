@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import src from "../../images/launchpad/thankyou.webp";
 import { Link } from "react-router-dom";
+import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 
 const ScheduleThankyou = () => {
+  const { handleSnackbar } = useCustomSnackbar();
+  useEffect(() => {
+    const isRegistered = sessionStorage.getItem("scheduleRegistered");
+    if (isRegistered) {
+      handleSnackbar("registration successful", "success");
+    }
+  }, []);
   return (
     <>
       <div>
@@ -20,7 +29,6 @@ const ScheduleThankyou = () => {
             <Link
               target="_blank"
               to="https://wa.me/message/S4HHZEQFXJOWP1"
-              // onClick={redirect}
               className="text-xs hover:bg-gray-500 whitespace-nowrap md:text-base order-1 md:order-3 mx-auto flex items-center w-fit bg-blue-500 text-white p-3 rounded-md font-bold  transition-all ease-in duration-300"
             >
               SPEAK TO A CONSULTANT{" "}

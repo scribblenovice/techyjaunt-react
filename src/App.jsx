@@ -131,7 +131,7 @@ function App() {
             />
           </Route>
           {/* checkout route */}
-          <Route path="/checkout">
+          <Route path="checkout">
             <Route
               index
               element={
@@ -150,7 +150,7 @@ function App() {
             />
           </Route>
           {/* admin route */}
-          <Route path="/admin">
+          <Route path="admin">
             <Route
               index
               element={
@@ -191,14 +191,26 @@ function App() {
             />
           </Route>
           {/* schedule */}
-          <Route
-            path="schedule"
-            element={
-              <Suspense fallback={<GlobalBeat />}>
-                <BookSchedule />
-              </Suspense>
-            }
-          />
+          <Route path="schedule">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <BookSchedule />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute route="/schedule" param="scheduleRegistered">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <ScheduleThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
         </Route>
 
         {/* old routing */}

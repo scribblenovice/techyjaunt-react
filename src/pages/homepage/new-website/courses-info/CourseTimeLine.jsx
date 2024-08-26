@@ -8,7 +8,7 @@ const CourseTimeline = () => {
         <div className="bg-black font-medium text-base sm:text-xl md:text-3xl flex items-center justify-center">
           <p className="text-white py-5 lg:py-0 md:p-14 whitespace-nowrap flex lg:block items-center">
             APPLICATION ENDS IN: <br className="hidden lg:block" />
-            <CoursesCouter targetDate={`July 29, 2025, 12:00:00`} />
+            <CoursesCouter targetDate={`July 29, 2024, 12:00:00`} />
           </p>
         </div>
         <div className="bg-[#E4FCFF] w-full flex justify-around md:justify-evenly items-center py-2 md:py-8">

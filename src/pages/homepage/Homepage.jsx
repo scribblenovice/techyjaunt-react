@@ -35,8 +35,8 @@ const Homepage = () => {
         <Element name="courses">
           <Bootcamp />
         </Element>
-        <Partners />
-        {/* <Achievements /> */}
+        {/* <Partners /> */}
+        <Achievements />
         <Element name="testimonial">
           <FeedBack />
         </Element>

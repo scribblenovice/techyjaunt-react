@@ -7,8 +7,7 @@ const CTAMessage = () => {
       <Fade bottom>
         <h2 className="text-white text-center text-3xl md:text-4xl xl:text-5xl font-medium">
           Join our growing community of{" "}
-          <span className="text-[#FBAF1B]">35,000</span> community members ,
-          Professionals trained{" "}
+          <span className="text-[#FBAF1B]">35,000</span> community members
         </h2>
         </Fade>
       </div>
