@@ -35,7 +35,7 @@ const SecretPage = () => {
     setPending(true);
     setOpenModal(false);
     axios
-      .post("https://techyjaunt-kx6a.onrender.com/change-link", {
+      .post("https://techyjaunt-react.onrender.com/change-link", {
         newLink: newLink,
       })
       .then((res) => {
@@ -66,7 +66,7 @@ const SecretPage = () => {
             PLEASE TYPE YOUR NEW LINK
           </p>
           <input
-          className="p-2 text-lg w-full"
+            className="p-2 text-lg w-full"
             style={{ backgroundColor: "white", borderRadius: "10px" }}
             placeholder="enter your new link"
             id="newLink"

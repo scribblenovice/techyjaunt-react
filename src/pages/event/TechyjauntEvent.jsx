@@ -100,7 +100,7 @@ const TechyjauntEvent = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/event-register", {
+        .post("https://techyjaunt-react.onrender.com/event-register", {
           ...payload,
         })
         .then((res) => {

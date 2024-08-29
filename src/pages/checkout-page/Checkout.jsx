@@ -68,7 +68,7 @@ const Checkout = () => {
 
   const onSuccess = (reference) => {
     axios
-      .post("https://techyjaunt-kx6a.onrender.com/payment", {
+      .post("https://techyjaunt-react.onrender.com/payment", {
         ...formData,
         completedPayment: "yes",
       })

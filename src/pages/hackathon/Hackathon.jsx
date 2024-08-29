@@ -70,7 +70,7 @@ const Hackathon = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/hackathon-register", {
+        .post("https://techyjaunt-react.onrender.com/hackathon-register", {
           ...payload,
         })
         .then((res) => {

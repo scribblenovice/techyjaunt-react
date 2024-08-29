@@ -12,7 +12,7 @@ const LaunchPadThankyou = () => {
     if (isRegistered) {
       handleSnackbar("registration successful", "success");
     }
-    axios.get("https://techyjaunt-kx6a.onrender.com/get-link").then((res) => {
+    axios.get("https://techyjaunt-react.onrender.com/get-link").then((res) => {
       setWhatsappLink(res?.data?.data?.fields?.NewLink);
     });
   }, []);

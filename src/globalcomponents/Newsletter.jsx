@@ -49,7 +49,7 @@ const NewsLetter = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/subscribe", {
+        .post("https://techyjaunt-react.onrender.com/subscribe", {
           ...emailSubscriber,
         })
         .then((res) => {
@@ -59,9 +59,7 @@ const NewsLetter = () => {
               "you have successfully subscribed for our newsletter",
               "success"
             );
-            setEmailSubscribe({ firstName: "",
-              lastName: "",
-              email: "",})
+            setEmailSubscribe({ firstName: "", lastName: "", email: "" });
           }
           if (res.data.status === "existing") {
             handleSnackbar("this email already exist", "error");

@@ -133,7 +133,7 @@ const LaunchPad = () => {
       setPending(true);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/signup", { ...payload })
+        .post("https://techyjaunt-react.onrender.com/signup", { ...payload })
         .then((res) => {
           if (res.data.status === "registered") {
             sessionStorage.setItem("isRegistered", true);
@@ -170,7 +170,7 @@ const LaunchPad = () => {
     });
     console.log(formData);
   };
-  
+
   return (
     <>
       <div className="bg-stone-100">

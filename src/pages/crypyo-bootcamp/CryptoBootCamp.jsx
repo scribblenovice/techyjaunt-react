@@ -96,7 +96,7 @@ const CryptoBootCamp = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/crypto-bootcamp-reg", {
+        .post("https://techyjaunt-react.onrender.com/crypto-bootcamp-reg", {
           ...payload,
         })
         .then((res) => {

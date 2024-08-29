@@ -91,7 +91,7 @@ const Community = () => {
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("https://techyjaunt-kx6a.onrender.com/community-register", {
+        .post("https://techyjaunt-react.onrender.com/community-register", {
           ...payload,
         })
         .then((res) => {

@@ -100,7 +100,9 @@ const BookSchedule = () => {
     companyName: formData.companyName.trim(),
     companyPosition: formData.companyPosition.trim(),
     companyWebsite: formData.companyWebsite.trim(),
-    meetingDate: `${moment(formData.meetingTime).format("dddd")}, ${moment(formData.meetingTime).format("LL")}`,
+    meetingDate: `${moment(formData.meetingTime).format("dddd")}, ${moment(
+      formData.meetingTime
+    ).format("LL")}`,
     meetingTime: moment(formData.meetingTime).format("LT"),
     extraDetails:
       formData.extraDetails.trim() != "" ? formData.extraDetails.trim() : "-",
@@ -110,7 +112,7 @@ const BookSchedule = () => {
     setPending(true);
     // Submit the form data or perform other actions
     axios
-      .post("https://techyjaunt-kx6a.onrender.com/schedule-meeting", {
+      .post("https://techyjaunt-react.onrender.com/schedule-meeting", {
         ...payload,
       })
       .then((res) => {

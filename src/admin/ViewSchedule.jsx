@@ -21,7 +21,7 @@ const style = {
 
 const fetchData = async () => {
   const { data } = await axios.get(
-    "https://techyjaunt-kx6a.onrender.com/get-schedule"
+    "https://techyjaunt-react.onrender.com/get-schedule"
   );
   return data;
 };
@@ -33,13 +33,13 @@ const ViewScheduler = () => {
     let applicant = mainData.filter((el) => {
       return el.id === value;
     });
-    setActiveApplicant(applicant[0])
+    setActiveApplicant(applicant[0]);
   };
-  const openModal=(value)=>{
+  const openModal = (value) => {
     getApplicant(value);
     setOpen(true);
-    console.log()
-  }
+    console.log();
+  };
   const { enqueueSnackbar } = useSnackbar();
   const handleSnackbar = (message, variant) => {
     enqueueSnackbar(message, { variant });
@@ -56,7 +56,7 @@ const ViewScheduler = () => {
     setPending(true);
     setOpen(false);
     axios
-      .post("https://techyjaunt-kx6a.onrender.com/delete-schedule", {
+      .post("https://techyjaunt-react.onrender.com/delete-schedule", {
         userId: id,
       })
       .then((res) => {
@@ -113,7 +113,7 @@ const ViewScheduler = () => {
                       <i class="ri-delete-bin-6-line"></i>
                     </button>
                   </td>
-                  <td className="p-2 text-left">{index +1}</td>
+                  <td className="p-2 text-left">{index + 1}</td>
                   <td className="py-3 px-6 text-left whitespace-nowrap">
                     {user?.fields?.FirstName + " " + user?.fields?.LastName}
                   </td>
