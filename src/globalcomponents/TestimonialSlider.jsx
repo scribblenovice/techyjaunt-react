@@ -38,7 +38,7 @@ const TestimonialSlider = () => {
           {testimonialInfo.map((el, index) => (
             <div
               key={index}
-              className="flex items-center relative carousel-slide py-8"
+              className="flex items-center relative carousel-slide pb-8 pt-4"
             >
                 <div className={`${currentSlide === index? "fade-in": ""} relative w-full md:w-[80%] xl:w-[70%] mx-auto bg-white shadow-xl p-10 sm:p-14 md:p-16 rounded-lg border border-block`}>
                   <Comma className="absolute right-2 top-2 scale-75" />
@@ -77,7 +77,7 @@ const TestimonialSlider = () => {
         <i className="ri-arrow-right-s-line"></i>
       </button>
 
-      <div className="carousel-indicators left-1/2">
+      <div className="carousel-indicators left-1/2 mb-10">
         <Fade>
           {testimonialInfo.map((el, index) => (
             <button

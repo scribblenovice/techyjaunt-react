@@ -32,7 +32,7 @@ const Header = () => {
             </p>
           </Fade>
           <Fade bottom>
-            <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-bold">
+            <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-semibold">
               Crafting Top{" "}
               <span className="text-tech-blue relative whitespace-nowrap tts">
                 <FancyUnderline className="absolute -bottom-0 left-1/2 -translate-x-1/2" />{" "}

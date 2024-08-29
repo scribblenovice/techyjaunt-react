@@ -14,7 +14,7 @@ const LaunchpadHeadSection = () => {
         />
         <div className="">
           <Fade bottom>
-            <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-bold text-tech-blue">
+            <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-semibold text-tech-blue">
               Welcome To Techyjaunt
               <span className="text-black relative whitespace-nowrap">
                 <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2 " />{" "}

@@ -36,22 +36,25 @@ const Bootcamp = () => {
                 }}
                 onMouseLeave={() => setHover(false)}
                 to={`/course/${el.linkName}`}
-                className="relative w-full overflow-hidden rounded-lg"
+                className="relative w-full rounded-lg"
                 id={index}
               >
-                <img
-                  src={el.img}
-                  loading="lazy"
-                  alt=""
-                  className={`rounded-lg w-full transition-all ease-linear duration-500 z-0 ${
-                    hover && arrIndex === index ? "scale-125 grayscale" : ""
-                  }`}
-                />
+                <div className="overflow-hidden w-full h-full rounded-lg">
+                  <img
+                    src={el.img}
+                    loading="lazy"
+                    alt=""
+                    className={`rounded-lg w-full transition-all ease-linear duration-500 z-0 ${
+                      hover && arrIndex === index ? "scale-125 grayscale" : ""
+                    }`}
+                  />
+                </div>
+
                 <div
-                  className={`flex flex-col absolute text-white p-4 top-[60%] left-0 right-0 -bottom-5 ${el.bg} rounded-bl-lg rounded-br-lg z-10`}
+                  className={`flex flex-col absolute text-white py-8 px-4 top-[60%] left-0 right-0 -bottom-7 ${el.bg} rounded-bl-lg rounded-br-lg z-10`}
                 >
                   <h3 className="font-semibold text-2xl">
-                    I am interested in {el.fullName}
+                    I am interested in <br/> {el.fullName}
                   </h3>
                   <Link to={`/course/${el.linkName}`} className="w-fit">
                     Visit More{" "}

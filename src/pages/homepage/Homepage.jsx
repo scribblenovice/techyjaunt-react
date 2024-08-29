@@ -13,6 +13,7 @@ import CTAMessage from "./new-website/new-homepage/CTAMessage";
 import CTASection from "./new-website/new-homepage/CTASection";
 import AboutTechy from "./new-website/new-homepage/AboutTechy";
 import { Fade } from "react-reveal";
+import FeaturePage from "./new-website/new-homepage/FeaturePage";
 const Homepage = () => {
   const [open, setOpen] = useState(true);
   const [scrollNumber, setScrollNumber] = useState();
@@ -31,12 +32,12 @@ const Homepage = () => {
           <AboutTechy />
         </Element>
         <BestProgram />
-
         <Element name="courses">
           <Bootcamp />
         </Element>
         {/* <Partners /> */}
         <Achievements />
+        {/* <FeaturePage/> */}
         <Element name="testimonial">
           <FeedBack />
         </Element>

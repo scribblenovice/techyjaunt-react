@@ -20,12 +20,12 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
       <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
         <img src={LogoSrc} className="w-20 h-20" alt="" />
         <div
-          className={`${
-            openNav ? "open-nav xl:h-fit" : "close-nav h-0 xl:h-fit"
-          } overflow-y-hidden absolute top-20 bg-black xl:bg-transparent w-44 md:w-56 xl:w-fit -right-[5%] xl:static rounded-bl-lg`}
+          className={`transition-all ease-linear duration-300 h-[3000px] xl:h-fit ${
+            openNav ? "w-[250px] xl:w-fit" : "w-0 xl:w-fit"
+          } overflow-hidden absolute top-20 bg-black xl:bg-transparent xl:w-fit -right-[5%] xl:static rounded-bl-lg`}
         >
           <ul
-            className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10`}
+            className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10 whitespace-nowrap`}
           >
             <li className="cursor-pointer">
               <Link
@@ -78,7 +78,7 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
                 Courses
               </Link>
             </li>
-            <li className="cursor-pointer">
+            {/* <li className="cursor-pointer">
               <Link
                
                 to="testimonial"
@@ -95,7 +95,7 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
               >
                 Testimonials
               </Link>
-            </li>
+            </li> */}
             <li className="cursor-pointer">
               <Link
                 to="contact"
@@ -112,6 +112,19 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
               >
                 Contact us
               </Link>
+            </li>
+            <li className="cursor-pointer">
+              <NavLink
+                to="/launchpad"
+                onClick={() => setActiveHomeLink("launchpad")}
+                className={`${
+                  activeHomeLink === "launchpad"
+                    ? "text-white xl:text-tech-blue border-b-2 border-b-tech-blue"
+                    : "text-white xl:text-gray-800"
+                } w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-tech-blue after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-100 transition-all duration-200 ease-in`}
+              >
+                Launchpad
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -149,12 +162,11 @@ export const LaunchpadNavLinks = () => {
         <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
           <img src={LogoSrc} className="w-20 h-20" alt="" />
           <div
-            className={`${
-              openNav ? "open-nav xl:h-fit" : "close-nav h-0 xl:h-fit"
-            } overflow-y-hidden absolute top-20 bg-black xl:bg-transparent w-44 md:w-56 xl:w-fit -right-[5%] xl:static rounded-bl-lg`}
-          >
+             className={`transition-all ease-linear duration-300 h-[3000px] xl:h-fit ${
+              openNav ? "w-[250px] xl:w-fit" : "w-0 xl:w-fit"
+            } overflow-hidden absolute top-20 bg-black xl:bg-transparent xl:w-fit -right-[5%] xl:static rounded-bl-lg`}>
             <ul
-              className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10`}
+              className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10 whitespace-nowrap`}
             >
               <li className="cursor-pointer">
                 <NavLink
@@ -267,12 +279,11 @@ export const CoursesNavLinks = () => {
         <div className="h-fit w-[90%]  mx-auto flex justify-between items-center relative">
           <img src={LogoSrc} className="w-20 h-20" alt="" />
           <div
-            className={`${
-              openNav ? "open-nav xl:h-fit" : "close-nav h-0 xl:h-fit"
-            } overflow-y-hidden absolute top-20 bg-black xl:bg-transparent w-44 md:w-56 xl:w-fit -right-[5%] xl:static rounded-bl-lg`}
-          >
+             className={`transition-all ease-linear duration-300 h-[3000px] xl:h-fit ${
+              openNav ? "w-[250px] xl:w-fit" : "w-0 xl:w-fit"
+            } overflow-hidden absolute top-20 bg-black xl:bg-transparent xl:w-fit -right-[5%] xl:static rounded-bl-lg`}>
             <ul
-              className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10`}
+              className={`text-lg text-center py-5 xl:py-0 flex flex-col gap-y-5 xl:flex-row xl:gap-x-10 whitespace-nowrap`}
             >
               <li className="cursor-pointer">
                 <NavLink

@@ -15,7 +15,7 @@ const FeedBack = () => {
         </h2>
       </Fade>
       <Fade bottom>
-        <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700 mt-8 text-center">
+        <p className="font-semibold text-base md:text-2xl md:leading-8 mt-10 leading-7 text-gray-700 text-center">
           Here is what some past students have to say about us
         </p>
       </Fade>
