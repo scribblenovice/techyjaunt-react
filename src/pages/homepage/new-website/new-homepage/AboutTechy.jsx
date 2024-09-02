@@ -4,7 +4,7 @@ import { Fade } from "react-reveal";
 const AboutTechy = () => {
   return (
     <>
-      <div className="w-[90%] mx-auto pb-10">
+      <div className="w-[90%] mx-auto py-10">
         <Fade bottom>
         <h2 className="font-semibold text-2xl sm:text-3xl xl:text-6xl text-left tts">
           About{" "}

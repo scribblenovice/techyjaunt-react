@@ -2,6 +2,7 @@ import Avatars from "../../../../globalcomponents/Avatars";
 import { Circle, FancyUnderline } from "../../../../resources/resources";
 import src from "../../../../images/launchpad/launchpadimg.webp";
 import { Link, NavLink } from "react-router-dom";
+import { Fade } from "react-reveal";
 const CourseInfoHead = ({ data }) => {
   return (
     <section className="headerbg">
@@ -11,30 +12,38 @@ const CourseInfoHead = ({ data }) => {
           className=" absolute hidden xl:block top-36 left-[50%]"
         />
         <div className="xl:py-20">
-          <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-bold">
-            <span className="relative inline-block text-tech-blue">
-              Welcome To Techyjaunt
-              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
-            </span>{" "}
-            {data?.courseName} Course
-          </h1>
-          <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700">
-            {data?.writeUp}
-          </p>
-          <div className="flex justify-start">
-            <NavLink
-              to="/launchpad/register"
-              className="tech-shadow inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200"
-            >
-              Apply Now<i className="ri-arrow-right-line ml-2"></i>
-            </NavLink>
-          </div>
-          <div className="flex items-center flex-wrap">
-            <Avatars />
-            <p className="text-xs lg:text-sm font-light text-gray-700">
-              Over 5K+ professionals trained.
+          <Fade bottom>
+            <h1 className="text-left tracking-wide lg:leading-[60px] text-4xl lg:text-5xl tts font-semibold">
+              <span className="relative inline-block text-tech-blue ">
+                Welcome To Techyjaunt
+                <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+              </span>{" "}
+              {data?.courseName} Course
+            </h1>
+          </Fade>
+          <Fade bottom>
+            <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700">
+              {data?.writeUp}
             </p>
-          </div>
+          </Fade>
+          <Fade bottom>
+            <div className="flex justify-start">
+              <NavLink
+                to="/launchpad/register"
+                className="tech-shadow inline-block text-xl bg-tech-blue py-3 px-4 rounded-lg text-white mb-10 hover:bg-gray-500 transition-all ease-linear duration-200"
+              >
+                Apply Now<i className="ri-arrow-right-line ml-2"></i>
+              </NavLink>
+            </div>
+          </Fade>
+          <Fade bottom>
+            <div className="flex items-center flex-wrap">
+              <Avatars />
+              <p className="text-xs lg:text-sm font-light text-gray-700">
+                Over 5K+ professionals trained.
+              </p>
+            </div>
+          </Fade>
         </div>
         <div className="relative md:flex mx-auto xl:mx-0">
           <img

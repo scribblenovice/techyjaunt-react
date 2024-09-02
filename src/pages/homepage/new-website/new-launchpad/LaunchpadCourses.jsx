@@ -8,7 +8,7 @@ const LaunchpadCourses = () => {
   const [arrIndex, setArrIndex] = useState();
   return (
     <>
-      <div className=" w-[90%] xl:w-[85%] mx-auto py-10">
+      <div className=" w-[90%] mx-auto py-10">
         <Element name="courses">
           <div className="gap-x-8 gap-y-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {CourseSection.map((el, index) => {
