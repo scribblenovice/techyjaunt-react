@@ -10,6 +10,8 @@ dotenv.config();
 const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
 let api_key = process.env.VITE_EMAIL_OCTOPUS_API_KEY;
+let smtp_key = process.env.VITE_SMTP_KEY;
+
 const port = process.env.PORT || 3001;
 const buildPath = path.join(__dirname, "dist");
 
@@ -579,7 +581,7 @@ server.post("/schedule-meeting", (req, res) => {
     service: "Zoho",
     auth: {
       user: "pasomba41@gmail.com",
-      pass: "Fire15904",
+      pass: smtp_key,
     },
     host: "smtp.zoho.com",
     port: 587,
