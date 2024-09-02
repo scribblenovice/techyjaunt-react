@@ -10,7 +10,6 @@ export default withMT({
     extend: {
       backgroundImage: {
         founder: "url(./src/images/founder.webp)",
-        techBg: "url(./src/images/techbg.webp)",
       },
       colors: {
         "tech-blue": "#0175FB;",

@@ -1,10 +1,8 @@
 import {
   achievementIcons,
-  Circle,
   FancyUnderline,
   Star,
 } from "../../../../resources/resources";
-import icon from "../../../../images/icon/icon.png";
 import icon1 from "../../../../images/icon/achievementimg.jpg";
 import { Fade } from "react-reveal";
 import CountUpTimer from "../../../../hooks/CountUpTimer";
@@ -41,12 +39,6 @@ const Achievements = () => {
                       title={el.value}
                       intervalNum={100}
                     />
-                    {/* <p className="font-semibold text-lg md:text-2xl xl:text-4xl">
-                      {el.num}
-                    </p>
-                    <p className="text-gray-700 text-xs md:text-base xl:text-2xl">
-                      {el.value}
-                    </p> */}
                   </div>
                 </div>
               );
@@ -54,10 +46,7 @@ const Achievements = () => {
           </div>
         </div>
         <div className="grid justify-items-center relative">
-          <Circle className="absolute bg-[#1A906B] rounded-full right-20 top-10" />
-          <Circle className="absolute bg-[#ED4459] rounded-full right-5 top-1/4 scale-150" />
           <Star className="absolute bottom-24 -left-3 scale-[1.5] md:scale-[2] -rotate-12" />
-
           <img
             src={icon1}
             alt=""

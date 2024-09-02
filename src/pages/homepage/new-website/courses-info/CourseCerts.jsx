@@ -17,8 +17,8 @@ const CourseCerts = ({ data }) => {
                 Taught by Experienced Industry Experts
               </h2>
             </Fade>
-            <Fade>
-              <p className="text-base md:text-lg text-gray-700 mt-5">
+            <Fade bottom>
+              <p className="text-sm md:text-lg md:leading-8 leading-7 text-gray-700 mt-5">
                 Techjaunt instructors are experienced practitioners who work at
                 the world most innovative companies. They are expert in their
                 field, and enter the classroom with years of experience making

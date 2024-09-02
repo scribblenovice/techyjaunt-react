@@ -5,6 +5,7 @@ import path from "path";
 import { getGlobals } from "common-es";
 import dotenv from "dotenv";
 import axios from "axios";
+import nodemailer from "nodemailer";
 dotenv.config();
 const { __dirname, __filename } = getGlobals(import.meta.url);
 const server = express();
@@ -574,6 +575,28 @@ server.post("/schedule-meeting", (req, res) => {
   console.log(req.body);
   let launchpadListId = "88336d88-53dc-11ef-a73c-2f5b267643d3";
 
+  const transporter = nodemailer.createTransport({
+    service: "Zoho",
+    auth: {
+      user: "pasomba41@gmail.com",
+      pass: "Fire15904",
+    },
+    host: "smtp.zoho.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+  });
+
+  // Email options
+  const mailOptions = {
+    from: email,
+    to: "george@techyjaunt.com",
+    subject: "CRYPTO MEETING NOTIFICATION",
+    // text: "Body of your email",
+    html: `<p>Your meeting has been scheduled with ${
+      firstName + " " + lastName
+    } on ${meetingDate} at ${meetingTime}</p>`,
+  };
+
   fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
     method: "POST",
     headers: {
@@ -600,6 +623,13 @@ server.post("/schedule-meeting", (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       if (data.status === "SUBSCRIBED") {
+        // Send email
+        transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            return console.log(error);
+          }
+          console.log("Email sent: " + info.response);
+        });
         return res.status(200).json({
           status: "registered",
         });
@@ -659,7 +689,7 @@ server.post("/delete-schedule", (req, res) => {
     .then((response) => response.json())
     .then((data) => {
       return res.status(200).json({
-        status:"success"
+        status: "success",
       });
     })
     .catch((err) => {

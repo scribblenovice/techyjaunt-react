@@ -2342,7 +2342,7 @@ export const allCousesInfo = [
       },
       {
         unitName: "Market Research and Customer Understanding",
-        goal: "* Understanding customer needs, wants, and pain points, Conducting market research and competitor analysis, Creating user personas, Mapping the customer journey",
+        goal: "Understanding customer needs, wants, and pain points, Conducting market research and competitor analysis, Creating user personas, Mapping the customer journey",
       },
     ],
     brochure: "../../public/docs/Product management course outline.pdf",

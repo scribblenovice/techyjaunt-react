@@ -13,7 +13,7 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
   const [activeHomeLink, setActiveHomeLink] = useState("home");
   return (
     <nav
-      className={` sticky top-0 z-[100] ${
+      className={` sticky top-0 z-[5000] ${
         scrollNumber > 0 ? "nav-change" : ""
       }`}
     >
@@ -155,7 +155,7 @@ export const LaunchpadNavLinks = () => {
   return (
     <>
       <nav
-        className={` sticky top-0 z-[100] ${
+        className={` sticky top-0 z-[5000] ${
           scrollNumber > 0 ? "nav-change" : ""
         }`}
       >
@@ -272,7 +272,7 @@ export const CoursesNavLinks = () => {
   return (
     <>
       <nav
-        className={` sticky top-0 z-[100] ${
+        className={` sticky top-0 z-[5000] ${
           scrollNumber > 0 ? "nav-change" : ""
         }`}
       >

@@ -10,7 +10,7 @@ const CourseUnits = ({ data }) => {
           </h2>
         </Fade>
         <div className="flex relative flex-col gap-10 bg-blend-multiply">
-          <div className="absolute courseunitbg top-0 bottom-0 left-0 right-0"></div>
+          <div className="absolute courseunitbg top-0 bottom-0 left-0 right-0 z-[900]"></div>
           <a
             href={data?.url}
             download={data.pdf}
@@ -26,13 +26,20 @@ const CourseUnits = ({ data }) => {
                   index % 2 != 0 ? "bg-[#E4FCFF] w-screen" : "bg-transparent"
                 }`}
               >
-                <p className="text-tech-blue text-lg md:text-xl lg:text-2xl">
-                  UNIT {index + 1}
-                </p>
-                <h3 className="text-tech-blue text-3xl md:text-4xl lg:text-5xl">
-                  {el.unitName}
-                </h3>
-                <p className="text-base md:text-xl text-gray-700">{el.goal}</p>
+                <Fade
+                  right={index % 2 === 0 ? true : false}
+                  left={index % 2 != 0 ? true : false}
+                >
+                  <p className="text-tech-blue text-lg md:text-xl lg:text-2xl">
+                    UNIT {index + 1}
+                  </p>
+                  <h3 className="text-tech-blue text-3xl md:text-4xl lg:text-5xl">
+                    {el.unitName}
+                  </h3>
+                  <p className="text-sm md:text-lg md:leading-8 leading-7 text-gray-700">
+                    {el.goal}
+                  </p>
+                </Fade>
               </div>
             );
           })}

@@ -19,7 +19,6 @@ const AboutTechy = () => {
           <div className="grid place-content-center w-full h-full">
             <img src={src} alt="" className="w-full h-full rounded-xl" />
           </div>
-          {/* <Fade bottom> */}
           <div className="flex items-center">
             <p className="text-base md:text-lg md:leading-8 leading-7 text-gray-700">
               <span>
@@ -40,7 +39,6 @@ const AboutTechy = () => {
               </span>
             </p>
           </div>
-          {/* </Fade> */}
         </div>
       </div>
     </>
