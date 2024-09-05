@@ -49,9 +49,8 @@ const Bootcamp = () => {
                     }`}
                   />
                 </div>
-
                 <div
-                  className={`flex flex-col absolute text-white py-8 px-4 top-[60%] left-0 right-0 -bottom-7 ${el.bg} rounded-bl-lg rounded-br-lg z-10`}
+                  className={`flex flex-col justify-center absolute text-white px-4 top-[60%] left-0 right-0 -bottom-7 ${el.bg} rounded-bl-lg rounded-br-lg z-10`}
                 >
                   <h3 className="font-semibold text-2xl">
                     I am interested in <br/> {el.fullName}

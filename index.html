@@ -24,9 +24,17 @@
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0175FB">
+    <meta name="theme-color" content="#0175FB" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -35,8 +43,11 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.cdnfonts.com/css/tt-firs-neue-trl" rel="stylesheet">
-                
+    <link
+      href="https://fonts.cdnfonts.com/css/tt-firs-neue-trl"
+      rel="stylesheet"
+    />
+
     <link rel="icon" href="./src/images/techy_jaunt_logo.svg" />
     <title>TechyJaunt</title>
     <!-- <meta
@@ -61,7 +72,10 @@
           a.parentNode.insertBefore(u, a));
       })(window, document, "script");
       twq("config", "omxly");
-      if (window.location.pathname === "/launchpad/thank-you" || window.location.pathname == "/schedule/thank-you") {
+      if (
+        window.location.pathname === "/launchpad/thank-you" ||
+        window.location.pathname == "/schedule/thank-you"
+      ) {
         //Twitter conversion tracking event code
         // Insert Twitter Event ID
         twq("event", "tw-omxly-omxme", {

@@ -8,12 +8,12 @@ import { Fade } from "react-reveal";
 import CountUpTimer from "../../../../hooks/CountUpTimer";
 const Achievements = () => {
   return (
-    <div className="w-[90%] xl:w-[85%] mx-auto py-20 xl:py-32">
+    <div className="w-[90%] xl:w-[85%] mx-auto pb-20 xl:pb-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="flex flex-col self-center">
           <div className="grid grid-cols-2 gap-y-5">
             <Fade bottom>
-              <h2 className="col-span-2 mb-5 relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start whitespace-nowrap tts">
+              <h2 className="w-fit col-span-2 mb-5 relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start whitespace-nowrap tts">
                 Our{" "}
                 <span className="text-tech-blue tts">
                   <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2 scale-75" />{" "}
