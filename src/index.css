@@ -303,3 +303,10 @@ video {
 .launchcta{
   background-image: url(./images/techbg.webp);
 }
+.owl-stage{
+  display: flex;
+  align-items: center;
+}
+.owl-item img{
+  width: 10px;
+}
