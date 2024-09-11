@@ -53,21 +53,12 @@ const FooterSection = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300">
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <Link
-                  to="courses"
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
+                <NavLink
+                  to="/launchpad"
                   className="cursor-pointer hover:text-tech-blue transition-all ease-linear duration-300"
                 >
-                  Course
-                </Link>
+                  Launchpad
+                </NavLink>
               </li>
               <li>
                 <NavLink

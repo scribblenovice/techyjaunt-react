@@ -51,7 +51,7 @@ const Achievements = () => {
             src={icon1}
             alt=""
             loading="lazy"
-            className="w-full h-full rounded-xl"
+            className="w-full xl:w-[95%] h-full xl:h-[95%] rounded-xl"
           />
         </div>
       </div>
