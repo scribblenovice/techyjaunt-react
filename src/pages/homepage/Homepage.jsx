@@ -37,15 +37,12 @@ const Homepage = () => {
         </Element>
         <Partners />
         <Achievements />
-        {/* <FeaturePage/> */}
+        <FeaturePage />
         <Element name="testimonial">
           <FeedBack />
         </Element>
-
         <CTAMessage />
-
         <CTASection />
-
         <Element name="contact">
           <FooterSection />
         </Element>

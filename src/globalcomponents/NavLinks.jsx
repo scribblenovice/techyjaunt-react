@@ -5,6 +5,7 @@ import { useLocation, NavLink } from "react-router-dom";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 export const HomeNavLink = ({ navclass, isLaunchPad }) => {
+  const isTablet = window.innerWidth >= 768 // Example of tablet range
   const [openNav, setOpenNav] = useState(false);
   const [scrollNumber, setScrollNumber] = useState(window.scrollY);
   window.addEventListener("scroll", () => {
@@ -78,24 +79,24 @@ export const HomeNavLink = ({ navclass, isLaunchPad }) => {
                 Courses
               </Link>
             </li>
-            {/* <li className="cursor-pointer">
+            <li className="cursor-pointer">
               <Link
                
-                to="testimonial"
+                to="feature"
                 spy={true}
                 smooth={true}
                 offset={-100}
                 duration={800}
-                onClick={() => setActiveHomeLink("testimonial")}
+                onClick={() => setActiveHomeLink("feature")}
                 className={`${
-                  activeHomeLink === "testimonial"
+                  activeHomeLink === "feature"
                     ? "text-white xl:text-tech-blue border-b-2 border-b-tech-blue"
                     : "text-white xl:text-gray-800"
                 } w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-tech-blue after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-100 transition-all duration-200 ease-in`}
               >
-                Testimonials
+                News Feature
               </Link>
-            </li> */}
+            </li>
             <li className="cursor-pointer">
               <Link
                 to="contact"

@@ -37,7 +37,7 @@ const Partners = ({ isEvent, title }) => {
     // navText: [`<p className="text-2xl">preev</p>`,`<p className="text-2xl"  >nextii</p>`],
   };
   return (
-    <div className="w-[90%] mx-auto py-10 lg:py-28 flex flex-col">
+    <div className="w-[90%] mx-auto py-10 lg:py-40 flex flex-col">
       <Fade bottom>
         <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl text-left tts">
           Our <span className="text-tech-blue tts">Partners</span>
@@ -60,31 +60,7 @@ const Partners = ({ isEvent, title }) => {
           </OwlCarousel>
         </Fade>
       </div>
-      {/* <div
-          className={`grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-10 test pt-10`}
-        > */}
-      {/* {PartnerImg.map((j) => {
-            return (
-              <Zoom>
-              <div className="w-full h-full grid place-items-center">
-                <img
-                  loading="lazy"
-                  className={`${
-                    j.id == 2 || j.id == 3
-                      ? "w-[60%]"
-                      : j.id == 10
-                      ? "w-[100%]"
-                      : "w-[90%]" 
-                  }`}
-                  key={j.id}
-                  src={j.src}
-                  alt=""
-                />
-              </div>
-             </Zoom>
-            );
-          })} */}
-      {/* </div> */}
+      
     </div>
   );
 };
