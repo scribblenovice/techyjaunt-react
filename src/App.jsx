@@ -5,6 +5,7 @@ import ReactPixel from "react-facebook-pixel";
 import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
+import Error404Page from "./pages/Error404";
 // import VerifyPayment from "./pages/checkout-page/VerifyPayment";
 // import ErrorPayment from "./pages/checkout-page/ErrorPayment";
 const BookSchedule = lazy(() => import("./pages/schedule/BookSchedule"));
@@ -211,11 +212,35 @@ function App() {
               }
             />
           </Route>
-        </Route>
+          {/* bootcamp */}
+          <Route path="crypto-bootcamp">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <CryptoBootCamp />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute
+                  route="/crypto-bootcamp"
+                  param="cryptoRegistered"
+                >
+                  <Suspense fallback={<GlobalBeat />}>
+                    <CryptoThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+    
 
-        {/* old routing */}
-        {/* CHECKOUT */}
-        {/* <Route
+          {/* old routing */}
+          {/* CHECKOUT */}
+          {/* <Route
           path="/checkout"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -249,8 +274,8 @@ function App() {
             </Suspense>
           }
         /> */}
-        {/* EVENT */}
-        {/* <Route
+          {/* EVENT */}
+          {/* <Route
           path="/event"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -268,8 +293,8 @@ function App() {
             </ProtectedRoute>
           }
         /> */}
-        {/* HACKATHON */}
-        {/* <Route
+          {/* HACKATHON */}
+          {/* <Route
           path="/hackathon"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -287,8 +312,8 @@ function App() {
             </ProtectedRoute>
           }
         /> */}
-        {/* cryptobootcamp */}
-        {/* <Route
+          {/* cryptobootcamp */}
+          {/* <Route
           path="/crypto-bootcamp"
           element={
             <Suspense fallback={<GlobalBeat />}>
@@ -307,6 +332,8 @@ function App() {
           }
         />
       */}
+        </Route>
+        <Route path="*" element={<Error404Page />} />
       </Routes>
     </BrowserRouter>
   );

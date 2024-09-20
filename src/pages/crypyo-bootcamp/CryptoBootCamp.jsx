@@ -16,6 +16,8 @@ import icon4 from "../../images/crypto-bootcamp/icons/tether-cryptocurrency.svg"
 import { Element, Link } from "react-scroll";
 import TypingAnimation from "../../globalcomponents/TypingAnimation";
 import TextCarousel from "../../globalcomponents/TextCarousel";
+import { useSnackbar } from "notistack";
+import Loader from "../../globalcomponents/Loader";
 
 const CryptoBootCamp = () => {
   const [pending, setPending] = useState(false);
@@ -31,6 +33,10 @@ const CryptoBootCamp = () => {
   window.addEventListener("scroll", () => {
     setScrollNumber(window.scrollY);
   });
+  const { enqueueSnackbar } = useSnackbar();
+  const handleSnackbar = (message, variant) => {
+    enqueueSnackbar(message, { variant });
+  };
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -100,57 +106,29 @@ const CryptoBootCamp = () => {
           ...payload,
         })
         .then((res) => {
+          setPending(false);
           if (res.data.status === "registered") {
-            setPending(false);
-            navigate("/crypto-bootcamp/thank-you");
+            sessionStorage.setItem("cryptoRegistered", true);
+            navigate("thank-you");
           }
           if (res.data.status === "existing") {
-            setPending(false);
-            setModalError(true);
-            setOpen(true);
-            setMessage("THIS EMAIL ALREADY EXISTS!");
+            handleSnackbar("this email already exists!", "error");
           }
           if (res.data.status === "failed") {
-            setPending(false);
-            setModalError(true);
-            setOpen(true);
-            setMessage("REGISTRATION FAILED! PLEASE TRY AGAIN");
+            handleSnackbar("registration failed, please try again!", "error");
           }
         })
         .catch((error) => {
+          setPending(false);
           // Handle error
           if (error.response) {
-            setPending(false);
-            setModalError(true);
-            setOpen(true);
-            setMessage(
-              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
-            );
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            // console.log(
-            //   "Server responded with a non-2xx status code:",
-            //   error.response.status
-            // );
-            // console.log('Data:', error.response.data);
+            handleSnackbar("registration failed, please try again!", "error");
           } else if (error.request) {
+            handleSnackbar("please check your internet connection!", "error");
             // The request was made but no response was received
-            setPending(false);
-            setModalError(true);
-            setOpen(true);
-            setMessage(
-              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
-            );
           } else {
-            setPending(false);
-            setModalError(true);
-            setOpen(true);
-            setMessage(
-              "REGISTRATION FAILED! PLEASE CHECK YOUR INTERNET CONNECTION TRY AGAIN"
-            );
-            // console.log("Error setting up the request:", error.message);
+            handleSnackbar("registration failed, please try again!", "error");
           }
-          // console.log("Error config:", error.config);
         });
     }
     if (!isValid) {
@@ -172,13 +150,7 @@ const CryptoBootCamp = () => {
   return (
     <>
       <CryptoForm
-        open={open}
-        close={() => {
-          setOpen(false);
-        }}
         openModal={openModal}
-        message={message}
-        modalError={modalError}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         formErrors={formErrors}
@@ -327,7 +299,7 @@ const CryptoBootCamp = () => {
         </Fade>
       </Element>
       <FooterSection />
-      {pending && <EmailLoading />}
+      {pending && <Loader />}
     </>
   );
 };

@@ -14,7 +14,7 @@ const ScheduleThankyou = () => {
   return (
     <>
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 w-[90%]  mx-auto py-20 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 w-[90%]  mx-auto py-20 md:py-14 gap-5">
           <div>
             <img src={src} alt="" className="h-72 md:h-full mx-auto" />
           </div>
