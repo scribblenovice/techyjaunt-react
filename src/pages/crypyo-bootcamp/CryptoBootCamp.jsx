@@ -1,7 +1,7 @@
 import CountdownTimer from "../../globalcomponents/Countdown";
 import FooterSection from "../../globalcomponents/FooterSection";
 import src from "../../images/crypto-bootcamp/trader.jpg";
-import src1 from "../../images/crypto-bootcamp/crypto-flier.png";
+import src1 from "../../images/crypto-bootcamp/crypto-flier.webp";
 import Fade from "react-reveal";
 import CryptoForm from "./CryptoForm";
 import { useState } from "react";
