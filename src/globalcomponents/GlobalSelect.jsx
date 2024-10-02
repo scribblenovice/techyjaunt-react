@@ -10,14 +10,14 @@ const GlobalSelect = ({
   return (
     <>
       <Select
-      id="select"
+        id="select"
         onChange={handleChange}
         value={inputVal}
         name={inputName}
         menuProps={{
           className: menuClass,
         }}
-        className={`!border ${
+        className={`!border !bg-white ${
           errorTxt ? "!border-red-500" : "!border-gray-400"
         } text-gray-900 focus:!border-black focus:!border-2 focus:!outline-0 focus:!shadow-none`}
         aria-required
@@ -25,7 +25,6 @@ const GlobalSelect = ({
           className: "hidden",
         }}
       >
-       
         {options.map((el, index) => {
           return (
             <Option key={index} value={el.name.toLowerCase()}>

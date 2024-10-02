@@ -702,6 +702,90 @@ server.post("/delete-schedule", (req, res) => {
     });
 });
 
+//survey
+server.post("/survey", (req, res) => {
+  const {
+    emailAddress,
+    apartmentType,
+    userName,
+    phoneNumber,
+    apartmentRent,
+    prptyApp,
+    prptyMgmt,
+    otherPrptyMgmt,
+    prptyHireReason,
+    otherPrptyHireReason,
+    prptyLocation,
+    prptyMgmtReason,
+    otherPrptyMgmtReason,
+    bedroomNumber,
+    otherBedroomNumber,
+    otherApartmentType,
+    otherApartmentRent,
+    prptyProblems,
+  } = req.body;
+  console.log(req.body);
+  let launchpadListId = "ec462042-7f1d-11ef-9f53-c756179f1324";
+
+  fetch(`https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      api_key,
+      email_address: emailAddress,
+      fields: {
+        FirstName: userName,
+        LastName: ".",
+        PhoneNumber: phoneNumber,
+        EmailAddress: emailAddress,
+        ApartmentType: apartmentType,
+        OtherApartmentType: otherApartmentType || "-",
+        ApartmentRent: apartmentRent,
+        OtherApartmentRent: otherApartmentRent || "-",
+        WillUseApp: prptyApp,
+        WhoManagesProperty: prptyMgmt,
+        OtherWhoManagesProperty: otherPrptyMgmt || "-",
+        PropertyHireReason: prptyHireReason,
+        OtherPropertyHireReason: otherPrptyHireReason || "-",
+        propertyLocation: prptyLocation,
+        WhyPropertyIsNotManaged: prptyMgmtReason,
+        OtherWhyPropertyIsNotManaged: otherPrptyMgmtReason || "-",
+        NumberOfBedrooms: bedroomNumber,
+        OtherNumberOfBedrooms: otherBedroomNumber || "-",
+        PropertyProblems: prptyProblems || "-",
+      },
+      status: "SUBSCRIBED",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.status || data.error.code);
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "registered",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "existing",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "failed",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
 // verify payment
 server.post("/verify-payment", async (req, res) => {
   let paidListId = "8fce3572-4b90-11ef-be1e-553041d2c7af";

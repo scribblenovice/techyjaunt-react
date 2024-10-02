@@ -16,7 +16,6 @@ import { useSnackbar } from "notistack";
 import useCustomSnackbar from "../../../../hooks/UseCustomSnackbar";
 
 const RegistrationPage = () => {
-  // const { showSnackbar, showError, showSuccess } = useCustomSnackbar();
   // ---------------------handling progress bar-----------------------
   const [contactError, setContactError] = useState({});
   const [infoError, setInfoError] = useState({});
@@ -25,10 +24,6 @@ const RegistrationPage = () => {
   const [pending, setPending] = useState(false);
   const { handleSnackbar } = useCustomSnackbar();
   const steps = [1, 2, 3, 4];
-  // const { enqueueSnackbar } = useSnackbar();
-  // const handleSnackbar = (message, variant) => {
-  //   enqueueSnackbar(message, { variant });
-  // };
 
   const goToNextStep = () => {
     let isValid;

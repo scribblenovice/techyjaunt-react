@@ -19,13 +19,13 @@ export function  GlobalText({
 }) {
   return (
     <div className={`w-full`} style={style}>
-      <Input
-        className={`!border ${
+      <input
+        className={`!border w-full rounded-lg ${
           errorTxt ? "!border-red-500" : "!border-gray-400"
         } text-gray-900 focus:!border-black focus:!border-2 ring-0 focus:shadow-none !bg-white`}
-        labelProps={{
-          className: !focused ? labelClass : "hidden",
-        }}
+        // labelProps={{
+        //   className: !focused ? labelClass : "hidden",
+        // }}
         type={inputType}
         id={id}
         label={labelTxt}

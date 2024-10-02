@@ -7,6 +7,9 @@ h1, h2, h3{
 h1 span, h2 span, h3 span{
   font-family: 'TT Firs Neue Trl', sans-serif;
 }
+#surveyform label{
+  color: black;
+}
 
 .headerbg {
   background: rgb(220, 220, 242);
