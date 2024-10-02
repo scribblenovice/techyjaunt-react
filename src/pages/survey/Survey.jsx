@@ -8,6 +8,7 @@ import { validateSurvey } from "../../validation/SurveyValidation";
 import Loader from "../../globalcomponents/Loader";
 import axios from "axios";
 import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
+import { useNavigate } from "react-router-dom";
 
 const house = [
   { label: "Bungalow" },
@@ -62,6 +63,7 @@ const Survey = () => {
     apartmentType: "",
     userName: "",
     phoneNumber: "",
+    emailAddress:"",
     apartmentRent: "",
     prptyApp: "",
     prptyMgmt: "",
@@ -75,6 +77,7 @@ const Survey = () => {
     otherBedroomNumber: "",
     otherApartmentType: "",
     otherApartmentRent: "",
+    prptyProblems:""
   });
   const [pending, setPending] = useState(false);
   const [error, setError] = useState({});
@@ -108,23 +111,23 @@ const Survey = () => {
     }
     return formData;
   };
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
     let data = payloadCreation(formData);
     let isValid = validateSurvey(data, setError);
-    // console.log(data);
     if (isValid) {
       setPending(true);
       setShake(false);
       // Submit the form data or perform other actions
       axios
-        .post("http://localhost:3001/survey", {
+        .post("https://techyjaunt-react.onrender.com/survey", {
           ...data,
         })
         .then((res) => {
           setPending(false);
           if (res.data.status === "registered") {
-            setFormData({})
+            // setFormData({})
             sessionStorage.setItem("surveyComplete", true);
             navigate("thank-you");
           }
@@ -367,7 +370,7 @@ const Survey = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="">
-              Add your “email address” below  So you'd be contacted when we have
+              Add your email address below  So you'd be contacted when we have
               a solution to your problem
             </label>
             <GlobalText

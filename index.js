@@ -702,13 +702,27 @@ server.post("/delete-schedule", (req, res) => {
     });
 });
 
-
 //survey
 server.post("/survey", (req, res) => {
   const {
-    userName, 
     emailAddress,
+    apartmentType,
+    userName,
     phoneNumber,
+    apartmentRent,
+    prptyApp,
+    prptyMgmt,
+    otherPrptyMgmt,
+    prptyHireReason,
+    otherPrptyHireReason,
+    prptyLocation,
+    prptyMgmtReason,
+    otherPrptyMgmtReason,
+    bedroomNumber,
+    otherBedroomNumber,
+    otherApartmentType,
+    otherApartmentRent,
+    prptyProblems,
   } = req.body;
   console.log(req.body);
   let launchpadListId = "ec462042-7f1d-11ef-9f53-c756179f1324";
@@ -722,18 +736,32 @@ server.post("/survey", (req, res) => {
       api_key,
       email_address: emailAddress,
       fields: {
-        EmailAddress: emailAddress,
         FirstName: userName,
-        LastName: "-",
+        LastName: ".",
         PhoneNumber: phoneNumber,
-       
+        EmailAddress: emailAddress,
+        ApartmentType: apartmentType,
+        OtherApartmentType: otherApartmentType || "-",
+        ApartmentRent: apartmentRent,
+        OtherApartmentRent: otherApartmentRent || "-",
+        WillUseApp: prptyApp,
+        WhoManagesProperty: prptyMgmt,
+        OtherWhoManagesProperty: otherPrptyMgmt || "-",
+        PropertyHireReason: prptyHireReason,
+        OtherPropertyHireReason: otherPrptyHireReason || "-",
+        propertyLocation: prptyLocation,
+        WhyPropertyIsNotManaged: prptyMgmtReason,
+        OtherWhyPropertyIsNotManaged: otherPrptyMgmtReason || "-",
+        NumberOfBedrooms: bedroomNumber,
+        OtherNumberOfBedrooms: otherBedroomNumber || "-",
+        PropertyProblems: prptyProblems || "-",
       },
       status: "SUBSCRIBED",
     }),
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.status || data.error.code)
+      console.log(data.status || data.error.code);
       if (data.status === "SUBSCRIBED") {
         return res.status(200).json({
           status: "registered",
@@ -757,8 +785,6 @@ server.post("/survey", (req, res) => {
       });
     });
 });
-
-
 
 // verify payment
 server.post("/verify-payment", async (req, res) => {
