@@ -6,6 +6,7 @@ import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 import Error404Page from "./pages/Error404";
+import Survey from "./pages/survey/Survey";
 // import VerifyPayment from "./pages/checkout-page/VerifyPayment";
 // import ErrorPayment from "./pages/checkout-page/ErrorPayment";
 const BookSchedule = lazy(() => import("./pages/schedule/BookSchedule"));
@@ -236,7 +237,27 @@ function App() {
               }
             />
           </Route>
-    
+          {/* survey */}
+          <Route path="survey">
+            <Route
+              index
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <Survey />
+                </Suspense>
+              }
+            />
+            <Route
+              path="thank-you"
+              element={
+                <ProtectedRoute route="/schedule" param="scheduleRegistered">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <ScheduleThankyou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+          </Route>
 
           {/* old routing */}
           {/* CHECKOUT */}

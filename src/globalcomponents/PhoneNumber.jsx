@@ -8,6 +8,7 @@ const PhoneNumber = ({
   handleChange,
   inputVal,
   errorTxt,
+  bg
 }) => {
   return (
     <>
@@ -18,7 +19,7 @@ const PhoneNumber = ({
         onChange={handleChange}
         inputStyle={{
           height: "2.5rem",
-          background: "transparent"
+          background: bg || "transparent" 
         }}
         inputClassName={`!border ${
           errorTxt ? "!border-red-500" : "!border-gray-400"
