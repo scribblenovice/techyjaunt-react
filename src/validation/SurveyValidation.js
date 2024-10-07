@@ -1,8 +1,12 @@
 export const validateSurvey = (formData, update) => {
   let errors = {};
   let isValid = true;
-  if (formData.userName === "") {
-    errors.userName = "enter your name";
+  if (formData.firstName === "") {
+    errors.firstName = "enter your first name";
+    isValid = false;
+  }
+  if (formData.lastName === "") {
+    errors.lastName = "enter your last name";
     isValid = false;
   }
   if (formData.emailAddress === "") {

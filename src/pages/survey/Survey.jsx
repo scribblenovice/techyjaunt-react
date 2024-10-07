@@ -63,7 +63,8 @@ const Survey = ({ openModal, closeModal }) => {
   const { handleSnackbar } = useCustomSnackbar();
   const [formData, setFormData] = useState({
     apartmentType: "",
-    userName: "",
+    firstName: "",
+    lastName: "",
     phoneNumber: "",
     emailAddress: "",
     apartmentRent: "",
@@ -196,14 +197,25 @@ const Survey = ({ openModal, closeModal }) => {
               Kindly fill out the survey
             </h1>
             <div className="flex flex-col gap-2">
-              <label htmlFor="">What is your name?</label>
+              <label htmlFor="">What is first name?</label>
               <GlobalText
                 handleChange={handleChange}
                 inputType="text"
-                inputName="userName"
-                placeTxt="enter the your name"
-                inputVal={formData.userName}
-                errorTxt={error.userName}
+                inputName="firstName"
+                placeTxt="enter the your first name"
+                inputVal={formData.firstName}
+                errorTxt={error.firstName}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">What is your last name?</label>
+              <GlobalText
+                handleChange={handleChange}
+                inputType="text"
+                inputName="lastName"
+                placeTxt="enter the your last name"
+                inputVal={formData.lastName}
+                errorTxt={error.lastName}
               />
             </div>
             <div className="flex flex-col gap-2">

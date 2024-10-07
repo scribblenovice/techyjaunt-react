@@ -707,7 +707,8 @@ server.post("/survey", (req, res) => {
   const {
     emailAddress,
     apartmentType,
-    userName,
+    firstName,
+    lastName,
     phoneNumber,
     apartmentRent,
     prptyApp,
@@ -736,8 +737,8 @@ server.post("/survey", (req, res) => {
       api_key,
       email_address: emailAddress,
       fields: {
-        FirstName: userName,
-        LastName: ".",
+        FirstName: firstName,
+        LastName: lastName,
         PhoneNumber: phoneNumber,
         EmailAddress: emailAddress,
         ApartmentType: apartmentType,
