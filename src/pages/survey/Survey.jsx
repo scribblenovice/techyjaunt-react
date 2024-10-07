@@ -298,7 +298,7 @@ const Survey = ({ openModal, closeModal }) => {
                   handleChange={handleChange}
                   inputType="text"
                   inputName="otherPrptyMgmt"
-                  placeTxt="enter your responnse"
+                  placeTxt="enter your response"
                   inputVal={formData.otherPrptyMgmt}
                   errorTxt={error.otherPrptyMgmt}
                 />

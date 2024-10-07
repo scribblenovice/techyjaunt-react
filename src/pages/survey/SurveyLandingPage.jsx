@@ -1,5 +1,5 @@
 
-import src from "../../images/property.png";
+import src from "../../images/property.webp";
 import Fade from "react-reveal/Fade";
 import { Circle, CurlyLine, Star, Star2 } from "../../resources/resources";
 import { useState } from "react";
@@ -64,39 +64,6 @@ const SurveyLandingPage = () => {
       </section>
       {open && <Survey openModal={open} closeModal={()=>setOpen(false)}/>}
     </>
-    // <section className="bg-black h-screen">
-    //   <div className="grid grid-cols-1 md:grid-cols-2 place-content-center">
-    //     <div className="text-white px-4 h-full flex flex-col justify-center text-center gap-3">
-    //       <h1 className="font-bold text-4xl uppercase tts">
-    //         Connecting you directly with tenants or clients!
-    //       </h1>
-    //       <p>
-    //         <TypingAnimation
-    //           sequenceArray={[
-    //             "Do you own a property?",
-    //             1000,
-    //             "We help connect landlords like you directly with tenants!",
-    //             1000,
-    //           ]}
-    //         //   repeat={}
-    //         />
-    //         {/* Do you own a property? We help connect landlords like you directly
-    //         with tenants! */}
-    //       </p>
-    //       <p>
-    //         Agents are ruining the experience for everyone. By filling out this
-    //         form, you'll get first-hand access to tenants for free when we
-    //         launch.
-    //       </p>
-    //       <button className="py-3 rounded-md bg-white text-black border-[1px]">
-    //         Fill form
-    //       </button>
-    //     </div>
-    //     <div>
-    //       <img src={src} alt="" className="h-screen w-full" />
-    //     </div>
-    //   </div>
-    // </section>
   );
 };
 export default SurveyLandingPage;
