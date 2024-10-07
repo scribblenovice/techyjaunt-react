@@ -19,7 +19,7 @@ const SurveyLandingPage = () => {
           <div className="grid place-content-center">
             <Fade bottom>
               <h1 className="text-left mb-5 tracking-wide lg:leading-[60px] text-4xl lg:text-5xl xl:text-6xl tts font-semibold">
-                Connecting you directly with tenants or clients!
+                Connecting Landlords directly with tenants or clients!
               </h1>
             </Fade>
             <Fade bottom>
