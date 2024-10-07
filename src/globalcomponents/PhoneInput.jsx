@@ -37,12 +37,14 @@ const PhoneNumberInput = ({ inputName, handleChange, inputVal, errorTxt }) => {
               : "!border-b-gray-800"
           } text-gray-900`,
           dropdownStyleProps: {
-            listItemCountryNameClassName:"",
-            className: "rounded-md scrollbar-none !border-none !outline-none p-2 !bg-black",
-            listItemClassName: "aria-selected:bg-white aria-selected:text-black text-white hover:text-black hover:bg-white py-1 rounded-md px-2 flex transition-all ease-linear duration-200",
+            listItemCountryNameClassName: "",
+            className:
+              "rounded-md scrollbar-none !border-none !outline-none p-2 !bg-black",
+            listItemClassName:
+              "aria-selected:bg-white aria-selected:text-black text-white hover:text-black hover:bg-white py-1 rounded-md px-2 flex transition-all ease-linear duration-200",
             listItemDialCodeClassName: "ml-auto !text-inherit",
           },
-          dropdownArrowClassName:"ml-2"
+          dropdownArrowClassName: "ml-2",
         }}
       />
       {errorTxt && <p className="text-xs text-red-500">{errorTxt}</p>}

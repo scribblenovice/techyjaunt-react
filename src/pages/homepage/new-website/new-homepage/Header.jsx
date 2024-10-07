@@ -39,10 +39,6 @@ const Header = () => {
                 Tech Talents
               </span>{" "}
               For The World
-              {/* <span className="relative inline-block">
-              <FancyUnderline className="absolute left-0 -bottom-2 " />{" "}
-              Instructors
-            </span> */}
             </h1>
           </Fade>
           <Fade bottom>
@@ -82,10 +78,6 @@ const Header = () => {
           </Fade>
         </div>
         <div className="relative grid place-items-center">
-          {/* <Circle
-            color="#FFC27A"
-            className="absolute hidden xl:block -top-16 left-36"
-          /> */}
           <Circle
             color="#6D39ED"
             className="absolute hidden xl:block -bottom-5 left-24"

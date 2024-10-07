@@ -14,6 +14,15 @@ export default withMT({
       colors: {
         "tech-blue": "#0175FB;",
       },
+      keyframes: {
+        carousel: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        carousel: "carousel 30s linear infinite",
+      },
     },
   },
   plugins: [

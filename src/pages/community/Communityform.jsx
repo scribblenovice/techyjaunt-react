@@ -13,6 +13,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
   boxShadow: 24,
+  maxHeight: '90vh', // Restrict modal height
+  overflowY: 'auto',  // Enable scrollbar
   p: 4,
 };
 
@@ -68,6 +70,7 @@ const CommunityForm = ({
                 </label>
                 <GlobalText
                   labelTxt=""
+                  inputType="text"
                   id="first-name"
                   inputName="firstName"
                   handleChange={handleChange}
@@ -82,6 +85,7 @@ const CommunityForm = ({
                   Last Name
                 </label>
                 <GlobalText
+                  inputType="text"
                   labelTxt=""
                   id="last-name"
                   inputName="lastName"

@@ -137,12 +137,7 @@ const Community = () => {
   };
   return (
     <>
-      <button
-        onClick={() => navigate(-1)}
-        className="z-[1000] absolute left-3 top-10 text-black rounded-md hover:text-tech-blue transition-all ease-linear duration-200"
-      >
-        <i className="ri-arrow-left-line ml-2"></i>Go back
-      </button>
+    
       {openModal && (
         <CommunityForm
           openModal={openModal}
@@ -196,27 +191,27 @@ const Community = () => {
           <p className="text-tech-blue font-semibold hidden xl:block">
             START YOUR TECH JOURNEY
           </p>
-          <h1 className="text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 my-10">
+          <h1 className="text-left tracking-wide lg:leading-[60px] text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-800 mt-10">
             Welcome to
             <span className="text-tech-blue relative whitespace-nowrap">
               <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
               Techyjaunt Community
             </span>
           </h1>
-          <p className="mb-10 leading-7 text-xl text-gray-700 font-normal">
+          <p className="text-base md:text-lg md:leading-8 my-10 leading-7 text-gray-700">
             Join a community of over 30,000 tech enthusiasts. As the African
             Tech space continues to grow, we ensure you stay informed through
             our vibrant community
           </p>
           <button
             onClick={() => setOpenModal(true)}
-            className="mb-10 bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-base md:text-xl py-3 px-10 rounded-lg mx-auto w-fit"
+            className="w-full mb-10 bg-tech-blue hover:bg-gray-500 transition-all ease-linear duration-200 text-white text-sm md:text-lg py-3 px-10 rounded-lg mx-auto"
           >
             JOIN OUR TECH COMMUNITY HERE
           </button>
           <div className="flex items-center flex-wrap">
             <Avatars />
-            <p className="text-xl text-gray-700  font-normal leading-7">
+            <p className="text-xs lg:text-sm font-light text-gray-700">
               Over 5K+ professionals trained.
             </p>
           </div>

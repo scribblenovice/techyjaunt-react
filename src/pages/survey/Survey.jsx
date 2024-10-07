@@ -9,6 +9,8 @@ import Loader from "../../globalcomponents/Loader";
 import axios from "axios";
 import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "@mui/material";
+import { Box } from "@mui/material";
 
 const house = [
   { label: "Bungalow" },
@@ -56,14 +58,14 @@ const prptyHireReason = [
 ];
 const prptyApp = [{ label: "Yes" }, { label: "No" }];
 
-const Survey = () => {
+const Survey = ({ openModal, closeModal }) => {
   const [shake, setShake] = useState(false);
   const { handleSnackbar } = useCustomSnackbar();
   const [formData, setFormData] = useState({
     apartmentType: "",
     userName: "",
     phoneNumber: "",
-    emailAddress:"",
+    emailAddress: "",
     apartmentRent: "",
     prptyApp: "",
     prptyMgmt: "",
@@ -77,7 +79,7 @@ const Survey = () => {
     otherBedroomNumber: "",
     otherApartmentType: "",
     otherApartmentRent: "",
-    prptyProblems:""
+    prptyProblems: "",
   });
   const [pending, setPending] = useState(false);
   const [error, setError] = useState({});
@@ -111,7 +113,7 @@ const Survey = () => {
     }
     return formData;
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     let data = payloadCreation(formData);
@@ -158,239 +160,266 @@ const Survey = () => {
       }, 300);
     }
   };
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    maxHeight: "90vh", // Restrict modal height
+    overflowY: "auto", // Enable scrollbar
+  };
 
   return (
     <>
-      <div>
-        <form
-          onSubmit={handleSubmit}
-          id="surveyform"
-          action=""
-          className="shadow-2xl border bg-gray-100 p-10 rounded-lg my-20 w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto grid grid-cols-1 gap-10"
-        >
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">What is your name?</label>
-            <GlobalText
-              handleChange={handleChange}
-              inputType="text"
-              inputName="userName"
-              placeTxt="enter the your name"
-              inputVal={formData.userName}
-              errorTxt={error.userName}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">Phone Number</label>
-            <PhoneNumber
-              errorTxt={error.phoneNumber}
-              inputVal={formData.phoneNumber}
-              bg="white"
-              inputName="phoneNumber"
-              handleChange={(phone, e) => {
-                setPhone(phone);
-                setFormData({
-                  ...formData,
-                  phoneNumber: phone,
-                });
-              }}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">What type of apartment do you have?</label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={house}
-              inputName="apartmentType"
-              inputVal={formData.apartmentType}
-              data={formData.apartmentType}
-              errorTxt={error.apartmentType}
-            />
-            {formData.apartmentType === "Others" && (
-              <GlobalText
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherApartmentType"
-                placeTxt="enter the apartment type"
-                inputVal={formData.otherApartmentType}
-                errorTxt={error.otherApartmentType}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">How many bedrooms?</label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={bedrooms}
-              inputName="bedroomNumber"
-              data={formData.bedroomNumber}
-              errorTxt={error.bedroomNumber}
-            />
-            {formData.bedroomNumber === "Others" && (
-              <GlobalText
-                placeTxt="enter the number of bedrooms"
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherBedroomNumber"
-                inputVal={formData.otherBedroomNumber}
-                errorTxt={error.otherBedroomNumber}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">Where is your property located?</label>
-            <GlobalSelect
-              options={state}
-              handleChange={(e) => {
-                setFormData({
-                  ...formData,
-                  prptyLocation: e,
-                });
-              }}
-              errorTxt={error.prptyLocation}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">How much is the rent?</label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={apartmentRent}
-              inputName="apartmentRent"
-              data={formData.apartmentRent}
-              errorTxt={error.apartmentRent}
-            />
-            {formData.apartmentRent === "Others" && (
-              <GlobalText
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherApartmentRent"
-                placeTxt="enter the rent amount"
-                inputVal={formData.otherApartmentRent}
-                errorTxt={error.otherApartmentRent}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">Who manages the property?</label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={prptyMgmt}
-              inputName="prptyMgmt"
-              data={formData.prptyMgmt}
-              errorTxt={error.prptyMgmt}
-            />
-            {formData.prptyMgmt === "Others" && (
-              <GlobalText
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherPrptyMgmt"
-                placeTxt="enter your responnse"
-                inputVal={formData.otherPrptyMgmt}
-                errorTxt={error.otherPrptyMgmt}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">
-              If nobody is managing your property, why is that?
-            </label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={prptyMgmtReason}
-              inputName="prptyMgmtReason"
-              data={formData.prptyMgmtReason}
-              errorTxt={error.prptyMgmtReason}
-            />
-            {formData.prptyMgmtReason === "Others" && (
-              <GlobalText
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherPrptyMgmtReason"
-                placeTxt="enter your response"
-                inputVal={formData.otherPrptyMgmtReason}
-                errorTxt={error.otherPrptyMgmtReason}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">
-              What usually makes you give your property to another party to
-              manage?
-            </label>
-            <GlobalRadio
-              className="flex flex-col justify-between flex-wrap"
-              handleChange={handleChange}
-              options={prptyHireReason}
-              inputName="prptyHireReason"
-              data={formData.prptyHireReason}
-              errorTxt={error.prptyHireReason}
-            />
-            {formData.prptyHireReason === "Others" && (
-              <GlobalText
-                handleChange={handleChange}
-                inputType="text"
-                inputName="otherPrptyHireReason"
-                placeTxt="enter your response"
-                inputVal={formData.otherPrptyHireReason}
-                errorTxt={error.otherPrptyHireReason}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">
-              Would you use an app that connects you to clients or tenants?
-            </label>
-            <GlobalRadio
-              className="flex flex-col flex-wrap"
-              handleChange={handleChange}
-              options={prptyApp}
-              inputName="prptyApp"
-              data={formData.prptyApp}
-              errorTxt={error.prptyApp}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">
-              Can you share any current problems you're facing with your
-              property or the person/firm managing your property? that you'd
-              like us to know about?
-            </label>
-            <textarea
-              className="resize-none border-gray-400 focus:border-black focus:ring-0 w-full rounded-md"
-              name="prptyProblems"
-              id="extra"
-              onChange={handleChange}
-              value={formData.prptyProblems}
-              placeholder="enter your response"
-            ></textarea>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="">
-              Add your email address below  So you'd be contacted when we have
-              a solution to your problem
-            </label>
-            <GlobalText
-              handleChange={handleChange}
-              inputType="email"
-              inputName="emailAddress"
-              placeTxt="enter your email address"
-              inputVal={formData.emailAddress}
-              errorTxt={error.emailAddress}
-            />
-          </div>
+      <Modal
+        open={openModal}
+        onClose={closeModal}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description"
+      >
+        <Box sx={style} className="rounded-lg w-[90%] md:w-[80%] xl:w-[60%]">
           <button
-            className={`${
-              shake ? "shake" : ""
-            } mx-auto font-bold text-3xl px-4 py-2 bg-black rounded hover:bg-gray-500 transition-all ease-linear duration-200 text-white`}
+            onClick={closeModal}
+            className="text-red-500 absolute text-3xl top-4 right-4"
           >
-            SUBMIT
+            <i class="ri-close-circle-line"></i>
           </button>
-        </form>
-      </div>
+          <form
+            onSubmit={handleSubmit}
+            id="surveyform"
+            action=""
+            className="p-5 xl:px-10 rounded-lg my-10 mx-auto grid grid-cols-1 gap-10"
+          >
+            <h1 className="font-bold text-2xl text-center">
+              Kindly fill out the survey
+            </h1>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">What is your name?</label>
+              <GlobalText
+                handleChange={handleChange}
+                inputType="text"
+                inputName="userName"
+                placeTxt="enter the your name"
+                inputVal={formData.userName}
+                errorTxt={error.userName}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">What type of apartment do you have?</label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={house}
+                inputName="apartmentType"
+                inputVal={formData.apartmentType}
+                data={formData.apartmentType}
+                errorTxt={error.apartmentType}
+              />
+              {formData.apartmentType === "Others" && (
+                <GlobalText
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherApartmentType"
+                  placeTxt="enter the apartment type"
+                  inputVal={formData.otherApartmentType}
+                  errorTxt={error.otherApartmentType}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">How many bedrooms?</label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={bedrooms}
+                inputName="bedroomNumber"
+                data={formData.bedroomNumber}
+                errorTxt={error.bedroomNumber}
+              />
+              {formData.bedroomNumber === "Others" && (
+                <GlobalText
+                  placeTxt="enter the number of bedrooms"
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherBedroomNumber"
+                  inputVal={formData.otherBedroomNumber}
+                  errorTxt={error.otherBedroomNumber}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">Where is your property located?</label>
+              <GlobalSelect
+                options={state}
+                handleChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    prptyLocation: e,
+                  });
+                }}
+                errorTxt={error.prptyLocation}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">How much is the rent?</label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={apartmentRent}
+                inputName="apartmentRent"
+                data={formData.apartmentRent}
+                errorTxt={error.apartmentRent}
+              />
+              {formData.apartmentRent === "Others" && (
+                <GlobalText
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherApartmentRent"
+                  placeTxt="enter the rent amount"
+                  inputVal={formData.otherApartmentRent}
+                  errorTxt={error.otherApartmentRent}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">Who manages the property?</label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={prptyMgmt}
+                inputName="prptyMgmt"
+                data={formData.prptyMgmt}
+                errorTxt={error.prptyMgmt}
+              />
+              {formData.prptyMgmt === "Others" && (
+                <GlobalText
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherPrptyMgmt"
+                  placeTxt="enter your responnse"
+                  inputVal={formData.otherPrptyMgmt}
+                  errorTxt={error.otherPrptyMgmt}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">
+                If nobody is managing your property, why is that?
+              </label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={prptyMgmtReason}
+                inputName="prptyMgmtReason"
+                data={formData.prptyMgmtReason}
+                errorTxt={error.prptyMgmtReason}
+              />
+              {formData.prptyMgmtReason === "Others" && (
+                <GlobalText
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherPrptyMgmtReason"
+                  placeTxt="enter your response"
+                  inputVal={formData.otherPrptyMgmtReason}
+                  errorTxt={error.otherPrptyMgmtReason}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">
+                What usually makes you give your property to another party to
+                manage?
+              </label>
+              <GlobalRadio
+                className="flex flex-col justify-between flex-wrap"
+                handleChange={handleChange}
+                options={prptyHireReason}
+                inputName="prptyHireReason"
+                data={formData.prptyHireReason}
+                errorTxt={error.prptyHireReason}
+              />
+              {formData.prptyHireReason === "Others" && (
+                <GlobalText
+                  handleChange={handleChange}
+                  inputType="text"
+                  inputName="otherPrptyHireReason"
+                  placeTxt="enter your response"
+                  inputVal={formData.otherPrptyHireReason}
+                  errorTxt={error.otherPrptyHireReason}
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">
+                Would you use an app that connects you to clients or tenants?
+              </label>
+              <GlobalRadio
+                className="flex flex-col flex-wrap"
+                handleChange={handleChange}
+                options={prptyApp}
+                inputName="prptyApp"
+                data={formData.prptyApp}
+                errorTxt={error.prptyApp}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">
+                Can you share any current problems you're facing with your
+                property or the person/firm managing your property? that you'd
+                like us to know about?
+              </label>
+              <textarea
+                className="resize-none border-gray-400 focus:border-black focus:ring-0 w-full rounded-md"
+                name="prptyProblems"
+                id="extra"
+                onChange={handleChange}
+                value={formData.prptyProblems}
+                placeholder="enter your response"
+              ></textarea>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">
+                Add your email address below  So you'd be contacted when we have
+                a solution to your problem
+              </label>
+              <GlobalText
+                handleChange={handleChange}
+                inputType="email"
+                inputName="emailAddress"
+                placeTxt="enter your email address"
+                inputVal={formData.emailAddress}
+                errorTxt={error.emailAddress}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="">Please enter your phone number</label>
+              <PhoneNumber
+                errorTxt={error.phoneNumber}
+                inputVal={formData.phoneNumber}
+                bg="white"
+                inputName="phoneNumber"
+                handleChange={(phone, e) => {
+                  setPhone(phone);
+                  setFormData({
+                    ...formData,
+                    phoneNumber: phone,
+                  });
+                }}
+              />
+            </div>
+            <button
+              className={`${
+                shake ? "shake" : ""
+              } mx-auto font-bold text-3xl px-4 py-2 bg-black rounded hover:bg-gray-500 transition-all ease-linear duration-200 text-white`}
+            >
+              SUBMIT
+            </button>
+          </form>
+        </Box>
+      </Modal>
+
       {pending && <Loader />}
     </>
   );

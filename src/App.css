@@ -1,13 +1,17 @@
-.tts{
-  font-family: 'TT Firs Neue Trl', sans-serif;
+.tts {
+  font-family: "TT Firs Neue Trl", sans-serif;
 }
-h1, h2, h3{
-  font-family: 'TT Firs Neue Trl', sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "TT Firs Neue Trl", sans-serif;
 }
-h1 span, h2 span, h3 span{
-  font-family: 'TT Firs Neue Trl', sans-serif;
+h1 span,
+h2 span,
+h3 span {
+  font-family: "TT Firs Neue Trl", sans-serif;
 }
-#surveyform label{
+#surveyform label {
   color: black;
 }
 
@@ -214,4 +218,54 @@ input:-webkit-autofill:active {
 }
 .tech-shadow {
   box-shadow: 0px 0px 50px #0176fba1;
+}
+
+.textfade {
+  animation: fade linear 5s forwards;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+  }
+}
+.textfade1 {
+  animation: fade1 linear 10s forwards;
+}
+@keyframes fade1 {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  50% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+.slide-right {
+  animation: fade2 linear 8s forwards;
+}
+@keyframes fade2 {
+  0% {
+    opacity: 0;
+    display: none;
+    transform: translateX(-50%);
+  }
+  70% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
