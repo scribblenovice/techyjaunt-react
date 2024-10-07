@@ -251,11 +251,11 @@ function App() {
             <Route
               path="thank-you"
               element={
-                <ProtectedRoute route="/survey" param="surveyComplete">
+                // <ProtectedRoute route="/survey" param="surveyComplete">
                   <Suspense fallback={<GlobalBeat />}>
                     <SurveyThankyou />
                   </Suspense>
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
           </Route>
