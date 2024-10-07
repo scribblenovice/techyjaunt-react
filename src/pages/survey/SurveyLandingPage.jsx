@@ -1,4 +1,3 @@
-
 import src from "../../images/property.webp";
 import Fade from "react-reveal/Fade";
 import { Circle, CurlyLine, Star, Star2 } from "../../resources/resources";
@@ -16,12 +15,6 @@ const SurveyLandingPage = () => {
       <Star className="absolute hidden xl:block bottom-28 -left-0" />
       <Star2 className="absolute hidden xl:block bottom-36 left-[48%]" />
       <section className="headerbg grid place-content-center py-14">
-        <button
-          onClick={() => navigate("/")}
-          className="z-[1000] absolute left-3 top-5 text-black rounded-md hover:text-tech-blue transition-all ease-linear duration-200"
-        >
-          <i className="ri-arrow-left-line ml-2"></i>Back to techyjaunt.com
-        </button>
         <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-5 lg:gap-x-10 relative w-[90%]">
           <div className="grid place-content-center">
             <Fade bottom>
@@ -29,29 +22,26 @@ const SurveyLandingPage = () => {
                 Connecting you directly with tenants or clients!
               </h1>
             </Fade>
-
-            <p className="textfade text-base md:text-lg md:leading-8 leading-7 text-gray-700">
-              Do you own a property? We help connect landlords like you directly
-              with tenants!
-            </p>
-            <p className="textfade1 text-base md:text-lg md:leading-8 leading-7 text-gray-700">
-              Agents are ruining the experience for everyone. By filling out
-              this form, you'll get first-hand access to tenants for free when
-              we launch.
-            </p>
-
-            {/* <Fade bottom> */}
-
+            <Fade bottom>
+              <p className="text-base md:text-lg md:leading-8 leading-7 text-gray-700 mb-5">
+                Do you own a property? We help connect landlords like you
+                directly with tenants!
+              </p>
+            </Fade>
+            <Fade bottom>
+              <p className="text-base md:text-lg md:leading-8 leading-7 text-gray-700">
+                Agents are ruining the experience for everyone. By filling out
+                this form, you'll get first-hand access to tenants for free when
+                we launch.
+              </p>
+            </Fade>
             <button
               onClick={() => setOpen(true)}
-              // to="registration"
-              className=" mt-5 w-fit slide-right whitespace-nowrap inline-flex items-center cursor-pointer bg-tech-blue p-2 md:p-3 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200 tech-shadow"
+              className=" mt-5 w-fit whitespace-nowrap inline-flex items-center cursor-pointer bg-tech-blue p-2 md:p-3 rounded-lg text-white hover:bg-gray-500 transition-all ease-linear duration-200 tech-shadow"
             >
               Fill our survey
               <i className="ri-arrow-right-line ml-2"></i>
             </button>
-
-            {/* </Fade> */}
           </div>
           <div className="relative grid place-items-center">
             <img
@@ -62,7 +52,7 @@ const SurveyLandingPage = () => {
           </div>
         </div>
       </section>
-      {open && <Survey openModal={open} closeModal={()=>setOpen(false)}/>}
+      {open && <Survey openModal={open} closeModal={() => setOpen(false)} />}
     </>
   );
 };
