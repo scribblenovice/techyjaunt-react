@@ -91,7 +91,7 @@ export const ApplyBtn = () => {
       setShake(false);
       // Submit the form data or perform other actions https://techyjaunt-react.onrender.com/advanced-register
       axios
-        .post("http://localhost:3001/advanced-register", {
+        .post("https://techyjaunt-react.onrender.com/advanced-register", {
           ...payload,
         })
         .then((res) => {
