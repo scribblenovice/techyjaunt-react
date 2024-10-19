@@ -176,12 +176,12 @@ const Survey = ({ openModal, closeModal }) => {
               Kindly fill out the survey
             </h1>
             <div className="flex flex-col gap-2">
-              <label htmlFor="">What is first name?</label>
+              <label htmlFor="">What is your first name?</label>
               <GlobalText
                 handleChange={handleChange}
                 inputType="text"
                 inputName="firstName"
-                placeTxt="enter the your first name"
+                placeTxt="enter your first name"
                 inputVal={formData.firstName}
                 errorTxt={error.firstName}
               />
@@ -192,7 +192,7 @@ const Survey = ({ openModal, closeModal }) => {
                 handleChange={handleChange}
                 inputType="text"
                 inputName="lastName"
-                placeTxt="enter the your last name"
+                placeTxt="enter your last name"
                 inputVal={formData.lastName}
                 errorTxt={error.lastName}
               />
