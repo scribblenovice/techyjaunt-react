@@ -7,8 +7,10 @@ import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 import Error404Page from "./pages/Error404";
 import SurveyLandingPage from "./pages/survey/SurveyLandingPage";
-import AdvancedHome from "./pages/advanced/AdvancedHome";
-import AdvancedThankyou from "./pages/advanced/AdvancedThankyou";
+const AdvancedHome = lazy(() => import("./pages/advanced/AdvancedHome"));
+const AdvancedThankyou = lazy(() =>
+  import("./pages/advanced/AdvancedThankyou")
+);
 const SurveyThankyou = lazy(() => import("./pages/survey/SurveyThankyou"));
 // import VerifyPayment from "./pages/checkout-page/VerifyPayment";
 // import ErrorPayment from "./pages/checkout-page/ErrorPayment";
