@@ -11,14 +11,16 @@ import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
 import { GlobalRadio } from "../../globalcomponents/GlobalRadio";
 
+
 const style = {
+  zIndex: 6000,
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
   boxShadow: 24,
-  maxHeight: "90vh", // Restrict modal height
+  maxHeight: "80vh", // Restrict modal height
   overflowY: "auto", // Enable scrollbar
   p: 4,
 };

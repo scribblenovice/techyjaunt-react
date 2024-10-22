@@ -14,7 +14,7 @@ const AdvancedHead = () => {
   return (
     <>
       <section className="headerbg">
-        <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative py-20 lg:py-32 w-[90%]">
+        <div className="mx-auto grid grid-cols-1 xl:grid-cols-2 gap-y-10 lg:gap-x-10 relative py-8 lg:py-20 w-[90%]">
           <Circle
             color="#0075FD"
             className="absolute hidden xl:block top-20 left-[40%]"
@@ -40,7 +40,7 @@ const AdvancedHead = () => {
               </p>
             </Fade>
             <Fade bottom>
-              <p className="text-base md:text-lg md:leading-8 mt-2 leading-7 text-gray-700">
+              <p className="text-base md:text-lg md:leading-8  leading-7 text-gray-700">
                 Start your lifelong tech journey with TechyJaunt.
               </p>
             </Fade>
@@ -64,7 +64,9 @@ const AdvancedHead = () => {
               className="absolute hidden xl:block -bottom-5 left-24"
             />
             <div className=" rounded-md overflow-hidden relative">
-              <AlumniVideo />
+              <Fade>
+                <AlumniVideo />
+              </Fade>
             </div>
           </div>
         </div>
