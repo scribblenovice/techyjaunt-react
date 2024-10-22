@@ -10,13 +10,12 @@ const AdvancedHome = () => {
   return (
     <>
       <AdvancedHead/>
-      <AdvancedVideo/>
+      {/* <AdvancedVideo/> */}
       <AdvancedBenefit/>
       <AdvancedApply/>
       <div className="my-20 lg:my-24">
       <Partners/>
       </div>
-    
       <FeaturePage/>
       <FooterSection/>
     </>

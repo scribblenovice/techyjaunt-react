@@ -52,7 +52,7 @@ const Partners = () => {
   return (
     <section className="w-[90%] mx-auto mt-16 lg:mt-24">
       <Fade bottom>
-        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start tts">
+        <h2 className="relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl self-start tts pb-2">
           Our
           <span className="text-tech-blue relative tts">
             <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
@@ -68,38 +68,3 @@ const Partners = () => {
 };
 
 export default Partners;
-
-{
-  /* <OwlCarousel
-            {...options}
-            className="flex items-center xl:hidden xl:border-none border border-tech-blue rounded-lg xl:p-10"
-          >
-            {platforms.map((platform, index) => {
-              return (
-                <a
-                  key={index}
-                  href={platform.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="xl:border xl:border-tech-blue flex flex-col items-center p-6 bg-white rounded-lg shadow-lg"
-                >
-                  <img
-                    src={platform.image}
-                    alt={platform.name}
-                    className="w-full h-32 object-contain mb-4"
-                  />
-                  <span className="text-lg font-semibold text-gray-700">
-                    {platform.name}
-                    <a
-                      href={platform.link}
-                      target="_blank"
-                      className="flex text-tech-blue"
-                    >
-                      Read more <i className="ri-arrow-right-line ml-2"></i>
-                    </a>
-                  </span>
-                </a>
-              );
-            })}
-          </OwlCarousel> */
-}

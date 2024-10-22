@@ -4,9 +4,9 @@ import { Fade } from "react-reveal";
 
 const AdvancedBenefit = () => {
   return (
-    <section className="w-[90%] mx-auto my-16 md:my-20">
+    <section className="w-[90%] mx-auto my-16 md:my-36">
       <div className="mx-auto text-center relative">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 ">
           <Fade>
             <div className="rounded-lg md:px-3 order-2 md:order-1">
               <img src={src} alt="" className="rounded-lg w-full h-full" />

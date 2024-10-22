@@ -75,7 +75,7 @@ export const FeatureSlide = () => {
 
 const FeaturePage = () => {
   return (
-    <section className="">
+    <section className="headerbg">
       <div className="w-[90%] mx-auto">
         <Fade bottom>
           <h2 className="mx-auto relative inline-block font-semibold text-2xl sm:text-3xl xl:text-6xl tts">

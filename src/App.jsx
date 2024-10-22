@@ -6,7 +6,9 @@ import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 import Error404Page from "./pages/Error404";
-import SurveyLandingPage from "./pages/survey/SurveyLandingPage";
+const SurveyLandingPage = lazy(() =>
+  import("./pages/survey/SurveyLandingPage")
+);
 const AdvancedHome = lazy(() => import("./pages/advanced/AdvancedHome"));
 const AdvancedThankyou = lazy(() =>
   import("./pages/advanced/AdvancedThankyou")

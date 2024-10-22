@@ -29,6 +29,8 @@ const AdvancedVideo = () => {
 };
 
 export default AdvancedVideo;
+
+
 export const AlumniVideo = () => {
   const [count, setCount] = useState(0);
   const videoRef = useRef(null);
@@ -76,8 +78,6 @@ export const AlumniVideo = () => {
       ></div>
       <video
         ref={videoRef}
-        // onPlay={() => setIsPlaying(true)}
-        // onPause={() => setIsPlaying(false)}
         className="w-full h-full bg-black rounded-md"
         src={vidsrc}
         controls
