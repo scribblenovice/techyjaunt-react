@@ -508,6 +508,11 @@ export const hackathonSkills = [
   },
   {
     id: 6,
+    name: "Cybersecurity",
+    value: "Cybersecurity",
+  },
+  {
+    id: 7,
     name: "Non technical skill",
     value: "Non technical skill",
   },
