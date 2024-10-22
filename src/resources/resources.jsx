@@ -516,6 +516,11 @@ export const hackathonSkills = [
     name: "Non technical skill",
     value: "Non technical skill",
   },
+  {
+    id: 7,
+    name: "Skills Not Mentioned",
+    value: "Skills Not Mentioned",
+  },
 ];
 
 export const state = [
