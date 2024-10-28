@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import vidsrc from "/video/techyjaunt-testimonial.mp4";
+import vidsrc from "/video/bootcampvid.mp4";
 import { Fade } from "react-reveal";
 import { Circle, CurlyLine, Star, Star2 } from "../../resources/resources";
 

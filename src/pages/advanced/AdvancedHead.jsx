@@ -40,7 +40,7 @@ const AdvancedHead = () => {
               </p>
             </Fade>
             <Fade bottom>
-              <p className="text-base md:text-lg md:leading-8  leading-7 text-gray-700">
+              <p className="mt-2 text-base md:text-lg md:leading-8  leading-7 text-gray-700">
                 Start your lifelong tech journey with TechyJaunt.
               </p>
             </Fade>
