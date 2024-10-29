@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import vidsrc from "../../../../../public/video/techyjaunt-testimonial.mp4";
+import vidsrc from "../../../../../public/video/bootcampvid.mp4";
 import { FancyUnderline } from "../../../../resources/resources";
 import { Fade } from "react-reveal";
 

@@ -44,7 +44,6 @@ const CommunityThankYou = lazy(() =>
 );
 const EventThankYou = lazy(() => import("./pages/event/EventThankYou"));
 const Homepage = lazy(() => import("./pages/homepage/Homepage"));
-const LaunchPad = lazy(() => import("./pages/launchpad/Launchpad"));
 const Checkout = lazy(() => import("./pages/checkout-page/Checkout"));
 const CheckoutThankYou = lazy(() =>
   import("./pages/checkout-page/CheckoutThankYou")

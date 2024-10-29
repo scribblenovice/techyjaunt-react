@@ -6,18 +6,20 @@ const AboutTechy = () => {
     <>
       <div className="w-[90%] mx-auto py-10">
         <Fade bottom>
-        <h2 className="font-semibold text-2xl sm:text-3xl xl:text-6xl text-left tts">
-          About{" "}
-          <span className="text-tech-blue relative inline-block tts">
-            <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
-            Techyjaunt
-          </span>
-          <br />
-        </h2>
+          <h2 className="font-semibold text-2xl sm:text-3xl xl:text-6xl text-left tts">
+            About{" "}
+            <span className="text-tech-blue relative inline-block tts">
+              <FancyUnderline className="absolute -bottom-2 left-1/2 -translate-x-1/2" />{" "}
+              Techyjaunt
+            </span>
+            <br />
+          </h2>
         </Fade>
         <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-5">
           <div className="grid place-content-center w-full h-full">
-            <img src={src} alt="" className="w-full h-full rounded-xl" />
+            <Fade>
+              <img src={src} alt="" className="w-full h-full rounded-xl" />
+            </Fade>
           </div>
           <div className="flex items-center">
             <p className="text-base md:text-lg md:leading-8 leading-7 text-gray-700">
