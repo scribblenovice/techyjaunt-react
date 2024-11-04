@@ -277,14 +277,14 @@ function App() {
             <Route
               path="thank-you"
               element={
-                // <ProtectedRoute
-                //   route="/advanced-bootcamp"
-                //   param="advancedRegistered"
-                // >
+                 <ProtectedRoute
+               route="/advanced-bootcamp"
+                param="advancedRegistered"
+                 >
                   <Suspense fallback={<GlobalBeat />}>
                     <AdvancedThankyou />
                   </Suspense>
-                // </ProtectedRoute>
+                 </ProtectedRoute>
               }
             />
           </Route>
