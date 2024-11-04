@@ -185,33 +185,6 @@ const AdvancedForm = ({
                 </div>
               </div>
             </div>
-            <div>
-              <div>
-                <label
-                  htmlFor="extra"
-                  className="mr-2 font-medium text-sm text-gray-500"
-                >
-                  Why should you be considered for our Advanced Bootcamp?
-                </label>
-                <div className="w-full">
-                  <textarea
-                    className={`${
-                      formErrors.reasonForConsideration ? "border-red-500" : ""
-                    } resize-none focus:ring-0 w-full rounded-md focus:border-2 focus:border-black`}
-                    name="reasonForConsideration"
-                    id="extra"
-                    onChange={handleChange}
-                    value={formData.reasonForConsideration}
-                    placeholder="enter your response...."
-                  ></textarea>
-                </div>
-              </div>
-              {formErrors.reasonForConsideration && (
-                <p className="text-xs text-red-500">
-                  {formErrors.reasonForConsideration}
-                </p>
-              )}
-            </div>
             <div className="w-full flex justify-center">
               <button
                 id="btn"
