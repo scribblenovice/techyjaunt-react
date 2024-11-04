@@ -104,7 +104,6 @@ server.post("/advanced-register", (req, res) => {
     selectedCourse,
     knowlegeOfTechyJaunt,
     gender,
-    reasonForConsideration,
   } = req.body;
   let launchpadListId = "191d8990-8bc4-11ef-8d2e-7350387a057f";
 
@@ -115,8 +114,7 @@ server.post("/advanced-register", (req, res) => {
     phoneNumber === "" ||
     selectedCourse === "" ||
     knowlegeOfTechyJaunt === "" ||
-    gender === "" ||
-    reasonForConsideration === ""
+    gender === ""
   ) {
     return res.status(500).json({
       status: "failed",
@@ -139,7 +137,7 @@ server.post("/advanced-register", (req, res) => {
         HowYouHeard: knowlegeOfTechyJaunt,
         PhoneNumber: phoneNumber,
         Gender: gender,
-        ReasonForConsideration: reasonForConsideration,
+        ReasonForConsideration: "-",
       },
       tags: ["STUDENT"],
       status: "SUBSCRIBED",
