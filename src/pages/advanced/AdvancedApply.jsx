@@ -24,7 +24,6 @@ export const ApplyBtn = ({ className, func }) => {
     selectedCourse: "",
     knowlegeOfTechyJaunt: "",
     gender: "",
-    reasonForConsideration: "",
   });
 
   const payload = {
@@ -35,7 +34,6 @@ export const ApplyBtn = ({ className, func }) => {
     selectedCourse: formData.selectedCourse,
     knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
     gender: formData.gender,
-    reasonForConsideration: formData.reasonForConsideration,
   };
   const [formErrors, setFormErrors] = useState({});
   const validateForm = () => {
@@ -64,10 +62,6 @@ export const ApplyBtn = ({ className, func }) => {
     }
     if (formData.selectedCourse === "") {
       errors.selectedCourse = "please select a course";
-      isValid = false;
-    }
-    if (formData.reasonForConsideration === "") {
-      errors.reasonForConsideration = "please fill in your answer";
       isValid = false;
     }
     if (formData.gender === "") {
@@ -185,7 +179,6 @@ export const ApplyBtn = ({ className, func }) => {
               selectedCourse: "",
               knowlegeOfTechyJaunt: "",
               gender: "",
-              reasonForConsideration: "",
             });
           }}
         />
