@@ -637,6 +637,78 @@ server.get("/get-link", (req, res) => {
     });
 });
 
+// CHANGE bootcamp LINK
+server.post("/bootcamp-link-change", (req, res) => {
+  const { newLink } = req.body;
+  let launchpadListId = "52517cc2-9d48-11ef-a70c-eb02157a51cd";
+
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts/e4a8deee-9d48-11ef-b168-c3b57fcdf6b8`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        api_key,
+        email_address: "support@techyjaunt.com",
+        fields: {
+          EmailAddress: "support@techyjaunt.com",
+          FirstName: "techyjaunt",
+          LastName: "bootcamplink",
+          NewLink: newLink,
+        },
+        status: "SUBSCRIBED",
+      }),
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          status: "LINK HAS BEEN SUCCESSFULLY CHANGED",
+        });
+      }
+      if (data.error.code === "MEMBER_EXISTS_WITH_EMAIL_ADDRESS") {
+        return res.status(200).json({
+          status: "THIS LINK ALREADY EXISTS",
+        });
+      }
+      if (data.error.code === "INVALID_PARAMETERS") {
+        return res.status(200).json({
+          status: "FAILED, PLEASE TRY AGAIN",
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+// fetch bootcamp link
+server.get("/get-bootcamp-link", (req, res) => {
+  let launchpadListId = "52517cc2-9d48-11ef-a70c-eb02157a51cd";
+  fetch(
+    `https://emailoctopus.com/api/1.6/lists/${launchpadListId}/contacts/e4a8deee-9d48-11ef-b168-c3b57fcdf6b8?api_key=${api_key}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === "SUBSCRIBED") {
+        return res.status(200).json({
+          data: data,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        status: "failed",
+      });
+    });
+});
+
 // book meeting
 server.post("/schedule-meeting", (req, res) => {
   const {

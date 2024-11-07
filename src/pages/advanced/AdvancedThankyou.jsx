@@ -1,15 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import src from "../../images/launchpad/thankyou.webp";
 import { Link } from "react-router-dom";
 import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
+import axios from "axios";
 
 const AdvancedThankyou = () => {
   const { handleSnackbar } = useCustomSnackbar();
+  const [whatsappLink, setWhatsappLink] = useState("");
   useEffect(() => {
     const isRegistered = sessionStorage.getItem("advancedRegistered");
     if (isRegistered) {
       handleSnackbar("registration successful", "success");
     }
+    axios.get("https://techyjaunt-react.onrender.com/get-bootcamp-link").then((res) => {
+      setWhatsappLink(res?.data?.data?.fields?.NewLink);
+    });
   }, []);
   return (
     <>
@@ -29,7 +34,7 @@ const AdvancedThankyou = () => {
             </p>
             <Link
               target="_blank"
-              to="https://chat.whatsapp.com/KG2CWEOV2UzIxkBRaYJhme"
+              to={whatsappLink}
               className="text-xs hover:bg-gray-500 whitespace-nowrap md:text-base order-1 md:order-3 mx-auto flex items-center w-fit bg-blue-500 text-white p-3 rounded-md font-bold  transition-all ease-in duration-300"
             >
               CLICK HERE

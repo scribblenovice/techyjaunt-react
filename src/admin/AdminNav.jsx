@@ -15,11 +15,18 @@ const AdminNav = () => {
             CHANGE LAUNCHPAD LINK
           </NavLink>
           <NavLink
+            to="/admin/bootcamp-link"
+            className="p-2 rounded-md bg-blue-500 text-white w-fit hover:bg-gray-500 transition-all  ease-linear duration-200"
+          >
+            CHANGE ADVANCED BOOTCAMP LINK
+          </NavLink>
+          <NavLink
             to="/admin/view-schedule"
             className="p-2 rounded-md bg-blue-500 text-white w-fit hover:bg-gray-500 transition-all  ease-linear duration-200"
           >
             VIEW MEETING SCHEDULE
           </NavLink>
+          
         </div>
       </div>
     </>

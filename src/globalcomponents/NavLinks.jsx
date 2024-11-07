@@ -392,7 +392,7 @@ export const AdvancedNavLinks = () => {
   return (
     <>
       <nav
-        className={` sticky top-0 z-[5000] ${
+        className={` sticky top-0 z-[10] ${
           scrollNumber > 0 ? "nav-change" : ""
         }`}
       >
@@ -470,12 +470,12 @@ export const AdvancedNavLinks = () => {
                   News Feature
                 </Link>
               </li>
-              <li className="cursor-pointer">
+              {/* <li className="cursor-pointer">
                 <ApplyBtn
                   func={() => setOpenNav(false)}
                   className={`text-white xl:text-gray-800 w-full lg:w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-tech-blue after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center hover:scale-100 transition-all duration-200 ease-in`}
                 />
-              </li>
+              </li> */}
             </ul>
           </div>
           <button

@@ -6,6 +6,7 @@ import GlobalBeat from "./globalcomponents/BeatLoader";
 import ProtectedRoute from "./globalcomponents/ProtectedRoutes";
 import ScheduleThankyou from "./pages/schedule/ScheduleThankyou";
 import Error404Page from "./pages/Error404";
+const BootcampLink = lazy(() => import("./admin/Bootcamplink"));
 const SurveyLandingPage = lazy(() =>
   import("./pages/survey/SurveyLandingPage")
 );
@@ -188,6 +189,16 @@ function App() {
               }
             />
             <Route
+              path="bootcamp-link"
+              element={
+                <ProtectedRoute route="/admin" param="isAdmin">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <BootcampLink />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="view-schedule"
               element={
                 <ProtectedRoute route="/admin" param="isAdmin">
@@ -257,10 +268,10 @@ function App() {
               path="thank-you"
               element={
                 <ProtectedRoute route="/survey" param="surveyComplete">
-                <Suspense fallback={<GlobalBeat />}>
-                  <SurveyThankyou />
-                </Suspense>
-                 </ProtectedRoute>
+                  <Suspense fallback={<GlobalBeat />}>
+                    <SurveyThankyou />
+                  </Suspense>
+                </ProtectedRoute>
               }
             />
           </Route>
@@ -277,14 +288,14 @@ function App() {
             <Route
               path="thank-you"
               element={
-                 <ProtectedRoute
-               route="/advanced-bootcamp"
-                param="advancedRegistered"
-                 >
+                <ProtectedRoute
+                  route="/advanced-bootcamp"
+                  param="advancedRegistered"
+                >
                   <Suspense fallback={<GlobalBeat />}>
                     <AdvancedThankyou />
                   </Suspense>
-                 </ProtectedRoute>
+                </ProtectedRoute>
               }
             />
           </Route>

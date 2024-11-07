@@ -13,7 +13,6 @@ import { GlobalRadio } from "../../globalcomponents/GlobalRadio";
 
 
 const style = {
-  zIndex: 6000,
   position: "absolute",
   top: "50%",
   left: "50%",
