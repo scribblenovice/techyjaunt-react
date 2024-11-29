@@ -20,7 +20,7 @@ const VerifyPayment = () => {
       }
       try {
         const response = await axios.post(
-          "http://localhost:3001/verify-payment",
+          "https://www.techyjaunt.com/verify-payment",
           { reference, ...formData }
         );
         if (response.data.success) {
@@ -38,8 +38,8 @@ const VerifyPayment = () => {
   }, [navigate]);
 
   return (
-    <div className="bg-tech-blue flex justify-center items-center text-xl md:text-2xl xl:text-3xl text-white">
-      Verifying payment...
+    <div className="w-screen h-screen bg-tech-blue flex justify-center items-center text-xl md:text-2xl xl:text-3xl text-white">
+      <div>Verifying payment...</div>
     </div>
   );
 };

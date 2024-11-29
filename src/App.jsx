@@ -15,8 +15,8 @@ const AdvancedThankyou = lazy(() =>
   import("./pages/advanced/AdvancedThankyou")
 );
 const SurveyThankyou = lazy(() => import("./pages/survey/SurveyThankyou"));
-// import VerifyPayment from "./pages/checkout-page/VerifyPayment";
-// import ErrorPayment from "./pages/checkout-page/ErrorPayment";
+import VerifyPayment from "./pages/checkout-page/VerifyPayment";
+import ErrorPayment from "./pages/checkout-page/ErrorPayment";
 const BookSchedule = lazy(() => import("./pages/schedule/BookSchedule"));
 const AdminNav = lazy(() => import("./admin/AdminNav"));
 const ViewScheduler = lazy(() => import("./admin/ViewSchedule"));
@@ -299,6 +299,32 @@ function App() {
               }
             />
           </Route>
+          <Route
+              path="/verify"
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <VerifyPayment />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/error"
+              element={
+                <Suspense fallback={<GlobalBeat />}>
+                  <ErrorPayment />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/checkout/thank-you"
+              element={
+                <ProtectedRoute route="/checkout" param="isPaid">
+                  <Suspense fallback={<GlobalBeat />}>
+                    <CheckoutThankYou />
+                  </Suspense>
+                </ProtectedRoute>
+              }
+            />
           {/* old routing */}
           {/* CHECKOUT */}
           {/* <Route

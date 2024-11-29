@@ -8,14 +8,13 @@ import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
-import { useSnackbar } from "notistack";
 
 const Checkout = () => {
-  const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => {
-    enqueueSnackbar(message, { variant });
-  };
-
+  const [message, setMessage] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalError, setModalError] = useState(true);
+  const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -25,24 +24,6 @@ const Checkout = () => {
     phoneNumber: "",
     selectedCourse: "",
   });
-  const capitalizeFirstLetter = (sentence) => {
-    return sentence
-      .split(" ")
-      .map((word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-      })
-      .join(" ");
-  };
-  const firstName = capitalizeFirstLetter(formData.firstName.trim());
-  const lastName = capitalizeFirstLetter(formData.lastName.trim());
-
-  const payload = {
-    firstName: firstName,
-    lastName: lastName,
-    email: formData.email,
-    phoneNumber: formData.phoneNumber,
-    selectedCourse: formData.selectedCourse,
-  };
   const [formErrors, setFormErrors] = useState({});
 
   const validateForm = () => {
@@ -77,74 +58,52 @@ const Checkout = () => {
     setFormErrors(errors);
     return isValid;
   };
-
-  // paystack
-  const [reference, setReference] = useState("");
-  // const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
-  const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
-  const callbackUrl = "https://www.techyjaunt.com/verify";
-  const initializePayment = async () => {
-    const isValid = validateForm();
-    const paymentDetails = {
-      email: formData.email,
-      amount: 750000, // Convert to kobo
-      reference: new Date().getTime().toString(),
-      callback_url: callbackUrl,
-      metadata: {
-        custom_fields: [
-          {
-            display_name: "First Name",
-            variable_name: "first_name",
-            value: firstName,
-          },
-          {
-            display_name: "Last Name",
-            variable_name: "last_name",
-            value: lastName,
-          },
-          {
-            display_name: "Course",
-            variable_name: "course_name",
-            value: formData.selectedCourse,
-          },
-        ],
-      },
-    };
-    if (isValid) {
-      try {
-        const response = await axios.post(
-          "https://api.paystack.co/transaction/initialize",
-          paymentDetails,
-          {
-            headers: {
-              Authorization: `Bearer ${publicKey}`,
-            },
-          }
-        );
-        const { authorization_url } = response.data.data;
-        setReference(response.data.data.reference);
-        localStorage.setItem("paymentReference", reference);
-        localStorage.setItem("formData", JSON.stringify(payload));
-        window.location.href = authorization_url;
-      } catch (error) {
-        handleSnackbar("an error occured", "error");
-      }
-    } else {
-      handleSnackbar("please fill the form", "error");
-    }
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: formData.email,
+    amount: 750000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+    // publicKey: 'pk_test_37dcf5501ad10130819defd5bfafe0b988a3c87f',
   };
+
+  const onSuccess = (reference) => {
+    axios
+      .post("https://techyjaunt-react.onrender.com/payment", {
+        ...formData,
+        completedPayment: "yes",
+      })
+      .then((res) => {
+        if (res.data.status === "paid") {
+          sessionStorage.setItem("isPaid", true);
+          navigate("/checkout/thank-you");
+        }
+        if (res.data.status === "existing") {
+          setModalError(true);
+          setOpen(true);
+          alert("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!");
+        }
+        if (res.data.status === "failed") {
+          alert("AN ERROR OCCURED");
+        }
+      });
+  };
+  const onClose = () => {
+    alert("PAYMENT FAILED");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+    console.log(formData);
   };
   return (
     <>
-      {/* <div className="flex justify-center items-center flex-col w-screen h-screen">
-        <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-          THIS PAGE IS CURRENTLY INACTIVE
+      <div className="flex justify-center items-center flex-col w-screen h-screen">
+        <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
+          Payment for cohort 4 has been closed!
         </h1>
         <p className="my-5">
           Please go back to{" "}
@@ -152,9 +111,8 @@ const Checkout = () => {
             TechyJaunt.com
           </Link>
         </p>
-      </div> */}
-
-      <section className="grid place-items-center h-screen bg-stone-100">
+      </div>
+      {/*<section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-xl md:text-2xl xl:text-3xl tracking-widest">
@@ -212,7 +170,7 @@ const Checkout = () => {
                 </label>
                 <GlobalText
                   id="amount"
-                  inputVal={`NGN: 7500`}
+                  inputVal={`NGN: ${config.amount / 100}`}
                   isDisabled={true}
                 />
               </div>
@@ -279,15 +237,37 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <button
-              onClick={initializePayment}
+            {/* // <PaystackButtons
+            //   className={`mx-auto bg-blue-500 text-white p-4 rounded disabled:true `}
+            //   {...componentProps}
+            // />
+            <PaystackButton
+              {...config}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
-            >
-              Pay Now
-            </button>
+              text="Pay Now"
+              onSuccess={onSuccess}
+              onClose={onClose}
+            />
           </div>
         </div>
       </section>
+      <Modal show={open} onClose={close} position="center">
+        <Modal.Header className="border-none h-2"></Modal.Header>
+
+        <Modal.Body className="px-4 py-10 md:p-20 grid place-items-center gap-y-5">
+          <div>
+            <i
+              className={`${
+                modalError
+                  ? "ri-error-warning-line text-red-500"
+                  : "ri-checkbox-circle-line text-green-500"
+              }  text-7xl`}
+            ></i>
+          </div>
+          <div className="text-xl md:text-2xl text-center">{message}</div>
+        </Modal.Body>
+      </Modal>
+      */}
     </>
   );
 };
