@@ -9,13 +9,14 @@ import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
 import { useSnackbar } from "notistack";
+import Loader from "../../globalcomponents/Loader";
 
 const Checkout = () => {
   const { enqueueSnackbar } = useSnackbar();
   const handleSnackbar = (message, variant) => {
     enqueueSnackbar(message, { variant });
   };
-
+  const [pending, setPending] = useState(false);
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -103,6 +104,11 @@ const Checkout = () => {
             value: lastName,
           },
           {
+            display_name: "Email Address",
+            variable_name: "email_address",
+            value: formData.email,
+          },
+          {
             display_name: "Course",
             variable_name: "course_name",
             value: formData.selectedCourse,
@@ -111,6 +117,7 @@ const Checkout = () => {
       },
     };
     if (isValid) {
+      setPending(true);
       try {
         const response = await axios.post(
           "https://api.paystack.co/transaction/initialize",
@@ -130,7 +137,8 @@ const Checkout = () => {
         handleSnackbar("an error occured", "error");
       }
     } else {
-      handleSnackbar("please fill the form", "error");
+      setPending(false);
+      handleSnackbar("please complete the form", "error");
     }
   };
   const handleChange = (e) => {
@@ -158,8 +166,7 @@ const Checkout = () => {
         <div className=" md:w-[75%] lg:w-[60%] p-4 md:p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
           <h1 className=" text-black text-center font-black text-base md:text-2xl xl:text-3xl tracking-widest">
-            <span className="techy text-blue-500">TECHYJAUNT</span>{" "}
-            SCHOLARSHIP
+            <span className="techy text-blue-500">TECHYJAUNT</span> SCHOLARSHIP
           </h1>
           <p className="text-center py-5 font-medium text-sm md:text-lg leading-8">
             Kickstart your Tech journey, learn tech skills & gain access to a 6
@@ -243,7 +250,7 @@ const Checkout = () => {
                   Phone Number
                 </label>
                 <PhoneNumber
-                bg="white"
+                  bg="white"
                   id="phone"
                   inputName="phoneNumber"
                   handleChange={(phone, e) => {
@@ -289,6 +296,7 @@ const Checkout = () => {
           </div>
         </div>
       </section>
+      {pending && <Loader />}
     </>
   );
 };
