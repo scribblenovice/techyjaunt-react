@@ -24,7 +24,7 @@ const LaunchPadThankyou = () => {
           </div>
           <div className="flex flex-col justify-center gap-5">
             <h2 className="text-tech-blue font-semibold text-xl md:text-2xl text-center order-2 md:order-1">
-              YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 4!
+              YOU HAVE SUCCESSFULLY MADE PAYMENT FOR TECHYJAUNT COHORT 5!
             </h2>
             <p className="text-gray-700 text-center order-3 md:order-2">
               Kindly click the link below to join the paid community.

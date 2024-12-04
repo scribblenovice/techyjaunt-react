@@ -308,7 +308,7 @@ video {
   align-items: center;
 }
 .blink {
-  animation: blinky .3s linear infinite;
+  animation: blinky 1s linear infinite;
 }
 
 @keyframes blinky {
