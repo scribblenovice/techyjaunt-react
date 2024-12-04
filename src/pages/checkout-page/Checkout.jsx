@@ -154,14 +154,14 @@ const Checkout = () => {
         </p>
       </div> */}
 
-      <section className="grid place-items-center h-screen bg-stone-100">
-        <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
+      <section className="grid place-items-center w-screen bg-stone-100 px-4">
+        <div className=" md:w-[75%] lg:w-[60%] p-4 md:p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
-          <h1 className=" text-black text-center font-black text-xl md:text-2xl xl:text-3xl tracking-widest">
-            <span className="techy text-blue-500">TECHYJAUNT</span>
+          <h1 className=" text-black text-center font-black text-base md:text-2xl xl:text-3xl tracking-widest">
+            <span className="techy text-blue-500">TECHYJAUNT</span>{" "}
             SCHOLARSHIP
           </h1>
-          <p className="text-center py-5 font-medium text-base md:text-lg leading-8">
+          <p className="text-center py-5 font-medium text-sm md:text-lg leading-8">
             Kickstart your Tech journey, learn tech skills & gain access to a 6
             month mentorship with industry experts. Gain access now!
           </p>
@@ -243,6 +243,7 @@ const Checkout = () => {
                   Phone Number
                 </label>
                 <PhoneNumber
+                bg="white"
                   id="phone"
                   inputName="phoneNumber"
                   handleChange={(phone, e) => {

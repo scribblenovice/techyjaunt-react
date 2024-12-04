@@ -138,6 +138,7 @@ const RegistrationPage = () => {
           <div className="">
             <StepProgressBar
               className="ml-[10%] md:ml-0"
+              setCurrentStep={setCurrentStep}
               currentStep={currentStep}
               steps={steps}
               indicatorSize="w-6 h-6"

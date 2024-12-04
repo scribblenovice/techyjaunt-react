@@ -28,18 +28,17 @@ const LaunchPadThankyou = () => {
           </div>
           <div className="flex flex-col justify-center gap-5">
             <h2 className="text-tech-blue font-semibold text-xl md:text-2xl text-center order-2 md:order-1">
-              REGISTRATION FOR COHORT 4 IS CURRENTLY CLOSED!
+              You have successfully applied for Techyjaunt Bootcamp Cohort 5!
             </h2>
             <p className="text-gray-700 text-center order-3 md:order-2">
-              Thanks for applying, but Cohort 4 applications are closed. We
-              have, however, added you to the waitlist for our next cohort.
+              We have sent you a confirmation email regarding your application.
               <br />
-              Join our whatsapp community for more updates
+              Kindly join our WhatsApp community for more information by
+              clicking the button.
             </p>
             <Link
               target="_blank"
               to={whatsappLink}
-              // onClick={redirect}
               className="text-xs hover:bg-gray-500 whitespace-nowrap md:text-base order-1 md:order-3 mx-auto flex items-center w-fit bg-tech-blue text-white p-3 rounded-md font-bold  transition-all ease-in duration-300"
             >
               JOIN OUR WHATSAPP COMMUNITY{" "}

@@ -30,7 +30,7 @@ server.post("/signup", (req, res) => {
     knowlegeOfTechyJaunt,
     gender,
   } = req.body;
-  let launchpadListId = "f5df6366-355d-11ef-a271-c910cdc2b923";
+  let launchpadListId = "24cf5486-b27e-11ef-a530-b10b6901028b";
 
   if (
     firstName === "" ||

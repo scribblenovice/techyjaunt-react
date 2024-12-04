@@ -39,7 +39,7 @@ const VerifyPayment = () => {
 
   return (
     <div className="w-screen h-screen bg-tech-blue flex justify-center items-center text-xl md:text-2xl xl:text-3xl text-white">
-      <div>Verifying payment...</div>
+      <div className="blink">Verifying your payment...</div>
     </div>
   );
 };
