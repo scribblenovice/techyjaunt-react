@@ -136,6 +136,9 @@ const Checkout = () => {
       } catch (error) {
         handleSnackbar("an error occured", "error");
       }
+      setTimeout(() => {
+        setPending(false);
+      }, 3000);
     } else {
       setPending(false);
       handleSnackbar("please complete the form", "error");
