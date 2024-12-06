@@ -429,32 +429,32 @@ export const courses = [
 export const howHeard = [
   {
     id: 1,
-    name: "Instagram",
+    name: "INSTAGRAM",
     value: "instagram",
   },
   {
     id: 2,
-    name: "Facebook",
+    name: "FACEBOOK",
     value: "facebook",
   },
   {
     id: 3,
-    name: "Whatsapp TV",
+    name: "WHATSAPP TV",
     value: "whatsapp tv",
   },
   {
     id: 4,
-    name: "Through a friend",
+    name: "THROUGH A FRIEND",
     value: "through a friend",
   },
   {
     id: 5,
-    name: "Twitter",
+    name: "TWITTER",
     value: "twitter",
   },
   {
     id: 6,
-    name: "Youtube",
+    name: "YOUTUBE",
     value: "youtube",
   },
 ];

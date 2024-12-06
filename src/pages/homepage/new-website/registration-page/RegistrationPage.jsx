@@ -80,6 +80,7 @@ const RegistrationPage = () => {
     phoneNumber: formData.phoneNumber.trim(),
     selectedCourse: formData.selectedCourse,
     knowlegeOfTechyJaunt: formData.knowlegeOfTechyJaunt,
+    gender: formData.gender
   };
   const navigate = useNavigate();
   const handleSubmit = () => {
