@@ -81,8 +81,8 @@ const Checkout = () => {
 
   // paystack
   const [reference, setReference] = useState("");
-  // const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
-  const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
+  const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
+  // const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
   const callbackUrl = "https://www.techyjaunt.com/verify";
   const initializePayment = async () => {
     const isValid = validateForm();
@@ -112,6 +112,11 @@ const Checkout = () => {
             display_name: "Course",
             variable_name: "course_name",
             value: formData.selectedCourse,
+          },
+          {
+            display_name: "Phone number",
+            variable_name: "phone_number",
+            value: formData.phoneNumber,
           },
         ],
       },
