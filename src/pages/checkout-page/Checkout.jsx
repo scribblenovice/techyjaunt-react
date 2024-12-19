@@ -8,15 +8,13 @@ import PhoneNumber from "../../globalcomponents/PhoneNumber";
 import logoImg from "../../images/techy_jaunt_logo.svg";
 import axios from "axios";
 import { Modal } from "flowbite-react";
-import { useSnackbar } from "notistack";
+import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 import Loader from "../../globalcomponents/Loader";
 
 const Checkout = () => {
-  const { enqueueSnackbar } = useSnackbar();
-  const handleSnackbar = (message, variant) => {
-    enqueueSnackbar(message, { variant });
-  };
-  const [pending, setPending] = useState(false);
+  const [pending, setPending]=useState(false)
+  const { handleSnackbar } = useCustomSnackbar();
+  const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -26,24 +24,6 @@ const Checkout = () => {
     phoneNumber: "",
     selectedCourse: "",
   });
-  const capitalizeFirstLetter = (sentence) => {
-    return sentence
-      .split(" ")
-      .map((word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-      })
-      .join(" ");
-  };
-  const firstName = capitalizeFirstLetter(formData.firstName.trim());
-  const lastName = capitalizeFirstLetter(formData.lastName.trim());
-
-  const payload = {
-    firstName: firstName,
-    lastName: lastName,
-    email: formData.email,
-    phoneNumber: formData.phoneNumber,
-    selectedCourse: formData.selectedCourse,
-  };
   const [formErrors, setFormErrors] = useState({});
 
   const validateForm = () => {
@@ -78,77 +58,44 @@ const Checkout = () => {
     setFormErrors(errors);
     return isValid;
   };
-
-  // paystack
-  const [reference, setReference] = useState("");
-  const publicKey = import.meta.env.VITE_PUBLIC_TEST_KEY;
-  // const publicKey = "sk_test_6fb27b676acdd12e4e3bf7284e1fe5a758def421";
-  const callbackUrl = "https://www.techyjaunt.com/verify";
-  const initializePayment = async () => {
-    const isValid = validateForm();
-    const paymentDetails = {
-      email: formData.email,
-      amount: 750000, // Convert to kobo
-      reference: new Date().getTime().toString(),
-      callback_url: callbackUrl,
-      metadata: {
-        custom_fields: [
-          {
-            display_name: "First Name",
-            variable_name: "first_name",
-            value: firstName,
-          },
-          {
-            display_name: "Last Name",
-            variable_name: "last_name",
-            value: lastName,
-          },
-          {
-            display_name: "Email Address",
-            variable_name: "email_address",
-            value: formData.email,
-          },
-          {
-            display_name: "Course",
-            variable_name: "course_name",
-            value: formData.selectedCourse,
-          },
-          {
-            display_name: "Phone number",
-            variable_name: "phone_number",
-            value: formData.phoneNumber,
-          },
-        ],
-      },
-    };
-    if (isValid) {
-      setPending(true);
-      try {
-        const response = await axios.post(
-          "https://api.paystack.co/transaction/initialize",
-          paymentDetails,
-          {
-            headers: {
-              Authorization: `Bearer ${publicKey}`,
-            },
-          }
-        );
-        const { authorization_url } = response.data.data;
-        setReference(response.data.data.reference);
-        localStorage.setItem("paymentReference", reference);
-        localStorage.setItem("formData", JSON.stringify(payload));
-        window.location.href = authorization_url;
-      } catch (error) {
-        handleSnackbar("an error occured", "error");
-      }
-      setTimeout(() => {
-        setPending(false);
-      }, 3000);
-    } else {
-      setPending(false);
-      handleSnackbar("please complete the form", "error");
-    }
+  const config = {
+    reference: new Date().getTime().toString(),
+    email: formData.email,
+    amount: 790000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: import.meta.env.VITE_PUBLIC_TEST_KEY,
+    onSuccess: (reference) => onSuccess(reference),
+    onClose: () => onClose(),
+    metadata: {
+      name: `${formData.firstName} ${formData.lastName}`, // Full name
+      phone: formData.phoneNumber, // Phone number
+      course: formData.selectedCourse, // Selected course
+    },
   };
+
+  const onSuccess = (reference) => {
+    setPending(true)
+    axios
+      .post("https://techyjaunt-react.onrender.com/payment", {
+        ...formData,
+        completedPayment: "yes",
+      })
+      .then((res) => {
+        if (res?.data?.status === "paid") {
+          sessionStorage.setItem("isPaid", true);
+          navigate("/checkout/thank-you");
+        }
+        if (res?.data?.status === "existing") {
+          handleSnackbar("YOU HAVE PREVIOUSLY PAID FOR THIS COHORT!", "error");
+        }
+        if (res?.data?.status === "failed") {
+          handleSnackbar("AN ERROR OCCURED", "error");
+        }
+      });
+  };
+  const onClose = () => {
+    handleSnackbar("PAYMENT FAILED", "error");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -159,8 +106,8 @@ const Checkout = () => {
   return (
     <>
       {/* <div className="flex justify-center items-center flex-col w-screen h-screen">
-        <h1 className="text-black text-center font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-widest">
-          THIS PAGE IS CURRENTLY INACTIVE
+        <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
+          Payment for cohort 4 has been closed!
         </h1>
         <p className="my-5">
           Please go back to{" "}
@@ -169,14 +116,15 @@ const Checkout = () => {
           </Link>
         </p>
       </div> */}
-
-      <section className="grid place-items-center w-screen bg-stone-100 px-4">
-        <div className=" md:w-[75%] lg:w-[60%] p-4 md:p-10 my-20 card mx-auto">
+      {pending && (<Loader/>)}
+      <section className="grid place-items-center h-screen bg-stone-100">
+        <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
-          <h1 className=" text-black text-center font-black text-base md:text-2xl xl:text-3xl tracking-widest">
-            <span className="techy text-blue-500">TECHYJAUNT</span> SCHOLARSHIP
+          <h1 className=" text-black text-center font-black text-xl md:text-2xl xl:text-3xl tracking-widest">
+            <span className="techy text-blue-500">TECHYJAUNT</span>
+            SCHOLARSHIP
           </h1>
-          <p className="text-center py-5 font-medium text-sm md:text-lg leading-8">
+          <p className="text-center py-5 font-medium text-base md:text-lg leading-8">
             Kickstart your Tech journey, learn tech skills & gain access to a 6
             month mentorship with industry experts. Gain access now!
           </p>
@@ -227,7 +175,7 @@ const Checkout = () => {
                 </label>
                 <GlobalText
                   id="amount"
-                  inputVal={`NGN: 7500`}
+                  inputVal={`NGN: ${config.amount / 100}`}
                   isDisabled={true}
                 />
               </div>
@@ -258,7 +206,6 @@ const Checkout = () => {
                   Phone Number
                 </label>
                 <PhoneNumber
-                  bg="white"
                   id="phone"
                   inputName="phoneNumber"
                   handleChange={(phone, e) => {
@@ -295,16 +242,16 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            <button
-              onClick={initializePayment}
+            <PaystackButton
+              {...config}
               className="mx-auto bg-blue-500 text-white p-4 rounded"
-            >
-              Pay Now
-            </button>
+              text="Pay Now"
+              onSuccess={onSuccess}
+              onClose={onClose}
+            />
           </div>
         </div>
       </section>
-      {pending && <Loader />}
     </>
   );
 };
