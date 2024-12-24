@@ -66,9 +66,28 @@ const Checkout = () => {
     onSuccess: (reference) => onSuccess(reference),
     onClose: () => onClose(),
     metadata: {
-      name: `${formData.firstName} ${formData.lastName}`, // Full name
-      phone: formData.phoneNumber, // Phone number
-      course: formData.selectedCourse, // Selected course
+      customFields: [
+        {
+          display_name: "Full Name",
+          variable_name: "full_name",
+          value: `${formData.firstName} ${formData.lastName}`,
+        },
+        {
+          display_name: "Email address",
+          variable_name: "email_address",
+          value: formData.email,
+        },
+        {
+          display_name: "Phone Number",
+          variable_name: "phone_number",
+          value: formData.phoneNumber,
+        },
+        {
+          display_name: "Selected course",
+          variable_name: "selected_course",
+          value: formData.selectedCourse,
+        },
+      ],
     },
   };
 
