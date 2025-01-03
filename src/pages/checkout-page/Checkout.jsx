@@ -12,7 +12,7 @@ import useCustomSnackbar from "../../hooks/UseCustomSnackbar";
 import Loader from "../../globalcomponents/Loader";
 
 const Checkout = () => {
-  const [pending, setPending]=useState(false)
+  const [pending, setPending] = useState(false);
   const { handleSnackbar } = useCustomSnackbar();
   const [shake, setShake] = useState();
   const [phone, setPhone] = useState();
@@ -92,7 +92,7 @@ const Checkout = () => {
   };
 
   const onSuccess = (reference) => {
-    setPending(true)
+    setPending(true);
     axios
       .post("https://techyjaunt-react.onrender.com/payment", {
         ...formData,
@@ -124,18 +124,22 @@ const Checkout = () => {
   };
   return (
     <>
-      {/* <div className="flex justify-center items-center flex-col w-screen h-screen">
+      <div className="flex justify-center items-center flex-col w-screen h-screen">
         <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
-          Payment for cohort 4 has been closed!
-        </h1>
+          The payment portal for TechyJaunt Cohort 5 is now closed.
+        </h1>{" "}
         <p className="my-5">
-          Please go back to{" "}
+          Please stay connected with our social media channels and community to
+          get updates about our next cohort starting in April 2025
+        </p>
+        <p className="my-5">
+          Visit {" "}
           <Link className="text-blue-500" to="/">
             TechyJaunt.com
           </Link>
         </p>
-      </div> */}
-      {pending && (<Loader/>)}
+      </div>
+      {/* {pending && <Loader />}
       <section className="grid place-items-center h-screen bg-stone-100">
         <div className="w-[90%] sm:w-[80%] md:w-[75%] lg:w-[60%] p-10 my-20 card mx-auto">
           <img src={logoImg} alt="" className="scale-150 mx-auto my-5" />
@@ -270,7 +274,7 @@ const Checkout = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
