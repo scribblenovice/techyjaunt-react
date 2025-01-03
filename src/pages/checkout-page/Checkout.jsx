@@ -125,14 +125,14 @@ const Checkout = () => {
   return (
     <>
       <div className="flex justify-center items-center flex-col w-screen h-screen">
-        <h1 className="text-black text-center font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
+        <h1 className="px-2 text-black font-black text-xl md:text-2xl lg:text-3xl tracking-widest">
           The payment portal for TechyJaunt Cohort 5 is now closed.
         </h1>{" "}
-        <p className="my-5">
+        <p className="my-5 px-2">
           Please stay connected with our social media channels and community to
           get updates about our next cohort starting in April 2025
         </p>
-        <p className="my-5">
+        <p className="my-5 px-2">
           Visit {" "}
           <Link className="text-blue-500" to="/">
             TechyJaunt.com
